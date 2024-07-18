@@ -1,4 +1,4 @@
-//Thu Jul 18 2024 17:46:26 GMT+0000 (Coordinated Universal Time)
+//Thu Jul 18 2024 18:22:16 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const fs = require("fs"),
@@ -49,73 +49,73 @@ class Common {
       505: "HTTP 版本不受支持 [505 · HTTP Version Not Supported]"
     };
     this._requestErrorMessagesMap = {
-      "ECONNABORTED": "请求被中断",
-      "ECONNRESET": "连接被对方重置",
-      "ECONNREFUSED": "服务器拒绝连接",
-      "ETIMEDOUT": "网络请求超时",
-      "ENOTFOUND": "无法解析的域名或地址",
-      "EPROTO": "协议错误",
-      "EHOSTUNREACH": "无法到达服务器主机",
-      "ENETUNREACH": "无法到达网络",
-      "EADDRINUSE": "网络地址已被使用",
-      "EPIPE": "向已关闭的写入流进行写入",
-      "ERR_BAD_OPTION_VALUE": "无效或不支持的配置选项值",
-      "ERR_BAD_OPTION": "无效的配置选项",
-      "ERR_NETWORK": "网络错误",
-      "ERR_FR_TOO_MANY_REDIRECTS": "请求被重定向次数过多",
-      "ERR_DEPRECATED": "使用了已弃用的特性或方法",
-      "ERR_BAD_RESPONSE": "服务器响应无效或无法解析",
-      "ERR_BAD_REQUEST": "请求无效或缺少必需参数",
-      "ERR_CANCELED": "请求被用户取消",
-      "ERR_NOT_SUPPORT": "当前环境不支持此特性或方法",
-      "ERR_INVALID_URL": "请求的 URL 无效",
-      "ERR_TLS_CERT_ALTNAME_INVALID": "TLS 证书的主机名无效",
-      "ERR_TLS_CERT_REJECTED": "TLS 证书被拒绝",
-      "ERR_HTTP2_STREAM_CANCEL": "HTTP2 流被取消",
-      "ERR_HTTP2_SESSION_ERROR": "HTTP2 会话出错",
-      "ERR_QUICSESSION_VERSION_NEGOTIATION": "QUIC 会话版本协商失败",
-      "EAI_AGAIN": "DNS 查找超时",
-      "ERR_CONNECTION_TIMED_OUT": "连接超时",
-      "ERR_INTERNET_DISCONNECTED": "互联网连接已断开",
-      "ERR_SSL_PROTOCOL_ERROR": "SSL 协议错误",
-      "ERR_ADDRESS_UNREACHABLE": "地址无法到达",
-      "ERR_BLOCKED_BY_CLIENT": "请求被客户端阻止",
-      "ERR_BLOCKED_BY_RESPONSE": "响应被阻止",
-      "ERR_CERT_COMMON_NAME_INVALID": "证书的通用名称无效",
-      "ERR_CERT_DATE_INVALID": "证书日期无效",
-      "ERR_CERT_AUTHORITY_INVALID": "证书颁发机构无效",
-      "ERR_CONTENT_LENGTH_MISMATCH": "内容长度不匹配",
-      "ERR_INSECURE_RESPONSE": "响应不安全",
-      "ERR_NAME_NOT_RESOLVED": "名称无法解析",
-      "ERR_NETWORK_CHANGED": "网络更改",
-      "ERR_NO_SUPPORTED_PROXIES": "没有支持的代理",
-      "ERR_PROXY_CONNECTION_FAILED": "代理连接失败",
-      "ERR_SSL_VERSION_OR_CIPHER_MISMATCH": "SSL 版本或密码不匹配",
-      "ERR_TIMED_OUT": "操作超时",
-      "ERR_TOO_MANY_REDIRECTS": "重定向过多",
-      "ERR_UNSAFE_PORT": "不安全的端口",
-      "ERR_SSL_OBSOLETE_VERSION": "SSL 版本过时",
-      "ERR_CERT_REVOKED": "证书已被吊销",
-      "ERR_CERT_TRANSPARENCY_REQUIRED": "需要证书透明度",
-      "ERR_SSL_PINNED_KEY_NOT_IN_CERT_CHAIN": "固定的 SSL 密钥不在证书链中",
-      "ERR_TUNNEL_CONNECTION_FAILED": "隧道连接失败"
+      ECONNABORTED: "请求被中断",
+      ECONNRESET: "连接被对方重置",
+      ECONNREFUSED: "服务器拒绝连接",
+      ETIMEDOUT: "网络请求超时",
+      ENOTFOUND: "无法解析的域名或地址",
+      EPROTO: "协议错误",
+      EHOSTUNREACH: "无法到达服务器主机",
+      ENETUNREACH: "无法到达网络",
+      EADDRINUSE: "网络地址已被使用",
+      EPIPE: "向已关闭的写入流进行写入",
+      ERR_BAD_OPTION_VALUE: "无效或不支持的配置选项值",
+      ERR_BAD_OPTION: "无效的配置选项",
+      ERR_NETWORK: "网络错误",
+      ERR_FR_TOO_MANY_REDIRECTS: "请求被重定向次数过多",
+      ERR_DEPRECATED: "使用了已弃用的特性或方法",
+      ERR_BAD_RESPONSE: "服务器响应无效或无法解析",
+      ERR_BAD_REQUEST: "请求无效或缺少必需参数",
+      ERR_CANCELED: "请求被用户取消",
+      ERR_NOT_SUPPORT: "当前环境不支持此特性或方法",
+      ERR_INVALID_URL: "请求的 URL 无效",
+      ERR_TLS_CERT_ALTNAME_INVALID: "TLS 证书的主机名无效",
+      ERR_TLS_CERT_REJECTED: "TLS 证书被拒绝",
+      ERR_HTTP2_STREAM_CANCEL: "HTTP2 流被取消",
+      ERR_HTTP2_SESSION_ERROR: "HTTP2 会话出错",
+      ERR_QUICSESSION_VERSION_NEGOTIATION: "QUIC 会话版本协商失败",
+      EAI_AGAIN: "DNS 查找超时",
+      ERR_CONNECTION_TIMED_OUT: "连接超时",
+      ERR_INTERNET_DISCONNECTED: "互联网连接已断开",
+      ERR_SSL_PROTOCOL_ERROR: "SSL 协议错误",
+      ERR_ADDRESS_UNREACHABLE: "地址无法到达",
+      ERR_BLOCKED_BY_CLIENT: "请求被客户端阻止",
+      ERR_BLOCKED_BY_RESPONSE: "响应被阻止",
+      ERR_CERT_COMMON_NAME_INVALID: "证书的通用名称无效",
+      ERR_CERT_DATE_INVALID: "证书日期无效",
+      ERR_CERT_AUTHORITY_INVALID: "证书颁发机构无效",
+      ERR_CONTENT_LENGTH_MISMATCH: "内容长度不匹配",
+      ERR_INSECURE_RESPONSE: "响应不安全",
+      ERR_NAME_NOT_RESOLVED: "名称无法解析",
+      ERR_NETWORK_CHANGED: "网络更改",
+      ERR_NO_SUPPORTED_PROXIES: "没有支持的代理",
+      ERR_PROXY_CONNECTION_FAILED: "代理连接失败",
+      ERR_SSL_VERSION_OR_CIPHER_MISMATCH: "SSL 版本或密码不匹配",
+      ERR_TIMED_OUT: "操作超时",
+      ERR_TOO_MANY_REDIRECTS: "重定向过多",
+      ERR_UNSAFE_PORT: "不安全的端口",
+      ERR_SSL_OBSOLETE_VERSION: "SSL 版本过时",
+      ERR_CERT_REVOKED: "证书已被吊销",
+      ERR_CERT_TRANSPARENCY_REQUIRED: "需要证书透明度",
+      ERR_SSL_PINNED_KEY_NOT_IN_CERT_CHAIN: "固定的 SSL 密钥不在证书链中",
+      ERR_TUNNEL_CONNECTION_FAILED: "隧道连接失败"
     };
     this._latestAppVersionData = {
-      "build": "169427",
-      "version": "13.1.3"
+      build: "169427",
+      version: "13.1.3"
     };
     this._latestLiteAppVersionData = {
-      "build": "1676",
-      "version": "6.26.0"
+      build: "1676",
+      version: "6.26.0"
     };
     this._latestJDJRAppVersionData = {
-      "version": "6.9.0",
-      "jdPaySdkVersion": "4.01.26.00",
-      "stockSDK": "stocksdk-iphone_6.0.0"
+      version: "6.9.0",
+      jdPaySdkVersion: "4.01.26.00",
+      stockSDK: "stocksdk-iphone_6.0.0"
     };
     this._latestIOSVersion = "17.5.1";
     this._appHttpsTlsOptions = {
-      "ciphers": ["TLS_AES_128_GCM_SHA256", "TLS_AES_256_GCM_SHA384", "TLS_CHACHA20_POLY1305_SHA256", "ECDHE-RSA-AES128-GCM-SHA256", "ECDHE-RSA-AES256-GCM-SHA384", "ECDHE-ECDSA-AES128-GCM-SHA256", "ECDHE-ECDSA-AES256-GCM-SHA384", "ECDHE-ECDSA-CHACHA20-POLY1305", "ECDHE-RSA-CHACHA20-POLY1305"].join(":")
+      ciphers: ["TLS_AES_128_GCM_SHA256", "TLS_AES_256_GCM_SHA384", "TLS_CHACHA20_POLY1305_SHA256", "ECDHE-RSA-AES128-GCM-SHA256", "ECDHE-RSA-AES256-GCM-SHA384", "ECDHE-ECDSA-AES128-GCM-SHA256", "ECDHE-ECDSA-AES256-GCM-SHA384", "ECDHE-ECDSA-CHACHA20-POLY1305", "ECDHE-RSA-CHACHA20-POLY1305"].join(":")
     };
     this.Base64 = Base64Algorithm;
     this.DataCache = LocalStorageCache;
@@ -128,51 +128,51 @@ class Common {
     this._hasInitAppSignConfig = false;
     this._initRequestConfig();
   }
-  ["_initRequestConfig"]() {
+  _initRequestConfig() {
     try {
-      const I11ili = require.main.filename,
-        Ii1i1i = path.basename(I11ili, ".js");
-      this._requestNoProxyList = (process.env[Ii1i1i + "_no_proxy"] || process.env.RS_NO_PROXY || "").split(",").filter(Ii1i1l => Ii1i1l !== "");
-      const iIilli = process.env[Ii1i1i + "_proxy_tunnrl"] || process.env.RS_PROXY_TUNNRL || "",
-        lI11i1 = (process.env.RS_TUNNRL_WHITRLIST || "").split("&").filter(Boolean);
-      if (iIilli && lI11i1.length > 0) {
-        const iI1li = lI11i1.some(ii11Il => process.mainModule.filename.includes(ii11Il));
-        if (iI1li) {
-          const iiII1l = this._getProxyConfigWithAddress(iIilli);
-          iiII1l ? (this._requestAxiosProxyConfig = iiII1l, console.log("\n====================使用代理池模式(新)===================\n"), this.proxyPoolEnabled = true, this.proxyMode = "代理池模式") : console.log("❌ 提供的代理地址无效，跳过启用全局静态代理");
+      const _0x26817a = require.main.filename,
+        _0x57b5c1 = path.basename(_0x26817a, ".js");
+      this._requestNoProxyList = (process.env[_0x57b5c1 + "_no_proxy"] || process.env.RS_NO_PROXY || "").split(",").filter(_0x5a653e => _0x5a653e !== "");
+      const _0x224572 = process.env[_0x57b5c1 + "_proxy_tunnrl"] || process.env.RS_PROXY_TUNNRL || "",
+        _0x1ecb69 = (process.env.RS_TUNNRL_WHITRLIST || "").split("&").filter(Boolean);
+      if (_0x224572 && _0x1ecb69.length > 0) {
+        const _0x1a0e2f = _0x1ecb69.some(_0x52d779 => process.mainModule.filename.includes(_0x52d779));
+        if (_0x1a0e2f) {
+          const _0x50b387 = this._getProxyConfigWithAddress(_0x224572);
+          _0x50b387 ? (this._requestAxiosProxyConfig = _0x50b387, console.log("\n====================使用代理池模式(新)===================\n"), this.proxyPoolEnabled = true, this.proxyMode = "代理池模式") : console.log("❌ 提供的代理地址无效，跳过启用全局静态代理");
         }
       }
       if (!this.proxyPoolEnabled) {
-        const lll11l = process.env[Ii1i1i + "_proxy_api"] || process.env.RS_PROXY_API || "",
-          iI1ill = (process.env.RS_API_WHITELIST || "").split("&").filter(Boolean);
-        if (lll11l && iI1ill.length > 0) {
-          const i1iill = iI1ill.some(ill1 => process.mainModule.filename.includes(ill1));
-          if (i1iill) {
+        const _0x4652b4 = process.env[_0x57b5c1 + "_proxy_api"] || process.env.RS_PROXY_API || "",
+          _0x22e666 = (process.env.RS_API_WHITELIST || "").split("&").filter(Boolean);
+        if (_0x4652b4 && _0x22e666.length > 0) {
+          const _0x131ed7 = _0x22e666.some(_0x462878 => process.mainModule.filename.includes(_0x462878));
+          if (_0x131ed7) {
             this._requestDynamicProxyConfig = {
-              "api": null,
-              "proxyConfig": null,
-              "useLimit": null,
-              "timeLimit": null,
-              "fetchFailContinue": null,
-              "extractTimestamp": null,
-              "lastUseTimeStamp": null,
-              "usedTimes": null
+              api: null,
+              proxyConfig: null,
+              useLimit: null,
+              timeLimit: null,
+              fetchFailContinue: null,
+              extractTimestamp: null,
+              lastUseTimeStamp: null,
+              usedTimes: null
             };
-            this._requestDynamicProxyConfig.api = lll11l;
-            const iI1ili = process.env[Ii1i1i + "_proxy_use_limit"] || process.env.RS_PROXY_USE_LIMIT || "0";
+            this._requestDynamicProxyConfig.api = _0x4652b4;
+            const _0x5d542a = process.env[_0x57b5c1 + "_proxy_use_limit"] || process.env.RS_PROXY_USE_LIMIT || "0";
             try {
-              this._requestDynamicProxyConfig.useLimit = parseInt(iI1ili);
+              this._requestDynamicProxyConfig.useLimit = parseInt(_0x5d542a);
             } catch {
               this._requestDynamicProxyConfig.useLimit = 1;
             }
-            const I1Ill = process.env[Ii1i1i + "_proxy_time_limit"] || process.env.RS_PROXY_TIME_LIMIT || "20000";
+            const _0x2a144d = process.env[_0x57b5c1 + "_proxy_time_limit"] || process.env.RS_PROXY_TIME_LIMIT || "20000";
             try {
-              this._requestDynamicProxyConfig.timeLimit = parseInt(I1Ill);
+              this._requestDynamicProxyConfig.timeLimit = parseInt(_0x2a144d);
             } catch {
               this._requestDynamicProxyConfig.timeLimit = 20000;
             }
-            this._requestDynamicProxyConfig.fetchFailContinue = (process.env[Ii1i1i + "_proxy_fetch_fail_continue"] || process.env.RS_PROXY_FETCH_FAIL_CONTINUE || "true") === "true";
-            this._requestDynamicProxyShowAddress = (process.env[Ii1i1i + "_proxy_show_address"] || process.env.RS_PROXY_HTTP_DYNAMIC_PROXY_SHOW_ADDRESS || "false") === "true";
+            this._requestDynamicProxyConfig.fetchFailContinue = (process.env[_0x57b5c1 + "_proxy_fetch_fail_continue"] || process.env.RS_PROXY_FETCH_FAIL_CONTINUE || "true") === "true";
+            this._requestDynamicProxyShowAddress = (process.env[_0x57b5c1 + "_proxy_show_address"] || process.env.RS_PROXY_HTTP_DYNAMIC_PROXY_SHOW_ADDRESS || "false") === "true";
             console.log("\n=====================使用API模式(新)=====================\n");
             this.proxyPoolEnabled = true;
             this.proxyMode = "API模式";
@@ -180,264 +180,281 @@ class Common {
         }
       }
       Object.assign(axios.defaults, {
-        "headers": {
-          "common": {
+        headers: {
+          common: {
             "User-Agent": this._defaultUserAgent
           }
         },
-        "maxContentLength": Infinity,
-        "maxBodyLength": Infinity,
-        "maxRedirects": Infinity,
-        "timeout": 60000,
-        "transformResponse": [Ii1i1I => {
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        maxRedirects: Infinity,
+        timeout: 60000,
+        transformResponse: [_0x4afa4b => {
           try {
-            return JSON.parse(Ii1i1I);
+            return JSON.parse(_0x4afa4b);
           } catch {}
           try {
-            const iI1lI = /[\w$.]+\(\s*({[\s\S]*?})\s*\)\s*;?/;
-            if (iI1lI.test(Ii1i1I)) {
-              const ll1i11 = Ii1i1I.match(iI1lI)[1];
-              return JSON.parse(ll1i11);
+            const _0x222a6d = /[\w$.]+\(\s*({[\s\S]*?})\s*\)\s*;?/;
+            if (_0x222a6d.test(_0x4afa4b)) {
+              const _0xf5bfe0 = _0x4afa4b.match(_0x222a6d)[1];
+              return JSON.parse(_0xf5bfe0);
             }
           } catch {}
-          return Ii1i1I;
+          return _0x4afa4b;
         }]
       });
-    } catch (lil1i1) {
-      console.log("❌ 初始化 HTTP 请求配置时遇到了错误\n" + lil1i1);
+    } catch (_0x3c8645) {
+      console.log("❌ 初始化 HTTP 请求配置时遇到了错误\n" + _0x3c8645);
     }
   }
-  ["getProxyStatus"]() {
+  getProxyStatus() {
     return this.proxyPoolEnabled ? this.proxyMode + "开启" : "关闭";
   }
-  ["_initAppSignConfig"]() {
-    const l1ll = ["http://sign.257999.xyz/sign"],
-      IlliiI = process.env.JD_SIGN_API || l1ll[Math.floor(Math.random() * l1ll.length)];
+  _initAppSignConfig() {
+    const _0x2a657c = ["http://sign.257999.xyz/sign"],
+      _0x421da4 = process.env.JD_SIGN_API || _0x2a657c[Math.floor(Math.random() * _0x2a657c.length)];
     this._appSignConfig = {
-      "requestApi": IlliiI,
-      "bodyField": process.env.JD_SIGN_API_BODY_FIELD || "body",
-      "functionIdField": process.env.JD_SIGN_API_FUNCTIONID_FIELD || "fn",
-      "requestMethod": null,
-      "requestContentType": null,
-      "genSign": null
+      requestApi: _0x421da4,
+      bodyField: process.env.JD_SIGN_API_BODY_FIELD || "body",
+      functionIdField: process.env.JD_SIGN_API_FUNCTIONID_FIELD || "fn",
+      requestMethod: null,
+      requestContentType: null,
+      genSign: null
     };
     try {
-      const il1III = process.env.JD_SIGN_API_METHOD;
-      if (il1III && il1III.toUpperCase() === "GET") this._appSignConfig.requestMethod = "GET";else {
-        this._appSignConfig.requestMethod = "POST";
-      }
+      const _0xe8c9a7 = process.env.JD_SIGN_API_METHOD;
+      _0xe8c9a7 && _0xe8c9a7.toUpperCase() === "GET" ? this._appSignConfig.requestMethod = "GET" : this._appSignConfig.requestMethod = "POST";
     } catch {}
     try {
-      const lll11I = process.env.JD_SIGN_API_CONTENT_TYPE;
-      lll11I && lll11I.indexOf("application/x-www-form-urlencoded") !== -1 ? this._appSignConfig.requestContentType = lll11I : this._appSignConfig.requestContentType = "application/json; charset=utf-8";
+      const _0x1f84f1 = process.env.JD_SIGN_API_CONTENT_TYPE;
+      _0x1f84f1 && _0x1f84f1.indexOf("application/x-www-form-urlencoded") !== -1 ? this._appSignConfig.requestContentType = _0x1f84f1 : this._appSignConfig.requestContentType = "application/json; charset=utf-8";
     } catch {}
     try {
       this._appSignConfig.genSign = require(this._genSignModelPath);
     } catch {}
   }
-  ["genRandomString"](IIii1 = 32, I11iii = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-") {
-    const iI1l1 = I11iii.length;
-    let I11iil = "";
-    for (let I11ilI = 0; I11ilI < IIii1; I11ilI++) {
-      I11iil += I11iii.charAt(Math.floor(Math.random() * iI1l1));
+  genRandomString(_0x84c9ff = 32, _0x4cdee1 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-") {
+    const _0x24304b = _0x4cdee1.length;
+    let _0x4e459b = "";
+    for (let _0x496cf3 = 0; _0x496cf3 < _0x84c9ff; _0x496cf3++) {
+      _0x4e459b += _0x4cdee1.charAt(Math.floor(Math.random() * _0x24304b));
     }
-    return I11iil;
+    return _0x4e459b;
   }
-  ["parseUrl"](iIilii) {
+  parseUrl(_0x17e3ae) {
     try {
-      return new URL(iIilii);
-    } catch (iIilil) {
+      return new URL(_0x17e3ae);
+    } catch (_0x2ec2d1) {
       return {};
     }
   }
-  ["parseUrlParameter"](lliII1) {
+  parseUrlParameter(_0x51076d) {
     try {
-      const Iil111 = {},
-        illI = this.parseUrl(lliII1),
-        lIIl11 = new URLSearchParams(illI?.["search"]);
-      for (const [Illil1, Iil11I] of lIIl11) {
-        Iil111[Illil1] = Iil11I;
+      const _0x4e6697 = {},
+        _0x29e38b = this.parseUrl(_0x51076d),
+        _0x41df67 = new URLSearchParams(_0x29e38b?.["search"]);
+      for (const [_0x3ebcc4, _0x202eda] of _0x41df67) {
+        _0x4e6697[_0x3ebcc4] = _0x202eda;
       }
-      if (illI?.["hash"] && illI.hash.includes("#/")) {
-        const I11il1 = illI.hash.replace("#/", ""),
-          lIliI = I11il1.includes("?") ? new URLSearchParams(I11il1.split("?").slice(1).join("?")) : new URLSearchParams();
-        for (const [I1ilil, I1l1ll] of lIliI) {
-          Iil111[I1ilil] = I1l1ll;
+      if (_0x29e38b?.["hash"] && _0x29e38b.hash.includes("#/")) {
+        const _0x3b7c83 = _0x29e38b.hash.replace("#/", ""),
+          _0x26998c = _0x3b7c83.includes("?") ? new URLSearchParams(_0x3b7c83.split("?").slice(1).join("?")) : new URLSearchParams();
+        for (const [_0x1b2a26, _0x339aca] of _0x26998c) {
+          _0x4e6697[_0x1b2a26] = _0x339aca;
         }
       }
-      return Iil111;
+      return _0x4e6697;
     } catch {
       return {};
     }
   }
-  ["getUrlParameter"](I1l1li, iI1il) {
+  getUrlParameter(_0x3b5d66, _0x505096) {
     try {
-      const IIiii = this.parseUrl(I1l1li),
-        IiiI1l = IIiii.searchParams.get(iI1il);
-      return IiiI1l || "";
+      const _0x2b5d89 = this.parseUrl(_0x3b5d66),
+        _0xbb84ca = _0x2b5d89.searchParams.get(_0x505096);
+      return _0xbb84ca || "";
     } catch {
       return "";
     }
   }
-  ["objectToQueryString"](IiiI1i) {
+  objectToQueryString(_0x53791c) {
     try {
-      const lIlII = [];
-      for (const lI11li in IiiI1i) {
-        if (IiiI1i.hasOwnProperty(lI11li)) {
-          const i1lii1 = IiiI1i[lI11li],
-            lI11l1 = encodeURIComponent(lI11li),
-            lIlIl = i1lii1 === null || i1lii1 === undefined ? "" : encodeURIComponent(i1lii1);
-          lIlII.push(lI11l1 + "=" + lIlIl);
+      const _0x55ac38 = [];
+      for (const _0x236fb0 in _0x53791c) {
+        if (_0x53791c.hasOwnProperty(_0x236fb0)) {
+          const _0x34d391 = _0x53791c[_0x236fb0],
+            _0x2c3b32 = encodeURIComponent(_0x236fb0),
+            _0xcd60fd = _0x34d391 === null || _0x34d391 === undefined ? "" : encodeURIComponent(_0x34d391);
+          _0x55ac38.push(_0x2c3b32 + "=" + _0xcd60fd);
         }
       }
-      return lIlII.join("&");
+      return _0x55ac38.join("&");
     } catch {
       return "";
     }
   }
-  ["queryStringToObject"](liilI1) {
+  queryStringToObject(_0x21c7de) {
     try {
-      const lI11lI = {},
-        IIilI = liilI1.split("&");
-      for (const I1i1Ii of IIilI) {
-        const [lii111, I1i1Il] = I1i1Ii.split("=");
-        lI11lI[decodeURIComponent(lii111)] = I1i1Il === undefined ? null : decodeURIComponent(I1i1Il);
+      const _0x2d8d6d = {},
+        _0x5238d8 = _0x21c7de.split("&");
+      for (const _0x3a38a8 of _0x5238d8) {
+        const [_0x3107cf, _0xf35802] = _0x3a38a8.split("=");
+        _0x2d8d6d[decodeURIComponent(_0x3107cf)] = _0xf35802 === undefined ? null : decodeURIComponent(_0xf35802);
       }
-      return lI11lI;
+      return _0x2d8d6d;
     } catch {
       return {};
     }
   }
-  ["parseResponseCookie"](lI11il) {
-    const iIi1Ii = {};
+  parseResponseCookie(_0x17d497) {
+    const _0x4556ac = {};
     try {
-      if (typeof lI11il === "object" && lI11il?.["headers"] && lI11il?.["headers"]["set-cookie"]) {
-        const IlI111 = lI11il.headers["set-cookie"];
-        for (const lil1I1 of IlI111) {
-          const lliill = lil1I1.split(";")[0];
-          iIi1Ii[lliill.substring(0, lliill.indexOf("="))] = lliill.substring(lliill.indexOf("=") + 1);
+      if (typeof _0x17d497 === "object" && _0x17d497?.["headers"] && _0x17d497?.["headers"]["set-cookie"]) {
+        const _0x4b445f = _0x17d497.headers["set-cookie"];
+        for (const _0x5e1c2e of _0x4b445f) {
+          const _0x4f8895 = _0x5e1c2e.split(";")[0];
+          _0x4556ac[_0x4f8895.substring(0, _0x4f8895.indexOf("="))] = _0x4f8895.substring(_0x4f8895.indexOf("=") + 1);
         }
       }
     } catch {}
-    return iIi1Ii;
+    return _0x4556ac;
   }
-  ["getResponseCookie"](i1liii, i1liil = "") {
-    let iiIII1 = "";
-    const li1iII = this.parseResponseCookie(i1liii),
-      lIIi1 = Object.keys(li1iII);
-    if (lIIi1.length > 0) lIIi1.forEach(IIil1 => {
-      iiIII1 += IIil1 + "=" + li1iII[IIil1] + "; ";
-    }), iiIII1 = iiIII1.trim();else {
-      if (i1liil) return i1liil;
-    }
-    return iiIII1;
-  }
-  ["getCookieValue"](lliili, Iill1I) {
-    if (!lliili || !Iill1I) return "";
-    const II1Ill = new RegExp(Iill1I + "=([^;]*)"),
-      iiIIII = II1Ill.exec(lliili.trim().replace(/\s/g, ""));
-    return iiIIII && iiIIII[1] || "";
-  }
-  ["parseCookie"](li1iI1) {
-    const i1lil1 = {},
-      ilIli = li1iI1.split(";");
-    for (const ilIll of ilIli) {
-      const [lII, iIl1i1] = ilIll.trim().split("=");
-      i1lil1[lII] = iIl1i1;
-    }
-    return i1lil1;
-  }
-  ["filterCookieByFields"](liiII, lllIIl) {
-    const i1lilI = liiII.split(/;\s*/),
-      iiIIIl = i1lilI.filter(iiIIIi => {
-        const lIIiI = iiIIIi.split("=")[0];
-        return lllIIl.includes(lIIiI);
+  getResponseCookie(_0x179ed6, _0x473efa = "") {
+    let _0x3f01ef = "";
+    const _0x128bc7 = this.parseResponseCookie(_0x179ed6),
+      _0x42cd05 = Object.keys(_0x128bc7);
+    if (_0x42cd05.length > 0) {
+      _0x42cd05.forEach(_0x5d6e20 => {
+        _0x3f01ef += _0x5d6e20 + "=" + _0x128bc7[_0x5d6e20] + "; ";
       });
-    return iiIIIl.join("; ");
+      _0x3f01ef = _0x3f01ef.trim();
+    } else {
+      if (_0x473efa) {
+        return _0x473efa;
+      }
+    }
+    return _0x3f01ef;
   }
-  ["getLatestIOSVersion"]() {
+  getCookieValue(_0x377d54, _0x4951db) {
+    if (!_0x377d54 || !_0x4951db) {
+      return "";
+    }
+    const _0x58f339 = new RegExp(_0x4951db + "=([^;]*)"),
+      _0x3a2133 = _0x58f339.exec(_0x377d54.trim().replace(/\s/g, ""));
+    return _0x3a2133 && _0x3a2133[1] || "";
+  }
+  parseCookie(_0x243cda) {
+    const _0x1d5b8c = {},
+      _0xe73548 = _0x243cda.split(";");
+    for (const _0x35d2fa of _0xe73548) {
+      const [_0x2bcb7c, _0x23ffba] = _0x35d2fa.trim().split("=");
+      _0x1d5b8c[_0x2bcb7c] = _0x23ffba;
+    }
+    return _0x1d5b8c;
+  }
+  filterCookieByFields(_0x3d67b0, _0x4fa13f) {
+    const _0x49d110 = _0x3d67b0.split(/;\s*/),
+      _0x4b52cc = _0x49d110.filter(_0x2aaf74 => {
+        const _0x376e40 = _0x2aaf74.split("=")[0];
+        return _0x4fa13f.includes(_0x376e40);
+      });
+    return _0x4b52cc.join("; ");
+  }
+  getLatestIOSVersion() {
     return this._latestIOSVersion || "";
   }
-  ["formatTime"](ilIlI, lIii11 = Date.now()) {
-    const IIili = new Date(lIii11);
-    let liiIi1 = ilIlI;
-    const lIi = {
-      "YYYY": IIili.getFullYear(),
-      "MM": String(IIili.getMonth() + 1).padStart(2, "0"),
-      "DD": String(IIili.getDate()).padStart(2, "0"),
-      "HH": String(IIili.getHours()).padStart(2, "0"),
-      "mm": String(IIili.getMinutes()).padStart(2, "0"),
-      "ss": String(IIili.getSeconds()).padStart(2, "0"),
-      "S": String(IIili.getMilliseconds()).padStart(3, "0")
+  formatTime(_0x292540, _0x42c360 = Date.now()) {
+    const _0x47775d = new Date(_0x42c360);
+    let _0x4918b9 = _0x292540;
+    const _0x2535f7 = {
+      YYYY: _0x47775d.getFullYear(),
+      MM: String(_0x47775d.getMonth() + 1).padStart(2, "0"),
+      DD: String(_0x47775d.getDate()).padStart(2, "0"),
+      HH: String(_0x47775d.getHours()).padStart(2, "0"),
+      mm: String(_0x47775d.getMinutes()).padStart(2, "0"),
+      ss: String(_0x47775d.getSeconds()).padStart(2, "0"),
+      S: String(_0x47775d.getMilliseconds()).padStart(3, "0")
     };
-    return Object.keys(lIi).forEach(i1lili => {
-      liiIi1 = liiIi1.replace(new RegExp(i1lili, "g"), lIi[i1lili]);
-    }), liiIi1;
+    Object.keys(_0x2535f7).forEach(_0x3610eb => {
+      _0x4918b9 = _0x4918b9.replace(new RegExp(_0x3610eb, "g"), _0x2535f7[_0x3610eb]);
+    });
+    return _0x4918b9;
   }
-  async ["request"](ilIl1) {
-    let li1iIl = {
-        "success": false,
-        "status": null,
-        "data": null,
-        "headers": null,
-        "error": null,
-        "connected": false
+  async request(_0x527421) {
+    let _0x46d2d6 = {
+        success: false,
+        status: null,
+        data: null,
+        headers: null,
+        error: null,
+        connected: false
       },
-      lIii1I = this._requestDebugMode,
-      lliI1l = null;
+      _0x461cc3 = this._requestDebugMode,
+      _0x55a057 = null;
     try {
-      if (!ilIl1 || !ilIl1.url) {
-        return console.log("❌ 调用请求方法无效，缺少必要的参数！"), li1iIl.error = "缺少必要的请求参数", li1iIl;
+      if (!_0x527421 || !_0x527421.url) {
+        console.log("❌ 调用请求方法无效，缺少必要的参数！");
+        _0x46d2d6.error = "缺少必要的请求参数";
+        return _0x46d2d6;
       }
-      ilIl1.hasOwnProperty("debug") && (lIii1I = ilIl1.debug, delete ilIl1.debug);
-      const IiiI1I = this._requestAxiosProxyConfig,
-        II1IiI = this._requestDynamicProxyConfig,
-        IilIII = this._requestNoProxyList;
-      if (ilIl1.body) {
-        ilIl1.data = ilIl1.body;
-        delete ilIl1.body;
+      _0x527421.hasOwnProperty("debug") && (_0x461cc3 = _0x527421.debug, delete _0x527421.debug);
+      const _0x2399cf = this._requestAxiosProxyConfig,
+        _0x4c8801 = this._requestDynamicProxyConfig,
+        _0x1a84b6 = this._requestNoProxyList;
+      _0x527421.body && (_0x527421.data = _0x527421.body, delete _0x527421.body);
+      for (const _0x4476f9 of ["data", "params"]) {
+        !_0x527421[_0x4476f9] && delete _0x527421[_0x4476f9];
       }
-      for (const IIIilI of ["data", "params"]) {
-        if (!ilIl1[IIIilI]) {
-          delete ilIl1[IIIilI];
-        }
+      _0x527421.method = (_0x527421.method || "get").toLowerCase();
+      if (_0x527421.proxy && typeof _0x527421.proxy === "string") {
+        const _0x22e4aa = this._getProxyConfigWithAddress(_0x527421.proxy);
+        _0x22e4aa ? _0x527421.proxy = _0x22e4aa : (console.log("❌ 代理配置无效，跳过使用代理"), delete _0x527421.proxy);
       }
-      ilIl1.method = (ilIl1.method || "get").toLowerCase();
-      if (ilIl1.proxy && typeof ilIl1.proxy === "string") {
-        const l11III = this._getProxyConfigWithAddress(ilIl1.proxy);
-        l11III ? ilIl1.proxy = l11III : (console.log("❌ 代理配置无效，跳过使用代理"), delete ilIl1.proxy);
+      _0x527421.data && typeof _0x527421.data === "object" && (!_0x527421.headers || !_0x527421.headers["Content-Type"] || _0x527421.headers["Content-Type"].includes("application/x-www-form-urlencoded")) && (_0x527421.data = querystring.stringify(_0x527421.data));
+      if (_0x527421.httpsTlsOptions && typeof _0x527421.httpsTlsOptions === "object" && _0x527421.url.includes("https://")) {
+        _0x55a057 = _0x527421.httpsTlsOptions;
+        Object.assign(https.globalAgent.options, _0x55a057);
+        delete _0x527421.httpsTlsOptions;
+      } else {
+        _0x527421.hasOwnProperty("httpsTlsOptions") && delete _0x527421.httpsTlsOptions;
       }
-      ilIl1.data && typeof ilIl1.data === "object" && (!ilIl1.headers || !ilIl1.headers["Content-Type"] || ilIl1.headers["Content-Type"].includes("application/x-www-form-urlencoded")) && (ilIl1.data = querystring.stringify(ilIl1.data));
-      if (ilIl1.httpsTlsOptions && typeof ilIl1.httpsTlsOptions === "object" && ilIl1.url.includes("https://")) lliI1l = ilIl1.httpsTlsOptions, Object.assign(https.globalAgent.options, lliI1l), delete ilIl1.httpsTlsOptions;else ilIl1.hasOwnProperty("httpsTlsOptions") && delete ilIl1.httpsTlsOptions;
-      let i1I1I1 = false;
-      if (!["proxy", "httpAgent", "httpsAgent"].some(l11II1 => ilIl1.hasOwnProperty(l11II1))) {
-        if (IiiI1I || II1IiI) {
-          let liiIlI = true;
-          const IIIil1 = this.parseUrl(ilIl1.url).hostname || ilIl1.url;
-          for (const lIIli of IilIII) {
-            const lilli1 = new RegExp("^" + lIIli.split("*").join(".*") + "$");
-            if (lilli1.test(IIIil1.hostname)) {
-              liiIlI = false;
-              lIii1I && console.log("ℹ️ 该代理请求命中 NO_PROXY 规则 ➜ " + lIIli);
+      let _0x45ed5e = false;
+      if (!["proxy", "httpAgent", "httpsAgent"].some(_0x11acb8 => _0x527421.hasOwnProperty(_0x11acb8))) {
+        if (_0x2399cf || _0x4c8801) {
+          let _0x5f2dfe = true;
+          const _0x36caf3 = this.parseUrl(_0x527421.url).hostname || _0x527421.url;
+          for (const _0x48350b of _0x1a84b6) {
+            const _0x4c474d = new RegExp("^" + _0x48350b.split("*").join(".*") + "$");
+            if (_0x4c474d.test(_0x36caf3.hostname)) {
+              _0x5f2dfe = false;
+              _0x461cc3 && console.log("ℹ️ 该代理请求命中 NO_PROXY 规则 ➜ " + _0x48350b);
               break;
             }
           }
-          if (liiIlI) {
-            if (IiiI1I) ilIl1.proxy = IiiI1I;else {
-              if (II1IiI) {
-                if (II1IiI.proxyConfig) {
-                  ilIl1.proxy = II1IiI.proxyConfig;
-                  i1I1I1 = true;
+          if (_0x5f2dfe) {
+            if (_0x2399cf) {
+              _0x527421.proxy = _0x2399cf;
+            } else {
+              if (_0x4c8801) {
+                if (_0x4c8801.proxyConfig) {
+                  _0x527421.proxy = _0x4c8801.proxyConfig;
+                  _0x45ed5e = true;
                 } else {
-                  const l11IIi = await this.getProxyAddressWithApi(II1IiI.api),
-                    llll1i = this._getProxyConfigWithAddress(l11IIi);
-                  if (llll1i) Object.assign(II1IiI, {
-                    "extractTimestamp": Date.now(),
-                    "usedTimes": 0,
-                    "proxyConfig": llll1i
-                  }), ilIl1.proxy = llll1i, i1I1I1 = true, this._requestDynamicProxyShowAddress && console.log(this._requestDynamicProxyPrintAddressFormat.replace(/<address>/g, this._getProxyAddressWithConfig(ilIl1.proxy)));else {
-                    if (!II1IiI.fetchFailContinue) {
-                      return li1iIl.error = "获取动态代理地址失败，已设置跳过请求", li1iIl;
+                  const _0x57cc98 = await this.getProxyAddressWithApi(_0x4c8801.api),
+                    _0x37dade = this._getProxyConfigWithAddress(_0x57cc98);
+                  if (_0x37dade) {
+                    Object.assign(_0x4c8801, {
+                      extractTimestamp: Date.now(),
+                      usedTimes: 0,
+                      proxyConfig: _0x37dade
+                    });
+                    _0x527421.proxy = _0x37dade;
+                    _0x45ed5e = true;
+                    this._requestDynamicProxyShowAddress && console.log(this._requestDynamicProxyPrintAddressFormat.replace(/<address>/g, this._getProxyAddressWithConfig(_0x527421.proxy)));
+                  } else {
+                    if (!_0x4c8801.fetchFailContinue) {
+                      _0x46d2d6.error = "获取动态代理地址失败，已设置跳过请求";
+                      return _0x46d2d6;
                     }
                   }
                 }
@@ -446,1124 +463,1221 @@ class Common {
           }
         }
       }
-      for (const i1I1Ii of ["proxy", "httpAgent", "httpsAgent"]) {
-        if (!ilIl1[i1I1Ii]) {
-          delete ilIl1[i1I1Ii];
-        }
+      for (const _0x27354e of ["proxy", "httpAgent", "httpsAgent"]) {
+        !_0x527421[_0x27354e] && delete _0x527421[_0x27354e];
       }
-      ilIl1.proxy && (this._loadModule("HttpsProxyAgent"), ilIl1.httpsAgent = this._genHttpsAgentWithProxyConfig(ilIl1.proxy), delete ilIl1.proxy);
-      await axios(ilIl1).then(async IiI1iI => {
-        if (i1I1I1) {
-          II1IiI.lastUseTimeStamp = Date.now();
-          II1IiI.usedTimes++;
-          const liiIli = II1IiI.useLimit > 0 && II1IiI.usedTimes >= II1IiI.useLimit,
-            IIIiii = II1IiI.timeLimit > 0 && Date.now() - II1IiI.extractTimestamp >= II1IiI.timeLimit;
-          if (liiIli || IIIiii) {
-            Object.assign(II1IiI, {
-              "proxyConfig": null,
-              "lastUseTimeStamp": null,
-              "extractTimestamp": null,
-              "usedTimes": 0
-            });
-          }
-        }
-        li1iIl.success = true;
-        li1iIl.status = IiI1iI.status;
-        li1iIl.data = IiI1iI.data;
-        li1iIl.headers = IiI1iI.headers;
-        li1iIl.connected = true;
-        if (typeof ilIl1.onSuccess === "function") {
-          try {
-            await ilIl1.onSuccess(IiI1iI.data, IiI1iI);
-          } catch (IlIIiI) {
-            console.log("❌ 调用 onSuccess 回调时遇到了错误 " + (IlIIiI.message || IlIIiI));
-          }
-        }
-        lIii1I && this._handleRequestDebugPrint(IiI1iI, true);
-      }).catch(async i1lI1i => {
-        if (i1I1I1) {
-          II1IiI.lastUseTimeStamp = Date.now();
-          II1IiI.usedTimes++;
-          const llll11 = II1IiI.useLimit > 0 && II1IiI.usedTimes >= II1IiI.useLimit,
-            illIi = II1IiI.timeLimit > 0 && Date.now() - II1IiI.extractTimestamp >= II1IiI.timeLimit;
-          (llll11 || illIi) && Object.assign(II1IiI, {
-            "proxyConfig": null,
-            "lastUseTimeStamp": null,
-            "extractTimestamp": null,
-            "usedTimes": 0
+      _0x527421.proxy && (this._loadModule("HttpsProxyAgent"), _0x527421.httpsAgent = this._genHttpsAgentWithProxyConfig(_0x527421.proxy), delete _0x527421.proxy);
+      await axios(_0x527421).then(async _0xe84fd => {
+        if (_0x45ed5e) {
+          _0x4c8801.lastUseTimeStamp = Date.now();
+          _0x4c8801.usedTimes++;
+          const _0xbba2 = _0x4c8801.useLimit > 0 && _0x4c8801.usedTimes >= _0x4c8801.useLimit,
+            _0x262426 = _0x4c8801.timeLimit > 0 && Date.now() - _0x4c8801.extractTimestamp >= _0x4c8801.timeLimit;
+          (_0xbba2 || _0x262426) && Object.assign(_0x4c8801, {
+            proxyConfig: null,
+            lastUseTimeStamp: null,
+            extractTimestamp: null,
+            usedTimes: 0
           });
         }
-        let Il1;
-        if (i1lI1i.response) {
-          li1iIl.connected = true;
-          const illIl = i1lI1i.response?.["status"];
-          i1lI1i.response.data && (li1iIl.data = i1lI1i.response.data);
-          i1lI1i.response.headers && (li1iIl.headers = i1lI1i.response.headers);
-          Il1 = this._requestFailMessagesMap[illIl] || "请求失败 [Response code " + illIl + "]";
-        } else i1I1I1 && Object.assign(II1IiI, {
-          "proxyConfig": null,
-          "lastUseTimeStamp": null,
-          "extractTimestamp": null,
-          "usedTimes": 0
-        }), i1lI1i.request ? Il1 = (this._requestErrorMessagesMap[i1lI1i.code] ?? "未知网络错误") + " [" + i1lI1i.code + "]" : Il1 = i1lI1i.message || "未知错误状态";
-        (i1lI1i.config?.["httpAgent"] || i1lI1i.config?.["httpsAgent"]) && (Il1 += "（🌐该请求通过代理发出）");
-        li1iIl.error = Il1 || null;
-        li1iIl.status = i1lI1i.response?.["status"] || null;
-        if (typeof ilIl1.onFailOrError === "function") try {
-          await ilIl1.onFailOrError(i1lI1i, li1iIl.error, li1iIl.connected);
-        } catch (iil1i) {
-          console.log("❌ 调用 onFailOrError 回调时遇到了错误 " + (iil1i.message || iil1i));
+        _0x46d2d6.success = true;
+        _0x46d2d6.status = _0xe84fd.status;
+        _0x46d2d6.data = _0xe84fd.data;
+        _0x46d2d6.headers = _0xe84fd.headers;
+        _0x46d2d6.connected = true;
+        if (typeof _0x527421.onSuccess === "function") {
+          try {
+            await _0x527421.onSuccess(_0xe84fd.data, _0xe84fd);
+          } catch (_0x49bd76) {
+            console.log("❌ 调用 onSuccess 回调时遇到了错误 " + (_0x49bd76.message || _0x49bd76));
+          }
+        }
+        _0x461cc3 && this._handleRequestDebugPrint(_0xe84fd, true);
+      }).catch(async _0xa74aed => {
+        if (_0x45ed5e) {
+          _0x4c8801.lastUseTimeStamp = Date.now();
+          _0x4c8801.usedTimes++;
+          const _0x11f640 = _0x4c8801.useLimit > 0 && _0x4c8801.usedTimes >= _0x4c8801.useLimit,
+            _0x32d549 = _0x4c8801.timeLimit > 0 && Date.now() - _0x4c8801.extractTimestamp >= _0x4c8801.timeLimit;
+          (_0x11f640 || _0x32d549) && Object.assign(_0x4c8801, {
+            proxyConfig: null,
+            lastUseTimeStamp: null,
+            extractTimestamp: null,
+            usedTimes: 0
+          });
+        }
+        let _0x17f290;
+        if (_0xa74aed.response) {
+          _0x46d2d6.connected = true;
+          const _0x4d1bf1 = _0xa74aed.response?.["status"];
+          _0xa74aed.response.data && (_0x46d2d6.data = _0xa74aed.response.data);
+          _0xa74aed.response.headers && (_0x46d2d6.headers = _0xa74aed.response.headers);
+          _0x17f290 = this._requestFailMessagesMap[_0x4d1bf1] || "请求失败 [Response code " + _0x4d1bf1 + "]";
         } else {
-          if (typeof ilIl1.onFail === "function" && li1iIl.connected) try {
-            await ilIl1.onFail(i1lI1i, li1iIl.error, li1iIl.status);
-          } catch (IliiI1) {
-            console.log("❌ 调用 onFail 回调时遇到了错误 " + (IliiI1.message || IliiI1));
+          _0x45ed5e && Object.assign(_0x4c8801, {
+            proxyConfig: null,
+            lastUseTimeStamp: null,
+            extractTimestamp: null,
+            usedTimes: 0
+          });
+          _0xa74aed.request ? _0x17f290 = (this._requestErrorMessagesMap[_0xa74aed.code] ?? "未知网络错误") + " [" + _0xa74aed.code + "]" : _0x17f290 = _0xa74aed.message || "未知错误状态";
+        }
+        (_0xa74aed.config?.["httpAgent"] || _0xa74aed.config?.["httpsAgent"]) && (_0x17f290 += "（🌐该请求通过代理发出）");
+        _0x46d2d6.error = _0x17f290 || null;
+        _0x46d2d6.status = _0xa74aed.response?.["status"] || null;
+        if (typeof _0x527421.onFailOrError === "function") {
+          try {
+            await _0x527421.onFailOrError(_0xa74aed, _0x46d2d6.error, _0x46d2d6.connected);
+          } catch (_0x22fe17) {
+            console.log("❌ 调用 onFailOrError 回调时遇到了错误 " + (_0x22fe17.message || _0x22fe17));
+          }
+        } else {
+          if (typeof _0x527421.onFail === "function" && _0x46d2d6.connected) {
+            try {
+              await _0x527421.onFail(_0xa74aed, _0x46d2d6.error, _0x46d2d6.status);
+            } catch (_0x49ce0b) {
+              console.log("❌ 调用 onFail 回调时遇到了错误 " + (_0x49ce0b.message || _0x49ce0b));
+            }
           } else {
-            if (typeof ilIl1.onError === "function" && !li1iIl.connected) try {
-              await ilIl1.onError(i1lI1i, li1iIl.error);
-            } catch (III1l) {
-              console.log("❌ 调用 onError 回调时遇到了错误 " + (III1l.message || III1l));
+            if (typeof _0x527421.onError === "function" && !_0x46d2d6.connected) {
+              try {
+                await _0x527421.onError(_0xa74aed, _0x46d2d6.error);
+              } catch (_0x2bf6d2) {
+                console.log("❌ 调用 onError 回调时遇到了错误 " + (_0x2bf6d2.message || _0x2bf6d2));
+              }
             }
           }
         }
-        lIii1I && (this._handleRequestDebugPrint(i1lI1i, false), console.log("❌ 请求失败原因 ➜ " + li1iIl.error));
+        _0x461cc3 && (this._handleRequestDebugPrint(_0xa74aed, false), console.log("❌ 请求失败原因 ➜ " + _0x46d2d6.error));
       });
-      if (lliI1l) {
-        Object.keys(lliI1l).forEach(i1lI1l => {
-          https.globalAgent.options[i1lI1l] = null;
-        });
-      }
-    } catch (I1llli) {
-      li1iIl.error = I1llli.message || I1llli;
-      lIii1I && console.log("❌ 在处理 HTTP 请求时遇到了错误 ➜ " + I1llli);
+      _0x55a057 && Object.keys(_0x55a057).forEach(_0x41705a => {
+        https.globalAgent.options[_0x41705a] = null;
+      });
+    } catch (_0x544cba) {
+      _0x46d2d6.error = _0x544cba.message || _0x544cba;
+      _0x461cc3 && console.log("❌ 在处理 HTTP 请求时遇到了错误 ➜ " + _0x544cba);
     }
-    return li1iIl;
+    return _0x46d2d6;
   }
-  async ["get"](iil1I) {
-    return await this.request(Object.assign({}, iil1I, {
-      "method": "get"
+  async get(_0x323226) {
+    return await this.request(Object.assign({}, _0x323226, {
+      method: "get"
     }));
   }
-  async ["post"](IlI11l) {
-    return await this.request(Object.assign({}, IlI11l, {
-      "method": "post"
+  async post(_0x4f28d4) {
+    return await this.request(Object.assign({}, _0x4f28d4, {
+      method: "post"
     }));
   }
-  async ["put"](Ili) {
-    return await this.request(Object.assign({}, Ili, {
-      "method": "put"
+  async put(_0x2ceb87) {
+    return await this.request(Object.assign({}, _0x2ceb87, {
+      method: "put"
     }));
   }
-  async ["delete"](lilll1) {
-    return await this.request(Object.assign({}, lilll1, {
-      "method": "delete"
+  async delete(_0x1224b5) {
+    return await this.request(Object.assign({}, _0x1224b5, {
+      method: "delete"
     }));
   }
-  ["_handleRequestDebugPrint"](illI1, I1i1I1 = true) {
+  _handleRequestDebugPrint(_0x67e8a7, _0x238f76 = true) {
     this._loadModule("TablePrint");
-    if (!this._Table) return;
-    const l11l1I = this._Table;
+    if (!this._Table) {
+      return;
+    }
+    const _0x2b10c6 = this._Table;
     console.log("--------------------- 🔧 HTTP REQUEST DEBUG 🔧 -------------------------");
     try {
-      let IlIlII,
-        llil1 = null;
-      IlIlII = new l11l1I({
-        "columns": [{
-          "title": "类型",
-          "name": "type",
-          "alignment": "left"
+      let _0x1fa3fb,
+        _0x26d0b1 = null;
+      _0x1fa3fb = new _0x2b10c6({
+        columns: [{
+          title: "类型",
+          name: "type",
+          alignment: "left"
         }, {
-          "title": "说明",
-          "name": "info",
-          "alignment": "left"
+          title: "说明",
+          name: "info",
+          alignment: "left"
         }],
-        "charLength": {
+        charLength: {
           "🟢": 2,
           "🔴": 2,
           "❌": 2
         }
       });
-      IlIlII.addRow({
-        "type": "请求结果",
-        "info": "" + (I1i1I1 ? "🟢" : illI1?.["response"] ? "🔴" : "❌") + (illI1?.["status"] ? " " + illI1.status : illI1?.["response"] ? " " + illI1.response?.["status"] : "") + " - " + "".concat(illI1?.["config"]?.["method"] || "未知").toUpperCase()
+      _0x1fa3fb.addRow({
+        type: "请求结果",
+        info: "" + (_0x238f76 ? "🟢" : _0x67e8a7?.["response"] ? "🔴" : "❌") + (_0x67e8a7?.["status"] ? " " + _0x67e8a7.status : _0x67e8a7?.["response"] ? " " + _0x67e8a7.response?.["status"] : "") + " - " + "".concat(_0x67e8a7?.["config"]?.["method"] || "未知").toUpperCase()
       });
-      if (illI1?.["config"]?.["url"]) {
+      if (_0x67e8a7?.["config"]?.["url"]) {
         try {
-          llil1 = new URL(illI1.config.url);
-          IlIlII.addRow({
-            "type": "请求地址",
-            "info": llil1.origin
+          _0x26d0b1 = new URL(_0x67e8a7.config.url);
+          _0x1fa3fb.addRow({
+            type: "请求地址",
+            info: _0x26d0b1.origin
           });
-          IlIlII.addRow({
-            "type": "请求路径",
-            "info": llil1.pathname
+          _0x1fa3fb.addRow({
+            type: "请求路径",
+            info: _0x26d0b1.pathname
           });
         } catch {
-          IlIlII.addRow({
-            "type": "请求地址",
-            "info": illI1.config.url
+          _0x1fa3fb.addRow({
+            type: "请求地址",
+            info: _0x67e8a7.config.url
           });
         }
       }
-      IlIlII.printTable();
-      if (llil1 && llil1?.["search"] || illI1?.["config"]?.["params"]) try {
-        const iiIIl = Object.assign({}, new URLSearchParams(llil1?.["search"]) || {}, illI1?.["config"]?.["params"] || {});
-        if (Object.keys(iiIIl).length > 0) {
-          IlIlII = new l11l1I({
-            "columns": [{
-              "title": "名称",
-              "name": "label",
-              "alignment": "left"
-            }, {
-              "title": "值",
-              "name": "value",
-              "alignment": "left"
-            }]
-          });
-          for (let llI1iI in iiIIl) {
-            IlIlII.addRow({
-              "label": decodeURIComponent(llI1iI),
-              "value": decodeURIComponent(iiIIl[llI1iI])
+      _0x1fa3fb.printTable();
+      if (_0x26d0b1 && _0x26d0b1?.["search"] || _0x67e8a7?.["config"]?.["params"]) {
+        try {
+          const _0x58995e = Object.assign({}, new URLSearchParams(_0x26d0b1?.["search"]) || {}, _0x67e8a7?.["config"]?.["params"] || {});
+          if (Object.keys(_0x58995e).length > 0) {
+            _0x1fa3fb = new _0x2b10c6({
+              columns: [{
+                title: "名称",
+                name: "label",
+                alignment: "left"
+              }, {
+                title: "值",
+                name: "value",
+                alignment: "left"
+              }]
             });
+            for (let _0x46c2de in _0x58995e) {
+              _0x1fa3fb.addRow({
+                label: decodeURIComponent(_0x46c2de),
+                value: decodeURIComponent(_0x58995e[_0x46c2de])
+              });
+            }
+            console.log("\n✧ 请求参数");
+            _0x1fa3fb.printTable();
           }
-          console.log("\n✧ 请求参数");
-          IlIlII.printTable();
-        }
-      } catch {}
-      if (illI1?.["config"]?.["httpAgent"] || illI1?.["config"]?.["httpsAgent"]) {
-        const IiI1lI = (illI1.config?.["httpAgent"] || illI1.config?.["httpsAgent"])?.["proxy"],
-          il11I = {
-            "protocol": IiI1lI.protocol.replace(":", ""),
-            "hostname": IiI1lI.hostname
+        } catch {}
+      }
+      if (_0x67e8a7?.["config"]?.["httpAgent"] || _0x67e8a7?.["config"]?.["httpsAgent"]) {
+        const _0x1c3881 = (_0x67e8a7.config?.["httpAgent"] || _0x67e8a7.config?.["httpsAgent"])?.["proxy"],
+          _0x4495de = {
+            protocol: _0x1c3881.protocol.replace(":", ""),
+            hostname: _0x1c3881.hostname,
+            port: _0x1c3881.port
           };
-        if (IiI1lI.port) {
-          il11I.port = IiI1lI.port;
-        }
-        if (IiI1lI instanceof URL) {
-          (IiI1lI.username || IiI1lI.password) && (il11I.username = IiI1lI.username, il11I.password = IiI1lI.password);
+        _0x1c3881.port;
+        if (_0x1c3881 instanceof URL) {
+          (_0x1c3881.username || _0x1c3881.password) && (_0x4495de.username = _0x1c3881.username, _0x4495de.password = _0x1c3881.password);
         } else {
-          if (IiI1lI.auth) {
-            const IIIii1 = IiI1lI.auth.split(":");
-            il11I.username = IIIii1[0];
-            il11I.password = IIIii1[1];
+          if (_0x1c3881.auth) {
+            const _0x4edca9 = _0x1c3881.auth.split(":");
+            _0x4495de.username = _0x4edca9[0];
+            _0x4495de.password = _0x4edca9[1];
           }
         }
-        IlIlII = new l11l1I({
-          "columns": [{
-            "title": "名称",
-            "name": "label",
-            "alignment": "left"
+        _0x1fa3fb = new _0x2b10c6({
+          columns: [{
+            title: "名称",
+            name: "label",
+            alignment: "left"
           }, {
-            "title": "值",
-            "name": "value",
-            "alignment": "left"
+            title: "值",
+            name: "value",
+            alignment: "left"
           }]
         });
-        for (let llI1il in il11I) {
-          let IiI1l1 = il11I[llI1il];
-          typeof IiI1l1 === "object" && (IiI1l1 = JSON.stringify(IiI1l1));
-          IlIlII.addRow({
-            "label": llI1il,
-            "value": IiI1l1
+        for (let _0x3cbba4 in _0x4495de) {
+          let _0x38f6e3 = _0x4495de[_0x3cbba4];
+          typeof _0x38f6e3 === "object" && (_0x38f6e3 = JSON.stringify(_0x38f6e3));
+          _0x1fa3fb.addRow({
+            label: _0x3cbba4,
+            value: _0x38f6e3
           });
         }
         console.log("\n✧ HTTP 代理配置");
-        IlIlII.printTable();
+        _0x1fa3fb.printTable();
       }
-      if (illI1?.["config"]?.["headers"]) {
-        const il111 = illI1.config.headers;
-        IlIlII = new l11l1I({
-          "columns": [{
-            "title": "名称",
-            "name": "label",
-            "alignment": "left"
+      if (_0x67e8a7?.["config"]?.["headers"]) {
+        const _0x520740 = _0x67e8a7.config.headers;
+        _0x1fa3fb = new _0x2b10c6({
+          columns: [{
+            title: "名称",
+            name: "label",
+            alignment: "left"
           }, {
-            "title": "值",
-            "name": "value",
-            "alignment": "left",
-            "maxLen": 80
+            title: "值",
+            name: "value",
+            alignment: "left",
+            maxLen: 80
           }]
         });
-        for (let llI1ii in il111) {
-          let Ilii1II1 = il111[llI1ii];
-          typeof Ilii1II1 === "object" && (Ilii1II1 = JSON.stringify(Ilii1II1));
-          IlIlII.addRow({
-            "label": llI1ii,
-            "value": Ilii1II1
+        for (let _0x188d6a in _0x520740) {
+          let _0x1b3b71 = _0x520740[_0x188d6a];
+          typeof _0x1b3b71 === "object" && (_0x1b3b71 = JSON.stringify(_0x1b3b71));
+          _0x1fa3fb.addRow({
+            label: _0x188d6a,
+            value: _0x1b3b71
           });
         }
         console.log("\n✧ 请求 Headers");
-        IlIlII.printTable();
+        _0x1fa3fb.printTable();
       }
-      if (illI1?.["config"]?.["data"]) {
-        let IIII11il = illI1.config.data;
-        if (typeof IIII11il === "object") IIII11il = JSON.stringify(JSON.parse(IIII11il));else {
-          if (typeof IIII11il === "string") {
+      if (_0x67e8a7?.["config"]?.["data"]) {
+        let _0x37b4cf = _0x67e8a7.config.data;
+        if (typeof _0x37b4cf === "object") {
+          _0x37b4cf = JSON.stringify(JSON.parse(_0x37b4cf));
+        } else {
+          if (typeof _0x37b4cf === "string") {
             try {
-              const IIIl1i1I = JSON.parse(IIII11il);
-              IIII11il = JSON.stringify(IIIl1i1I);
+              const _0x1c5e85 = JSON.parse(_0x37b4cf);
+              _0x37b4cf = JSON.stringify(_0x1c5e85);
             } catch {
-              IIII11il = JSON.stringify(IIII11il).slice(1, -1);
+              _0x37b4cf = JSON.stringify(_0x37b4cf).slice(1, -1);
             }
           }
         }
-        console.log("\n✧ 请求 Body\n" + IIII11il);
+        console.log("\n✧ 请求 Body\n" + _0x37b4cf);
       }
-      if (!I1i1I1 && !illI1?.["response"]) {
+      if (!_0x238f76 && !_0x67e8a7?.["response"]) {
         console.log("\n------------------------------------------------------------------------");
         return;
       }
-      if (illI1?.["headers"]) {
-        const I1Iill1 = illI1.headers;
-        IlIlII = new l11l1I({
-          "columns": [{
-            "title": "名称",
-            "name": "label",
-            "alignment": "left"
+      if (_0x67e8a7?.["headers"]) {
+        const _0x1bcf04 = _0x67e8a7.headers;
+        _0x1fa3fb = new _0x2b10c6({
+          columns: [{
+            title: "名称",
+            name: "label",
+            alignment: "left"
           }, {
-            "title": "值",
-            "name": "value",
-            "alignment": "left",
-            "maxLen": 80
+            title: "值",
+            name: "value",
+            alignment: "left",
+            maxLen: 80
           }]
         });
-        for (let iIililIi in I1Iill1) {
-          let IiIl11iI = I1Iill1[iIililIi];
-          typeof IiIl11iI !== "string" && (IiIl11iI = JSON.stringify(IiIl11iI));
-          IlIlII.addRow({
-            "label": iIililIi,
-            "value": IiIl11iI
+        for (let _0x1238b9 in _0x1bcf04) {
+          let _0x5a0dd8 = _0x1bcf04[_0x1238b9];
+          typeof _0x5a0dd8 !== "string" && (_0x5a0dd8 = JSON.stringify(_0x5a0dd8));
+          _0x1fa3fb.addRow({
+            label: _0x1238b9,
+            value: _0x5a0dd8
           });
         }
         console.log("\n✧ 响应 Headers");
-        IlIlII.printTable();
+        _0x1fa3fb.printTable();
       }
-      if (illI1?.["data"]) {
-        let lIIilI1 = illI1.data;
-        if (typeof lIIilI1 === "object") lIIilI1 = JSON.stringify(lIIilI1);else {
-          if (typeof lIIilI1 === "string") try {
-            const IIIl1i11 = JSON.parse(lIIilI1);
-            lIIilI1 = JSON.stringify(IIIl1i11);
-          } catch {
-            lIIilI1 = JSON.stringify(lIIilI1).slice(1, -1);
+      if (_0x67e8a7?.["data"]) {
+        let _0x3e97bb = _0x67e8a7.data;
+        if (typeof _0x3e97bb === "object") {
+          _0x3e97bb = JSON.stringify(_0x3e97bb);
+        } else {
+          if (typeof _0x3e97bb === "string") {
+            try {
+              const _0x1fbfbf = JSON.parse(_0x3e97bb);
+              _0x3e97bb = JSON.stringify(_0x1fbfbf);
+            } catch {
+              _0x3e97bb = JSON.stringify(_0x3e97bb).slice(1, -1);
+            }
           }
         }
-        console.log("\n✧ 响应 Body\n" + lIIilI1);
+        console.log("\n✧ 响应 Body\n" + _0x3e97bb);
       }
-    } catch (IiIl11i1) {
-      console.log("❌ 处理 REQUEST DEBUG PRINT 时遇到了错误 ➜ " + (IiIl11i1.message || IiIl11i1));
+    } catch (_0x323e07) {
+      console.log("❌ 处理 REQUEST DEBUG PRINT 时遇到了错误 ➜ " + (_0x323e07.message || _0x323e07));
     }
     console.log("\n------------------------------------------------------------------------");
   }
-  async ["getProxyAddressWithApi"](lIlIllil) {
-    let IIII11lI = "";
+  async getProxyAddressWithApi(_0x5c44f6) {
+    let _0x266d86 = "";
     try {
-      const l1i111i1 = /\b(?:\d{1,3}\.){3}\d{1,3}:\d{1,5}\b/g,
-        l1Ili1ll = {
-          "url": lIlIllil,
-          "method": "post",
-          "proxy": null,
-          "timeout": 30000
+      const _0x19aa16 = /\b(?:\d{1,3}\.){3}\d{1,3}:\d{1,5}\b/g,
+        _0x14e21a = {
+          url: _0x5c44f6,
+          method: "post",
+          proxy: null,
+          timeout: 30000
         };
-      let iIililII = 0,
-        l1lIIIi = null;
-      const I1Iili1 = 1;
-      while (iIililII < I1Iili1) {
-        const l1lIIIl = await this.request(l1Ili1ll);
-        if (!l1lIIIl.success) {
-          l1lIIIi = l1lIIIl.error;
-          iIililII++;
+      let _0x3889e2 = 0,
+        _0xce56d0 = null;
+      const _0x5a41f7 = 1;
+      while (_0x3889e2 < _0x5a41f7) {
+        const _0x74d0f6 = await this.request(_0x14e21a);
+        if (!_0x74d0f6.success) {
+          _0xce56d0 = _0x74d0f6.error;
+          _0x3889e2++;
           continue;
         }
-        if (!l1lIIIl.data) {
-          l1lIIIi = "无响应数据";
-          iIililII++;
+        if (!_0x74d0f6.data) {
+          _0xce56d0 = "无响应数据";
+          _0x3889e2++;
           continue;
         }
-        const IiIl11il = l1lIIIl.data;
-        if (typeof IiIl11il === "object") {
-          if (IiIl11il?.["data"]) {
-            let ii1IiII = IiIl11il.data;
-            if (Array.isArray(ii1IiII) && ii1IiII.length > 0) {
-              ii1IiII = ii1IiII[0];
-              if (ii1IiII?.["ip"] && ii1IiII?.["port"]) {
-                IIII11lI = ii1IiII.ip + ":" + ii1IiII.port;
-              } else ii1IiII?.["IP"] && ii1IiII?.["Port"] && (IIII11lI = ii1IiII.IP + ":" + ii1IiII.Port);
+        const _0x37a3b5 = _0x74d0f6.data;
+        if (typeof _0x37a3b5 === "object") {
+          if (_0x37a3b5?.["data"]) {
+            let _0x3a38d0 = _0x37a3b5.data;
+            if (Array.isArray(_0x3a38d0) && _0x3a38d0.length > 0) {
+              _0x3a38d0 = _0x3a38d0[0];
+              if (_0x3a38d0?.["ip"] && _0x3a38d0?.["port"]) {
+                _0x266d86 = _0x3a38d0.ip + ":" + _0x3a38d0.port;
+              } else {
+                _0x3a38d0?.["IP"] && _0x3a38d0?.["Port"] && (_0x266d86 = _0x3a38d0.IP + ":" + _0x3a38d0.Port);
+              }
             } else {
-              if (ii1IiII?.["proxy_list"] && Array.isArray(ii1IiII.proxy_list) && ii1IiII.proxy_list.length > 0) {
-                const IlIl11I = ii1IiII.proxy_list[0];
-                if (typeof IlIl11I === "object" && IlIl11I?.["ip"] && IlIl11I?.["port"]) {
-                  IIII11lI = IlIl11I.ip + ":" + IlIl11I.port;
-                } else {
-                  IIII11lI = IlIl11I;
-                }
+              if (_0x3a38d0?.["proxy_list"] && Array.isArray(_0x3a38d0.proxy_list) && _0x3a38d0.proxy_list.length > 0) {
+                const _0x44be74 = _0x3a38d0.proxy_list[0];
+                typeof _0x44be74 === "object" && _0x44be74?.["ip"] && _0x44be74?.["port"] ? _0x266d86 = _0x44be74.ip + ":" + _0x44be74.port : _0x266d86 = _0x44be74;
               }
             }
-            IIII11lI && !l1i111i1.test(IIII11lI) && (IIII11lI = "");
+            _0x266d86 && !_0x19aa16.test(_0x266d86) && (_0x266d86 = "");
           }
-          !IIII11lI && (l1lIIIi = "接口响应数据异常：" + JSON.stringify(IiIl11il));
+          !_0x266d86 && (_0xce56d0 = "接口响应数据异常：" + JSON.stringify(_0x37a3b5));
         } else {
-          const l1Ili1ii = IiIl11il.match(l1i111i1);
-          l1Ili1ii && (IIII11lI = l1Ili1ii[0]);
-          if (!IIII11lI) {
-            l1lIIIi = "接口响应数据异常：" + IiIl11il;
-          }
+          const _0x187870 = _0x37a3b5.match(_0x19aa16);
+          _0x187870 && (_0x266d86 = _0x187870[0]);
+          !_0x266d86 && (_0xce56d0 = "接口响应数据异常：" + _0x37a3b5);
         }
-        if (IIII11lI) return IIII11lI;
-        iIililII++;
+        if (_0x266d86) {
+          return _0x266d86;
+        }
+        _0x3889e2++;
       }
-      if (iIililII >= I1Iili1) {
-        console.log("⚠ 提取代理地址失败 ➜ " + l1lIIIi);
-      }
-    } catch (ii1IiI1) {
-      console.log("❌ 在处理请求代理API获取代理地址时遇到了错误\n" + ii1IiI1);
+      _0x3889e2 >= _0x5a41f7 && console.log("⚠ 提取代理地址失败 ➜ " + _0xce56d0);
+    } catch (_0x39a099) {
+      console.log("❌ 在处理请求代理API获取代理地址时遇到了错误\n" + _0x39a099);
     }
-    return IIII11lI;
+    return _0x266d86;
   }
-  ["_getProxyConfigWithAddress"](l1i111ii = "") {
+  _getProxyConfigWithAddress(_0x2d8ad7 = "") {
     try {
-      if (!l1i111ii) return null;
-      !l1i111ii.includes("://") && (l1i111ii = "http://" + l1i111ii);
-      const iiI1iI1l = this.parseUrl(l1i111ii);
-      if (iiI1iI1l?.["hostname"]) {
-        const IiIl11lI = {
-          "protocol": iiI1iI1l.protocol.replace(":", "") === "https" ? "https" : "http",
-          "host": iiI1iI1l.hostname,
-          "port": parseInt(iiI1iI1l?.["port"] || "8080")
+      if (!_0x2d8ad7) {
+        return null;
+      }
+      !_0x2d8ad7.includes("://") && (_0x2d8ad7 = "http://" + _0x2d8ad7);
+      const _0x92bcc2 = this.parseUrl(_0x2d8ad7);
+      if (_0x92bcc2?.["hostname"]) {
+        const _0x3fb9e2 = {
+          protocol: _0x92bcc2.protocol.replace(":", "") === "https" ? "https" : "http",
+          host: _0x92bcc2.hostname,
+          port: parseInt(_0x92bcc2?.["port"] || "8080"),
+          auth: {
+            username: _0x92bcc2?.["username"] || "",
+            password: _0x92bcc2?.["password"] || ""
+          }
         };
-        if (iiI1iI1l?.["username"] || iiI1iI1l?.["password"]) {
-          IiIl11lI.auth = {
-            "username": iiI1iI1l?.["username"] || "",
-            "password": iiI1iI1l?.["password"] || ""
-          };
-        }
-        return IiIl11lI;
+        _0x92bcc2?.["username"] || _0x92bcc2?.["password"];
+        return _0x3fb9e2;
       }
     } catch {}
     return null;
   }
-  ["_getProxyAddressWithConfig"](iliIliiI = null) {
+  _getProxyAddressWithConfig(_0x4a3686 = null) {
     try {
-      if (!iliIliiI) {
+      if (!_0x4a3686) {
         return null;
       }
-      const I1Iilli = Object.assign({}, iliIliiI);
-      let l1Ili1i1 = "";
-      if (I1Iilli.auth) {
-        l1Ili1i1 = (I1Iilli.auth?.["username"] || "") + ":" + (I1Iilli.auth?.["password"] || "") + "@";
-      }
-      return I1Iilli.protocol + "://" + l1Ili1i1 + I1Iilli.host + ":" + I1Iilli.port;
+      const _0x3127c2 = Object.assign({}, _0x4a3686);
+      let _0x5d2f84 = "";
+      _0x3127c2.auth && (_0x5d2f84 = (_0x3127c2.auth?.["username"] || "") + ":" + (_0x3127c2.auth?.["password"] || "") + "@");
+      return _0x3127c2.protocol + "://" + _0x5d2f84 + _0x3127c2.host + ":" + _0x3127c2.port;
     } catch {
-      return JSON.stringify(iliIliiI);
+      return JSON.stringify(_0x4a3686);
     }
   }
-  ["_genHttpsAgentWithProxyConfig"](IIII11iI) {
+  _genHttpsAgentWithProxyConfig(_0x138b6a) {
     try {
-      if (!this._HttpsProxyAgent) return null;
-      if (!IIII11iI) return null;
-      let l1i111lI = (IIII11iI?.["protocol"] || "http") + "://";
-      return IIII11iI?.["auth"] && (l1i111lI += (IIII11iI.auth?.["username"] || "") + ":" + (IIII11iI.auth?.["password"] || "") + "@"), l1i111lI += IIII11iI?.["host"] + ":" + (IIII11iI?.["port"] || "8080"), new this._HttpsProxyAgent(l1i111lI);
-    } catch (IiIiiiii) {
-      console.log("❌ 加载代理时遇到了错误 ➜ " + (IiIiiiii.message || IiIiiiii));
+      if (!this._HttpsProxyAgent) {
+        return null;
+      }
+      if (!_0x138b6a) {
+        return null;
+      }
+      let _0x51f9d3 = (_0x138b6a?.["protocol"] || "http") + "://";
+      _0x138b6a?.["auth"] && (_0x51f9d3 += (_0x138b6a.auth?.["username"] || "") + ":" + (_0x138b6a.auth?.["password"] || "") + "@");
+      _0x51f9d3 += _0x138b6a?.["host"] + ":" + (_0x138b6a?.["port"] || "8080");
+      return new this._HttpsProxyAgent(_0x51f9d3);
+    } catch (_0x36d58a) {
+      console.log("❌ 加载代理时遇到了错误 ➜ " + (_0x36d58a.message || _0x36d58a));
     }
     return null;
   }
-  async ["concTaskNormal"](l1IiIilI = "3", I11IIl11 = 100, I1I1iIIl) {
-    let I11IIl1I = false,
-      IlI1i1I = 0,
-      Ilii1IIi = 0;
-    async function I1IillI(IliIIIlI) {
-      const IlI11I1l = await I1I1iIIl(IliIIIlI);
-      if (IlI11I1l) {
-        if (typeof IlI11I1l === "boolean") I11IIl1I = true;else {
-          if (typeof IlI11I1l === "object") {
-            IlI11I1l?.["runEnd"] && (I11IIl1I = true);
-          }
+  async concTaskNormal(_0x28ceba = "3", _0x49babe = 100, _0x2804e2) {
+    let _0x225f78 = false,
+      _0x5dde89 = 0,
+      _0x4c7420 = 0;
+    async function _0x175dba(_0x1c8dc5) {
+      const _0x529405 = await _0x2804e2(_0x1c8dc5);
+      if (_0x529405) {
+        if (typeof _0x529405 === "boolean") {
+          _0x225f78 = true;
+        } else {
+          typeof _0x529405 === "object" && _0x529405?.["runEnd"] && (_0x225f78 = true);
         }
       }
-      IlI1i1I--;
-      Ilii1IIl();
+      _0x5dde89--;
+      _0x84eaf4();
     }
-    async function Ilii1IIl() {
-      while (IlI1i1I < l1IiIilI && I11IIl11 > 0 && !I11IIl1I) {
-        I11IIl11--;
-        IlI1i1I++;
-        Ilii1IIi++;
-        await I1IillI(Ilii1IIi);
+    async function _0x84eaf4() {
+      while (_0x5dde89 < _0x28ceba && _0x49babe > 0 && !_0x225f78) {
+        _0x49babe--;
+        _0x5dde89++;
+        _0x4c7420++;
+        await _0x175dba(_0x4c7420);
       }
-      I11IIl1I && (await new Promise(IIl1l1lI => {
-        const iililIl = setInterval(() => {
-          IlI1i1I === 0 && (clearInterval(iililIl), IIl1l1lI());
+      _0x225f78 && (await new Promise(_0x2689ab => {
+        const _0x3a9a3d = setInterval(() => {
+          _0x5dde89 === 0 && (clearInterval(_0x3a9a3d), _0x2689ab());
         }, 100);
       }));
     }
-    const IIl1l1il = Math.min(I11IIl11, l1IiIilI),
-      l1I11ll1 = [];
-    for (let i1l1l111 = 0; i1l1l111 < IIl1l1il; i1l1l111++) {
-      I11IIl11--;
-      IlI1i1I++;
-      Ilii1IIi++;
-      l1I11ll1.push(I1IillI(Ilii1IIi));
+    const _0x2a98a8 = Math.min(_0x49babe, _0x28ceba),
+      _0x502e08 = [];
+    for (let _0x2d2129 = 0; _0x2d2129 < _0x2a98a8; _0x2d2129++) {
+      _0x49babe--;
+      _0x5dde89++;
+      _0x4c7420++;
+      _0x502e08.push(_0x175dba(_0x4c7420));
     }
-    await Promise.all(l1I11ll1);
-    Ilii1IIl();
-    await new Promise(ii1i1i1I => {
-      const iililIi = setInterval(() => {
-        (IlI1i1I === 0 || I11IIl1I) && (clearInterval(iililIi), ii1i1i1I());
+    await Promise.all(_0x502e08);
+    _0x84eaf4();
+    await new Promise(_0x218b8b => {
+      const _0x7f9cf9 = setInterval(() => {
+        (_0x5dde89 === 0 || _0x225f78) && (clearInterval(_0x7f9cf9), _0x218b8b());
       }, 100);
     });
   }
-  ["setCookie"](ii1IiIi) {
-    this._Cookie = ii1IiIi;
+  setCookie(_0x5ff21a) {
+    this._Cookie = _0x5ff21a;
   }
-  ["unsetCookie"]() {
+  unsetCookie() {
     this._Cookie = "";
     this._UserAgent = "";
   }
-  ["getCookie"]() {
+  getCookie() {
     return this._Cookie;
   }
-  ["getLatestAppVersion"]() {
+  getLatestAppVersion() {
     return this._latestAppVersionData.version || "";
   }
-  ["getLatestAppBuildVersion"]() {
+  getLatestAppBuildVersion() {
     return this._latestAppVersionData.build || "";
   }
-  ["getLatestLiteAppVersion"]() {
+  getLatestLiteAppVersion() {
     return this._latestLiteAppVersionData.version || "";
   }
-  ["getLatestLiteAppBuildVersion"]() {
+  getLatestLiteAppBuildVersion() {
     return this._latestLiteAppVersionData.build || "";
   }
-  ["getErrorMsg"](l1IiIii1, ii1IiIl = ["msg", "message", "errMsg", "errMessage", "errorMsg", "errorMessage", "bizMsg", "subMsg", "echo", "error", "resp_msg", "txt", "rlt", "displayMsg", "resultMsg", "desc"], IIl1l1ll = "") {
-    if (!l1IiIii1) return IIl1l1ll;
-    for (let il1iIii1 of ii1IiIl) {
-      if (l1IiIii1.hasOwnProperty(il1iIii1)) return l1IiIii1[il1iIii1];
+  getErrorMsg(_0x89f38e, _0x1a2fda = ["msg", "message", "errMsg", "errMessage", "errorMsg", "errorMessage", "bizMsg", "subMsg", "echo", "error", "resp_msg", "txt", "rlt", "displayMsg", "resultMsg", "desc"], _0x3a5595 = "") {
+    if (!_0x89f38e) {
+      return _0x3a5595;
     }
-    return IIl1l1ll;
-  }
-  ["maskUserName"](IIl1l1li = "", ii1i1i1l = "*") {
-    if (!IIl1l1li) return "";
-    if (IIl1l1li.length <= 1) {
-      return ii1i1i1l;
-    }
-    if (IIl1l1li.length < 5) return IIl1l1li.slice(0, 1) + ii1i1i1l.repeat(IIl1l1li.length - 1);
-    return IIl1l1li.slice(0, 2) + ii1i1i1l.repeat(IIl1l1li.length - 4) + IIl1l1li.slice(-2);
-  }
-  ["genUuid"](liIi1III = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", iIllIii = "0123456789abcdef") {
-    let il1li1iI = "";
-    for (let iIllIiI of liIi1III) {
-      if (iIllIiI === "x") il1li1iI += iIllIii.charAt(Math.floor(Math.random() * iIllIii.length));else {
-        if (iIllIiI === "X") il1li1iI += iIllIii.charAt(Math.floor(Math.random() * iIllIii.length)).toUpperCase();else {
-          il1li1iI += iIllIiI;
-        }
+    for (let _0x119670 of _0x1a2fda) {
+      if (_0x89f38e.hasOwnProperty(_0x119670)) {
+        return _0x89f38e[_0x119670];
       }
     }
-    return il1li1iI;
+    return _0x3a5595;
   }
-  ["genUA"](illiIIi = "", iill11i1 = "jd") {
-    if (illiIIi && this._UserAgentMap.has(illiIIi)) {
-      return this._UserAgentMap.get(illiIIi);
+  maskUserName(_0x48bcb6 = "", _0x1cb701 = "*") {
+    if (!_0x48bcb6) {
+      return "";
     }
-    const iiiIIiIl = iill11i1 === "lite" ? "lite" : iill11i1 === "jr" ? "jr" : "jd",
-      iiiIIiIi = {
-        "jd": {
-          "app": "jdapp",
-          "appBuild": this._latestAppVersionData.build,
-          "clientVersion": this._latestAppVersionData.version
+    if (_0x48bcb6.length <= 1) {
+      return _0x1cb701;
+    }
+    if (_0x48bcb6.length < 5) {
+      return _0x48bcb6.slice(0, 1) + _0x1cb701.repeat(_0x48bcb6.length - 1);
+    }
+    return _0x48bcb6.slice(0, 2) + _0x1cb701.repeat(_0x48bcb6.length - 4) + _0x48bcb6.slice(-2);
+  }
+  genUuid(_0x2f0209 = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", _0x5c5e60 = "0123456789abcdef") {
+    let _0x3752f9 = "";
+    for (let _0x1611f5 of _0x2f0209) {
+      if (_0x1611f5 === "x") {
+        _0x3752f9 += _0x5c5e60.charAt(Math.floor(Math.random() * _0x5c5e60.length));
+      } else {
+        _0x1611f5 === "X" ? _0x3752f9 += _0x5c5e60.charAt(Math.floor(Math.random() * _0x5c5e60.length)).toUpperCase() : _0x3752f9 += _0x1611f5;
+      }
+    }
+    return _0x3752f9;
+  }
+  genUA(_0xe554f0 = "", _0xf3a35 = "jd") {
+    if (_0xe554f0 && this._UserAgentMap.has(_0xe554f0)) {
+      return this._UserAgentMap.get(_0xe554f0);
+    }
+    const _0x1df619 = _0xf3a35 === "lite" ? "lite" : _0xf3a35 === "jr" ? "jr" : "jd",
+      _0x15ce74 = {
+        jd: {
+          app: "jdapp",
+          appBuild: this._latestAppVersionData.build,
+          clientVersion: this._latestAppVersionData.version
         },
-        "lite": {
-          "app": "jdltapp",
-          "appBuild": this._latestLiteAppVersionData.build,
-          "clientVersion": this._latestLiteAppVersionData.version
+        lite: {
+          app: "jdltapp",
+          appBuild: this._latestLiteAppVersionData.build,
+          clientVersion: this._latestLiteAppVersionData.version
         },
-        "jr": {
-          "clientVersion": this._latestJDJRAppVersionData.version,
-          "jdPaySdkVersion": this._latestJDJRAppVersionData.jdPaySdkVersion,
-          "stockSDK": this._latestJDJRAppVersionData.stockSDK
+        jr: {
+          clientVersion: this._latestJDJRAppVersionData.version,
+          jdPaySdkVersion: this._latestJDJRAppVersionData.jdPaySdkVersion,
+          stockSDK: this._latestJDJRAppVersionData.stockSDK
         }
       },
-      IIlilliI = [this._latestIOSVersion].map(iill11iI => {
-        let IIlillil = iill11iI.split(".");
-        return IIlillil.join(".");
+      _0x23daee = [this._latestIOSVersion].map(_0x105839 => {
+        let _0x2a5408 = _0x105839.split(".");
+        return _0x2a5408.join(".");
       }),
-      IIlilll1 = IIlilliI[Math.floor(Math.random() * IIlilliI.length)],
-      iIllIlI = "iPhone; CPU iPhone OS " + IIlilll1.replace(".", "_") + " like Mac OS X",
+      _0x9156f5 = _0x23daee[Math.floor(Math.random() * _0x23daee.length)],
+      _0x13a12e = "iPhone; CPU iPhone OS " + _0x9156f5.replace(".", "_") + " like Mac OS X",
       {
-        clientVersion: IliIIIl1
-      } = iiiIIiIi[iiiIIiIl];
-    let iIIii1II, l1I11lll;
-    switch (iiiIIiIl) {
+        clientVersion: _0xe52407
+      } = _0x15ce74[_0x1df619];
+    let _0xcb2b93, _0x2b3802;
+    switch (_0x1df619) {
       case "jr":
         const {
-          stockSDK: iIIii1Ii,
-          jdPaySdkVersion: iIIii1Il
-        } = iiiIIiIi[iiiIIiIl];
-        iIIii1II = ["Mozilla/5.0 (" + iIllIlI + ") AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/application=JDJR-App", "clientType=ios", "iosType=iphone", "clientVersion=" + IliIIIl1, "HiClVersion=" + IliIIIl1, "isUpdate=0", "osVersion=" + IIlilll1, "osName=iOS", "screen=932*430", "src=App Store", "netWork=1", "netWorkType=1", "CpayJS=UnionPay/1.0 JDJR", "stockSDK=" + iIIii1Ii, "sPoint=", "jdPay=(*#@jdPaySDK*#@jdPayChannel=jdfinance", "jdPayChannelVersion=" + IliIIIl1, "jdPaySdkVersion=" + iIIii1Il, "jdPayClientName=iOS*#@jdPaySDK*#@)"], l1I11lll = "&";
+          stockSDK: _0x378ac6,
+          jdPaySdkVersion: _0x2fda29
+        } = _0x15ce74[_0x1df619];
+        _0xcb2b93 = ["Mozilla/5.0 (" + _0x13a12e + ") AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/application=JDJR-App", "clientType=ios", "iosType=iphone", "clientVersion=" + _0xe52407, "HiClVersion=" + _0xe52407, "isUpdate=0", "osVersion=" + _0x9156f5, "osName=iOS", "screen=932*430", "src=App Store", "netWork=1", "netWorkType=1", "CpayJS=UnionPay/1.0 JDJR", "stockSDK=" + _0x378ac6, "sPoint=", "jdPay=(*#@jdPaySDK*#@jdPayChannel=jdfinance", "jdPayChannelVersion=" + _0xe52407, "jdPaySdkVersion=" + _0x2fda29, "jdPayClientName=iOS*#@jdPaySDK*#@)"];
+        _0x2b3802 = "&";
         break;
       case "jd":
       case "lite":
       default:
         const {
-            app: l1I11llI,
-            appBuild: IliIIIii
-          } = iiiIIiIi[iiiIIiIl],
-          iIllIl1 = !!illiIIi ? JSON.stringify(this.getCipherConf({
-            "ud": CryptoJS.SHA1(illiIIi).toString(),
-            "sv": IIlilll1,
-            "iad": ""
-          }, iiiIIiIl)) : "";
-        iIIii1II = [l1I11llI, "iPhone", IliIIIl1, "", "rn/" + this.genUuid(), "M/5.0", "appBuild/" + IliIIIii, "jdSupportDarkMode/0", "ef/1", iIllIl1 ? "ep/" + encodeURIComponent(iIllIl1) : "", "Mozilla/5.0 (" + iIllIlI + ") AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "supportJDSHWK/1", ""], l1I11lll = ";";
+            app: _0x14ec3e,
+            appBuild: _0x488899
+          } = _0x15ce74[_0x1df619],
+          _0x1a66f4 = !!_0xe554f0 ? JSON.stringify(this.getCipherConf({
+            ud: CryptoJS.SHA1(_0xe554f0).toString(),
+            sv: _0x9156f5,
+            iad: ""
+          }, _0x1df619)) : "";
+        _0xcb2b93 = [_0x14ec3e, "iPhone", _0xe52407, "", "rn/" + this.genUuid(), "M/5.0", "appBuild/" + _0x488899, "jdSupportDarkMode/0", "ef/1", _0x1a66f4 ? "ep/" + encodeURIComponent(_0x1a66f4) : "", "Mozilla/5.0 (" + _0x13a12e + ") AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "supportJDSHWK/1", ""];
+        _0x2b3802 = ";";
         break;
     }
-    const il1iIil1 = iIIii1II.join(l1I11lll);
-    illiIIi && this._UserAgentMap.set(illiIIi, il1iIil1);
-    if (this._Cookie) this._UserAgent = il1iIil1;
-    return il1iIil1;
+    const _0x2a6763 = _0xcb2b93.join(_0x2b3802);
+    _0xe554f0 && this._UserAgentMap.set(_0xe554f0, _0x2a6763);
+    if (this._Cookie) {
+      this._UserAgent = _0x2a6763;
+    }
+    return _0x2a6763;
   }
-  ["genUAWithJDJR"]() {
+  genUAWithJDJR() {
     return this.genUA("", "jr");
   }
-  ["getJEH"](IliIIIil = "") {
-    return !IliIIIil && (IliIIIil = "JD4iPhone/" + this.getLatestAppBuildVersion() + " (iPhone; iOS " + this.getLatestIOSVersion() + "; Scale/3.00)"), encodeURIComponent(JSON.stringify(this.getCipherConf({
-      "User-Agent": encodeURIComponent(IliIIIil)
-    })));
-  }
-  ["getJEC"](il1iIili) {
+  getJEH(_0x47d98b = "") {
+    !_0x47d98b && (_0x47d98b = "JD4iPhone/" + this.getLatestAppBuildVersion() + " (iPhone; iOS " + this.getLatestIOSVersion() + "; Scale/3.00)");
     return encodeURIComponent(JSON.stringify(this.getCipherConf({
-      "pin": encodeURIComponent(il1iIili)
+      "User-Agent": encodeURIComponent(_0x47d98b)
     })));
   }
-  ["getCipherConf"](I1iiiIl1, iill11lI = "jd") {
-    if (I1iiiIl1 && typeof I1iiiIl1 === "object") {
-      for (let IillliII in I1iiiIl1) {
-        I1iiiIl1[IillliII] = this.Base64.encode(I1iiiIl1[IillliII]);
+  getJEC(_0x34325b) {
+    return encodeURIComponent(JSON.stringify(this.getCipherConf({
+      pin: encodeURIComponent(_0x34325b)
+    })));
+  }
+  getCipherConf(_0x384765, _0x6c706 = "jd") {
+    if (_0x384765 && typeof _0x384765 === "object") {
+      for (let _0x157c87 in _0x384765) {
+        _0x384765[_0x157c87] = this.Base64.encode(_0x384765[_0x157c87]);
       }
-    } else I1iiiIl1 && typeof I1iiiIl1 === "string" ? I1iiiIl1 = this.Base64.encode(I1iiiIl1) : I1iiiIl1 = {};
+    } else {
+      _0x384765 && typeof _0x384765 === "string" ? _0x384765 = this.Base64.encode(_0x384765) : _0x384765 = {};
+    }
     return {
-      "ciphertype": 5,
-      "cipher": I1iiiIl1,
-      "ts": Math.floor(Date.now() / 1000),
-      "hdid": "JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw=",
-      "version": "1.0.3",
-      "appname": iill11lI === "lite" ? "com.jd.jdmobilelite" : "com.360buy.jdmobile",
-      "ridx": -1
+      ciphertype: 5,
+      cipher: _0x384765,
+      ts: Math.floor(Date.now() / 1000),
+      hdid: "JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw=",
+      version: "1.0.3",
+      appname: _0x6c706 === "lite" ? "com.jd.jdmobilelite" : "com.360buy.jdmobile",
+      ridx: -1
     };
   }
-  async ["getLoginStatus"](iIii1il = this._Cookie) {
-    if (!iIii1il) {
-      return console.log("🚫 getLoginStatus 请求失败 ➜ 未设置Cookie"), undefined;
+  async getLoginStatus(_0x54222e = this._Cookie) {
+    if (!_0x54222e) {
+      console.log("🚫 getLoginStatus 请求失败 ➜ 未设置Cookie");
+      return undefined;
     }
     try {
-      const lI1iiiiI = {
-        "url": "https://plogin.m.jd.com/cgi-bin/ml/islogin",
-        "method": "GET",
-        "headers": {
-          "Accept": "*/*",
+      const _0x43e30b = {
+        url: "https://plogin.m.jd.com/cgi-bin/ml/islogin",
+        method: "GET",
+        headers: {
+          Accept: "*/*",
           "Accept-Encoding": "gzip, deflate, br",
           "Accept-Language": "zh-CN,zh-Hans;q=0.9",
-          "Cookie": iIii1il,
-          "Host": "plogin.m.jd.com",
+          Cookie: _0x54222e,
+          Host: "plogin.m.jd.com",
           "User-Agent": this._UserAgent || this._defaultUserAgent
         },
-        "timeout": 30000,
-        "debug": false
+        timeout: 30000,
+        debug: false
       };
-      let l11lli1l = 0,
-        iiliiii1 = null;
-      const l11Il1I1 = 1;
-      while (l11lli1l < l11Il1I1) {
-        const iiliiiiI = await this.request(lI1iiiiI);
-        if (!iiliiiiI.success) {
-          iiliiii1 = "🚫 getLoginStatus 请求失败 ➜ " + iiliiiiI.error;
-          l11lli1l++;
+      let _0x38f2b2 = 0,
+        _0x1381c8 = null;
+      const _0x1df3f5 = 1;
+      while (_0x38f2b2 < _0x1df3f5) {
+        const _0x43d941 = await this.request(_0x43e30b);
+        if (!_0x43d941.success) {
+          _0x1381c8 = "🚫 getLoginStatus 请求失败 ➜ " + _0x43d941.error;
+          _0x38f2b2++;
           continue;
         }
-        if (!iiliiiiI.data) {
-          iiliiii1 = "🚫 getLoginStatus 请求异常 ➜ 无响应数据";
-          l11lli1l++;
+        if (!_0x43d941.data) {
+          _0x1381c8 = "🚫 getLoginStatus 请求异常 ➜ 无响应数据";
+          _0x38f2b2++;
           continue;
         }
-        const Ili1i1ll = iiliiiiI.data?.["islogin"];
-        if (Ili1i1ll === "1") return true;else {
-          if (Ili1i1ll === "0") return false;
+        const _0x357ee1 = _0x43d941.data?.["islogin"];
+        if (_0x357ee1 === "1") {
+          return true;
+        } else {
+          if (_0x357ee1 === "0") {
+            return false;
+          }
         }
-        l11lli1l++;
+        _0x38f2b2++;
       }
-      l11lli1l >= l11Il1I1 && console.log(iiliiii1);
-    } catch (Ili1i1li) {
-      console.log("❌ getLoginStatus 在处理请求中遇到了错误\n" + Ili1i1li);
+      _0x38f2b2 >= _0x1df3f5 && console.log(_0x1381c8);
+    } catch (_0x424d3d) {
+      console.log("❌ getLoginStatus 在处理请求中遇到了错误\n" + _0x424d3d);
     }
     return undefined;
   }
-  async ["joinShopMember"](I11i1il1, llIl11II = this._Cookie, I11il1ll = "") {
-    if (!llIl11II) return console.log("🚫 joinShopMember 请求失败 ➜ 未设置Cookie"), undefined;
-    if (!I11i1il1) return undefined;
-    try {
-      this._loadModule("h5st");
-      if (!this._H5st) return undefined;
-      I11i1il1 = "".concat(I11i1il1);
-      const iiliiiii = {
-        "venderId": I11i1il1,
-        "bindByVerifyCodeFlag": 1,
-        "registerExtend": {},
-        "writeChildFlag": 0,
-        "channel": 406,
-        "appid": "27004",
-        "needSecurity": true,
-        "bizId": "shopmember_m_jd_com"
-      };
-      !I11il1ll && this._shopMemberActivityIds.has(I11i1il1) && (I11il1ll = this._shopMemberActivityIds.get(I11i1il1));
-      I11il1ll && (iiliiiii.activityId = I11il1ll);
-      const IillliIl = {
-          "appId": "27004",
-          "appid": "shopmember_m_jd_com",
-          "functionId": "bindWithVender",
-          "clientVersion": "9.2.0",
-          "client": "H5",
-          "body": iiliiiii,
-          "version": "4.7",
-          "t": true,
-          "ua": this._UserAgent || this._defaultUserAgent
-        },
-        lI1l11ll = await this._H5st.getH5st(IillliIl);
-      if (!lI1l11ll.paramsData) return undefined;
-      const I11il1il = {
-          "url": "https://api.m.jd.com/client.action",
-          "method": "POST",
-          "headers": {
-            "Accept": "*/*",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Accept-Language": "zh-CN,zh-Hans;q=0.9",
-            "Origin": "https://pages.jd.com",
-            "Referer": "https://pages.jd.com/",
-            "Sec-Fetch-Dest": "empty",
-            "Sec-Fetch-Mode": "cors",
-            "Content-Type": "application/x-www-form-urlencoded",
-            "User-Agent": this._UserAgent || this._defaultUserAgent,
-            "Cookie": llIl11II
-          },
-          "data": Object.assign({}, lI1l11ll.paramsData, {
-            "area": "",
-            "screen": "1290*2796",
-            "uuid": "88888"
-          }),
-          "timeout": 30000
-        },
-        Ili1i1lI = await this.request(I11il1il);
-      if (!Ili1i1lI.success) {
-        return console.log("🚫 joinShopMember 请求失败 ➜ " + Ili1i1lI.error), undefined;
-      }
-      if (!Ili1i1lI.data) return console.log("🚫 joinShopMember 请求异常 ➜ 无响应数据"), undefined;
-      const lI1l11li = Ili1i1lI.data;
-      if (lI1l11li?.["success"] === true) {
-        if (lI1l11li?.["result"] && lI1l11li.result?.["giftInfo"]) {
-          for (let iIi1Ii1I of lI1l11li.result?.["giftInfo"]?.["giftList"]) {
-            console.log(" >> 入会获得：" + iIi1Ii1I.discountString + iIi1Ii1I.prizeName);
-          }
-        }
-        if (lI1l11li?.["message"] === "加入店铺会员成功") return true;else {
-          if (lI1l11li?.["message"] === "活动太火爆，请稍后再试") console.log("🚫 加入店铺会员失败 ➜ " + lI1l11li.message);else {
-            return console.log("🚫 加入店铺会员失败 ➜ " + lI1l11li?.["message"]), false;
-          }
-        }
-      } else {
-        if (lI1l11li?.["message"]) {
-          return console.log("🚫 加入店铺会员失败 ➜ " + lI1l11li.message), false;
-        } else console.log("🚫 加入店铺会员失败 ➜ " + JSON.stringify(lI1l11li));
-      }
-    } catch (IIl11iIl) {
-      console.log("❌ joinShopMember 在处理请求中遇到了错误\n" + IIl11iIl);
+  async joinShopMember(_0x1554d0, _0x5924b4 = this._Cookie, _0x44ab6e = "") {
+    if (!_0x5924b4) {
+      console.log("🚫 joinShopMember 请求失败 ➜ 未设置Cookie");
+      return undefined;
     }
-    return undefined;
-  }
-  async ["getShopMemberStatus"](lliI1I1l, I1iiiIi1 = this._Cookie) {
-    if (!I1iiiIi1) return console.log("🚫 getShopMemberStatus 请求失败 ➜ 未设置Cookie"), undefined;
-    if (!lliI1I1l) return undefined;
+    if (!_0x1554d0) {
+      return undefined;
+    }
     try {
       this._loadModule("h5st");
       if (!this._H5st) {
         return undefined;
       }
-      lliI1I1l = "".concat(lliI1I1l);
-      const i1111I11 = {
-          "appId": "27004",
-          "appid": "shopmember_m_jd_com",
-          "functionId": "getShopOpenCardInfo",
-          "clientVersion": "9.2.0",
-          "client": "H5",
-          "body": {
-            "venderId": lliI1I1l,
-            "payUpShop": true,
-            "queryVersion": "10.5.2",
-            "appid": "27004",
-            "needSecurity": true,
-            "bizId": "shopmember_m_jd_com",
-            "channel": 406
-          },
-          "version": "4.7",
-          "t": true,
-          "ua": this._UserAgent || this._defaultUserAgent
+      _0x1554d0 = "".concat(_0x1554d0);
+      const _0x5e6b95 = {
+        venderId: _0x1554d0,
+        bindByVerifyCodeFlag: 1,
+        registerExtend: {},
+        writeChildFlag: 0,
+        channel: 406,
+        appid: "27004",
+        needSecurity: true,
+        bizId: "shopmember_m_jd_com"
+      };
+      !_0x44ab6e && this._shopMemberActivityIds.has(_0x1554d0) && (_0x44ab6e = this._shopMemberActivityIds.get(_0x1554d0));
+      _0x44ab6e && (_0x5e6b95.activityId = _0x44ab6e);
+      const _0x201081 = {
+          appId: "27004",
+          appid: "shopmember_m_jd_com",
+          functionId: "bindWithVender",
+          clientVersion: "9.2.0",
+          client: "H5",
+          body: _0x5e6b95,
+          version: "4.7",
+          t: true,
+          ua: this._UserAgent || this._defaultUserAgent
         },
-        iiliiili = await this._H5st.getH5st(i1111I11);
-      if (!iiliiili.paramsData) {
+        _0x1c13b9 = await this._H5st.getH5st(_0x201081);
+      if (!_0x1c13b9.paramsData) {
         return undefined;
       }
-      const ii1il11i = {
-          "url": "https://api.m.jd.com/client.action",
-          "method": "POST",
-          "headers": {
-            "Accept": "*/*",
+      const _0x3da3f6 = {
+          url: "https://api.m.jd.com/client.action",
+          method: "POST",
+          headers: {
+            Accept: "*/*",
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language": "zh-CN,zh-Hans;q=0.9",
-            "Origin": "https://pages.jd.com",
-            "Referer": "https://pages.jd.com/",
+            Origin: "https://pages.jd.com",
+            Referer: "https://pages.jd.com/",
             "Sec-Fetch-Dest": "empty",
             "Sec-Fetch-Mode": "cors",
             "Content-Type": "application/x-www-form-urlencoded",
             "User-Agent": this._UserAgent || this._defaultUserAgent,
-            "Cookie": I1iiiIi1
+            Cookie: _0x5924b4
           },
-          "data": Object.assign({}, iiliiili.paramsData, {
-            "area": "",
-            "screen": "1290*2796",
-            "uuid": "88888"
+          data: Object.assign({}, _0x1c13b9.paramsData, {
+            area: "",
+            screen: "1290*2796",
+            uuid: "88888"
           }),
-          "timeout": 30000
+          timeout: 30000
         },
-        ii1i1i11 = await this.request(ii1il11i);
-      if (!ii1i1i11.success) return console.log("🚫 getShopMemberStatus 请求失败 ➜ " + ii1i1i11.error), undefined;
-      if (!ii1i1i11.data) {
-        return console.log("🚫 getShopMemberStatus 请求异常 ➜ 无响应数据"), undefined;
+        _0x176a11 = await this.request(_0x3da3f6);
+      if (!_0x176a11.success) {
+        console.log("🚫 joinShopMember 请求失败 ➜ " + _0x176a11.error);
+        return undefined;
       }
-      const l1iIiIIi = ii1i1i11.data;
-      if (l1iIiIIi?.["success"] === true) {
-        let IlliiIii = l1iIiIIi.result;
-        if (Array.isArray(IlliiIii)) {
-          IlliiIii = IlliiIii[0];
+      if (!_0x176a11.data) {
+        console.log("🚫 joinShopMember 请求异常 ➜ 无响应数据");
+        return undefined;
+      }
+      const _0x55eabb = _0x176a11.data;
+      if (_0x55eabb?.["success"] === true) {
+        if (_0x55eabb?.["result"] && _0x55eabb.result?.["giftInfo"]) {
+          for (let _0x27ab1a of _0x55eabb.result?.["giftInfo"]?.["giftList"]) {
+            console.log(" >> 入会获得：" + _0x27ab1a.discountString + _0x27ab1a.prizeName);
+          }
         }
-        const l1iIiIIl = IlliiIii?.["interestsRuleList"]?.[0]?.["interestsInfo"]?.["activityId"];
-        if (l1iIiIIl) {
-          this._shopMemberActivityIds.set(lliI1I1l, l1iIiIIl);
+        if (_0x55eabb?.["message"] === "加入店铺会员成功") {
+          return true;
+        } else {
+          if (_0x55eabb?.["message"] === "活动太火爆，请稍后再试") {
+            console.log("🚫 加入店铺会员失败 ➜ " + _0x55eabb.message);
+          } else {
+            console.log("🚫 加入店铺会员失败 ➜ " + _0x55eabb?.["message"]);
+            return false;
+          }
         }
-        return IlliiIii?.["userInfo"]?.["openCardStatus"] === 1;
-      } else l1iIiIIi?.["message"] ? console.log("🚫 获取店铺会员状态异常 ➜ " + l1iIiIIi.message) : console.log("🚫 获取店铺会员状态异常 ➜ " + JSON.stringify(l1iIiIIi));
-    } catch (ii1il11I) {
-      console.log("❌ getShopMemberStatus 在处理请求中遇到了错误\n" + ii1il11I);
+      } else {
+        if (_0x55eabb?.["message"]) {
+          console.log("🚫 加入店铺会员失败 ➜ " + _0x55eabb.message);
+          return false;
+        } else {
+          console.log("🚫 加入店铺会员失败 ➜ " + JSON.stringify(_0x55eabb));
+        }
+      }
+    } catch (_0x49e085) {
+      console.log("❌ joinShopMember 在处理请求中遇到了错误\n" + _0x49e085);
     }
     return undefined;
   }
-  async ["randomSign"](IIiIlI1i, l1iIiIII, IIiIlI1l, IlliiIl1 = this._Cookie) {
-    const I1iiiIlI = await this.request({
-        "url": IIiIlI1l,
-        "method": "POST",
-        "headers": {
+  async getShopMemberStatus(_0x30a25b, _0x2e3155 = this._Cookie) {
+    if (!_0x2e3155) {
+      console.log("🚫 getShopMemberStatus 请求失败 ➜ 未设置Cookie");
+      return undefined;
+    }
+    if (!_0x30a25b) {
+      return undefined;
+    }
+    try {
+      this._loadModule("h5st");
+      if (!this._H5st) {
+        return undefined;
+      }
+      _0x30a25b = "".concat(_0x30a25b);
+      const _0x339334 = {
+          appId: "27004",
+          appid: "shopmember_m_jd_com",
+          functionId: "getShopOpenCardInfo",
+          clientVersion: "9.2.0",
+          client: "H5",
+          body: {
+            venderId: _0x30a25b,
+            payUpShop: true,
+            queryVersion: "10.5.2",
+            appid: "27004",
+            needSecurity: true,
+            bizId: "shopmember_m_jd_com",
+            channel: 406
+          },
+          version: "4.7",
+          t: true,
+          ua: this._UserAgent || this._defaultUserAgent
+        },
+        _0x1773ef = await this._H5st.getH5st(_0x339334);
+      if (!_0x1773ef.paramsData) {
+        return undefined;
+      }
+      const _0x1a6744 = {
+          url: "https://api.m.jd.com/client.action",
+          method: "POST",
+          headers: {
+            Accept: "*/*",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "zh-CN,zh-Hans;q=0.9",
+            Origin: "https://pages.jd.com",
+            Referer: "https://pages.jd.com/",
+            "Sec-Fetch-Dest": "empty",
+            "Sec-Fetch-Mode": "cors",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "User-Agent": this._UserAgent || this._defaultUserAgent,
+            Cookie: _0x2e3155
+          },
+          data: Object.assign({}, _0x1773ef.paramsData, {
+            area: "",
+            screen: "1290*2796",
+            uuid: "88888"
+          }),
+          timeout: 30000
+        },
+        _0x2a7867 = await this.request(_0x1a6744);
+      if (!_0x2a7867.success) {
+        console.log("🚫 getShopMemberStatus 请求失败 ➜ " + _0x2a7867.error);
+        return undefined;
+      }
+      if (!_0x2a7867.data) {
+        console.log("🚫 getShopMemberStatus 请求异常 ➜ 无响应数据");
+        return undefined;
+      }
+      const _0x3cf3ee = _0x2a7867.data;
+      if (_0x3cf3ee?.["success"] === true) {
+        let _0x1bd681 = _0x3cf3ee.result;
+        Array.isArray(_0x1bd681) && (_0x1bd681 = _0x1bd681[0]);
+        const _0x34e5f9 = _0x1bd681?.["interestsRuleList"]?.[0]?.["interestsInfo"]?.["activityId"];
+        _0x34e5f9 && this._shopMemberActivityIds.set(_0x30a25b, _0x34e5f9);
+        return _0x1bd681?.["userInfo"]?.["openCardStatus"] === 1;
+      } else {
+        _0x3cf3ee?.["message"] ? console.log("🚫 获取店铺会员状态异常 ➜ " + _0x3cf3ee.message) : console.log("🚫 获取店铺会员状态异常 ➜ " + JSON.stringify(_0x3cf3ee));
+      }
+    } catch (_0x24b174) {
+      console.log("❌ getShopMemberStatus 在处理请求中遇到了错误\n" + _0x24b174);
+    }
+    return undefined;
+  }
+  async randomSign(_0xc72cfb, _0x4a0cf0, _0x131969, _0x1d503a = this._Cookie) {
+    const _0x5c41dd = await this.request({
+        url: _0x131969,
+        method: "POST",
+        headers: {
           "Content-Type": "application/json"
         },
-        "body": JSON.stringify({
-          "fn": IIiIlI1i,
-          "body": l1iIiIII
+        body: JSON.stringify({
+          fn: _0xc72cfb,
+          body: _0x4a0cf0
         }),
-        "timeout": 30000
+        timeout: 30000
       }),
-      ii1il111 = I1iiiIlI.data;
-    if (ii1il111 && ii1il111.body) return ii1il111.body;
+      _0x188b84 = _0x5c41dd.data;
+    if (_0x188b84 && _0x188b84.body) {
+      return _0x188b84.body;
+    }
   }
-  async ["getShopDetail"](l1iIiII1 = {
-    "venderId": "",
-    "shopId": ""
-  }, l1li1Ill = this._Cookie) {
+  async getShopDetail(_0x56665b = {
+    venderId: "",
+    shopId: ""
+  }, _0x109c5f = this._Cookie) {
     const {
-      venderId: IilIl1iI,
-      shopId: i111illl
-    } = l1iIiII1;
-    if (!IilIl1iI && !i111illl) return {};
+      venderId: _0x2c6431,
+      shopId: _0x563141
+    } = _0x56665b;
+    if (!_0x2c6431 && !_0x563141) {
+      return {};
+    }
     try {
-      const IilIl1i1 = {
-          "url": "https://api.m.jd.com/client.action",
-          "method": "POST",
-          "headers": {
-            "Accept": "*/*",
+      const _0x245e40 = {
+          url: "https://api.m.jd.com/client.action",
+          method: "POST",
+          headers: {
+            Accept: "*/*",
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,en-GB;q=0.6",
             "Content-Type": "application/x-www-form-urlencoded",
-            "Origin": "https://shop.m.jd.com",
-            "Referer": "https://shop.m.jd.com/",
-            "Host": "api.m.jd.com",
+            Origin: "https://shop.m.jd.com",
+            Referer: "https://shop.m.jd.com/",
+            Host: "api.m.jd.com",
             "Sec-Fetch-Dest": "empty",
             "Sec-Fetch-Mode": "cors",
             "Sec-Fetch-Site": "same-site",
             "User-Agent": this._defaultUserAgent,
             "X-Referer-Page": "https://shop.m.jd.com/shop/introduce",
             "X-Rp-Client": "h5_1.0.0",
-            "Cookie": l1li1Ill || ""
+            Cookie: _0x109c5f || ""
           },
-          "data": {
-            "functionId": "whx_getMShopDetail",
-            "body": JSON.stringify({
-              "shopId": "".concat(i111illl || ""),
-              "venderId": "".concat(IilIl1iI || ""),
-              "source": "m-shop"
+          data: {
+            functionId: "whx_getMShopDetail",
+            body: JSON.stringify({
+              shopId: "".concat(_0x563141 || ""),
+              venderId: "".concat(_0x2c6431 || ""),
+              source: "m-shop"
             }),
-            "t": Date.now().toString(),
-            "appid": "shop_m_jd_com",
-            "clientVersion": "11.0.0",
-            "client": "wh5",
-            "area": "",
-            "uuid": ""
+            t: Date.now().toString(),
+            appid: "shop_m_jd_com",
+            clientVersion: "11.0.0",
+            client: "wh5",
+            area: "",
+            uuid: ""
           },
-          "timeout": 30000
+          timeout: 30000
         },
-        l1li1IlI = await this.request(IilIl1i1);
-      if (!l1li1IlI.success) return console.log("🚫 getShopDetail 请求失败 ➜ " + l1li1IlI.error), {};
-      if (!l1li1IlI.data) return console.log("🚫 getShopDetail 请求异常 ➜ 无响应数据"), {};
-      const I1I1I1i = l1li1IlI.data;
-      if (I1I1I1i.code === "200" && I1I1I1i.success === true && I1I1I1i.data) return I1I1I1i?.["data"] || {};
-    } catch (I1I1I1l) {
-      console.log("❌ getShopDetail 在处理请求中遇到了错误\n" + I1I1I1l);
+        _0xd2d664 = await this.request(_0x245e40);
+      if (!_0xd2d664.success) {
+        console.log("🚫 getShopDetail 请求失败 ➜ " + _0xd2d664.error);
+        return {};
+      }
+      if (!_0xd2d664.data) {
+        console.log("🚫 getShopDetail 请求异常 ➜ 无响应数据");
+        return {};
+      }
+      const _0x158009 = _0xd2d664.data;
+      if (_0x158009.code === "200" && _0x158009.success === true && _0x158009.data) {
+        return _0x158009?.["data"] || {};
+      }
+    } catch (_0x4e6597) {
+      console.log("❌ getShopDetail 在处理请求中遇到了错误\n" + _0x4e6597);
     }
     return {};
   }
-  async ["getShopId"](iIllIlii, il111lI1 = this._Cookie) {
-    if (!iIllIlii) return null;
+  async getShopId(_0x47e7bf, _0x2cd0ed = this._Cookie) {
+    if (!_0x47e7bf) {
+      return null;
+    }
     try {
-      const IilIl1lI = await this.getShopDetail({
-        "venderId": iIllIlii
-      }, il111lI1);
-      return IilIl1lI?.["shopBaseInfo"]?.["shopId"] || null;
-    } catch (il111lII) {
-      console.log("❌ getShopId 在处理请求中遇到了错误\n" + il111lII);
+      const _0x4159b3 = await this.getShopDetail({
+        venderId: _0x47e7bf
+      }, _0x2cd0ed);
+      return _0x4159b3?.["shopBaseInfo"]?.["shopId"] || null;
+    } catch (_0x342051) {
+      console.log("❌ getShopId 在处理请求中遇到了错误\n" + _0x342051);
     }
     return null;
   }
-  async ["getVenderId"](i111ilil, iIllIliI = this._Cookie) {
-    if (!i111ilil) return null;
+  async getVenderId(_0x5854a3, _0x313e2a = this._Cookie) {
+    if (!_0x5854a3) {
+      return null;
+    }
     try {
-      const lliIilii = await this.getShopDetail({
-        "shopId": i111ilil
-      }, iIllIliI);
-      return lliIilii?.["shopBaseInfo"]?.["venderId"] || null;
-    } catch (lliIilil) {
-      console.log("❌ getVenderId 在处理请求中遇到了错误\n" + lliIilil);
+      const _0x840dc0 = await this.getShopDetail({
+        shopId: _0x5854a3
+      }, _0x313e2a);
+      return _0x840dc0?.["shopBaseInfo"]?.["venderId"] || null;
+    } catch (_0x265861) {
+      console.log("❌ getVenderId 在处理请求中遇到了错误\n" + _0x265861);
     }
     return null;
   }
-  async ["getShopName"](llIiiiIl = {
-    "venderId": "",
-    "shopId": ""
-  }, llIiiiIi = this._Cookie) {
+  async getShopName(_0x3c4739 = {
+    venderId: "",
+    shopId: ""
+  }, _0x42cb5a = this._Cookie) {
     const {
-      venderId: Il1Iil11,
-      shopId: IilI1iil
-    } = llIiiiIl;
-    if (!Il1Iil11 && !IilI1iil) return null;
+      venderId: _0x1c8896,
+      shopId: _0x3ff63c
+    } = _0x3c4739;
+    if (!_0x1c8896 && !_0x3ff63c) {
+      return null;
+    }
     try {
-      const IilI1iii = await this.getShopDetail(llIiiiIl, llIiiiIi);
-      return IilI1iii?.["shopBaseInfo"]?.["shopName"] || null;
-    } catch (iIIllIIl) {
-      console.log("❌ getShopName 在处理请求中遇到了错误\n" + iIIllIIl);
+      const _0xd3cb9 = await this.getShopDetail(_0x3c4739, _0x42cb5a);
+      return _0xd3cb9?.["shopBaseInfo"]?.["shopName"] || null;
+    } catch (_0x5dad5d) {
+      console.log("❌ getShopName 在处理请求中遇到了错误\n" + _0x5dad5d);
     }
     return null;
   }
-  async ["followShop"](iIii1ll, lliIill1, llIiiiII = this._Cookie) {
-    if (!llIiiiII) {
-      return console.log("🚫 followShop 请求失败 ➜ 未设置Cookie"), undefined;
+  async followShop(_0x383cda, _0x1aea87, _0xaca812 = this._Cookie) {
+    if (!_0xaca812) {
+      console.log("🚫 followShop 请求失败 ➜ 未设置Cookie");
+      return undefined;
     }
-    if (!iIii1ll && typeof iIii1ll !== "boolean" || !lliIill1) {
+    if (!_0x383cda && typeof _0x383cda !== "boolean" || !_0x1aea87) {
       return undefined;
     }
     try {
-      const l11I1iI1 = {
-          "url": "https://api.m.jd.com/client.action",
-          "method": "POST",
-          "headers": {
-            "Accept": "application/json, text/plain, */*",
+      const _0x26eadc = {
+          url: "https://api.m.jd.com/client.action",
+          method: "POST",
+          headers: {
+            Accept: "application/json, text/plain, */*",
             "Accept-Encoding": "gzip, deflate, br",
             "Content-Type": "application/x-www-form-urlencoded",
-            "Origin": "https://shop.m.jd.com",
-            "Referer": "https://shop.m.jd.com/",
-            "Connection": "keep-alive",
+            Origin: "https://shop.m.jd.com",
+            Referer: "https://shop.m.jd.com/",
+            Connection: "keep-alive",
             "Accept-Language": "zh-cn",
-            "Cookie": llIiiiII,
+            Cookie: _0xaca812,
             "User-Agent": this._defaultUserAgent
           },
-          "data": {
-            "functionId": "whx_followShop",
-            "body": JSON.stringify({
-              "shopId": lliIill1,
-              "follow": iIii1ll
+          data: {
+            functionId: "whx_followShop",
+            body: JSON.stringify({
+              shopId: _0x1aea87,
+              follow: _0x383cda
             }),
-            "t": Date.now(),
-            "appid": "shop_m_jd_com",
-            "clientVersion": "11.0.0",
-            "client": "wh5"
+            t: Date.now(),
+            appid: "shop_m_jd_com",
+            clientVersion: "11.0.0",
+            client: "wh5"
           },
-          "timeout": 30000
+          timeout: 30000
         },
-        lIIilIl = await this.request(l11I1iI1);
-      if (!lIIilIl.success) {
-        return console.log("🚫 followShop 请求失败 ➜ " + lIIilIl.error), undefined;
+        _0x2db387 = await this.request(_0x26eadc);
+      if (!_0x2db387.success) {
+        console.log("🚫 followShop 请求失败 ➜ " + _0x2db387.error);
+        return undefined;
       }
-      if (!lIIilIl.data) return console.log("🚫 followShop 请求异常 ➜ 无响应数据"), undefined;
-      const Il1Iil1i = lIIilIl.data;
-      if (Il1Iil1i?.["code"] === "0") return Il1Iil1i?.["result"]?.["code"] === "0";else {
-        if (Il1Iil1i?.["msg"]) return false;else console.log("🚫 " + (iIii1ll ? "关注" : "取关") + "店铺异常 ➜ " + JSON.stringify(Il1Iil1i));
+      if (!_0x2db387.data) {
+        console.log("🚫 followShop 请求异常 ➜ 无响应数据");
+        return undefined;
       }
-    } catch (lliIilll) {
-      console.log("❌ followShop 在处理请求中遇到了错误\n" + lliIilll);
+      const _0x364881 = _0x2db387.data;
+      if (_0x364881?.["code"] === "0") {
+        return _0x364881?.["result"]?.["code"] === "0";
+      } else {
+        if (_0x364881?.["msg"]) {
+          return false;
+        } else {
+          console.log("🚫 " + (_0x383cda ? "关注" : "取关") + "店铺异常 ➜ " + JSON.stringify(_0x364881));
+        }
+      }
+    } catch (_0x2fa726) {
+      console.log("❌ followShop 在处理请求中遇到了错误\n" + _0x2fa726);
     }
     return undefined;
   }
-  ["useAppTls"](l11Il1Il = {}) {
-    return Object.assign({}, this._appHttpsTlsOptions, l11Il1Il);
+  useAppTls(_0x34eafd = {}) {
+    return Object.assign({}, this._appHttpsTlsOptions, _0x34eafd);
   }
-  async ["concTask"](iIllIlll = "3", lliIilli, iIllIlli) {
-    const lIIilII = lliIilli.slice();
-    let llliI11I = false,
-      l1iiI111 = 0,
-      iIii1l1 = 0;
-    async function I11i1ili(Ilii1Ii1, IIII11Il) {
-      const lIlIllI1 = await iIllIlli(Ilii1Ii1, IIII11Il);
-      if (lIlIllI1) {
-        if (typeof lIlIllI1 === "boolean") llliI11I = true;else {
-          if (typeof lIlIllI1 === "object") {
-            if (lIlIllI1?.["runEnd"]) {
-              llliI11I = true;
-            }
-          }
+  async concTask(_0x11f1c5 = "3", _0x2a6041, _0xa64d57) {
+    const _0xa9d926 = _0x2a6041.slice();
+    let _0x2ce98b = false,
+      _0x1bb198 = 0,
+      _0x3230eb = 0;
+    async function _0xe0ce50(_0x9cc85c, _0x2d60b6) {
+      const _0x4a444d = await _0xa64d57(_0x9cc85c, _0x2d60b6);
+      if (_0x4a444d) {
+        if (typeof _0x4a444d === "boolean") {
+          _0x2ce98b = true;
+        } else {
+          typeof _0x4a444d === "object" && _0x4a444d?.["runEnd"] && (_0x2ce98b = true);
         }
       }
-      l1iiI111--;
-      llliI111();
+      _0x1bb198--;
+      _0x2dceda();
     }
-    async function llliI111() {
-      while (l1iiI111 < iIllIlll && lIIilII.length > 0 && !llliI11I) {
-        const ii1IIiII = lIIilII.shift();
-        l1iiI111++;
-        iIii1l1++;
-        await I11i1ili(ii1IIiII, iIii1l1);
+    async function _0x2dceda() {
+      while (_0x1bb198 < _0x11f1c5 && _0xa9d926.length > 0 && !_0x2ce98b) {
+        const _0x3c88a9 = _0xa9d926.shift();
+        _0x1bb198++;
+        _0x3230eb++;
+        await _0xe0ce50(_0x3c88a9, _0x3230eb);
       }
-      llliI11I && (await new Promise(Ilii1IiI => {
-        const I1IilII = setInterval(() => {
-          l1iiI111 === 0 && (clearInterval(I1IilII), Ilii1IiI());
+      _0x2ce98b && (await new Promise(_0x4c0e19 => {
+        const _0x1d1496 = setInterval(() => {
+          _0x1bb198 === 0 && (clearInterval(_0x1d1496), _0x4c0e19());
         }, 100);
       }));
     }
-    const IilI1ill = Math.min(lIIilII.length, iIllIlll),
-      I11i1ill = [];
-    for (let l1lIIil = 0; l1lIIil < IilI1ill; l1lIIil++) {
-      const IiIl11Il = lIIilII.shift();
-      l1iiI111++;
-      iIii1l1++;
-      I11i1ill.push(I11i1ili(IiIl11Il, iIii1l1));
+    const _0x504eb5 = Math.min(_0xa9d926.length, _0x11f1c5),
+      _0x1b17aa = [];
+    for (let _0x5dfc08 = 0; _0x5dfc08 < _0x504eb5; _0x5dfc08++) {
+      const _0x3738f8 = _0xa9d926.shift();
+      _0x1bb198++;
+      _0x3230eb++;
+      _0x1b17aa.push(_0xe0ce50(_0x3738f8, _0x3230eb));
     }
-    await Promise.all(I11i1ill);
-    llliI111();
-    await new Promise(iliIll1i => {
-      const iIililii = setInterval(() => {
-        (l1iiI111 === 0 || llliI11I) && (clearInterval(iIililii), iliIll1i());
+    await Promise.all(_0x1b17aa);
+    _0x2dceda();
+    await new Promise(_0x32813f => {
+      const _0x342330 = setInterval(() => {
+        (_0x1bb198 === 0 || _0x2ce98b) && (clearInterval(_0x342330), _0x32813f());
       }, 100);
     });
   }
-  async ["getSign"](lll111i1, iil1I1l) {
+  async getSign(_0x576036, _0x46a13e) {
     !this._hasInitAppSignConfig && (this._initAppSignConfig(), this._hasInitAppSignConfig = true);
-    let iliIll1I = "";
+    let _0xa8689e = "";
     try {
-      const llIiii1l = this._appSignConfig;
-      if (llIiii1l.genSign) {
+      const _0x504375 = this._appSignConfig;
+      if (_0x504375.genSign) {
         try {
-          iliIll1I = llIiii1l.genSign(lll111i1, iil1I1l);
-        } catch (l1lIIi1) {
-          console.log("🚫 getSign 获取本地签名遇到了错误 ➜ " + (l1lIIi1.message || l1lIIi1));
+          _0xa8689e = _0x504375.genSign(_0x576036, _0x46a13e);
+        } catch (_0x41f2c0) {
+          console.log("🚫 getSign 获取本地签名遇到了错误 ➜ " + (_0x41f2c0.message || _0x41f2c0));
         }
-        if (iliIll1I) {
-          return iliIll1I;
-        } else console.log("🚫 getSign 本地签名获取失败");
+        if (_0xa8689e) {
+          return _0xa8689e;
+        } else {
+          console.log("🚫 getSign 本地签名获取失败");
+        }
       }
-      let iililli = {
-        [llIiii1l.functionIdField]: lll111i1,
-        [llIiii1l.bodyField]: iil1I1l
+      let _0x44fd7e = {
+        [_0x504375.functionIdField]: _0x576036,
+        [_0x504375.bodyField]: _0x46a13e
       };
-      const llIiii1i = {
-        "url": llIiii1l.requestApi,
-        "method": llIiii1l.requestMethod.toLowerCase(),
-        "headers": {
-          "Content-Type": llIiii1l.requestContentType
+      const _0x562960 = {
+        url: _0x504375.requestApi,
+        method: _0x504375.requestMethod.toLowerCase(),
+        headers: {
+          "Content-Type": _0x504375.requestContentType
         },
-        "data": null,
-        "timeout": 60000,
-        "proxy": null,
-        "debug": false
+        data: null,
+        timeout: 60000,
+        proxy: null,
+        debug: false
       };
-      if (llIiii1l.requestMethod === "GET") llIiii1l.requestApi += "?" + this.objectToQueryString(iililli), delete llIiii1i.data, delete llIiii1i.headers["Content-Type"];else {
-        if (llIiii1l.requestContentType.indexOf("application/x-www-form-urlencoded") !== -1) {
-          typeof iililli[llIiii1l.bodyField] === "object" && (iililli[llIiii1l.bodyField] = JSON.stringify(iililli[llIiii1l.bodyField]));
-          llIiii1i.data = this.objectToQueryString(iililli);
-        } else llIiii1i.data = JSON.stringify(iililli);
+      _0x504375.requestMethod === "GET" ? (_0x504375.requestApi += "?" + this.objectToQueryString(_0x44fd7e), delete _0x562960.data, delete _0x562960.headers["Content-Type"]) : _0x504375.requestContentType.indexOf("application/x-www-form-urlencoded") !== -1 ? (typeof _0x44fd7e[_0x504375.bodyField] === "object" && (_0x44fd7e[_0x504375.bodyField] = JSON.stringify(_0x44fd7e[_0x504375.bodyField])), _0x562960.data = this.objectToQueryString(_0x44fd7e)) : _0x562960.data = JSON.stringify(_0x44fd7e);
+      const _0x1036e9 = await this.request(_0x562960);
+      if (!_0x1036e9.success) {
+        console.log("🚫 getSign 请求失败 ➜ " + _0x1036e9.error);
+        return _0xa8689e;
       }
-      const l1Ili1II = await this.request(llIiii1i);
-      if (!l1Ili1II.success) return console.log("🚫 getSign 请求失败 ➜ " + l1Ili1II.error), iliIll1I;
-      if (!l1Ili1II.data) {
-        return console.log("🚫 getSign 请求异常 ➜ 无响应数据"), iliIll1I;
+      if (!_0x1036e9.data) {
+        console.log("🚫 getSign 请求异常 ➜ 无响应数据");
+        return _0xa8689e;
       }
-      let lliI1Il1 = l1Ili1II.data;
-      if (typeof l1Ili1II.data === "object") {
-        lliI1Il1.data && (lliI1Il1 = lliI1Il1.data);
-        for (const l1IiIiII of ["body", "convertUrl", "convertUrlNew"]) {
-          if (lliI1Il1?.[l1IiIiII] && this._checkSignStrFormat(lliI1Il1[l1IiIiII])) {
-            iliIll1I = lliI1Il1[l1IiIiII];
+      let _0x46b1e7 = _0x1036e9.data;
+      if (typeof _0x1036e9.data === "object") {
+        _0x46b1e7.data && (_0x46b1e7 = _0x46b1e7.data);
+        for (const _0xc8454e of ["body", "convertUrl", "convertUrlNew"]) {
+          if (_0x46b1e7?.[_0xc8454e] && this._checkSignStrFormat(_0x46b1e7[_0xc8454e])) {
+            _0xa8689e = _0x46b1e7[_0xc8454e];
             break;
           }
         }
-        !iliIll1I && console.log("🚫 getSign 响应数据解析异常 ➜ " + JSON.stringify(lliI1Il1));
-      } else this._checkSignStrFormat(lliI1Il1) ? iliIll1I = lliI1Il1 : console.log("🚫 getSign 响应数据解析异常 ➜ " + lliI1Il1);
-    } catch (IIlli11i) {
-      console.log("🚫 getSign 在处理请求中遇到了错误\n" + IIlli11i);
+        !_0xa8689e && console.log("🚫 getSign 响应数据解析异常 ➜ " + JSON.stringify(_0x46b1e7));
+      } else {
+        this._checkSignStrFormat(_0x46b1e7) ? _0xa8689e = _0x46b1e7 : console.log("🚫 getSign 响应数据解析异常 ➜ " + _0x46b1e7);
+      }
+    } catch (_0x1cbd57) {
+      console.log("🚫 getSign 在处理请求中遇到了错误\n" + _0x1cbd57);
     }
-    return iliIll1I;
+    return _0xa8689e;
   }
-  ["_checkSignStrFormat"](llIiii11) {
-    const I1IIli1i = ["body=", "st=", "sign=", "sv="];
-    for (let I11IIiil = 0; I11IIiil < I1IIli1i.length; I11IIiil++) {
-      if (!llIiii11.includes(I1IIli1i[I11IIiil])) return false;
+  _checkSignStrFormat(_0x2faa22) {
+    const _0x578675 = ["body=", "st=", "sign=", "sv="];
+    for (let _0x46f088 = 0; _0x46f088 < _0x578675.length; _0x46f088++) {
+      if (!_0x2faa22.includes(_0x578675[_0x46f088])) {
+        return false;
+      }
     }
     return true;
   }
-  ["_loadModule"](lliI1Iii) {
-    switch (lliI1Iii) {
+  _loadModule(_0x113e9b) {
+    switch (_0x113e9b) {
       case "h5st":
         if (!this._H5st) {
           try {
             const {
-              H5st: Ilii1Ill
+              H5st: _0x319115
             } = require(this._jdCryptoModelPath);
-            this._H5st = Ilii1Ill;
-          } catch (lll111il) {
+            this._H5st = _0x319115;
+          } catch (_0x5906f9) {
             console.log("❌ h5st 组件加载失败");
           }
         }
         break;
       case "TablePrint":
-        if (!this._Table) try {
-          const {
-            Table: I1I1Illl
-          } = require("console-table-printer");
-          this._Table = I1I1Illl;
-        } catch (I1I1Illi) {
-          console.log("❌ console-table-printer 表格打印模块加载失败 " + (I1I1Illi.message || I1I1Illi));
+        if (!this._Table) {
+          try {
+            const {
+              Table: _0x53e325
+            } = require("console-table-printer");
+            this._Table = _0x53e325;
+          } catch (_0x154728) {
+            console.log("❌ console-table-printer 表格打印模块加载失败 " + (_0x154728.message || _0x154728));
+          }
         }
         break;
       case "HttpsProxyAgent":
-        if (!this._HttpsProxyAgent) try {
-          const {
-            HttpsProxyAgent: Ilii1Il1
-          } = require("https-proxy-agent");
-          this._HttpsProxyAgent = Ilii1Il1;
-        } catch (liIIIIi1) {
+        if (!this._HttpsProxyAgent) {
           try {
-            this._HttpsProxyAgent = require("https-proxy-agent");
-          } catch (l1IiIiIl) {
-            console.log("❌ https-proxy-agent 代理模块加载失败 " + (l1IiIiIl.message || l1IiIiIl));
+            const {
+              HttpsProxyAgent: _0x55e5c1
+            } = require("https-proxy-agent");
+            this._HttpsProxyAgent = _0x55e5c1;
+          } catch (_0x51d9d1) {
+            try {
+              this._HttpsProxyAgent = require("https-proxy-agent");
+            } catch (_0x34c4a1) {
+              console.log("❌ https-proxy-agent 代理模块加载失败 " + (_0x34c4a1.message || _0x34c4a1));
+            }
           }
         }
         break;
@@ -1573,157 +1687,180 @@ class Common {
   }
 }
 class Base64Algorithm {
-  static ["_utf8Encode"](lliI1Ii1) {
-    lliI1Ii1 = lliI1Ii1.replace(/rn/g, "n");
-    let l1IiIiIi = "",
-      I11IIil1;
-    for (let Ilii1IlI = 0; Ilii1IlI < lliI1Ii1.length; Ilii1IlI++) {
-      I11IIil1 = lliI1Ii1.charCodeAt(Ilii1IlI);
-      if (I11IIil1 < 128) l1IiIiIi += String.fromCharCode(I11IIil1);else {
-        if (I11IIil1 > 127 && I11IIil1 < 2048) {
-          l1IiIiIi += String.fromCharCode(I11IIil1 >> 6 | 192);
-          l1IiIiIi += String.fromCharCode(I11IIil1 & 63 | 128);
-        } else l1IiIiIi += String.fromCharCode(I11IIil1 >> 12 | 224), l1IiIiIi += String.fromCharCode(I11IIil1 >> 6 & 63 | 128), l1IiIiIi += String.fromCharCode(I11IIil1 & 63 | 128);
+  static _utf8Encode(_0x450481) {
+    _0x450481 = _0x450481.replace(/rn/g, "n");
+    let _0x15b80e = "",
+      _0x12b4b5;
+    for (let _0x390f53 = 0; _0x390f53 < _0x450481.length; _0x390f53++) {
+      _0x12b4b5 = _0x450481.charCodeAt(_0x390f53);
+      if (_0x12b4b5 < 128) {
+        _0x15b80e += String.fromCharCode(_0x12b4b5);
+      } else {
+        _0x12b4b5 > 127 && _0x12b4b5 < 2048 ? (_0x15b80e += String.fromCharCode(_0x12b4b5 >> 6 | 192), _0x15b80e += String.fromCharCode(_0x12b4b5 & 63 | 128)) : (_0x15b80e += String.fromCharCode(_0x12b4b5 >> 12 | 224), _0x15b80e += String.fromCharCode(_0x12b4b5 >> 6 & 63 | 128), _0x15b80e += String.fromCharCode(_0x12b4b5 & 63 | 128));
       }
     }
-    return l1IiIiIi;
+    return _0x15b80e;
   }
-  static ["_utf8Decode"](IiIiiiII) {
-    let I11IIili = "",
-      IIiIIi1,
-      lll111lI,
-      il111lll,
-      l1Ili1I1 = 0;
-    while (l1Ili1I1 < IiIiiiII.length) {
-      IIiIIi1 = IiIiiiII.charCodeAt(l1Ili1I1);
-      if (IIiIIi1 < 128) I11IIili += String.fromCharCode(IIiIIi1), l1Ili1I1++;else IIiIIi1 > 191 && IIiIIi1 < 224 ? (lll111lI = IiIiiiII.charCodeAt(l1Ili1I1 + 1), I11IIili += String.fromCharCode((IIiIIi1 & 31) << 6 | lll111lI & 63), l1Ili1I1 += 2) : (lll111lI = IiIiiiII.charCodeAt(l1Ili1I1 + 1), il111lll = IiIiiiII.charCodeAt(l1Ili1I1 + 2), I11IIili += String.fromCharCode((IIiIIi1 & 15) << 12 | (lll111lI & 63) << 6 | il111lll & 63), l1Ili1I1 += 3);
+  static _utf8Decode(_0x44368c) {
+    let _0x2bcbf2 = "",
+      _0x259835,
+      _0x5492fc,
+      _0x595e3,
+      _0x5a9dd8 = 0;
+    while (_0x5a9dd8 < _0x44368c.length) {
+      _0x259835 = _0x44368c.charCodeAt(_0x5a9dd8);
+      if (_0x259835 < 128) {
+        _0x2bcbf2 += String.fromCharCode(_0x259835);
+        _0x5a9dd8++;
+      } else {
+        _0x259835 > 191 && _0x259835 < 224 ? (_0x5492fc = _0x44368c.charCodeAt(_0x5a9dd8 + 1), _0x2bcbf2 += String.fromCharCode((_0x259835 & 31) << 6 | _0x5492fc & 63), _0x5a9dd8 += 2) : (_0x5492fc = _0x44368c.charCodeAt(_0x5a9dd8 + 1), _0x595e3 = _0x44368c.charCodeAt(_0x5a9dd8 + 2), _0x2bcbf2 += String.fromCharCode((_0x259835 & 15) << 12 | (_0x5492fc & 63) << 6 | _0x595e3 & 63), _0x5a9dd8 += 3);
+      }
     }
-    return I11IIili;
+    return _0x2bcbf2;
   }
-  static ["encode"](i11lI1Il, iililiI = "KLMNOPQRSTABCDEFGHIJUVWXYZabcdopqrstuvwxefghijklmnyz0123456789+/") {
-    let I1liIIl1 = "",
-      i1lillIi,
-      liIiilll,
-      i1lillIl,
-      I1i1I1lI,
-      l1lIIIii,
-      ii1Iill,
-      II11IlI,
-      iIIii1ll = 0;
-    i11lI1Il = this._utf8Encode(i11lI1Il);
-    while (iIIii1ll < i11lI1Il.length) {
-      i1lillIi = i11lI1Il.charCodeAt(iIIii1ll++);
-      liIiilll = i11lI1Il.charCodeAt(iIIii1ll++);
-      i1lillIl = i11lI1Il.charCodeAt(iIIii1ll++);
-      I1i1I1lI = i1lillIi >> 2;
-      l1lIIIii = (i1lillIi & 3) << 4 | liIiilll >> 4;
-      ii1Iill = (liIiilll & 15) << 2 | i1lillIl >> 6;
-      II11IlI = i1lillIl & 63;
-      if (isNaN(liIiilll)) ii1Iill = II11IlI = 64;else isNaN(i1lillIl) && (II11IlI = 64);
-      I1liIIl1 = I1liIIl1 + iililiI.charAt(I1i1I1lI) + iililiI.charAt(l1lIIIii) + iililiI.charAt(ii1Iill) + iililiI.charAt(II11IlI);
+  static encode(_0x3b5f45, _0x1a9a3a = "KLMNOPQRSTABCDEFGHIJUVWXYZabcdopqrstuvwxefghijklmnyz0123456789+/") {
+    let _0x2c02be = "",
+      _0x40a48c,
+      _0x459e4a,
+      _0x3a521b,
+      _0x15edd3,
+      _0x4cbc77,
+      _0x163f77,
+      _0x1ccfd8,
+      _0x569af9 = 0;
+    _0x3b5f45 = this._utf8Encode(_0x3b5f45);
+    while (_0x569af9 < _0x3b5f45.length) {
+      _0x40a48c = _0x3b5f45.charCodeAt(_0x569af9++);
+      _0x459e4a = _0x3b5f45.charCodeAt(_0x569af9++);
+      _0x3a521b = _0x3b5f45.charCodeAt(_0x569af9++);
+      _0x15edd3 = _0x40a48c >> 2;
+      _0x4cbc77 = (_0x40a48c & 3) << 4 | _0x459e4a >> 4;
+      _0x163f77 = (_0x459e4a & 15) << 2 | _0x3a521b >> 6;
+      _0x1ccfd8 = _0x3a521b & 63;
+      if (isNaN(_0x459e4a)) {
+        _0x163f77 = _0x1ccfd8 = 64;
+      } else {
+        isNaN(_0x3a521b) && (_0x1ccfd8 = 64);
+      }
+      _0x2c02be = _0x2c02be + _0x1a9a3a.charAt(_0x15edd3) + _0x1a9a3a.charAt(_0x4cbc77) + _0x1a9a3a.charAt(_0x163f77) + _0x1a9a3a.charAt(_0x1ccfd8);
     }
-    while (I1liIIl1.length % 4 > 1) I1liIIl1 += "=";
-    return I1liIIl1;
+    while (_0x2c02be.length % 4 > 1) {
+      _0x2c02be += "=";
+    }
+    return _0x2c02be;
   }
-  static ["decode"](IIiIIli, II11Ili = "KLMNOPQRSTABCDEFGHIJUVWXYZabcdopqrstuvwxefghijklmnyz0123456789+/") {
-    let l1lIIIl1 = "",
-      liIiillI,
-      lI1III1I,
-      iilill1,
-      II11Ill,
-      IIiIIll,
-      I1i1I1ii,
-      I1i1I1il,
-      iI1ili1I = 0;
-    while (iI1ili1I < IIiIIli.length) {
-      II11Ill = II11Ili.indexOf(IIiIIli.charAt(iI1ili1I++));
-      IIiIIll = II11Ili.indexOf(IIiIIli.charAt(iI1ili1I++));
-      I1i1I1ii = II11Ili.indexOf(IIiIIli.charAt(iI1ili1I++));
-      I1i1I1il = II11Ili.indexOf(IIiIIli.charAt(iI1ili1I++));
-      liIiillI = II11Ill << 2 | IIiIIll >> 4;
-      lI1III1I = (IIiIIll & 15) << 4 | I1i1I1ii >> 2;
-      iilill1 = (I1i1I1ii & 3) << 6 | I1i1I1il;
-      l1lIIIl1 += String.fromCharCode(liIiillI);
-      if (I1i1I1ii !== 64) l1lIIIl1 += String.fromCharCode(lI1III1I);
-      if (I1i1I1il !== 64) l1lIIIl1 += String.fromCharCode(iilill1);
+  static decode(_0x3878cd, _0x5b28b6 = "KLMNOPQRSTABCDEFGHIJUVWXYZabcdopqrstuvwxefghijklmnyz0123456789+/") {
+    let _0x31e4fa = "",
+      _0x449ed4,
+      _0x4d06dd,
+      _0x12434d,
+      _0x4c15fe,
+      _0x4cd55c,
+      _0x56179c,
+      _0x25bcfa,
+      _0x5759a9 = 0;
+    while (_0x5759a9 < _0x3878cd.length) {
+      _0x4c15fe = _0x5b28b6.indexOf(_0x3878cd.charAt(_0x5759a9++));
+      _0x4cd55c = _0x5b28b6.indexOf(_0x3878cd.charAt(_0x5759a9++));
+      _0x56179c = _0x5b28b6.indexOf(_0x3878cd.charAt(_0x5759a9++));
+      _0x25bcfa = _0x5b28b6.indexOf(_0x3878cd.charAt(_0x5759a9++));
+      _0x449ed4 = _0x4c15fe << 2 | _0x4cd55c >> 4;
+      _0x4d06dd = (_0x4cd55c & 15) << 4 | _0x56179c >> 2;
+      _0x12434d = (_0x56179c & 3) << 6 | _0x25bcfa;
+      _0x31e4fa += String.fromCharCode(_0x449ed4);
+      if (_0x56179c !== 64) {
+        _0x31e4fa += String.fromCharCode(_0x4d06dd);
+      }
+      if (_0x25bcfa !== 64) {
+        _0x31e4fa += String.fromCharCode(_0x12434d);
+      }
     }
-    return l1lIIIl1 = this._utf8Decode(l1lIIIl1), l1lIIIl1;
+    _0x31e4fa = this._utf8Decode(_0x31e4fa);
+    return _0x31e4fa;
   }
 }
 class LocalStorageCache {
-  constructor(liIIIIl1 = null, ii1Iil1 = 0, IIl11i1i = null) {
-    this.saveFile = liIIIIl1;
-    this.defaultTTL = ii1Iil1;
-    this.reloadInterval = IIl11i1i;
+  constructor(_0x116ee1 = null, _0xaedb7 = 0, _0x347a8e = null) {
+    this.saveFile = _0x116ee1;
+    this.defaultTTL = _0xaedb7;
+    this.reloadInterval = _0x347a8e;
     this.lastLoad = 0;
     this.data = new Map();
     this.pendingWrites = false;
     this.load();
   }
-  ["load"]() {
+  load() {
     if (this.saveFile && fs.existsSync(this.saveFile)) {
       try {
-        const IlliiIi1 = fs.readFileSync(this.saveFile, "utf8"),
-          illiIll = JSON.parse(IlliiIi1);
-        this.data = new Map(Object.entries(illiIll));
-      } catch (I1i1I1l1) {}
+        const _0x33a97d = fs.readFileSync(this.saveFile, "utf8"),
+          _0x4606d6 = JSON.parse(_0x33a97d);
+        this.data = new Map(Object.entries(_0x4606d6));
+      } catch (_0x127cf2) {}
     }
     this.lastLoad = this.now();
   }
-  ["save"]() {
+  save() {
     if (this.saveFile && !this.pendingWrites) {
       this.pendingWrites = true;
       try {
-        const liIIIIlI = JSON.stringify(Object.fromEntries(this.data));
-        fs.writeFileSync(this.saveFile, liIIIIlI, "utf8");
+        const _0x5f5b97 = JSON.stringify(Object.fromEntries(this.data));
+        fs.writeFileSync(this.saveFile, _0x5f5b97, "utf8");
       } catch {}
       this.pendingWrites = false;
     }
   }
-  ["clear"]() {
+  clear() {
     this.data.clear();
   }
-  ["_checkAndReload"](l1lIIIli = this.now()) {
-    if (!this.reloadInterval || !this.saveFile) return;
-    l1lIIIli - this.lastLoad > this.reloadInterval && this.load();
+  _checkAndReload(_0x159b40 = this.now()) {
+    if (!this.reloadInterval || !this.saveFile) {
+      return;
+    }
+    _0x159b40 - this.lastLoad > this.reloadInterval && this.load();
   }
-  ["now"]() {
+  now() {
     return Date.now();
   }
-  ["put"](I1I1iI11, iIllIII = null, illiIil = 0, Ili1i1il) {
+  put(_0x1d5525, _0x5f095b = null, _0xe5577e = 0, _0xd75203) {
     this._checkAndReload();
-    illiIil = illiIil === 0 ? this.defaultTTL : illiIil;
-    const illiIii = illiIil === 0 ? 0 : this.now() + illiIil;
-    let il1lIll = null;
-    this.data.has(I1I1iI11) && (il1lIll = this.data.get(I1I1iI11).val);
-    iIllIII !== null ? this.data.set(I1I1iI11, {
-      "expires": illiIii,
-      "val": iIllIII
-    }) : this.data.delete(I1I1iI11);
+    _0xe5577e = _0xe5577e === 0 ? this.defaultTTL : _0xe5577e;
+    const _0x90e5cb = _0xe5577e === 0 ? 0 : this.now() + _0xe5577e;
+    let _0xc06f4a = null;
+    this.data.has(_0x1d5525) && (_0xc06f4a = this.data.get(_0x1d5525).val);
+    _0x5f095b !== null ? this.data.set(_0x1d5525, {
+      expires: _0x90e5cb,
+      val: _0x5f095b
+    }) : this.data.delete(_0x1d5525);
     this.save();
-    if (Ili1i1il && il1lIll) Ili1i1il(il1lIll);
-    return il1lIll;
-  }
-  ["get"](il1iIiII, lI1iilIi) {
-    this._checkAndReload();
-    let i11ilIl1 = null;
-    if (this.data.has(il1iIiII)) {
-      const iIIii1il = this.data.get(il1iIiII);
-      iIIii1il.expires === 0 || this.now() < iIIii1il.expires ? i11ilIl1 = iIIii1il.val : (i11ilIl1 = null, this.nuke(il1iIiII));
+    if (_0xd75203 && _0xc06f4a) {
+      _0xd75203(_0xc06f4a);
     }
-    if (lI1iilIi) lI1iilIi(i11ilIl1);
-    return i11ilIl1;
+    return _0xc06f4a;
   }
-  ["del"](IliIIIIl, illiIi1) {
+  get(_0x441410, _0x35465b) {
     this._checkAndReload();
-    let I1I1iI1i = null;
-    this.data.has(IliIIIIl) && (I1I1iI1i = this.data.get(IliIIIIl).val, this.data.delete(IliIIIIl), this.save());
-    if (illiIi1) illiIi1(I1I1iI1i);
-    return I1I1iI1i;
+    let _0x39754b = null;
+    if (this.data.has(_0x441410)) {
+      const _0x1bf69f = this.data.get(_0x441410);
+      _0x1bf69f.expires === 0 || this.now() < _0x1bf69f.expires ? _0x39754b = _0x1bf69f.val : (_0x39754b = null, this.nuke(_0x441410));
+    }
+    if (_0x35465b) {
+      _0x35465b(_0x39754b);
+    }
+    return _0x39754b;
   }
-  ["nuke"](I1I1iI1l) {
+  del(_0x56d0aa, _0x396eea) {
     this._checkAndReload();
-    this.data.has(I1I1iI1l) && (this.data.delete(I1I1iI1l), this.save());
+    let _0x16df95 = null;
+    this.data.has(_0x56d0aa) && (_0x16df95 = this.data.get(_0x56d0aa).val, this.data.delete(_0x56d0aa), this.save());
+    if (_0x396eea) {
+      _0x396eea(_0x16df95);
+    }
+    return _0x16df95;
+  }
+  nuke(_0x5ba827) {
+    this._checkAndReload();
+    this.data.has(_0x5ba827) && (this.data.delete(_0x5ba827), this.save());
   }
 }
 module.exports = new Common();
