@@ -1,513 +1,518 @@
-//Mon Jul 22 2024 10:45:25 GMT+0000 (Coordinated Universal Time)
+//Mon Jul 22 2024 12:12:18 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-/*
-活动名称：金融捕鱼助力
-
-环境变量：
-jd_jr_fish_inviteCode // 指定助力码 非必须，不填默认助力账号一
-
-cron:1 1 1 1 *
-
-*/
-
-const $ = new Env("\u91D1\u878D\u6355\u9C7C\u52A9\u529B");
-var iｉl = "jsjiami.com.v7";
-const liil1l = iii1II;
-if (function (lillII, ii1ilI, lI1ll1, iIiI1, liil1I, i11ii1, IlIliI) {
-  return lillII = lillII >> 6, i11ii1 = "hs", IlIliI = "hs", function (l1iII1, iiill1, lIli1i, IIIII1, I1lIlI) {
-    const i1l1iI = iii1II;
-    IIIII1 = "tfi", i11ii1 = IIIII1 + i11ii1, I1lIlI = "up", IlIliI += I1lIlI, i11ii1 = lIli1i(i11ii1), IlIliI = lIli1i(IlIliI), lIli1i = 0;
-    const ii1ill = l1iII1();
-    while (!![] && --iIiI1 + iiill1) {
-      try {
-        IIIII1 = -parseInt(i1l1iI(111, "tXxu")) / 1 + -parseInt(i1l1iI(118, "j]#M")) / 2 + parseInt(i1l1iI(145, "aq(d")) / 3 * (-parseInt(i1l1iI(410, "EIO%")) / 4) + parseInt(i1l1iI(132, "w4h@")) / 5 + -parseInt(i1l1iI(156, "*ZO(")) / 6 * (parseInt(i1l1iI(420, "nx$C")) / 7) + parseInt(i1l1iI(223, "K)Ew")) / 8 * (-parseInt(i1l1iI(233, "v&!V")) / 9) + parseInt(i1l1iI(401, "j]#M")) / 10;
-      } catch (II1iI) {
-        IIIII1 = lIli1i;
-      } finally {
-        I1lIlI = ii1ill[i11ii1]();
-        if (lillII <= iIiI1) lIli1i ? liil1I ? IIIII1 = I1lIlI : liil1I = I1lIlI : lIli1i = I1lIlI;else {
-          if (lIli1i == liil1I["replace"](/[HtQeSDgGJNhYMArF=]/g, "")) {
-            if (IIIII1 === iiill1) {
-              ii1ill["un" + i11ii1](I1lIlI);
-              break;
-            }
-            ii1ill[IlIliI](I1lIlI);
-          }
-        }
-      }
-    }
-  }(lI1ll1, ii1ilI, function (llI1II, lIli1l, lillIi, illIi1, ii1ili, liil1i, lI1lil) {
-    return lIli1l = "split", llI1II = arguments[0], llI1II = llI1II[lIli1l](""), lillIi = `\x72\x65\x76\x65\x72\x73\x65`, llI1II = llI1II[lillIi]("v"), illIi1 = `\x6a\x6f\x69\x6e`, (1503011, llI1II[illIi1](""));
+const $ = new Env("带图评价晒单");
+const bdy_0x19e6e7 = $.isNode() ? require("./sendNotify") : "",
+  bdy_0x10df02 = $.isNode() ? require("./jdCookie.js") : "",
+  bdy_0x53b0cb = require("./function/dylanx"),
+  bdy_0x527dd4 = require("./USER_AGENTS");
+if (process.env.DY_PROXY) {
+  try {
+    require("https-proxy-agent");
+    ccc = require("./function/proxy.js");
+    $.dget = ccc.intoRequest($.get.bind($));
+    $.dpost = ccc.intoRequest($.post.bind($));
+  } catch {
+    $.log("未安装https-proxy-agent依赖，无法启用代理");
+    $.dget = $.get;
+    $.dpost = $.post;
+  }
+} else {
+  $.dpost = $.post;
+  $.dget = $.get;
+}
+let bdy_0x5137de = [],
+  bdy_0xcc562f = "";
+if ($.isNode()) {
+  var bdy_0x3994ef = new Buffer.from("64796C616E", "Hex").toString("utf8");
+  Object.keys(bdy_0x10df02).forEach(_0x1a080 => {
+    bdy_0x5137de.push(bdy_0x10df02[_0x1a080]);
   });
-}(12096, 131494, Iii11l, 191), Iii11l) {}
-function iii1II(_0x252b10, _0x39b872) {
-  const _0x1f3a7e = Iii11l();
-  return iii1II = function (_0x1e7d97, _0x2b2e5b) {
-    _0x1e7d97 = _0x1e7d97 - 107;
-    let _0x359e75 = _0x1f3a7e[_0x1e7d97];
-    if (iii1II["tPTUxR"] === undefined) {
-      var _0x3c81eb = function (_0x140c4c) {
-        const _0x33bdec = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=";
-        let _0x4d31c9 = "",
-          _0x41455c = "";
-        for (let _0x32a05b = 0, _0xc27493, _0x9f576f, _0x568013 = 0; _0x9f576f = _0x140c4c["charAt"](_0x568013++); ~_0x9f576f && (_0xc27493 = _0x32a05b % 4 ? _0xc27493 * 64 + _0x9f576f : _0x9f576f, _0x32a05b++ % 4) ? _0x4d31c9 += String["fromCharCode"](255 & _0xc27493 >> (-2 * _0x32a05b & 6)) : 0) {
-          _0x9f576f = _0x33bdec["indexOf"](_0x9f576f);
-        }
-        for (let _0x343341 = 0, _0xdd3fa5 = _0x4d31c9["length"]; _0x343341 < _0xdd3fa5; _0x343341++) {
-          _0x41455c += "%" + ("00" + _0x4d31c9["charCodeAt"](_0x343341)["toString"](16))["slice"](-2);
-        }
-        return decodeURIComponent(_0x41455c);
-      };
-      const _0x4bb510 = function (_0x56a5d8, _0x3a12a7) {
-        let _0x2348ba = [],
-          _0x2306a5 = 0,
-          _0x1fe515,
-          _0x14aa4d = "";
-        _0x56a5d8 = _0x3c81eb(_0x56a5d8);
-        let _0xc1c1b5;
-        for (_0xc1c1b5 = 0; _0xc1c1b5 < 256; _0xc1c1b5++) {
-          _0x2348ba[_0xc1c1b5] = _0xc1c1b5;
-        }
-        for (_0xc1c1b5 = 0; _0xc1c1b5 < 256; _0xc1c1b5++) {
-          _0x2306a5 = (_0x2306a5 + _0x2348ba[_0xc1c1b5] + _0x3a12a7["charCodeAt"](_0xc1c1b5 % _0x3a12a7["length"])) % 256, _0x1fe515 = _0x2348ba[_0xc1c1b5], _0x2348ba[_0xc1c1b5] = _0x2348ba[_0x2306a5], _0x2348ba[_0x2306a5] = _0x1fe515;
-        }
-        _0xc1c1b5 = 0, _0x2306a5 = 0;
-        for (let _0x58704d = 0; _0x58704d < _0x56a5d8["length"]; _0x58704d++) {
-          _0xc1c1b5 = (_0xc1c1b5 + 1) % 256, _0x2306a5 = (_0x2306a5 + _0x2348ba[_0xc1c1b5]) % 256, _0x1fe515 = _0x2348ba[_0xc1c1b5], _0x2348ba[_0xc1c1b5] = _0x2348ba[_0x2306a5], _0x2348ba[_0x2306a5] = _0x1fe515, _0x14aa4d += String["fromCharCode"](_0x56a5d8["charCodeAt"](_0x58704d) ^ _0x2348ba[(_0x2348ba[_0xc1c1b5] + _0x2348ba[_0x2306a5]) % 256]);
-        }
-        return _0x14aa4d;
-      };
-      iii1II["LtnbJM"] = _0x4bb510, _0x252b10 = arguments, iii1II["tPTUxR"] = !![];
-    }
-    const _0x2a40c9 = _0x1f3a7e[0],
-      _0x1c5304 = _0x1e7d97 + _0x2a40c9,
-      _0x39204f = _0x252b10[_0x1c5304];
-    return !_0x39204f ? (iii1II["SHhmjc"] === undefined && (iii1II["SHhmjc"] = !![]), _0x359e75 = iii1II["LtnbJM"](_0x359e75, _0x2b2e5b), _0x252b10[_0x1c5304] = _0x359e75) : _0x359e75 = _0x39204f, _0x359e75;
-  }, iii1II(_0x252b10, _0x39b872);
+  if (process.env.JD_DEBUG && process.env.JD_DEBUG === "false") {
+    console.log = () => {};
+  }
+} else {
+  let bdy_0x13838b = $.getdata("CookiesJD") || "[]";
+  bdy_0x13838b = jsonParse(bdy_0x13838b);
+  bdy_0x5137de = bdy_0x13838b.map(_0x3c112d => _0x3c112d.cookie);
+  bdy_0x5137de.reverse();
+  bdy_0x5137de.push(...[$.getdata("CookieJD2"), $.getdata("CookieJD")]);
+  bdy_0x5137de.reverse();
+  bdy_0x5137de = bdy_0x5137de.filter(_0x3a06a9 => _0x3a06a9 !== "" && _0x3a06a9 !== null && _0x3a06a9 !== undefined);
 }
-function Iii11l() {
-  const II11li = function () {
-    return [...[iｉl, "gDjAsrjGYeitNahgMmDQJiQ.eMcHoAFmgh.vSr7M==", "A1BcUCkHWRK", "puhcICoFpW", "W5XgASkpaq", "z8onW63dTmo6W5RcPCoaWRWAW4FcUq0", "uSomW5hcVfC", "rSofWQtcJmkyfmklDI3cMW", "WPNdN8oVWOGRW4yDW43dMf0HEaDDWOmhW6lcPCkZnemgWP8", "owpcVmofhW", "W5hcOvddTq", "bMpcVW", "5Awe6lsqsxy", "WQX1EmooettcG8orWQVcGZLkeCoKWORdOCo4W4mJW6C", "b07dVZdcULPw", "iIf/W7lcKqWmt0qTWP3dTGO", "W73cVSoEdtyZW7JdMCkxW59/qrC", "s8kriwG", "h8kIv3ZdQ8k4AW", "W7jdWRzQwq", "W57cOSoOW67dIJNdUG", "dgxdGSovWPS", "4P++W5tMTydOR5NOV5/PG4VMGAVKUAGFW6TFF+kFL8ol5P+C5yM/54Qz5Okg5Q+o5BIUgConWQ16", "i2yXjsC", "W6hcGmogidm", "sHDsBvS", "W4xcLNHedmkP", "W6VdI8k1WQ0Y", "W5fxWRrYzW", "rCkBFG", "k3yfW6W3rmo2CSk4W63cJmo8WQm", "fgZdVSooWP/dP8oLWOCvlq", "lCk1D1ZcUCkcW63dRSoy", "cuRdUcdcSW", "WPhLIB7LIkVKU57MLlxLTQNMUzhVVRdPG7VLHzxMIzBOOBGe", "f8odWRa", "zCkLCuFdMa", "W5tcPuRdTmoAmSonW5v+tq", "WPtINlS/5P+x6icG5Q2y56cL6i6J5y+Q5yM85yQx56kf77+z6ygo5yA65OQy6kcY77+c", "WP9UrCosiG", "WPFdLCoXWOSMW4qm", "W4/cVSk7", "qwmJWRddR1rrwq", "W7dcG8oWW6BdRG", "W57cHCkECvH6", "aSkxW6ldISk1oCkMFrBcNG", "WQXjcSkRf8ke", "lhucW6W", "6lwm5y+7WOpcNI7PUypOR5NLJllLIlZLIRNKV6tOG5C", "W6VcVmoCndm", "q8oJW4lcGa", "sqTFurn2d8oFwmktpq7cQIiOhmon", "WQnUa8kttG", "w8krAL7dNSkGx8kOWRRdIW", "W5pcTCkcxfi", "WOP9emk2", "W4RcGmkYW4G", "WPRcOGBdKgi", "6lAk5y+ZASktW5/PU6ZOR7VLJ5JLI4RLIO/KV5tOGPa", "4PYBW63OHQ/MNOhOVlxOOz/PGA7LI77KUylPLQFOR7WS", "W51XvmoqW7T9mrukymoTW6FcPrSKnSo0WPddUmkv", "W5RORyFMS4dLP4NOTAlcG+kFTCki5Pw+5zo55BUg5Pw75OYa", "ltHAC8oqWRpdMCoFpCktuW3dJSoXWR7dLeSIW63cG8kBW5pdI8ooWOb6EvFdJmkIW6RdOwSAWRyKW4pdG8kSWPFcPCkkb8kaW43cKSoEWRu1yddcPSk9mCodhSoxW6hdNCokW4G0WRtdKmoEW4qaevZdTmoHefauWRCMiglcGdJdQJ/dQq", "W7jLqq", "pmoEW4H7bqNdV8oGWPqVtxe7kaJdQf3dG8kyWPO3", "WPn9eCkqASksWPS6", "a3VdV8ouWOe", "W4NcS8oNmcC", "Dwj0", "W79/uSkVaKBcTSkno8kN", "WO5nj8kEeW", "W4BcV8kQ", "omo3W7aZW5O", "nmoHW6m/W7K", "DColW6JdUmoN", "WPZdMCoXWOSUW4WhW6VdSva3", "ihpdVCoxWPG", "W5VcJuLxaa", "hCovWQmdha", "fSoFWRa", "a2lcRSogb8o+pSoMW7fh", "kCoYW4yMW58", "WP/cMZFdICkrW43cMY4LWP7dMG", "WO3cGCktomkOW5u3W7uJca", "W4xcKxH/ymk2kq", "zSkpF1RcKSkdW6O", "dflcUmoJpq", "W4jRrG", "WONcNYRdM8kyW4VcSdOIWPm", "W7JcGmofW51K", "h8ocib7cH8oJuSkYWQZdUvldKq", "eKNcSCocfq", "nZLarSonW60", "5yQR5yME5OQs5yIhW7hIN5pVVBhLTRBMN4BLIAVLI5JKUP/MLipVVAW", "cMZdO8oCWOFdUW", "z8kkWQeGrM/cOmoHWPCcAM0h", "WRDseSkhdCkfD3PhWPa", "WPZcNY3dH8kq", "mx44WQHh", "772A5yMI5yIv56o+77+R", "ECoCW4xdSmor", "5Awb6lExWQVcNW", "W4XVvCkOgeBcLSkhe8kTgvSnWOS", "W5X7fCkGFmohW7r0W5yYW73dHmksiSkVW5vPbWS/sSkDWP3dOKZdR8oRW5XDWQ3dL2boW4NdRmkeW5K7WQRdKSk7eXH5WQ/cLSkWB8oBwCkAf8obW6JcIIDvWPCZWQpdHZVdKmotW5hdUmkUbdNcRebWcduAWPWWW4RcOgjMWQ3dLSoRxxFdG8oqW5pcT1P/pCkVWPFcJs5HW5qTW6eXmmk3xSkbpCohASoRk8kuW4L6W5j+sSoEmCkLfmoZWR0+r8oEnJZcL8kfW6ybWQVcTrSdCSoXW6xcLCk/W4BcNSkgW6TeW47cLmohW77dGCkOWR5oaCofW5bqnI0cW5O/WQSup8knW7vddmkaWQBdMCoxW7NdGtxcK3DNk8kpWOr9FmkycCk7W6xcPcpdLgv0BWtdJSkes1rOqhJdUSoOAGBdTa7cIImvW7KUW6DHW7/dLx9NWPmMeN4nW4ldRNrTWQxcGSozaXP1W47cHt85eX5jWQhdPCopWP3cLs7dLmkgW77dUSoww8o6mCoXoSo9WQtcSfiSW5GtW7NcG8kGw3nipceOW5JcIGC0W6/dQCkdoWtdTJmkeSoeW5vcW6BdThZdLSoNW4/cU8oSWORcQJq8uCknW4hdRvRcNrlcGr7dS8kFuCkSW5PKhhdcQ8o8fbL+dSoQWPbsW7xdIh8NeCopq8kyW7lcQSkWpW/cRGDWs8oeWRJdUG3cI8kcBM7cKLddGMJcHIrjrYxdKtxcKCk6WR4YWR5OuCkH", "W5BcJSowW6pdKG", "WONdHmoWWPePW4qaW47dPW", "xSoKW5lcOvW", "m3RdQmojWR3dSSomWOm"], ...function () {
-      return [...["W73OR7FMSz/LKBhLU7XD", "hghcOmo4WR3cV8oBWO5Apt3dTXZdNmo7WQHzWPpcQrJcSmkwW5aAWOK6tSklW5SqWP7dLCkBsSobpciGhCk6ESozvH7dMLJdGcVcRCk1uuGEu3xcJSoUW5qqWRb5eKqphfpdTeZcIbi1hmkGamoQdMS", "WPpcGCkokSkWW4K", "W6lcKmk9xCod", "W4fBWQ5/BmkT", "W51LsmkZcfRcGCopc8k7cfO", "yCoJWO3cG8oCiW", "smkfx2ddPG", "b8ktW7JdIW", "xowNUUI2Q8ofW5e", "WO/cOGBdQh/dNCkcWQC", "rCo3W47cHKzCW6dcK8kyFmopiSkoESoBBSkUW6/cHJm", "5B2Y6Ak35y2C5PE35P6u5OMm5yIx6i6e5yY677YW6k6L6ysd5Pw86l6m6koA", "zCkGW7BdKSk1WPmuia", "wCoNW5JcH15YW6S", "zeFcUCk4WQ4hudOuEZtcH0SnW6hdMSkDW4FdV8kkAmkZWOu+WOO2WPq1sIKwW5NcMmofW7biW45xW5ifWQVdMrPhWQ3dJsbdrSkmW7GGW69IhGZdNSoNtmkCt8kHF8ocWODOW43dV1fRWRRcVCoVpvK", "W7dcJghdPmo+", "gSkzD0tcSa", "kYvnAmoTW6JcM8kv", "vmkSW5FdM8kO", "WRW3W5JcJa", "xNCcWORdTa", "WRnHCmoz", "W6LJsmkJaKm", "n8kVyvdcRW", "oCkKCvZcSW", "ksnj", "o0Ou", "W7xcVCo0W6zsW4JcOfy", "jmk+W6dcUSkFya", "W4RcNSkjzunKW6az", "W7JcUmoDfcK+W4tdMCk9W4zcrXpcIWtcVCoYmLeMrwZcTq", "cmkGW6BdUXhdQSojqKtdQbq", "W49aWQDbra", "bxNcRmoPh8o6gG", "kd8aACorWQFcNmkuDSktu04", "vuVcVmk5WRy", "WPNdO8oRW7pdLZddUXZcVLKWWQVcOc/dICk3c8oPW6WkW7lcMHjCWPTSqq", "W4Dqo8kuWQZdOCo1m8o7EG", "WOZcHSkrp8kV", "dbT3uCoq", "WQKEx07cIG", "lcjhDW", "W4FcH1rbcCkZyKS5WQO", "W7lcKSkqD8of", "d2BdVG", "WOX2hCkbD8kl", "W71LqSkI", "W69/q8k1fh3cM8kunSk2hu0GWPXPubCwW6tcGW", "CmkGW7hdRCk9WQi5jCk7WQm", "f0JcSG", "W4xcG8kx", "m8kSW4hdJa", "WQlLIz3LIPdKURBMLBhLTkpMUQ3VVyNPGlhLHl/MIjBOOlNdVW", "44kL5OYY56sD44cL6k6s5yAp6i6w5y+YhSkGW7jMyva", "W6xcLw7dPCoz", "W4Htnq", "W6KwDSkj", "l2/dH8kAWR8", "vmo1WO7cQfRdR8o8FhZdMGNcO8kUmG", "bUkDPCoT6iIT5AEh5QYC6AkX5O6Y5P2t6ycs6l+D77+H5y+w6ioE5Q+V5yIx5yIO56kL5BwI6BI2oq", "CaSiWQnnlKibWQ7dKq", "F0FcV8kHWRnAfNma", "W4nzjSkYWQ3dUSoki8oUsqbeW5H0", "W4bDjSkq", "4P2cmowgGowNHEwYKoE7NXisi14", "WQGJW5/cHq", "W6NcSCoJW79L", "4P2uW6xLTBdLO7pLHyJMJ5hLR6FKU77MLR/LJjRPHOZVVkNMJBtLR6ZKUOlMLA1NyG", "5yUH5yQb5AwD6lASyXa", "W4xcUmkYF8oKW4lcOx7cPmkKAhC0", "W6RcNCo6W6fw", "p3SfW70", "f1tdKW", "W4NcHJK", "WOJcJZRdJCkrW4ZcHW", "jhul", "W68isSow", "4P+sv+ACTEIaGoAUVUEHLEwLJ+EqKHW", "pSkJW5ZdMq", "W5bBWRG", "sSkBFu4", "WQ9jaCkCamkPwMnkWOhcR8koW47cTmkDWRRdMCo8aSkk", "hL/cVmot", "W47cP8oYW79sW4JcOfy", "eLahpWS", "oCoGW70K", "W51rfbldI8k2WQZdRdmsrNC", "W4bRvG", "vmkepgZdSaVdQd/dTLjBW4H5imkBzx/dHMHIWOpdJa", "zmkkW5LbdIZdQ8o+", "W7OwA8kC", "xbrfvfmIl8oBsSkE", "W7/cSMpdHSoK", "ALRcO8kHWQ5vn3avEftcMfq", "W6VcNCopW7H1", "WPlcQX3dMSk7", "hLawjKi+AexcTW8", "4P6PW4tMTQVORPJOVjRPGRVMGztKURL5r8o+f+kEGCoJ5PY35yIK54IP5OoA5Q6J5BMSWOyVmWu", "WOJdHCoSWR0PW4C", "c1VdVc/cSL5sWROkW6tcMCkTW77dR8oCdgddL8oFzb/dL8oqk1FcMSocWQaMWPT3BCk3yCoRW40rxmkpW4nsqKxdS8oTW7tdKq", "4P+ikUwhOowNGowXNoE7NSoBW4XXW4G", "W6ZcVhVdP8kzW7ZcLfVdOXm", "W4lcI0LqcSkW", "ieRcU8oJea", "wSoTW5W", "ACouWQBcMNi", "W7NcVhZdN8kqW7VcO1VdSbC"], ...function () {
-        return ["WPVcSWddI3xdV8kcWQvY", "pmojW7n+gG", "fmo+W75Zbq", "umkFlW", "5BYT6Ak85y6W5PEs5PYX5OQi5yM06i205y+D77YE6ywc5Pwq6iYb5y6T5lMg", "WOX2hq", "W7dcSCoUW74", "W5qwtSoeu8okhUw8LEwNQoodPEs5PUs7OoI2OowmPG", "mCkJux3cTG", "W4BcMCkeu1TSW6q", "WPRcJCke", "b2NcQ8oCeSo8ga", "WO/cRSoFW7btDq", "iCoHW6qJW7hcO3bzW5FdTW", "helcOCoocq", "W7dcQN5deW", "fSkBW7/dNSk1iCkB", "WRPDemkp", "dN3dUColWOdcQCkoW4KmpY7cRuddI8k9WRGFW53cHtVcPmkaWPOyWOHLb8krW5zzWOBcI8kecCkDrZeOqmkwwSkrceVdN1NcMYJcQSkPd0TAkJxdJCkRW4uBW69KjbmoAa3cVbFcMYGVgG", "W5qFwmktWPy", "fgZdVmo/WPldP8oaW5S", "nJHCASonW67cN8kwiq", "W7rXsCogW7e", "W4lcO8oU", "W7lcTM8", "chRdNXdcIq", "W68cESkpWQrYjwjvWQfPW7BcNsSSWO83WQ0UW7K", "wSkzjNxdSfNcJ3xdV0f6WPn+", "W492sa", "WRjtaW", "xtjdrg4", "W4hcMmkezq0IWQWvc8k/cGW3W4HpeaKkW5NcOwddOSkaW43cUY1qlgb+CCk3", "jSk4W5ddN8kCwKFcUmkTW4P2vmoxkfhdIx7dQmkUW4G", "WQddGmonWO0e", "W5VcO8o5", "W4ftWQLV", "WPNdHd09mmoODs1bWOajamot", "zmo7WRZdJmobpmoQlSoHfbe4W4bObCoy", "W5hcLN3dKmkG", "W4vZWRfnDq", "p2lcGmoojq", "8yEASLO", "lNydW6yR", "WONdSCoZWQ4X", "WRpdPmomWOWT", "z8onW7S", "a8khW7ldNmk8pSkr", "W5LvhXRdImk/W5FdLXSDC3CP", "EgqoWRddOa", "tCoKWRlcOu3dG8oP", "W7pdK8klWRCT", "hCkxW6ldJmk4kSkh", "jNSbW6W", "WP7dGZ4/qmkijs9+WQe", "bCoOW6a/W4O", "gmooW5bHnG", "W5RdTZZdSMldOSkzWRq", "WQP1Cmo4oa", "p1zq", "W5/dQCkjWRCzlCk9WPfdW6tcMrVcRG", "gSoVW5q9W6S", "WPPyxmoKoW", "tSkfjLNdRvu", "W5/cNwvOBSkM", "wmo4WR/cQ1VdMmosCgpdGHJcUmk2", "hCovWQmVcLHFjCoTzCkx", "cSogCsNcTGBcIwxdOwz5WQG", "oCkzW5ldLmkV", "d2FdU8osWOFdTSoIWOKfkq", "W6pcI8k0xwi", "eLxdGSkBWRJdMItdK1tdVG", "W77OR4VMSkBLP5/OTzZdGokEQdu", "W5pcRCoQW6y", "W4LTvq", "nftcPmo/oG", "WRZPGRlORlFNOjROJRtLJiZLP7ZOTANcSbG", "W6PZC8oWW7S", "udJcUSkcW4RdICoYWReQfKi", "W7GNDSkPWRu", "wmk9DeFdUa", "leerWRjInwKlWRpdLq", "WQNcHIdcKa", "W5hcTmkTy8oYW5NcNq", "W78cA8kvWRjjchTyWRa", "W5PufbpdI8k2WPxdIZqvDLm", "WOD8dSkTyq", "j2pcOSogh8o3hmkMWQamWOJdSSkmwSkfxaFdK0LrC8ofWO7cICoFW6a8W4asWRSPpCo7W5HRhSoisSkHeIhcSmoMWPBdNmkghSolW44fW69eESobWPpdNJKsACk6WR18dmkUW5xcNdRcVmkqWQZcRCoRW68UbgNcPwipWQ/cVYNcQvpcKgLIgJRcJH3dS8kpWQJcGfOzAIBdGSosWOKSbWOhiupdJSoxwcNcHeHTg8kbbbqesCk3jL1cWPj0WPfzawVdVSkgEcxdOXFcTmkSWP/cUCogWOXQbmoyomkCWPvhuXpdS8oJW7/dH2RcVchdNJRdPqO3fmoGpSocWQJcKSkEW4hcU8o0vXu0", "w8krAL7dNSkGwmkMWQRdJW", "hmozWQ8", "q8keW5dcQG", "W4rWrCosW7eoCeWwoSoIW6FdGXqSAmoEWPhdS8ov", "d2FdQCoEWOS", "W7FcT2ZdT8kn", "WPldHmo2WOG0WPLgWOFdQXO4EubyWOLHW6tcPSkU", "WPVdGmoYWP0PW4CQW4FdSea3zrO", "o8oFW6rIfJhdVa", "uSo+WRy", "bKtdQW", "W6WjvSowsSoqF11cWOpcR8kO", "oe7dICoDWRSCs8og", "WPNcSHFdKgldKCkfWRvIzSoQWPldVH4hW7OXqmkKeW", "kSogWPingG", "tmo0WQdcT03dG8oU", "W6lcNmkKuCoG", "cmovWQqFff50nSouDW", "huRdPtC"];
-      }()];
-    }()];
-  }();
-  Iii11l = function () {
-    return II11li;
-  };
-  return Iii11l();
+if (process.env.DY_PROXY) {
+  const bdy_0x59d212 = require("./function/proxy.js");
+  $.get = bdy_0x59d212.intoRequest($.get.bind($));
+  $.post = bdy_0x59d212.intoRequest($.post.bind($));
 }
-;
-const jdCookie = require(liil1l(307, "KQj)")),
-  notify = require(liil1l(283, "jKOJ")),
-  common = require("./utils/Rebels_jdCommon"),
-  jsdom = require(liil1l(355, "v&!V")),
-  isNotify = process[liil1l(209, "Vz22")]["jd_jr_fish_notify"] === "true",
-  inviteCode = process[liil1l(273, "KQj)")][liil1l(202, "v&!V")] || "",
-  fishnum = process["env"][liil1l(305, "A$zN")];
-let waitTimes = 1000,
-  cookie = "";
-const cookiesArr = Object[liil1l(360, "lck6")](jdCookie)["map"](IlII1 => jdCookie[IlII1])["filter"](IiI11 => IiI11);
-!cookiesArr[0] && ($[liil1l(173, "DDEL")]($[liil1l(268, "tQXi")], liil1l(300, "OhPB")), process[liil1l(329, "PNNw")](1));
+const bdy_0x2e9de6 = process.env.EVALNUM ? process.env.EVALNUM : undefined;
+let bdy_0xa54c7c = process.env.EVAL_WORD_COUNT ?? 10,
+  bdy_0x1cb31f = process.env.ONEVAL ?? false,
+  bdy_0x552b8c = process.env.EVAL_CPKEY ? process.env.EVAL_CPKEY : "",
+  bdy_0x6bf456 = ["垃圾", "质量差", "差评", "好差", "欺骗"],
+  bdy_0x239a20 = ["非常满意的购物体验！商品质量很好，价格实惠。物流迅速，包装严密。非常感谢商家的耐心解答和及时发货，给予8分好评。", "商品质量非常好，价格实惠，物流速度很快。包装完好，没有损坏。非常感谢商家的耐心解答和热情服务，下次还会再来购买。", "这是一次愉快的购物体验，商品质量非常好，价格也很实惠。物流速度快，包装严密。非常感谢商家的耐心服务和及时回复，给予8分好评。", "商品收到了，非常满意！质量可以，价格也还合理。感谢商家客服的热情服务和及时发货，好的话会推荐给朋友们。", "这次购物真是太棒了！商品质量很好，与描述一致。包装仔细，没有损坏。非常感谢商家的认真态度和及时发货，下次还会再来购买。", "质量非常好,与卖家描述的完全一致,真的很喜欢,完全超出期望值,发货速度非常快,物流公司服务态度很好,运送速度很快,店主态度特好,很好很好!质量好而价低廉，很热情的客服，下次还来祝你生意兴隆质量非常好，出乎我的意料包装非常仔细。", "我为什么喜欢在京东买东西，因为今天买明天就可以送到。我为什么每个商品的评价都一样，因为在京东买的东西太多太多了，导致积累了很多未评价的订单，所以我统一用段话作为评价内容。京东购物这么久，有买到很好的产品，也有买到比较坑的产品，如果我用这段话来评价，说明这款产品没问题，至少85分以上，而比较垃圾的产品，我绝对不会偷懒到复制粘贴评价，我绝对会用心的差评，这样其他消费者在购买的时候会作为参考，会影响该商品销量，而商家也会因此改进商品质量。", "感觉物超所值 服务态度还是可以的，没什么太多可挑剔的，再接再厉，祝老板生意兴隆", "这是一条好评段子，花钱的评价，麻烦你们认真点!先说商品质量：产品总体不错，包装严实。再说商家服务：点赞啦。最后点评快递：发货很快。其他就是感谢店家打折送券活动，毕竟便宜好货更实在。希望店家多多优惠，及时通知老客户，促成回购。祝生意兴隆。", "滴滴滴，我来汇报了，东西还行，客服节能有待提高哈，一贯好评啦，快递是真的快，后面再来追评吧，就这样"],
+  bdy_0x25996d = ["赠品", "权益", "非实物", "非卖品", "增值服务", "服务", "券包", "只换不修"],
+  bdy_0x32d3ec = ["送的没花钱哈哈", "东西还还不错", "现在的购物体验越来越好", "以前还没有这么多贴心的赠品、增值服务、权益等服务", "给赞", "算不算白嫖"],
+  bdy_0x192311 = ["以上是我购物感受和体验，仅供参考，也不要只看好评，适合我的不一定适合你。。。。", "总的来说，还可以，我的评价供大家参考借鉴，根据自己情况。。。。", "总之还行，买不了吃亏，买的了上当，嘿嘿！！！！", "就这样，一惯好评啦，不是非常烂一般不会差评", "最后，希望京东越来越好，感恩"],
+  bdy_0x355f78 = [],
+  bdy_0xc58a47 = "",
+  bdy_0x48746b = true;
+!__filename.includes(bdy_0x3994ef) && (bdy_0x48746b = false);
 !(async () => {
-  const lI1lii = liil1l,
-    lli = {
-      "WEHys": function (liIlI, lll) {
-        return liIlI(lll);
-      },
-      "CUWdo": lI1lii(385, "!4Qg"),
-      "AAaKT": lI1lii(344, "D*[^"),
-      "RKRsX": function (llli1, iIli1i, iI1lii) {
-        return llli1(iIli1i, iI1lii);
-      },
-      "IkCkv": lI1lii(137, "Vz22"),
-      "BLLHl": lI1lii(311, "OmEx"),
-      "zDlPG": function (IilIii, iI1lil) {
-        return IilIii + iI1lil;
-      },
-      "pEQFp": lI1lii(164, "OhPB"),
-      "GHwMs": function (l1lIi1, iIli1l) {
-        return l1lIi1 + iIli1l;
-      },
-      "WMQpL": function (i1i1II, liiIIl) {
-        return i1i1II * liiIIl;
-      }
+  if (!bdy_0x5137de[0]) {
+    const _0x3ece62 = {
+      "open-url": "https://bean.m.jd.com/bean/signIndex.action"
     };
-  authorCodeList = await lli["WEHys"](getAuthorCodeList, lli[lI1lii(301, "]Cpw")]);
-  authorCodeList ? (console[lI1lii(179, "Vz22")](lli[lI1lii(249, "Vz22")]), $["authorCode"] = authorCodeList[lli[lI1lii(165, "!p^A")](random, 0, authorCodeList[lI1lii(248, "D*[^")])]) : lli[lI1lii(421, "aq(d")] === lli[lI1lii(414, "hU)1")] ? console[lI1lii(388, "jKOJ")](lli[lI1lii(142, "uW@H")]) : iIIII1["log"]("\u5DF2\u6709\u52A9\u529B\u4EBA\u6570\uFF1A" + i1l1ll["finishHelpNum"] + lI1lii(237, "lDFK") + I1iIiI[lI1lii(218, "XX15")]);
-  fishnum ? console["log"](lI1lii(314, "AQac") + fishnum + "]") : null, inviteCode ? console[lI1lii(378, "ptwD")]("\u2756 \u5DF2\u586B\u5199\u6307\u5B9A\u52A9\u529B\u53D8\u91CF\uFF0C\u5F00\u59CB\u52A9\u529B [" + inviteCode + "]") : console[lI1lii(201, "uW@H")]("\u2756 \u672A\u586B\u5199\u6307\u5B9A\u52A9\u529B\u53D8\u91CF\uFF0C\u5F00\u59CB\u52A9\u529B\u8D26\u53F7[1]"), console["log"](lI1lii(306, "E159")), notify["config"]({
-    "title": $[lI1lii(406, "Pkjz")]
-  });
-  for (let IlIllI = 0; IlIllI < cookiesArr[lI1lii(232, "tXxu")]; IlIllI++) {
-    $[lI1lii(125, "tXxu")] = lli["zDlPG"](IlIllI, 1), cookie = cookiesArr[IlIllI], common["setCookie"](cookie), $[lI1lii(245, "tXxu")] = decodeURIComponent(common[lI1lii(309, "E4FE")](cookie, lli["pEQFp"])), $["UA"] = common["genUA"]($[lI1lii(330, "lck6")]), $["message"] = notify["create"]($[lI1lii(270, "K)Ew")], $[lI1lii(180, "OmEx")]), $[lI1lii(264, "WE@x")] = "", console["log"](lI1lii(361, "w4h@") + $[lI1lii(229, "PNNw")] + "\u3011" + ($[lI1lii(274, "lck6")] || $[lI1lii(133, "[z^U")]) + "******\n"), await Main(), common["unsetCookie"]();
-    if ($["runEnd"]) break;
-    await $[lI1lii(318, "Pkjz")](parseInt(lli["GHwMs"](lli[lI1lii(141, "XX15")](waitTimes, 1), 100), 10));
+    $.msg($.name, "【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取", "https://bean.m.jd.com/bean/signIndex.action", _0x3ece62);
+    return;
   }
-  isNotify && notify[lI1lii(353, "ptwD")]() && (notify[lI1lii(128, "bq@5")]("\n"), await notify[lI1lii(266, "]9rf")]());
-})()[liil1l(171, "DGCX")](il1i1I => $[liil1l(292, "%Vdq")](il1i1I))[liil1l(370, "aq(d")](() => $[liil1l(185, "Pkjz")]());
-async function Main() {
-  const Iiili1 = liil1l,
-    lI1li1 = {
-      "YrZGR": Iiili1(160, "ehf0"),
-      "ltHrA": function (iI11II, iIII1I, ilil1i) {
-        return iI11II(iIII1I, ilil1i);
-      },
-      "PqCpj": function (IlIIi, IiI1l) {
-        return IlIIi === IiI1l;
-      },
-      "ZpOuC": "0000",
-      "KbgRh": function (illlII) {
-        return illlII();
-      },
-      "MyvFv": function (iIII11, IiI1i) {
-        return iIII11 === IiI1i;
-      },
-      "obTHa": function (llll1, lil11l) {
-        return llll1 < lil11l;
-      },
-      "rqpJT": function (i1i1Il, I1lIl1) {
-        return i1i1Il === I1lIl1;
-      },
-      "Aomsh": Iiili1(282, "E159"),
-      "WFHqt": Iiili1(415, "tQXi"),
-      "NtGpA": function (lil11i, IlIIl) {
-        return lil11i == IlIIl;
-      },
-      "DEUiH": function (lI1liI, i1i1Ii) {
-        return lI1liI(i1i1Ii);
-      },
-      "ITNtj": function (lllii, iI11Ii, iIII1l) {
-        return lllii(iI11Ii, iIII1l);
-      },
-      "MNQxm": function (lllil, iI11Il) {
-        return lllil === iI11Il;
-      },
-      "jlOnh": function (iIII1i, iil1i1) {
-        return iIII1i(iil1i1);
-      },
-      "FwBRy": function (il1i11, IlIll1) {
-        return il1i11 + IlIll1;
-      },
-      "Xuxds": function (IlIII, ilil1l) {
-        return IlIII * ilil1l;
-      },
-      "yrgZG": function (illlIi, I1lIii) {
-        return illlIi + I1lIii;
-      },
-      "ViUCy": function (IiI1I, illlIl) {
-        return IiI1I >= illlIl;
-      },
-      "OOuBU": Iiili1(219, "hU)1"),
-      "CwyWK": function (i11ill, IIIIIi, IIIIIl) {
-        return i11ill(IIIIIi, IIIIIl);
-      },
-      "fNzHh": function (I1lIil, IIIl1i) {
-        return I1lIil * IIIl1i;
+  console.log("当前版本：20240710 差评内容关键词");
+  console.log("每次运行最多20个账号，每个账号最多评价10个商品");
+  console.log("差评关键词变量 EVAL_CPKEY='xxx&yyy' 多个&连接");
+  console.log("问题反馈：https://t.me/dylan_jdpro");
+  if (bdy_0x1cb31f === false) {
+    console.log("\n\n默认不执行, 请设置变量 ONEVAL='true'");
+    return;
+  }
+  bdy_0x552b8c != "" && (console.log("\n合并自定义差评内容关键词"), bdy_0x552b8c.includes("&") ? bdy_0x6bf456 = bdy_0x6bf456.concat(bdy_0x552b8c.split("&")) : bdy_0x6bf456.push(bdy_0x552b8c), bdy_0x6bf456 = [...new Set(bdy_0x6bf456)]);
+  console.log("\n屏蔽差评内容关键词：" + JSON.stringify(bdy_0x6bf456));
+  let _0x5a124d = 0;
+  if (bdy_0x5137de.length > 20) {
+    _0x5a124d = bdy_0x2e9de6 ?? 20;
+  } else {
+    _0x5a124d = bdy_0x5137de.length;
+  }
+  await bdy_0x487412();
+  if (bdy_0xc58a47 == "") {
+    console.log("未知错误，反馈作者修！");
+    return;
+  }
+  for (let _0x2939a0 = 0; _0x2939a0 < _0x5a124d; _0x2939a0++) {
+    if (bdy_0x5137de[_0x2939a0]) {
+      bdy_0xcc562f = bdy_0x5137de[_0x2939a0];
+      $.UserName = decodeURIComponent(bdy_0xcc562f.match(/pt_pin=([^; ]+)(?=;?)/) && bdy_0xcc562f.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
+      $.index = _0x2939a0 + 1;
+      $.isLogin = true;
+      $.nickName = "";
+      $.commentWareList = "";
+      $.commentInfoList = "";
+      $.UA = bdy_0x527dd4.UARAM ? bdy_0x527dd4.UARAM(1) : bdy_0x527dd4.USER_AGENT;
+      $.UA = "okhttp/3.12.16;jdmall;android;version/12.4.2;build/99108;";
+      await bdy_0x37e5f4();
+      console.log("\n******开始【京东账号" + $.index + "】" + ($.nickName || $.UserName) + "*********\n");
+      if (!$.isLogin) {
+        const _0x59210f = {
+          "open-url": "https://bean.m.jd.com/bean/signIndex.action"
+        };
+        $.msg($.name, "【提示】cookie已失效", "京东账号" + $.index + " " + ($.nickName || $.UserName) + "\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action", _0x59210f);
+        $.isNode() && (await bdy_0x19e6e7.sendNotify($.name + "cookie已失效 - " + $.UserName, "京东账号" + $.index + " " + $.UserName + "\n请重新登录获取cookie"));
+        continue;
       }
-    };
+      await bdy_0x26af4d();
+      console.log("\n等待10秒...");
+      await $.wait(10000);
+    }
+  }
+})().catch(_0x265016 => {
+  $.log("", "❌ " + $.name + ", 失败! 原因: " + _0x265016 + "!", "");
+}).finally(() => {
+  $.done();
+});
+async function bdy_0x26af4d() {
   try {
-    $["retry"] = 0, await lI1li1["KbgRh"](jstoken2);
-    !$[Iiili1(166, "$cl3")] && (lI1li1["MyvFv"](Iiili1(187, "n46d"), "AbwNJ") ? iliIII["log"](Iiili1(197, "tU^H") + iIIl1i) : lI1li1[Iiili1(362, "K)Ew")]($[Iiili1(195, "EIO%")], 10) && ($[Iiili1(313, "lck6")]++, console[Iiili1(334, "kqBv")](Iiili1(358, "EIO%")), await $[Iiili1(389, "$cl3")](5000), await jstoken2()));
-    if (!$[Iiili1(331, "(g77")]) {
-      console[Iiili1(297, "!4Qg")](Iiili1(258, "jKOJ"));
+    $.commentWareList = [];
+    $.caidanList = [];
+    await bdy_0x43cdfa();
+    if (!$.maxPage) {
+      console.log("获取待评价数据失败");
       return;
     }
-    if (inviteCode) {
-      if (lI1li1["rqpJT"](lI1li1["Aomsh"], lI1li1["WFHqt"])) {
-        lilIii["log"](Iiili1(176, "WvzT")), i1ill1[Iiili1(230, "WE@x")] = !![];
-        return;
-      } else lI1li1["NtGpA"]($["index"], 1) ? (console[Iiili1(319, "TH)J")](Iiili1(196, "kqBv")), await lI1li1["DEUiH"](inviteFissionhelp, $[Iiili1(117, "WvzT")]), await $[Iiili1(139, "DGCX")](lI1li1[Iiili1(398, "bq@5")](parseInt, waitTimes * 1 + 2000, 10))) : (await lI1li1[Iiili1(394, "PNNw")](inviteFissionhelp, inviteCode), await $[Iiili1(148, "]Cpw")](parseInt(waitTimes * 1 + 2000, 10)));
-    } else {
-      if (Iiili1(423, "!4Qg") !== Iiili1(267, "OmEx")) ll1il[Iiili1(363, "!4Qg")] = !![], IiiIiI[Iiili1(260, "VXHF")] && ll1li[Iiili1(129, "v&!V")][Iiili1(399, "csA^")](Illl1I);else {
-        if (lI1li1[Iiili1(409, "v&!V")]($[Iiili1(126, "ptwD")], 1)) {
-          if (lI1li1[Iiili1(214, "[z^U")](Iiili1(238, "csA^"), Iiili1(379, "DGCX"))) IlI1I["log"](lI1li1[Iiili1(339, "]Cpw")]), II11Ii[Iiili1(207, "uW@H")] = II11Il[lI1li1[Iiili1(402, "OmEx")](IlI11, 0, iIIIIl[Iiili1(248, "D*[^")])];else {
-            console[Iiili1(357, "nx$C")](Iiili1(186, "XX15")), await lI1li1[Iiili1(159, "tXxu")](inviteFissionhelp, $["authorCode"]), await $["wait"](parseInt(lI1li1[Iiili1(110, "kqBv")](lI1li1[Iiili1(376, "kqBv")](waitTimes, 1), 2000), 10)), $[Iiili1(257, "VXHF")] = "", await sendRequest(Iiili1(328, "w4h@")), await $[Iiili1(155, "nx$C")](lI1li1["ITNtj"](parseInt, lI1li1[Iiili1(279, "$cl3")](waitTimes * 1, 2000), 10));
-            if ($[Iiili1(386, "tU^H")] && $[Iiili1(134, "EIO%")][Iiili1(426, "jKOJ")]) {
-              $[Iiili1(381, "nx$C")] = $["queryInviterHelpInfo"]["data"]["finishHelpNum"], $[Iiili1(234, "w4h@")] = $[Iiili1(198, "kqBv")][Iiili1(371, "w4h@")][Iiili1(424, "TH)J")];
-              if (lI1li1[Iiili1(265, "AQac")]($[Iiili1(418, "A$zN")], 10)) {
-                console[Iiili1(130, "A$zN")](Iiili1(299, "ehf0")), $[Iiili1(184, "w4h@")] = !![];
-                return;
-              } else console[Iiili1(131, "DGCX")]("\u5DF2\u6709\u52A9\u529B\u4EBA\u6570\uFF1A" + $[Iiili1(413, "!p^A")] + Iiili1(237, "lDFK") + $[Iiili1(422, "tXxu")]);
-            } else {
-              if ("zvQpB" === lI1li1[Iiili1(392, "ptwD")]) {
-                console[Iiili1(296, "PNNw")]("\n\u274C \u672A\u80FD\u6B63\u786E\u83B7\u53D6\u52A9\u529B\u7801\uFF0C\u9000\u51FA\u6267\u884C\uFF01"), $[Iiili1(416, "nx$C")] = !![];
-                return;
-              } else iliIIi[Iiili1(348, "ptwD")] && ill11I["resultData"][Iiili1(403, "A$zN")] && lI1li1[Iiili1(208, "w4h@")](Iliiil[Iiili1(138, "DDEL")][Iiili1(327, "*ZO(")], lI1li1[Iiili1(387, "bq@5")]) ? i1IIl[Iiili1(380, "WvzT")] = I1lll1[Iiili1(367, "hU)1")] : i1IIi[Iiili1(217, "DDEL")](Iiili1(255, "lDFK") + IIII1I[Iiili1(338, "OENe")]["message"]);
+    if ($.maxPage > 1) {
+      await $.wait(2000);
+      await bdy_0x43cdfa($.maxPage);
+      $.commentWareList.length == 0 && (await $.wait(2000), await bdy_0x43cdfa($.maxPage - 1));
+    }
+    await $.wait(1000);
+    console.log("当前有" + Number($.sdnum) + "个待评价晒单，开始评价最后一页的" + $.commentWareList.length + "个商品...");
+    for (let _0x30b173 of $.commentWareList.reverse()) {
+      let _0x471316 = [],
+        _0x4e309f = [],
+        _0x5509c9 = "",
+        _0x22cde2 = [];
+      bdy_0x355f78 = [];
+      $.log("\n去评价 👉 " + _0x30b173.wname);
+      if (_0x30b173.commentRewardStatus == "1") {
+        await bdy_0x3747a7(_0x30b173.orderId, _0x30b173.wareId);
+        console.log($.rewardInfo);
+        console.log("要求至少" + $.wnezi + "字," + $.saitu + "图");
+      } else {
+        _0x30b173.estJingBean > 0 && $.log("评价完成最多可得 " + _0x30b173.estJingBean + " 豆 🥔");
+      }
+      if (bdy_0x25996d.filter(_0x3d9b41 => _0x30b173.wname.includes(_0x3d9b41)).length == 0) {
+        console.log("\n开始获取商品好评和图片...");
+        await $.wait(5000);
+        await bdy_0x1f77d5(_0x30b173.wareId);
+        $.maxPage > 1 && (await $.wait(1000), await bdy_0x1f77d5(_0x30b173.wareId, Math.floor(Math.random() * Math.min.apply(null, [$.maxPage, 10]) + 2)));
+        await $.wait(2000);
+        for (const _0x2310a5 of bdy_0x355f78) {
+          if (_0x2310a5.commentInfo.pictureInfoList) {
+            for (const _0x290516 of _0x2310a5.commentInfo.pictureInfoList || {}) {
+              if (_0x290516.mediaType != "2") {
+                let _0x295320 = "";
+                if (_0x290516.picURL.indexOf("dpg") !== -1) {
+                  _0x295320 = _0x290516.picURL.replace(/s[0-9]{3}x[0-9]{3}_(.*).dpg/g, "$1");
+                } else {
+                  if (_0x290516.picURL.indexOf("webp") !== -1) {
+                    _0x295320 = _0x290516.picURL.replace(/s[0-9]{3}x[0-9]{3}_(.*).webp/g, "$1");
+                  } else {
+                    _0x290516.picURL.indexOf("avif") !== -1 && (_0x295320 = _0x290516.picURL.replace(/s[0-9]{3}x[0-9]{3}_(.*).avif/g, "$1"));
+                  }
+                }
+                _0x295320 != "" && _0x471316.push(_0x295320);
+              }
             }
           }
-        } else await inviteFissionhelp($[Iiili1(218, "XX15")]), await $[Iiili1(254, "aq(d")](lI1li1[Iiili1(190, "%Vdq")](parseInt, lI1li1[Iiili1(144, "VXHF")](waitTimes, 1) + 2000, 10));
-      }
-    }
-  } catch (lllli) {
-    console[Iiili1(131, "DGCX")]("\u274C \u811A\u672C\u8FD0\u884C\u9047\u5230\u4E86\u9519\u8BEF\n" + lllli);
-  }
-}
-async function inviteFissionhelp(iiili1) {
-  const Iil1l1 = liil1l,
-    ill11i = {
-      "UFpiq": function (lllill, ill11l) {
-        return lllill(ill11l);
-      },
-      "JSliG": Iil1l1(146, "bq@5")
-    };
-  $[Iil1l1(158, "jKOJ")] = iiili1, await ill11i["UFpiq"](sendRequest, ill11i[Iil1l1(404, "!p^A")]);
-}
-async function handleResponse(I1lIiI, lllili) {
-  const i1i11I = liil1l,
-    IliiiI = {
-      "TTshs": function (Ill11, liiIII) {
-        return Ill11 >= liiIII;
-      },
-      "sbqrk": function (li1i11, iI11I1) {
-        return li1i11 + iI11I1;
-      },
-      "WEwXZ": function (il1i1l, IlIlll) {
-        return il1i1l === IlIlll;
-      },
-      "Fzydr": function (IIIl1I, iil1ii) {
-        return IIIl1I === iil1ii;
-      },
-      "qImlJ": i1i11I(194, "bq@5"),
-      "sCueQ": function (IlIlli, il1i1i) {
-        return IlIlli === il1i1i;
-      },
-      "rHavv": i1i11I(157, "$cl3"),
-      "hkYjY": "amceu",
-      "cjAte": "completeFissionHelp4JKL",
-      "GOnaP": function (lil111, i11ilI) {
-        return lil111 === i11ilI;
-      },
-      "iQDtO": i1i11I(236, "KQj)"),
-      "LQhlj": function (ii1ii1, llllI) {
-        return ii1ii1 !== llllI;
-      },
-      "zWvDv": i1i11I(373, "WvzT")
-    };
-  try {
-    switch (I1lIiI) {
-      case "queryInviterHelpInfo":
-        if (lllili[i1i11I(114, "KQj)")] && IliiiI[i1i11I(352, "A$zN")](lllili[i1i11I(191, "*ZO(")], 0)) {
-          if (lllili[i1i11I(121, "*ZO(")] && lllili[i1i11I(221, "D*[^")][i1i11I(400, "aq(d")] && IliiiI[i1i11I(287, "j]#M")](lllili["resultData"][i1i11I(293, "uW@H")], IliiiI[i1i11I(317, "lck6")])) IliiiI[i1i11I(384, "OENe")](IliiiI["rHavv"], i1i11I(112, "WvzT")) ? (IiiIli[i1i11I(381, "nx$C")]++, iillli[i1i11I(149, "XX15")](i1i11I(231, "AQac") + I1l1Ii["finishHelpNum"]), IliiiI[i1i11I(304, "TH)J")](I1i11i[i1i11I(316, "Vz22")], 10) && (llIlil[i1i11I(357, "nx$C")]("\u52A9\u529B\u4EBA\u6570\u5DF2\u6EE1\uFF0C\u9000\u51FA\u6267\u884C~"), IIlil[i1i11I(275, "lDFK")] = !![])) : $[i1i11I(294, "uW@H")] = lllili[i1i11I(175, "]Cpw")];else {
-            if (i1i11I(227, "lck6") !== IliiiI["hkYjY"]) console[i1i11I(201, "uW@H")]("\n\u5931\u8D25: " + lllili["resultData"][i1i11I(365, "XX15")]);else return IliiiI[i1i11I(285, "D*[^")](lIIill["floor"](I11iIi["random"]() * (I1ilII - I11iIl)), l1l11l);
-          }
+          _0x2310a5.commentInfo.commentScore === "5" && _0x2310a5.commentInfo.commentData.length > bdy_0xa54c7c && _0x4e309f.push(_0x2310a5.commentInfo.commentData);
+        }
+        for (let _0x14355f of bdy_0x6bf456) {
+          _0x4e309f = _0x4e309f.filter(_0x40b741 => !_0x40b741.includes(_0x14355f));
+        }
+        if (_0x4e309f.length > 2) {
+          _0x5509c9 = bdy_0x424316(_0x4e309f);
         } else {
-          let ilil1I = common["getErrorMsg"](lllili);
-          console[i1i11I(322, "Pkjz")](i1i11I(109, "$cl3") + ilil1I);
+          _0x5509c9 = bdy_0x424316(bdy_0x239a20);
         }
-        break;
-      case IliiiI["cjAte"]:
-        if (lllili["resultData"] && lllili[i1i11I(289, "OhPB")] === 0) lllili[i1i11I(183, "aq(d")] && lllili[i1i11I(138, "DDEL")][i1i11I(321, "34Ej")] && IliiiI[i1i11I(181, "jKOJ")](lllili[i1i11I(169, "tXxu")][i1i11I(327, "*ZO(")], IliiiI[i1i11I(113, "*ZO(")]) ? ($[i1i11I(143, "csA^")]++, console[i1i11I(201, "uW@H")](i1i11I(231, "AQac") + $[i1i11I(340, "E159")]), $[i1i11I(154, "n46d")] >= 10 && (console["log"]("\u52A9\u529B\u4EBA\u6570\u5DF2\u6EE1\uFF0C\u9000\u51FA\u6267\u884C~"), $["runEnd"] = !![])) : "oZZoI" === IliiiI[i1i11I(342, "34Ej")] ? console[i1i11I(302, "E4FE")](i1i11I(315, "Pkjz") + lllili[i1i11I(226, "34Ej")][i1i11I(178, "bq@5")]) : lIIiii[i1i11I(359, "%Vdq")]("\u52A9\u529B\u5931\u8D25: " + iI1lli[i1i11I(295, "AQac")][i1i11I(222, "ehf0")]);else {
-          if (IliiiI[i1i11I(174, "*ZO(")]("JhGnK", IliiiI[i1i11I(162, "n46d")])) lliilI["log"](lili1), ll1l1 && (ii1ll["outFlag"] = !![], IliI1l[i1i11I(405, "aq(d")] && IliI1i["message"][i1i11I(326, "$cl3")](ll1ii));else {
-            let lllilI = common[i1i11I(419, "DDEL")](lllili);
-            console[i1i11I(378, "ptwD")](i1i11I(150, "(g77") + lllilI);
+        if (_0x471316.length >= 2) {
+          let _0x592b5f = bdy_0x6fa3f2(_0x471316, 2);
+          _0x22cde2 = _0x592b5f.slice(0, _0x592b5f.length).map(_0x47db34 => ({
+            picUrl: _0x47db34
+          }));
+        }
+      } else {
+        console.log("赠品权益，只发布文字评价");
+        _0x5509c9 += bdy_0x4c3e4c(bdy_0x32d3ec);
+      }
+      _0x5509c9 = _0x5509c9.replace(/\*/gi, "");
+      _0x30b173.estJingBean > 0 && _0x5509c9.length < 60 && ($.log("评价有豆，字数不够，我在凑点..."), _0x5509c9 += " " + bdy_0x424316(bdy_0x192311));
+      if (_0x30b173.commentRewardStatus == "1") {
+        _0x5509c9.length < Number($.wnezi) && (_0x5509c9 += " " + bdy_0x424316(bdy_0x192311));
+        _0x5509c9.length < Number($.wnezi) && (_0x5509c9 += " 好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了");
+        let _0x34a3dc = bdy_0x6fa3f2(_0x471316, Math.max(2, Number($.saitu)));
+        _0x22cde2 = _0x34a3dc.slice(0, _0x34a3dc.length).map(_0x41c951 => ({
+          picUrl: _0x41c951
+        }));
+      }
+      if (_0x22cde2.length != 0 && _0x4e309f.length > 2) {
+        console.log("成功获取到图片和评价，去发布✍️✍️✍️...\n");
+        const _0x53a77d = {
+          mediasExt: "[{\"VideoIsEditCover\":\"0\",\"ImagePropId\":\"0\",\"ImageTakePhotoFilterId\":\"0\",\"ImageIsCrop\":\"0\",\"VideoIsEditCrop\":\"0\",\"VideoEditFilterId\":\"0\",\"VideoMusicId\":\"0\",\"ImageEditFilterId\":\"0\",\"VideoPropId\":\"0\",\"TakeRate\":\"0\",\"VideoRecordIsMakup\":\"0\",\"ImageTakePhotoIsMakup\":\"0\",\"VideoRecordFilterId\":\"0\",\"ImageFontId\":\"0\",\"FromType\":\"1\",\"ImageStrickId\":\"0\"},{\"VideoIsEditCover\":\"0\",\"ImagePropId\":\"0\",\"ImageTakePhotoFilterId\":\"0\",\"ImageIsCrop\":\"0\",\"VideoIsEditCrop\":\"0\",\"VideoEditFilterId\":\"0\",\"VideoMusicId\":\"0\",\"ImageEditFilterId\":\"0\",\"VideoPropId\":\"0\",\"TakeRate\":\"0\",\"VideoRecordIsMakup\":\"0\",\"ImageTakePhotoIsMakup\":\"0\",\"VideoRecordFilterId\":\"0\",\"ImageFontId\":\"0\",\"FromType\":\"1\",\"ImageStrickId\":\"0\"}]"
+        };
+        const _0x125cd3 = {
+          productId: _0x30b173.wareId,
+          kocSynFlag: "0",
+          categoryList: _0x30b173.categoryList,
+          voucherStatus: "0",
+          extInfo: _0x53a77d,
+          officerScore: "1699",
+          anonymousFlag: "1",
+          commentScore: "5",
+          shopType: "0",
+          orderId: _0x30b173.orderId,
+          shopId: _0x30b173.shopId,
+          addPictureFlag: "0",
+          commentData: _0x5509c9,
+          pictureInfoList: _0x22cde2,
+          officerLevel: "3",
+          isCommentTagContent: "0"
+        };
+        await bdy_0x1f7288("pubComment", _0x125cd3);
+      } else {
+        if (_0x22cde2.length != 0 && _0x4e309f.length <= 2) {
+          console.log("成功获取到图片，但没有获取到评价内容，使用内置评价，去发布✍️✍️✍️...\n");
+          const _0x6c1bce = {
+            mediasExt: "[{\"VideoIsEditCover\":\"0\",\"ImagePropId\":\"0\",\"ImageTakePhotoFilterId\":\"0\",\"ImageIsCrop\":\"0\",\"VideoIsEditCrop\":\"0\",\"VideoEditFilterId\":\"0\",\"VideoMusicId\":\"0\",\"ImageEditFilterId\":\"0\",\"VideoPropId\":\"0\",\"TakeRate\":\"0\",\"VideoRecordIsMakup\":\"0\",\"ImageTakePhotoIsMakup\":\"0\",\"VideoRecordFilterId\":\"0\",\"ImageFontId\":\"0\",\"FromType\":\"1\",\"ImageStrickId\":\"0\"},{\"VideoIsEditCover\":\"0\",\"ImagePropId\":\"0\",\"ImageTakePhotoFilterId\":\"0\",\"ImageIsCrop\":\"0\",\"VideoIsEditCrop\":\"0\",\"VideoEditFilterId\":\"0\",\"VideoMusicId\":\"0\",\"ImageEditFilterId\":\"0\",\"VideoPropId\":\"0\",\"TakeRate\":\"0\",\"VideoRecordIsMakup\":\"0\",\"ImageTakePhotoIsMakup\":\"0\",\"VideoRecordFilterId\":\"0\",\"ImageFontId\":\"0\",\"FromType\":\"1\",\"ImageStrickId\":\"0\"}]"
+          };
+          const _0x364505 = {
+            productId: _0x30b173.wareId,
+            kocSynFlag: "0",
+            categoryList: _0x30b173.categoryList,
+            voucherStatus: "0",
+            extInfo: _0x6c1bce,
+            officerScore: "1699",
+            anonymousFlag: "1",
+            commentScore: "5",
+            shopType: "0",
+            orderId: _0x30b173.orderId,
+            shopId: _0x30b173.shopId,
+            addPictureFlag: "0",
+            commentData: _0x5509c9,
+            pictureInfoList: _0x22cde2,
+            officerLevel: "3",
+            isCommentTagContent: "0"
+          };
+          await bdy_0x1f7288("pubComment", _0x364505);
+        } else {
+          if (_0x22cde2.length == 0 && _0x4e309f.length > 2) {
+            console.log("没有获取到图片，但获取到评价，去发布✍️✍️✍️...\n");
+            const _0x437d1a = {
+              productId: _0x30b173.wareId,
+              kocSynFlag: "0",
+              categoryList: _0x30b173.ategoryList,
+              voucherStatus: "0",
+              officerScore: "1699",
+              anonymousFlag: "1",
+              commentScore: "5",
+              shopType: "0",
+              orderId: _0x30b173.orderId,
+              shopId: _0x30b173.shopId,
+              addPictureFlag: "0",
+              commentData: _0x5509c9,
+              pictureInfoList: "",
+              officerLevel: "3",
+              isCommentTagContent: "0"
+            };
+            await bdy_0x1f7288("pubComment", _0x437d1a);
+          } else {
+            bdy_0x355f78.length <= 1 && (console.log("没有获取到评价和图片,使用内置文字评价，去发布✍️✍️✍️...\n"), await bdy_0x1f7288("pubComment", {
+              productId: _0x30b173.wareId,
+              kocSynFlag: "0",
+              categoryList: _0x30b173.ategoryList,
+              voucherStatus: "0",
+              officerScore: "1699",
+              anonymousFlag: "1",
+              commentScore: "5",
+              shopType: "0",
+              orderId: _0x30b173.orderId,
+              shopId: _0x30b173.shopId,
+              addPictureFlag: "0",
+              commentData: _0x5509c9,
+              pictureInfoList: "",
+              officerLevel: "3",
+              isCommentTagContent: "0"
+            }));
           }
         }
-        break;
+      }
+      console.log("评价内容(" + _0x5509c9.length + "字) ：" + _0x5509c9);
+      if (_0x22cde2.length != 0) {
+        console.log("晒图详情：");
+        _0x22cde2.forEach(_0x5cdf3c => console.log(_0x5cdf3c.picUrl));
+      }
+      await $.wait(1000);
     }
-  } catch (ilil11) {
-    console[i1i11I(149, "XX15")](i1i11I(324, "WvzT") + I1lIiI + i1i11I(246, "tQXi") + (ilil11[i1i11I(152, "DGCX")] || ilil11));
+  } catch (_0x1274e6) {
+    console.log(_0x1274e6);
+    console.log("出错了，反馈作者修！！！");
   }
 }
-async function sendRequest(illlI1) {
-  const il1iIl = liil1l,
-    IIIl11 = {
-      "JFcLc": "POST",
-      "zYrIe": il1iIl(151, "tQXi"),
-      "AUhiT": il1iIl(193, "%Vdq"),
-      "wumDP": il1iIl(291, "tXxu"),
-      "aqFKT": il1iIl(323, "w4h@"),
-      "QCLaR": function (iIiIl, iiilii) {
-        return iIiIl(iiilii);
-      },
-      "ksgeG": il1iIl(277, "n46d"),
-      "udFEf": il1iIl(366, "!p^A"),
-      "GqdoE": il1iIl(391, "lDFK"),
-      "dfdLd": il1iIl(343, "(g77"),
-      "RdWTb": il1iIl(127, "bq@5"),
-      "VlwiW": il1iIl(189, "OENe"),
-      "VLXeH": function (li1i1i, IlIli1) {
-        return li1i1i === IlIli1;
-      },
-      "EHYwv": function (illIiI, lI1lli) {
-        return illIiI !== lI1lli;
-      },
-      "OsqXW": function (Ill1l, llI1Il) {
-        return Ill1l > llI1Il;
-      },
-      "VSBsH": function (ii1iii, i11iil) {
-        return ii1iii === i11iil;
-      },
-      "BnXnJ": il1iIl(135, "DDEL"),
-      "pIXui": function (Ill1i, ii1iil) {
-        return Ill1i !== ii1iil;
-      }
+switch ($.type) {
+  case "nb":
+    const bdy_0xd1a69f = {
+      nb: nb
     };
-  if ($["runEnd"]) return;
-  let I1lIi1 = "",
-    liiIIi = null,
-    lil11I = null,
-    Iliii1 = IIIl11[il1iIl(350, "XX15")];
-  switch (illlI1) {
-    case IIIl11[il1iIl(192, "!4Qg")]:
-      I1lIi1 = il1iIl(372, "tXxu") + Date[il1iIl(351, "VXHF")](), bodystr = {
-        "clientType": IIIl11["AUhiT"],
-        "clientVersion": il1iIl(252, "tU^H"),
-        "deviceInfo": JSON[il1iIl(354, "EIO%")]({
-          "eid": $["getid"][il1iIl(107, "kqBv")],
-          "fp": $[il1iIl(271, "K)Ew")]["fp"],
-          "sdkToken": $["getid"]["sdkToken"],
-          "token": $[il1iIl(368, "PNNw")][il1iIl(212, "csA^")],
-          "jstub": $[il1iIl(140, "E159")]["jstub"],
-          "os": IIIl11[il1iIl(411, "tQXi")],
-          "osv": IIIl11[il1iIl(253, "*ZO(")]
-        })
-      }, liiIIi = "reqData=" + IIIl11[il1iIl(290, "Vz22")](encodeURIComponent, JSON[il1iIl(375, "WE@x")](bodystr));
-      break;
-    case IIIl11[il1iIl(210, "hU)1")]:
-      const lllI1l = {
-        "clientType": il1iIl(332, "hU)1"),
-        "clientVersion": IIIl11["udFEf"],
-        "fissionCode": IIIl11["GqdoE"],
-        "inviteCode": $["inviter"],
-        "deviceInfo": JSON[il1iIl(170, "K)Ew")]({
-          "eid": $[il1iIl(119, "%Vdq")][il1iIl(364, "D*[^")],
-          "fp": $["getid"]["fp"],
-          "sdkToken": $[il1iIl(368, "PNNw")][il1iIl(203, "%Vdq")],
-          "token": $[il1iIl(235, "34Ej")]["token"],
-          "jstub": $[il1iIl(211, "hU)1")]["jstub"],
-          "os": IIIl11[il1iIl(224, "PNNw")],
-          "osv": "14.8"
-        })
-      };
-      nonce = $[il1iIl(206, "OmEx")][il1iIl(215, "OhPB")](), signArr = $[il1iIl(412, "KQj)")]["sign"](JSON["stringify"](lllI1l), nonce), bodystr = {
-        "signData": JSON[il1iIl(308, "E159")](lllI1l),
-        "nonce": nonce,
-        "signature": signArr,
-        "clientType": lllI1l[il1iIl(284, "E4FE")],
-        "clientVersion": lllI1l[il1iIl(168, "Pkjz")],
-        "fissionCode": lllI1l[il1iIl(213, "bq@5")],
-        "inviteCode": lllI1l["inviteCode"],
-        "deviceInfo": lllI1l["deviceInfo"]
-      }, liiIIi = il1iIl(374, "tXxu") + JSON[il1iIl(243, "bq@5")](bodystr), I1lIi1 = il1iIl(261, "E159") + Date[il1iIl(225, "kqBv")]();
-      break;
-    default:
-      console[il1iIl(149, "XX15")]("\u274C \u672A\u77E5\u8BF7\u6C42 " + illlI1);
-      return;
-  }
-  const iIiIi = {
-    "url": I1lIi1,
-    "method": Iliii1,
-    "headers": {
-      "Host": il1iIl(281, "WE@x"),
-      "Connection": IIIl11[il1iIl(163, "OENe")],
-      "Accept": "application/json",
-      "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/application=JDJR-App&clientType=ios&iosType=iphone&clientVersion=6.8.90&HiClVersion=6.8.90&isUpdate=0&osVersion=14.8&osName=iOS&screen=736*414&src=App Store&netWork=1&netWorkType=1&CpayJS=UnionPay/1.0 JDJR&stockSDK=stocksdk-iphone_4.2.3&sPoint=&jdPay=(*#@jdPaySDK*#@jdPayChannel=jdfinance&jdPayChannelVersion=6.8.90&jdPaySdkVersion=4.01.23.00&jdPayClientName=iOS*#@jdPaySDK*#@)",
-      "Content-Type": il1iIl(346, "DGCX"),
-      "Origin": IIIl11[il1iIl(205, "n46d")],
-      "Referer": il1iIl(124, "kqBv"),
-      "Accept-Encoding": IIIl11[il1iIl(408, "hU)1")],
-      "Accept-Language": il1iIl(247, "tXxu"),
-      "cookie": cookie
-    },
-    "params": lil11I,
-    "data": liiIIi,
-    "timeout": 20000
-  };
-  IIIl11[il1iIl(262, "]Cpw")](Iliii1, "GET") && (IIIl11[il1iIl(369, "OhPB")]("vbzDS", "CxKBL") ? (delete iIiIi[il1iIl(298, "tU^H")], delete iIiIi["headers"][il1iIl(251, "uW@H")]) : (IIlii[il1iIl(322, "Pkjz")]("\u52A9\u529B\u4EBA\u6570\u5DF2\u6EE1\uFF0C\u9000\u51FA\u6267\u884C~"), IlI1il[il1iIl(345, "bq@5")] = !![]));
-  const iil1ll = 1;
-  let iiilil = 0,
-    iil1li = null,
-    lillIl = ![];
-  while (iiilil < iil1ll) {
-    IIIl11[il1iIl(108, "PNNw")](iiilil, 0) && (await $[il1iIl(303, "WvzT")](1000));
-    const llI1Ii = await common[il1iIl(116, "Vz22")](iIiIi);
-    if (!llI1Ii["success"]) {
-      if (IIIl11[il1iIl(161, "(g77")](il1iIl(393, "$cl3"), il1iIl(397, "bq@5"))) {
-        iil1li = "\uD83D\uDEAB " + illlI1 + il1iIl(425, "w4h@") + llI1Ii[il1iIl(204, "tXxu")], iiilil++;
-        continue;
-      } else lilIlI[il1iIl(167, "*ZO(")](il1iIl(347, "uW@H"));
-    }
-    if (!llI1Ii?.[il1iIl(312, "]9rf")]) {
-      if (IIIl11[il1iIl(177, "tQXi")] === il1iIl(244, "VXHF")) {
-        IlI1l[il1iIl(383, "w4h@")](il1iIl(172, "n46d")), lilIil["runEnd"] = !![];
-        return;
-      } else {
-        iil1li = il1iIl(395, "%Vdq") + illlI1 + il1iIl(199, "bq@5"), iiilil++;
-        continue;
-      }
-    }
-    handleResponse(illlI1, llI1Ii[il1iIl(310, "E4FE")]), lillIl = ![];
+    _0xf1f6le = bdy_0xd1a69f;
     break;
-  }
-  if (iiilil >= iil1ll) {
-    if (IIIl11[il1iIl(341, "lck6")]("RNhom", "RNhom")) {
-      let lI1lll = I1l1II["getErrorMsg"](IIli1I);
-      I1i11I["log"](il1iIl(239, "aq(d") + lI1lll);
-    } else console[il1iIl(272, "WE@x")](iil1li), lillIl && ($[il1iIl(280, "XX15")] = !![], $[il1iIl(129, "v&!V")] && $["message"][il1iIl(122, "DDEL")](iil1li));
-  }
 }
-async function getAuthorCodeList(iIiII) {
-  const iii1ii = liil1l,
-    iil1lI = await common[iii1ii(136, "A$zN")]({
-      "url": iIiII,
-      "method": "GET",
-      "headers": {
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
-      },
-      "proxy": null,
-      "debug": ![],
-      "timeout": 30000
-    }),
-    iiiliI = iil1lI[iii1ii(337, "WvzT")];
-  return iiiliI;
+async function bdy_0x1f77d5(_0x35b06d, _0x4abd77 = 1) {
+  const _0x26c076 = {
+    sortType: "5",
+    isCurrentSku: false,
+    sku: "" + _0x35b06d,
+    pictureCommentType: "A",
+    shieldCurrentComment: "1",
+    shopType: "0",
+    type: "4",
+    shadowMainSku: "0",
+    num: "10",
+    offset: "" + _0x4abd77,
+    pageNum: "" + _0x4abd77,
+    pageSize: "10"
+  };
+  s = await bdy_0x1f7288("getCommentListWithCard", _0x26c076);
+  bdy_0x355f78 = bdy_0x355f78.concat(s.commentInfoList);
+  $.maxPage = s.maxPage;
 }
-async function jstoken2() {
-  const il1iIi = liil1l,
-    li1i1I = {
-      "IWYRs": il1iIi(335, "nx$C"),
-      "DXrqg": il1iIi(220, "34Ej"),
-      "aBHdl": function (i11iiI, lIli11) {
-        return i11iiI !== lIli11;
+async function bdy_0x3354af(_0x1a58f8, _0x3e235c = 1) {
+  const _0x31fffa = {
+    bbtf: ""
+  };
+  const _0x505387 = {
+    category: "",
+    extInfo: _0x31fffa,
+    isCurrentSku: true,
+    num: "21",
+    offset: "" + _0x3e235c,
+    shadowMainSku: "0",
+    shopType: "0",
+    sku: "" + _0x1a58f8
+  };
+  s = await bdy_0x1f7288("getShowPictures", _0x505387);
+  $.commentInfoList = s.commentShowPicInfoList;
+  $.maxPage = s.maxPage;
+}
+async function bdy_0x451645(_0x390f39, _0x15613c = 1) {
+  const _0x46a925 = {
+    bbtf: ""
+  };
+  const _0x3a6905 = {
+    category: "",
+    extInfo: _0x46a925,
+    isCurrentSku: false,
+    num: "10",
+    offset: "" + _0x15613c,
+    shopType: "0",
+    sku: "" + _0x390f39,
+    type: "4"
+  };
+  s = await bdy_0x1f7288("getFoldCommentList", _0x3a6905);
+  bdy_0x355f78 = bdy_0x355f78.concat(s.commentInfoList);
+  $.maxPage = s.maxPage;
+}
+async function bdy_0x3747a7(_0x658018, _0x2578bf) {
+  s = await bdy_0x1f7288("commentEditInfo", {
+    allFloorsFlag: null,
+    business: "1",
+    evaAuraVersion: "120602",
+    lowSaleQuantity: null,
+    orderId: _0x658018,
+    qrType: "1",
+    sku: _0x2578bf
+  });
+  $.rewardInfo = s.commentFloorList[0].productCommentFloor.newCommentRewardMap?.["bannerInfo"] || "评价有礼";
+  $.wnezi = JSON.stringify(s).match(new RegExp("(\\d+)字")) ? JSON.stringify(s).match(new RegExp("(\\d+)字"))[1] : 60;
+  $.saitu = JSON.stringify(s).match(new RegExp("(\\d+)晒图")) ? JSON.stringify(s).match(new RegExp("(\\d+)晒图"))[1] : 2;
+}
+async function bdy_0x43cdfa(_0x52a8a3 = "1", _0x4ee184 = "1") {
+  const _0x4c281d = {
+    pageIndex: _0x52a8a3,
+    pageSize: "10",
+    planType: "1",
+    status: _0x4ee184
+  };
+  s = await bdy_0x1f7288("getCommentWareList", _0x4c281d, "12.5.0");
+  $.maxPage = s.commentWareListInfo?.["maxPage"];
+  $.sdnum = s.commentWareListInfo?.["wait4CommentCount"];
+  _0x4ee184 == "4" ? $.caidanList = s.commentWareListInfo?.["commentWareList"] : $.commentWareList = s.commentWareListInfo?.["commentWareList"];
+}
+async function bdy_0x1f7288(_0x11568f, _0x580f33) {
+  let _0x130913 = await bdy_0x53b0cb[bdy_0xc58a47](_0x11568f, _0x580f33, "11.0.2", "1"),
+    _0x4905b9 = {
+      url: "https://api.m.jd.com/client.action?functionId=" + _0x11568f,
+      body: "fuctionId=" + _0x11568f + "&" + _0x130913,
+      headers: {
+        Host: "api.m.jd.com",
+        accept: "*/*",
+        "user-agent": $.UA,
+        "accept-language": "zh-Hans-JP;q=1, en-JP;q=0.9, zh-Hant-TW;q=0.8, ja-JP;q=0.7, en-US;q=0.6",
+        Cookie: bdy_0xcc562f
       }
-    },
-    {
-      JSDOM: illIii
-    } = jsdom;
-  let ii1il1 = new jsdom[il1iIi(240, "uW@H")]({
-      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0) Gecko/20100101 Firefox/91.0",
-      "referrer": li1i1I[il1iIi(286, "WE@x")]
-    }),
-    lI1llI = new jsdom["VirtualConsole"](),
-    illIil = {
-      "url": il1iIi(200, "WE@x"),
-      "referrer": "https://eco.jr.jd.com/",
-      "userAgent": il1iIi(120, "XX15"),
-      "runScripts": li1i1I[il1iIi(263, "K)Ew")],
-      "resources": ii1il1,
-      "includeNodeLocations": !![],
-      "storageQuota": 10000000,
-      "pretendToBeVisual": !![],
-      "virtualConsole": lI1llI
     };
-  const Ill1I = new illIii(il1iIi(241, "%Vdq"), illIil);
-  await $[il1iIi(188, "VXHF")](1500);
-  try {
-    li1i1I[il1iIi(242, "jKOJ")](il1iIi(147, "PNNw"), il1iIi(356, "v&!V")) ? (lliii1[il1iIi(216, "DDEL")] = Iiii1[il1iIi(417, "ehf0")][il1iIi(256, "EIO%")](), lIIili["window"][il1iIi(123, "AQac")][il1iIi(325, "tU^H")](), IiiIil[il1iIi(320, "ehf0")] = new IiiIii["window"][il1iIi(115, "EIO%")](), IIlll["cry"] = liliI["window"]["cryptico"]) : ($["getid"] = Ill1I[il1iIi(250, "$cl3")][il1iIi(259, "AQac")](), Ill1I[il1iIi(349, "OhPB")]["AAR2"][il1iIi(288, "WE@x")](), $[il1iIi(377, "Vz22")] = new Ill1I[il1iIi(269, "uW@H")]["AAR2"](), $[il1iIi(382, "kqBv")] = Ill1I[il1iIi(182, "!4Qg")][il1iIi(276, "!4Qg")]);
-  } catch (lillI1) {}
-}
-function random(IlIlii, i1l1i1) {
-  const iii1il = liil1l,
-    liil11 = {
-      "jjivO": function (iiillI, l1l111) {
-        return iiillI - l1l111;
+  return new Promise(_0x16d50c => {
+    $.dpost(_0x4905b9, (_0x4d051d, _0x3b6651, _0x527f7d) => {
+      try {
+        _0x4d051d ? console.log(_0x4d051d) : _0x527f7d = JSON.parse(_0x527f7d);
+        switch (_0x11568f) {
+          case "pubComment":
+            if (_0x527f7d.message) {
+              console.log(_0x527f7d.message);
+            }
+            break;
+          default:
+            break;
+        }
+      } catch (_0xb44862) {
+        console.log(_0xb44862);
+      } finally {
+        _0x16d50c(_0x527f7d);
       }
-    };
-  return Math[iii1il(396, "Pkjz")](Math["random"]() * liil11["jjivO"](i1l1i1, IlIlii)) + IlIlii;
+    });
+  });
 }
-var version_ = "jsjiami.com.v7";
-// prettier-ignore
+function bdy_0x58d6fc() {
+  return Math.random().toString(16).slice(2, 10) + Math.random().toString(16).slice(2, 10) + Math.random().toString(16).slice(2, 10) + Math.random().toString(16).slice(2, 10) + Math.random().toString(16).slice(2, 10);
+}
+function bdy_0x424316(_0x45335b) {
+  return _0x45335b[Math.floor(Math.random() * _0x45335b.length)] || "";
+}
+function bdy_0x6fa3f2(_0x2d7ead, _0x452f91) {
+  const _0x5d17d4 = _0x2d7ead.slice();
+  let _0x143774 = _0x2d7ead.length,
+    _0x280e89,
+    _0xe4f2ca;
+  while (_0x143774--) {
+    _0xe4f2ca = Math.floor((_0x143774 + 1) * Math.random());
+    _0x280e89 = _0x5d17d4[_0xe4f2ca];
+    _0x5d17d4[_0xe4f2ca] = _0x5d17d4[_0x143774];
+    _0x5d17d4[_0x143774] = _0x280e89;
+  }
+  return _0x5d17d4.slice(0, _0x452f91);
+}
+function bdy_0x487412() {
+  const _0x489ad7 = {
+    url: "https://verify-dy-server-hchdzuwrsu.cn-hangzhou.fcapp.run/pingjia",
+    timeout: 30000
+  };
+  return new Promise(_0x4ec051 => {
+    $.post(_0x489ad7, async (_0x553584, _0x3092cd, _0x387b2f) => {
+      try {
+        if (!_0x553584) {
+          if (_0x387b2f) {
+            _0x387b2f = JSON.parse(_0x387b2f);
+            if (_0x387b2f.status === 200) {
+              bdy_0xc58a47 = _0x387b2f.method;
+            }
+          }
+        }
+      } catch (_0x5d9eb8) {
+        $.logErr(_0x5d9eb8, _0x3092cd);
+      } finally {
+        _0x4ec051(_0x387b2f);
+      }
+    });
+  });
+}
+function bdy_0x367389(_0x23c49d) {
+  const _0x50fcd1 = [],
+    _0x5d00b5 = /[\u4e00-\u9fa5]/;
+  for (let _0xd34f14 = 0; _0xd34f14 < _0x23c49d.length; _0xd34f14++) {
+    const _0xabb22a = _0x23c49d[_0xd34f14];
+    _0x5d00b5.test(_0xabb22a) && !_0x50fcd1.includes(_0xabb22a) && _0x50fcd1.push(_0xabb22a);
+  }
+  return _0x50fcd1.length;
+}
+function bdy_0x4c3e4c(_0x3ae53a) {
+  for (let _0x1ddc96 = _0x3ae53a.length - 1; _0x1ddc96 > 0; _0x1ddc96--) {
+    const _0x2bc3de = Math.floor(Math.random() * (_0x1ddc96 + 1));
+    [_0x3ae53a[_0x1ddc96], _0x3ae53a[_0x2bc3de]] = [_0x3ae53a[_0x2bc3de], _0x3ae53a[_0x1ddc96]];
+  }
+  return _0x3ae53a.join(",");
+}
+function bdy_0x37e5f4() {
+  return new Promise(_0x545d0a => {
+    const _0x5379a4 = {
+      url: "https://plogin.m.jd.com/cgi-bin/ml/islogin",
+      headers: {},
+      timeout: 10000
+    };
+    _0x5379a4.headers.Cookie = bdy_0xcc562f;
+    _0x5379a4.headers.referer = "https://h5.m.jd.com/";
+    _0x5379a4.headers["User-Agent"] = $.UA;
+    $.get(_0x5379a4, (_0x6b820, _0x45d744, _0x39ae73) => {
+      try {
+        if (_0x39ae73) {
+          _0x39ae73 = JSON.parse(_0x39ae73);
+          if (!(_0x39ae73.islogin === "1")) {
+            _0x39ae73.islogin === "0" && ($.isLogin = false);
+          }
+        }
+      } catch (_0x1cefa6) {
+        console.log(_0x1cefa6);
+      } finally {
+        _0x545d0a();
+      }
+    });
+  });
+}
 function Env(t, e) {
   "undefined" != typeof process && JSON.stringify(process.env).indexOf("GITHUB") > -1 && process.exit(0);
   class s {
@@ -519,7 +524,8 @@ function Env(t, e) {
         url: t
       } : t;
       let s = this.get;
-      return "POST" === e && (s = this.post), new Promise((e, i) => {
+      "POST" === e && (s = this.post);
+      return new Promise((e, i) => {
         s.call(this, t, (t, s, r) => {
           t ? i(t) : e(s);
         });
@@ -534,7 +540,17 @@ function Env(t, e) {
   }
   return new class {
     constructor(t, e) {
-      this.name = t, this.http = new s(this), this.data = null, this.dataFile = "box.dat", this.logs = [], this.isMute = !1, this.isNeedRewrite = !1, this.logSeparator = "\n", this.startTime = new Date().getTime(), Object.assign(this, e), this.log("", `🔔${this.name}, 开始!`);
+      this.name = t;
+      this.http = new s(this);
+      this.data = null;
+      this.dataFile = "box.dat";
+      this.logs = [];
+      this.isMute = !1;
+      this.isNeedRewrite = !1;
+      this.logSeparator = "\n";
+      this.startTime = new Date().getTime();
+      Object.assign(this, e);
+      this.log("", `🔔${this.name}, 开始!`);
     }
     isNode() {
       return "undefined" != typeof module && !!module.exports;
@@ -565,9 +581,11 @@ function Env(t, e) {
     getjson(t, e) {
       let s = e;
       const i = this.getdata(t);
-      if (i) try {
-        s = JSON.parse(this.getdata(t));
-      } catch {}
+      if (i) {
+        try {
+          s = JSON.parse(this.getdata(t));
+        } catch {}
+      }
       return s;
     }
     setjson(t, e) {
@@ -589,7 +607,8 @@ function Env(t, e) {
         let i = this.getdata("@chavy_boxjs_userCfgs.httpapi");
         i = i ? i.replace(/\n/g, "").trim() : i;
         let r = this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");
-        r = r ? 1 * r : 20, r = e && e.timeout ? e.timeout : r;
+        r = r ? 1 * r : 20;
+        r = e && e.timeout ? e.timeout : r;
         const [o, h] = i.split("@"),
           n = {
             url: `http://${h}/v1/scripting/evaluate`,
@@ -607,14 +626,19 @@ function Env(t, e) {
       }).catch(t => this.logErr(t));
     }
     loaddata() {
-      if (!this.isNode()) return {};
+      if (!this.isNode()) {
+        return {};
+      }
       {
-        this.fs = this.fs ? this.fs : require("fs"), this.path = this.path ? this.path : require("path");
+        this.fs = this.fs ? this.fs : require("fs");
+        this.path = this.path ? this.path : require("path");
         const t = this.path.resolve(this.dataFile),
           e = this.path.resolve(process.cwd(), this.dataFile),
           s = this.fs.existsSync(t),
           i = !s && this.fs.existsSync(e);
-        if (!s && !i) return {};
+        if (!s && !i) {
+          return {};
+        }
         {
           const i = s ? t : e;
           try {
@@ -627,7 +651,8 @@ function Env(t, e) {
     }
     writedata() {
       if (this.isNode()) {
-        this.fs = this.fs ? this.fs : require("fs"), this.path = this.path ? this.path : require("path");
+        this.fs = this.fs ? this.fs : require("fs");
+        this.path = this.path ? this.path : require("path");
         const t = this.path.resolve(this.dataFile),
           e = this.path.resolve(process.cwd(), this.dataFile),
           s = this.fs.existsSync(t),
@@ -639,7 +664,9 @@ function Env(t, e) {
     lodash_get(t, e, s) {
       const i = e.replace(/\[(\d+)\]/g, ".$1").split(".");
       let r = t;
-      for (const t of i) if (r = Object(r)[t], void 0 === r) return s;
+      for (const t of i) if (r = Object(r)[t], void 0 === r) {
+        return s;
+      }
       return r;
     }
     lodash_set(t, e, s) {
@@ -650,11 +677,13 @@ function Env(t, e) {
       if (/^@/.test(t)) {
         const [, s, i] = /^@(.*?)\.(.*?)$/.exec(t),
           r = s ? this.getval(s) : "";
-        if (r) try {
-          const t = JSON.parse(r);
-          e = t ? this.lodash_get(t, i, "") : e;
-        } catch (t) {
-          e = "";
+        if (r) {
+          try {
+            const t = JSON.parse(r);
+            e = t ? this.lodash_get(t, i, "") : e;
+          } catch (t) {
+            e = "";
+          }
         }
       }
       return e;
@@ -667,12 +696,16 @@ function Env(t, e) {
           h = i ? "null" === o ? null : o || "{}" : "{}";
         try {
           const e = JSON.parse(h);
-          this.lodash_set(e, r, t), s = this.setval(JSON.stringify(e), i);
+          this.lodash_set(e, r, t);
+          s = this.setval(JSON.stringify(e), i);
         } catch (e) {
           const o = {};
-          this.lodash_set(o, r, t), s = this.setval(JSON.stringify(o), i);
+          this.lodash_set(o, r, t);
+          s = this.setval(JSON.stringify(o), i);
         }
-      } else s = this.setval(t, e);
+      } else {
+        s = this.setval(t, e);
+      }
       return s;
     }
     getval(t) {
@@ -682,13 +715,18 @@ function Env(t, e) {
       return this.isSurge() || this.isLoon() ? $persistentStore.write(t, e) : this.isQuanX() ? $prefs.setValueForKey(t, e) : this.isNode() ? (this.data = this.loaddata(), this.data[e] = t, this.writedata(), !0) : this.data && this.data[e] || null;
     }
     initGotEnv(t) {
-      this.got = this.got ? this.got : require("got"), this.cktough = this.cktough ? this.cktough : require("tough-cookie"), this.ckjar = this.ckjar ? this.ckjar : new this.cktough.CookieJar(), t && (t.headers = t.headers ? t.headers : {}, void 0 === t.headers.Cookie && void 0 === t.cookieJar && (t.cookieJar = this.ckjar));
+      this.got = this.got ? this.got : require("got");
+      this.cktough = this.cktough ? this.cktough : require("tough-cookie");
+      this.ckjar = this.ckjar ? this.ckjar : new this.cktough.CookieJar();
+      t && (t.headers = t.headers ? t.headers : {}, void 0 === t.headers.Cookie && void 0 === t.cookieJar && (t.cookieJar = this.ckjar));
     }
     get(t, e = () => {}) {
-      t.headers && (delete t.headers["Content-Type"], delete t.headers["Content-Length"]), this.isSurge() || this.isLoon() ? (this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+      t.headers && (delete t.headers["Content-Type"], delete t.headers["Content-Length"]);
+      this.isSurge() || this.isLoon() ? (this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
         "X-Surge-Skip-Scripting": !1
       })), $httpClient.get(t, (t, s, i) => {
-        !t && s && (s.body = i, s.statusCode = s.status), e(t, s, i);
+        !t && s && (s.body = i, s.statusCode = s.status);
+        e(t, s, i);
       })) : this.isQuanX() ? (this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
         hints: !1
       })), $task.fetch(t).then(t => {
@@ -708,7 +746,8 @@ function Env(t, e) {
         try {
           if (t.headers["set-cookie"]) {
             const s = t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();
-            s && this.ckjar.setCookieSync(s, null), e.cookieJar = this.ckjar;
+            s && this.ckjar.setCookieSync(s, null);
+            e.cookieJar = this.ckjar;
           }
         } catch (t) {
           this.logErr(t);
@@ -735,51 +774,63 @@ function Env(t, e) {
       }));
     }
     post(t, e = () => {}) {
-      if (t.body && t.headers && !t.headers["Content-Type"] && (t.headers["Content-Type"] = "application/x-www-form-urlencoded"), t.headers && delete t.headers["Content-Length"], this.isSurge() || this.isLoon()) this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
-        "X-Surge-Skip-Scripting": !1
-      })), $httpClient.post(t, (t, s, i) => {
-        !t && s && (s.body = i, s.statusCode = s.status), e(t, s, i);
-      });else if (this.isQuanX()) t.method = "POST", this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
-        hints: !1
-      })), $task.fetch(t).then(t => {
-        const {
-          statusCode: s,
-          statusCode: i,
-          headers: r,
-          body: o
-        } = t;
-        e(null, {
-          status: s,
-          statusCode: i,
-          headers: r,
-          body: o
-        }, o);
-      }, t => e(t));else if (this.isNode()) {
-        this.initGotEnv(t);
-        const {
-          url: s,
-          ...i
-        } = t;
-        this.got.post(s, i).then(t => {
-          const {
-            statusCode: s,
-            statusCode: i,
-            headers: r,
-            body: o
-          } = t;
-          e(null, {
-            status: s,
-            statusCode: i,
-            headers: r,
-            body: o
-          }, o);
-        }, t => {
-          const {
-            message: s,
-            response: i
-          } = t;
-          e(s, i, i && i.body);
+      if (t.body && t.headers && !t.headers["Content-Type"] && (t.headers["Content-Type"] = "application/x-www-form-urlencoded"), t.headers && delete t.headers["Content-Length"], this.isSurge() || this.isLoon()) {
+        this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+          "X-Surge-Skip-Scripting": !1
+        }));
+        $httpClient.post(t, (t, s, i) => {
+          !t && s && (s.body = i, s.statusCode = s.status);
+          e(t, s, i);
         });
+      } else {
+        if (this.isQuanX()) {
+          t.method = "POST";
+          this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
+            hints: !1
+          }));
+          $task.fetch(t).then(t => {
+            const {
+              statusCode: s,
+              statusCode: i,
+              headers: r,
+              body: o
+            } = t;
+            e(null, {
+              status: s,
+              statusCode: i,
+              headers: r,
+              body: o
+            }, o);
+          }, t => e(t));
+        } else {
+          if (this.isNode()) {
+            this.initGotEnv(t);
+            const {
+              url: s,
+              ...i
+            } = t;
+            this.got.post(s, i).then(t => {
+              const {
+                statusCode: s,
+                statusCode: i,
+                headers: r,
+                body: o
+              } = t;
+              e(null, {
+                status: s,
+                statusCode: i,
+                headers: r,
+                body: o
+              }, o);
+            }, t => {
+              const {
+                message: s,
+                response: i
+              } = t;
+              e(s, i, i && i.body);
+            });
+          }
+        }
       }
     }
     time(t, e = null) {
@@ -799,12 +850,16 @@ function Env(t, e) {
     }
     msg(e = t, s = "", i = "", r) {
       const o = t => {
-        if (!t) return t;
-        if ("string" == typeof t) return this.isLoon() ? t : this.isQuanX() ? {
-          "open-url": t
-        } : this.isSurge() ? {
-          url: t
-        } : void 0;
+        if (!t) {
+          return t;
+        }
+        if ("string" == typeof t) {
+          return this.isLoon() ? t : this.isQuanX() ? {
+            "open-url": t
+          } : this.isSurge() ? {
+            url: t
+          } : void 0;
+        }
         if ("object" == typeof t) {
           if (this.isLoon()) {
             let e = t.openUrl || t.url || t["open-url"],
@@ -831,12 +886,17 @@ function Env(t, e) {
         }
       };
       if (this.isMute || (this.isSurge() || this.isLoon() ? $notification.post(e, s, i, o(r)) : this.isQuanX() && $notify(e, s, i, o(r))), !this.isMuteLog) {
-        let t = ["", "==============\uD83D\uDCE3\u7CFB\u7EDF\u901A\u77E5\uD83D\uDCE3=============="];
-        t.push(e), s && t.push(s), i && t.push(i), console.log(t.join("\n")), this.logs = this.logs.concat(t);
+        let t = ["", "==============📣系统通知📣=============="];
+        t.push(e);
+        s && t.push(s);
+        i && t.push(i);
+        console.log(t.join("\n"));
+        this.logs = this.logs.concat(t);
       }
     }
     log(...t) {
-      t.length > 0 && (this.logs = [...this.logs, ...t]), console.log(t.join(this.logSeparator));
+      t.length > 0 && (this.logs = [...this.logs, ...t]);
+      console.log(t.join(this.logSeparator));
     }
     logErr(t, e) {
       const s = !this.isSurge() && !this.isQuanX() && !this.isLoon();
@@ -848,7 +908,9 @@ function Env(t, e) {
     done(t = {}) {
       const e = new Date().getTime(),
         s = (e - this.startTime) / 1000;
-      this.log("", `🔔${this.name}, 结束! 🕛 ${s} 秒`), this.log(), (this.isSurge() || this.isQuanX() || this.isLoon()) && $done(t);
+      this.log("", `🔔${this.name}, 结束! 🕛 ${s} 秒`);
+      this.log();
+      (this.isSurge() || this.isQuanX() || this.isLoon()) && $done(t);
     }
   }(t, e);
 }
