@@ -1,17 +1,21 @@
-//Fri Jul 26 2024 05:21:56 GMT+0000 (Coordinated Universal Time)
+//Sun Aug 04 2024 07:37:53 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-const $ = new Env("带图评价晒单");
-const bdy_0x19e6e7 = $.isNode() ? require("./sendNotify") : "",
-  bdy_0x10df02 = $.isNode() ? require("./jdCookie.js") : "",
-  bdy_0x53b0cb = require("./function/dylanx"),
-  bdy_0x527dd4 = require("./USER_AGENTS");
+const $ = new Env("玩一玩兑换");
+const bdy_0x4523c5 = $.isNode() ? require("./jdCookie.js") : "",
+  bdy_0x4595e1 = $.isNode() ? require("./sendNotify") : "",
+  bdy_0x3bab8b = require("./function/dylans"),
+  bdy_0x18aaf7 = process.env.WYW_DBNUM ? process.env.WYW_DBNUM : "10";
+let bdy_0x15b2ea = [],
+  bdy_0xb570f7 = "",
+  bdy_0xb3131b = 0,
+  bdy_0x4ef3ff = {};
 if (process.env.DY_PROXY) {
   try {
     require("https-proxy-agent");
-    ccc = require("./function/proxy.js");
-    $.dget = ccc.intoRequest($.get.bind($));
-    $.dpost = ccc.intoRequest($.post.bind($));
+    bdy_0x4ef3ff = require("./function/proxy.js");
+    $.dget = bdy_0x4ef3ff.intoRequest($.get.bind($));
+    $.dpost = bdy_0x4ef3ff.intoRequest($.post.bind($));
   } catch {
     $.log("未安装https-proxy-agent依赖，无法启用代理");
     $.dget = $.get;
@@ -21,500 +25,723 @@ if (process.env.DY_PROXY) {
   $.dpost = $.post;
   $.dget = $.get;
 }
-let bdy_0x5137de = [],
-  bdy_0xcc562f = "";
 if ($.isNode()) {
-  var bdy_0x3994ef = new Buffer.from("64796C616E", "Hex").toString("utf8");
-  Object.keys(bdy_0x10df02).forEach(_0x1a080 => {
-    bdy_0x5137de.push(bdy_0x10df02[_0x1a080]);
+  Object.keys(bdy_0x4523c5).forEach(_0x47b5a7 => {
+    bdy_0x15b2ea.push(bdy_0x4523c5[_0x47b5a7]);
   });
   if (process.env.JD_DEBUG && process.env.JD_DEBUG === "false") {
     console.log = () => {};
   }
 } else {
-  let bdy_0x13838b = $.getdata("CookiesJD") || "[]";
-  bdy_0x13838b = jsonParse(bdy_0x13838b);
-  bdy_0x5137de = bdy_0x13838b.map(_0x3c112d => _0x3c112d.cookie);
-  bdy_0x5137de.reverse();
-  bdy_0x5137de.push(...[$.getdata("CookieJD2"), $.getdata("CookieJD")]);
-  bdy_0x5137de.reverse();
-  bdy_0x5137de = bdy_0x5137de.filter(_0x3a06a9 => _0x3a06a9 !== "" && _0x3a06a9 !== null && _0x3a06a9 !== undefined);
+  bdy_0x15b2ea = [$.getdata("CookieJD"), $.getdata("CookieJD2"), ...jsonfomat($.getdata("CookiesJD") || "[]").map(_0x1feea7 => _0x1feea7.cookie)].filter(_0x2bd01e => !!_0x2bd01e);
 }
-if (process.env.DY_PROXY) {
-  const bdy_0x59d212 = require("./function/proxy.js");
-  $.get = bdy_0x59d212.intoRequest($.get.bind($));
-  $.post = bdy_0x59d212.intoRequest($.post.bind($));
-}
-const bdy_0x2e9de6 = process.env.EVALNUM ? process.env.EVALNUM : undefined;
-let bdy_0xa54c7c = process.env.EVAL_WORD_COUNT ?? 10,
-  bdy_0x1cb31f = process.env.ONEVAL ?? false,
-  bdy_0x552b8c = process.env.EVAL_CPKEY ? process.env.EVAL_CPKEY : "",
-  bdy_0x6bf456 = ["垃圾", "质量差", "差评", "好差", "欺骗"],
-  bdy_0x239a20 = ["非常满意的购物体验！商品质量很好，价格实惠。物流迅速，包装严密。非常感谢商家的耐心解答和及时发货，给予8分好评。", "商品质量非常好，价格实惠，物流速度很快。包装完好，没有损坏。非常感谢商家的耐心解答和热情服务，下次还会再来购买。", "这是一次愉快的购物体验，商品质量非常好，价格也很实惠。物流速度快，包装严密。非常感谢商家的耐心服务和及时回复，给予8分好评。", "商品收到了，非常满意！质量可以，价格也还合理。感谢商家客服的热情服务和及时发货，好的话会推荐给朋友们。", "这次购物真是太棒了！商品质量很好，与描述一致。包装仔细，没有损坏。非常感谢商家的认真态度和及时发货，下次还会再来购买。", "质量非常好,与卖家描述的完全一致,真的很喜欢,完全超出期望值,发货速度非常快,物流公司服务态度很好,运送速度很快,店主态度特好,很好很好!质量好而价低廉，很热情的客服，下次还来祝你生意兴隆质量非常好，出乎我的意料包装非常仔细。", "我为什么喜欢在京东买东西，因为今天买明天就可以送到。我为什么每个商品的评价都一样，因为在京东买的东西太多太多了，导致积累了很多未评价的订单，所以我统一用段话作为评价内容。京东购物这么久，有买到很好的产品，也有买到比较坑的产品，如果我用这段话来评价，说明这款产品没问题，至少85分以上，而比较垃圾的产品，我绝对不会偷懒到复制粘贴评价，我绝对会用心的差评，这样其他消费者在购买的时候会作为参考，会影响该商品销量，而商家也会因此改进商品质量。", "感觉物超所值 服务态度还是可以的，没什么太多可挑剔的，再接再厉，祝老板生意兴隆", "这是一条好评段子，花钱的评价，麻烦你们认真点!先说商品质量：产品总体不错，包装严实。再说商家服务：点赞啦。最后点评快递：发货很快。其他就是感谢店家打折送券活动，毕竟便宜好货更实在。希望店家多多优惠，及时通知老客户，促成回购。祝生意兴隆。", "滴滴滴，我来汇报了，东西还行，客服节能有待提高哈，一贯好评啦，快递是真的快，后面再来追评吧，就这样"],
-  bdy_0x25996d = ["赠品", "权益", "非实物", "非卖品", "增值服务", "服务", "券包", "只换不修"],
-  bdy_0x32d3ec = ["送的没花钱哈哈", "东西还还不错", "现在的购物体验越来越好", "以前还没有这么多贴心的赠品、增值服务、权益等服务", "给赞", "算不算白嫖"],
-  bdy_0x192311 = ["以上是我购物感受和体验，仅供参考，也不要只看好评，适合我的不一定适合你。。。。", "总的来说，还可以，我的评价供大家参考借鉴，根据自己情况。。。。", "总之还行，买不了吃亏，买的了上当，嘿嘿！！！！", "就这样，一惯好评啦，不是非常烂一般不会差评", "最后，希望京东越来越好，感恩"],
-  bdy_0x355f78 = [],
-  bdy_0xc58a47 = "",
-  bdy_0x48746b = true;
-!__filename.includes(bdy_0x3994ef) && (bdy_0x48746b = false);
+$.helpId = [];
+$.fullId = [];
+let bdy_0x2c2868 = process.env.WYW_DHID || "";
 !(async () => {
-  if (!bdy_0x5137de[0]) {
-    const _0x3ece62 = {
+  if (!bdy_0x15b2ea[0]) {
+    const _0x5d8b70 = {
       "open-url": "https://bean.m.jd.com/bean/signIndex.action"
     };
-    $.msg($.name, "【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取", "https://bean.m.jd.com/bean/signIndex.action", _0x3ece62);
+    $.msg($.name, "【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取", "https://bean.m.jd.com/bean/signIndex.action", _0x5d8b70);
     return;
   }
-  console.log("当前版本：20240710 差评内容关键词");
-  console.log("每次运行最多20个账号，每个账号最多评价10个商品");
-  console.log("差评关键词变量 EVAL_CPKEY='xxx&yyy' 多个&连接");
-  console.log("问题反馈：https://t.me/dylan_jdpro");
-  if (bdy_0x1cb31f === false) {
-    console.log("\n\n默认不执行, 请设置变量 ONEVAL='true'");
-    return;
-  }
-  bdy_0x552b8c != "" && (console.log("\n合并自定义差评内容关键词"), bdy_0x552b8c.includes("&") ? bdy_0x6bf456 = bdy_0x6bf456.concat(bdy_0x552b8c.split("&")) : bdy_0x6bf456.push(bdy_0x552b8c), bdy_0x6bf456 = [...new Set(bdy_0x6bf456)]);
-  console.log("\n屏蔽差评内容关键词：" + JSON.stringify(bdy_0x6bf456));
-  let _0x5a124d = 0;
-  if (bdy_0x5137de.length > 20) {
-    _0x5a124d = bdy_0x2e9de6 ?? 20;
-  } else {
-    _0x5a124d = bdy_0x5137de.length;
-  }
-  await bdy_0x487412();
-  if (bdy_0xc58a47 == "") {
-    console.log("未知错误，反馈作者修！");
-    return;
-  }
-  for (let _0x2939a0 = 0; _0x2939a0 < _0x5a124d; _0x2939a0++) {
-    if (bdy_0x5137de[_0x2939a0]) {
-      bdy_0xcc562f = bdy_0x5137de[_0x2939a0];
-      $.UserName = decodeURIComponent(bdy_0xcc562f.match(/pt_pin=([^; ]+)(?=;?)/) && bdy_0xcc562f.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
-      $.index = _0x2939a0 + 1;
-      $.isLogin = true;
+  console.log("当前版本：20240702");
+  console.log("问题建议：https://t.me/dylan_jdpro");
+  console.log("兑换ID变量 WYW_DHID");
+  for (let _0x49203a = 0; _0x49203a < bdy_0x15b2ea.length; _0x49203a++) {
+    bdy_0xb570f7 = bdy_0x15b2ea[_0x49203a];
+    originCookie = bdy_0x15b2ea[_0x49203a];
+    if (bdy_0xb570f7) {
+      $.UserName = decodeURIComponent(bdy_0xb570f7.match(/pt_pin=([^; ]+)(?=;?)/) && bdy_0xb570f7.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
+      $.index = _0x49203a + 1;
+      $.hotFlag = false;
       $.nickName = "";
-      $.commentWareList = "";
-      $.commentInfoList = "";
-      $.UA = bdy_0x527dd4.UARAM ? bdy_0x527dd4.UARAM(1) : bdy_0x527dd4.USER_AGENT;
-      $.UA = "okhttp/3.12.16;jdmall;android;version/12.4.2;build/99108;";
-      await bdy_0x37e5f4();
+      $.isLogin = true;
+      $.outFlag = false;
+      $.isban = false;
+      $.hasRisk = false;
+      $.nostart = false;
+      $.cashList = [];
       console.log("\n******开始【京东账号" + $.index + "】" + ($.nickName || $.UserName) + "*********\n");
+      bdy_0x526f6f();
       if (!$.isLogin) {
-        const _0x59210f = {
+        const _0xa4771f = {
           "open-url": "https://bean.m.jd.com/bean/signIndex.action"
         };
-        $.msg($.name, "【提示】cookie已失效", "京东账号" + $.index + " " + ($.nickName || $.UserName) + "\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action", _0x59210f);
-        $.isNode() && (await bdy_0x19e6e7.sendNotify($.name + "cookie已失效 - " + $.UserName, "京东账号" + $.index + " " + $.UserName + "\n请重新登录获取cookie"));
+        $.msg($.name, "【提示】cookie已失效", "京东账号" + $.index + " " + ($.nickName || $.UserName) + "\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action", _0xa4771f);
+        if ($.isNode()) {
+          await bdy_0x4595e1.sendNotify($.name + "cookie已失效 - " + $.UserName, "京东账号" + $.index + " " + $.UserName + "\n请重新登录获取cookie");
+        }
         continue;
       }
-      await bdy_0x26af4d();
-      console.log("\n等待10秒...");
-      await $.wait(10000);
+      await bdy_0x46676a();
+      bdy_0x4ef3ff.swip && (await bdy_0x4ef3ff.swip());
+      if ($.outFlag || $.nostart) {
+        break;
+      }
     }
   }
-})().catch(_0x265016 => {
-  $.log("", "❌ " + $.name + ", 失败! 原因: " + _0x265016 + "!", "");
+})().catch(_0x365b18 => {
+  return $.logErr(_0x365b18);
 }).finally(() => {
-  $.done();
+  return $.done();
 });
-async function bdy_0x26af4d() {
+async function bdy_0x5b8de7() {
+  for (let _0xf59f71 = 0; _0xf59f71 < bdy_0x15b2ea.length; _0xf59f71++) {
+    bdy_0xb570f7 = bdy_0x15b2ea[_0xf59f71];
+    if (bdy_0xb570f7) {
+      $.UserName = decodeURIComponent(bdy_0xb570f7.match(/pt_pin=([^; ]+)(?=;?)/) && bdy_0xb570f7.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
+      $.index = _0xf59f71 + 1;
+      console.log("\n-------开始【账号" + $.index + "】" + ($.nickName || $.UserName) + "------\n");
+      bdy_0x526f6f();
+      $.nonum = false;
+      $.fullId.length != 0 && ($.helpId = $.helpId.filter(_0x56593a => !$.fullId.includes(_0x56593a)), $.fullId = []);
+      for (let _0x2bca6e of $.helpId) {
+        $.itemId = _0x2bca6e;
+        console.log("去助力 --> " + $.itemId);
+        await bdy_0x8645be("wanyiwan_assist");
+        if ($.nonum) {
+          break;
+        }
+        await $.wait(parseInt(Math.random() * 1000 + 2000, 10));
+      }
+      if ($.outFlag) {
+        break;
+      }
+    }
+  }
+}
+async function bdy_0x46676a() {
   try {
-    $.commentWareList = [];
-    $.caidanList = [];
-    await bdy_0x43cdfa();
-    if (!$.maxPage) {
-      console.log("获取待评价数据失败");
+    await bdy_0x8645be("wanyiwan_exchange_page");
+    console.log("\n账号奖票余额 " + $.score);
+    bdy_0x2c2868 == "" && (console.log("\n请设置兑换ID"), process.exit());
+    if (!$.isLogin) {
+      console.log("账号未登录");
       return;
     }
-    if ($.maxPage > 1) {
-      await $.wait(2000);
-      await bdy_0x43cdfa($.maxPage);
-      $.commentWareList.length == 0 && (await $.wait(2000), await bdy_0x43cdfa($.maxPage - 1));
+    let _0x4b04c5 = $.moreExchanges.find(_0x166544 => _0x166544.assignmentId == bdy_0x2c2868);
+    _0x4b04c5 === undefined && (console.log("没有匹配到兑换目标，请检查设置的ID是否正确！"), process.exit());
+    $.assignmentId = _0x4b04c5.assignmentId;
+    $.type = _0x4b04c5.rewardType;
+    $.index == 1 && console.log("\n已设置兑换" + _0x4b04c5.rewardName);
+    if ($.score < _0x4b04c5.exchangeScore) {
+      console.log("奖票余额不足，不进行兑换!!");
+    } else {
+      $.type == 4 ? await bdy_0x8645be("wanyiwan_withdraw") : await bdy_0x8645be("wanyiwan_exchange");
     }
-    await $.wait(1000);
-    console.log("当前有" + Number($.sdnum) + "个待评价晒单，开始评价最后一页的" + $.commentWareList.length + "个商品...");
-    for (let _0x30b173 of $.commentWareList.reverse()) {
-      let _0x471316 = [],
-        _0x4e309f = [],
-        _0x5509c9 = "",
-        _0x22cde2 = [];
-      bdy_0x355f78 = [];
-      $.log("\n去评价 👉 " + _0x30b173.wname);
-      if (_0x30b173.commentRewardStatus == "1") {
-        await bdy_0x3747a7(_0x30b173.orderId, _0x30b173.wareId);
-        console.log($.rewardInfo);
-        console.log("要求至少" + $.wnezi + "字," + $.saitu + "图");
-      } else {
-        _0x30b173.estJingBean > 0 && $.log("评价完成最多可得 " + _0x30b173.estJingBean + " 豆 🥔");
+    await $.wait(parseInt(Math.random() * 1000 + 1000, 10));
+    for (let _0x40e01d = 0; _0x40e01d < 1; _0x40e01d++) {
+      console.log("\n查询提现...");
+      await bdy_0x8645be("superRedBagList", _0x40e01d);
+      if ($.bagList.length == 0) {
+        break;
       }
-      if (bdy_0x25996d.filter(_0x3d9b41 => _0x30b173.wname.includes(_0x3d9b41)).length == 0) {
-        console.log("\n开始获取商品好评和图片...");
-        await $.wait(5000);
-        await bdy_0x1f77d5(_0x30b173.wareId);
-        $.maxPage > 1 && (await $.wait(1000), await bdy_0x1f77d5(_0x30b173.wareId, Math.floor(Math.random() * Math.min.apply(null, [$.maxPage, 10]) + 2)));
-        await $.wait(2000);
-        for (const _0x2310a5 of bdy_0x355f78) {
-          if (_0x2310a5.commentInfo.pictureInfoList) {
-            for (const _0x290516 of _0x2310a5.commentInfo.pictureInfoList || {}) {
-              if (_0x290516.mediaType != "2") {
-                let _0x295320 = "";
-                if (_0x290516.picURL.indexOf("dpg") !== -1) {
-                  _0x295320 = _0x290516.picURL.replace(/s[0-9]{3}x[0-9]{3}_(.*).dpg/g, "$1");
-                } else {
-                  if (_0x290516.picURL.indexOf("webp") !== -1) {
-                    _0x295320 = _0x290516.picURL.replace(/s[0-9]{3}x[0-9]{3}_(.*).webp/g, "$1");
-                  } else {
-                    _0x290516.picURL.indexOf("avif") !== -1 && (_0x295320 = _0x290516.picURL.replace(/s[0-9]{3}x[0-9]{3}_(.*).avif/g, "$1"));
-                  }
-                }
-                _0x295320 != "" && _0x471316.push(_0x295320);
+      for (let _0x59c8fa of $.bagList) {
+        if (_0x59c8fa.prizeType == 4) {
+          $.txfail = false;
+          if (_0x59c8fa.state == 0 || _0x59c8fa.state == 2) {
+            console.log("提现 --- " + _0x59c8fa.amount);
+            await bdy_0x8645be("apCashWithDraw", _0x59c8fa);
+            $.txfail && $.failtxlist.push(_0x59c8fa);
+            await $.wait(2000);
+          } else {
+            _0x59c8fa.state == 8;
+          }
+        }
+      }
+      await $.wait(parseInt(Math.random() * 1000 + 2000, 10));
+    }
+    await $.wait(parseInt(Math.random() * 1000 + 2000, 10));
+  } catch (_0x162db9) {
+    console.log(_0x162db9);
+  }
+}
+async function bdy_0x8645be(_0x56301c, ..._0x41f9bd) {
+  if ($.outFlag || $.isban) {
+    return;
+  }
+  let _0x5460b4 = "",
+    _0x3c85ac,
+    _0x253d55,
+    _0x4bbedc = "post",
+    _0x25b9d9 = "https://api.m.jd.com/client.action",
+    _0xd29725 = "signed_wh5";
+  switch (_0x56301c) {
+    case "wanyiwan_sign":
+      const _0x15bccc = {
+        version: 1
+      };
+      _0x5460b4 = _0x15bccc;
+      _0x3c85ac = "d12dd";
+      _0x253d55 = "wanyiwan_sign";
+      break;
+    case "wanyiwan_exchange_page":
+      const _0x113c6d = {
+        version: 1
+      };
+      _0x5460b4 = _0x113c6d;
+      _0x253d55 = "wanyiwan_exchange_page";
+      break;
+    case "apTaskList":
+      _0x25b9d9 = "https://api.m.jd.com/api?functionId=apTaskList&body=%7B%22linkId%22%3A%22Fl1LmxG_f0poD7w1ycZqnw%22%7D&t=1715170975269&appid=activities_platform&client=android&clientVersion=6.24.0&loginType=2&loginWQBiz=wegame&h5st=null&build=22779&screen=393*873&networkType=wifi&eufv=1&cthr=1";
+      _0x4bbedc = "get";
+      break;
+    case "wanyiwan_exchange":
+      const _0x219f95 = {
+        assignmentId: $.assignmentId,
+        type: $.type,
+        version: 1
+      };
+      _0x5460b4 = _0x219f95;
+      _0x253d55 = "wanyiwan_exchange";
+      break;
+    case "wanyiwan_withdraw":
+      const _0x2480c2 = {
+        assignmentId: $.assignmentId,
+        type: $.type,
+        version: 1
+      };
+      _0x5460b4 = _0x2480c2;
+      _0x253d55 = "wanyiwan_withdraw";
+      break;
+    case "endTask":
+      const _0x211558 = {
+        itemId: $.itemId,
+        taskType: $.taskType,
+        assignmentId: $.encryptAssignmentId,
+        actionType: 0,
+        version: 1
+      };
+      _0x5460b4 = _0x211558;
+      _0x3c85ac = "89db2";
+      _0x253d55 = "wanyiwan_do_task";
+      break;
+    case "award":
+      const _0x368386 = {
+        taskType: $.taskType,
+        assignmentId: $.encryptAssignmentId,
+        version: 1
+      };
+      _0x5460b4 = _0x368386;
+      _0x253d55 = "wanyiwan_task_receive_award";
+      break;
+    case "wanyiwan_assist":
+      const _0x2f729d = {
+        inviteCode: $.itemId,
+        version: 1
+      };
+      _0x5460b4 = _0x2f729d;
+      _0x3c85ac = "ba505";
+      _0x253d55 = "wanyiwan_assist";
+      break;
+    case "turnHappyHome":
+      _0x25b9d9 = "https://api.m.jd.com/api";
+      const _0x583f95 = {
+        linkId: "CDv-TaCmVcD0sxAI_HE2RQ"
+      };
+      _0x5460b4 = _0x583f95;
+      _0xd29725 = "activities_platform";
+      _0x253d55 = "turnHappyHome";
+      break;
+    case "turnHappyDouble":
+      _0x25b9d9 = "https://api.m.jd.com/api";
+      _0x5460b4 = {
+        linkId: "CDv-TaCmVcD0sxAI_HE2RQ",
+        turnNum: parseInt(bdy_0x18aaf7)
+      };
+      _0x3c85ac = "614f1";
+      _0xd29725 = "activities_platform";
+      _0x253d55 = "turnHappyDouble";
+      break;
+    case "turnHappyReceive":
+      _0x25b9d9 = "https://api.m.jd.com/api";
+      const _0xb4dba0 = {
+        linkId: "CDv-TaCmVcD0sxAI_HE2RQ"
+      };
+      _0x5460b4 = _0xb4dba0;
+      _0x3c85ac = "25fac";
+      _0xd29725 = "activities_platform";
+      _0x253d55 = "turnHappyReceive";
+      break;
+    case "superRedBagHome":
+      _0x25b9d9 = "https://api.m.jd.com/api";
+      const _0x5a8e3a = {
+        linkId: "aE-1vg6_no2csxgXFuv3Kg"
+      };
+      _0x5460b4 = _0x5a8e3a;
+      _0x3c85ac = "5be1b";
+      _0xd29725 = "activity_platform_se";
+      _0x253d55 = "superRedBagHome";
+      break;
+    case "superRedBagDraw":
+      _0x25b9d9 = "https://api.m.jd.com/api";
+      const _0x3296a4 = {
+        linkId: "aE-1vg6_no2csxgXFuv3Kg"
+      };
+      _0x5460b4 = _0x3296a4;
+      _0x3c85ac = "89cfe";
+      _0xd29725 = "activity_platform_se";
+      _0x253d55 = "superRedBagDraw";
+      break;
+    case "apCashWithDraw":
+      _0x25b9d9 = "https://api.m.jd.com/api";
+      const _0x3761f4 = {
+        id: _0x41f9bd[0].id,
+        business: "crazyPlay",
+        poolBaseId: _0x41f9bd[0].poolBaseId,
+        prizeGroupId: _0x41f9bd[0].prizeGroupId,
+        prizeBaseId: _0x41f9bd[0].prizeBaseId,
+        prizeType: 4,
+        activityId: "1999"
+      };
+      const _0x223052 = {
+        businessSource: "NONE",
+        base: _0x3761f4,
+        linkId: "8u9Bktjo92LocBHib9PoHQ",
+        channel: "1"
+      };
+      _0x5460b4 = _0x223052;
+      _0x3c85ac = "73bca";
+      _0xd29725 = "activities_platform";
+      _0x253d55 = "apCashWithDraw";
+      break;
+    case "superRedBagList":
+      _0x25b9d9 = "http://api.m.jd.com/api";
+      const _0x4da901 = {
+        pageNum: 1,
+        pageSize: 20,
+        linkId: "8u9Bktjo92LocBHib9PoHQ",
+        associateLinkId: "",
+        business: "crazyPlay"
+      };
+      _0x5460b4 = _0x4da901;
+      _0x3c85ac = "f2b1d";
+      _0xd29725 = "activities_platform";
+      _0x253d55 = "superRedBagList";
+      break;
+    default:
+      console.log("错误" + _0x56301c);
+  }
+  if (_0x3c85ac) {
+    let _0xa2208 = {
+      appId: _0x3c85ac,
+      functionId: _0x253d55,
+      body: _0x5460b4,
+      appid: _0xd29725,
+      clientVersion: $.UA.split(";")[2],
+      client: "ios",
+      user: $.UserName,
+      t: Date.now(),
+      ua: $.UA
+    };
+    _0x5460b4 = await bdy_0x3bab8b.getbody(_0xa2208);
+    if (!_0x5460b4) {
+      return;
+    }
+  } else {
+    _0x5460b4 && (_0x5460b4 = "functionId=" + _0x253d55 + "&body=" + encodeURIComponent(JSON.stringify(_0x5460b4)) + "&t=" + Date.now() + "&appid=" + _0xd29725 + "&client=ios&" + $.UA.split(";")[2] + "&cthr=1&networkType=wifi");
+  }
+  let _0x177bfc = bdy_0x406fe1(_0x25b9d9, _0x5460b4);
+  return new Promise(async _0x4ab658 => {
+    $["d" + _0x4bbedc](_0x177bfc, async (_0xfb4151, _0x34f899, _0x186b42) => {
+      try {
+        if (_0xfb4151) {
+          if (_0x34f899 && typeof _0x34f899.statusCode != "undefined") {
+            if (_0x34f899.statusCode == 493) {
+              if (bdy_0xb3131b < 6) {
+                bdy_0xb3131b++;
+                await bdy_0x8645be(_0x56301c);
+                return;
+              }
+              console.log("ip可能被限制，过10分钟后再执行脚本\n");
+              $.outFlag = true;
+            }
+          }
+          console.log("" + $.toStr(_0xfb4151, _0xfb4151));
+        } else {
+          if (_0x186b42.includes("doctype") && bdy_0xb3131b < 6) {
+            bdy_0xb3131b++;
+            await bdy_0x8645be(_0x56301c);
+            return;
+          }
+          bdy_0xb3131b = 0;
+          bdy_0x3ad61f(_0x56301c, _0x186b42);
+        }
+      } catch (_0x3c4911) {
+        console.log(_0x3c4911, _0x34f899);
+      } finally {
+        _0x4ab658();
+      }
+    });
+  });
+}
+function bdy_0x1d0ebd(_0x1791c4) {
+  let _0x17e765 = "";
+  switch (type) {
+    case [_0x17e765]:
+      const _0x53ac58 = {
+        ed: ed
+      };
+      _0xf1f6le = _0x53ac58;
+      break;
+    case [_0x17e765]:
+      const _0x27e080 = {
+        bd: bd
+      };
+      _0xf1f6lc = _0x27e080;
+      break;
+    case [_0x17e765]:
+      const _0x73b915 = {
+        ed: ed
+      };
+      _0xf1f6lf = _0x73b915;
+      break;
+    case [_0x17e765]:
+      const _0x529147 = {
+        ed: ed
+      };
+      _0xf1f6lg = _0x529147;
+      break;
+    case [_0x17e765]:
+      const _0x1e8eb9 = {
+        ed: ed
+      };
+      _0xf1f6lv = _0x1e8eb9;
+      break;
+  }
+}
+async function bdy_0x3ad61f(_0x34f34d, _0x592fca) {
+  let _0x421fbc = "";
+  try {
+    _0x421fbc = JSON.parse(_0x592fca);
+  } catch (_0x4689f4) {
+    console.log(_0x34f34d + " 执行任务异常");
+  }
+  try {
+    switch (_0x34f34d) {
+      case "award":
+        _0x421fbc.code == 0 ? _0x421fbc.data.bizCode == 0 ? console.log("任务完成，获得" + _0x421fbc.data.result.rewardCount + "奖票 🎫") : console.log(_0x421fbc.data.bizMsg) : console.log(_0x421fbc.message);
+        break;
+      case "wanyiwan_withdraw":
+      case "wanyiwan_exchange":
+        if (_0x421fbc.code == 0) {
+          if (_0x421fbc.data.bizCode == 0) {
+            console.log("兑换成功！");
+          } else {
+            console.log(_0x421fbc.data.bizMsg);
+          }
+        } else {
+          console.log(_0x421fbc.message);
+        }
+        break;
+      case "wanyiwan_exchange_page":
+        _0x421fbc.code == 0 ? _0x421fbc.data.bizCode == 0 ? ($.isLogin = _0x421fbc.data.result.isLogin || false, $.moreExchanges = _0x421fbc.data.result.moreExchanges, $.score = _0x421fbc.data.result.score, ($.index == 1 && console.log("可兑换列表："), _0x421fbc.data.result.moreExchanges.forEach(_0x2c0f22 => {
+          console.log("" + _0x2c0f22.rewardName + (_0x2c0f22.hasStock ? "(有库存)" : "(无库存)") + "|需" + _0x2c0f22.exchangeScore + "奖票|兑换ID=> " + _0x2c0f22.assignmentId);
+        }))) : console.log(_0x421fbc.data.bizMsg) : console.log(_0x421fbc.message);
+        break;
+      case "wanyiwan_assist":
+        if (_0x421fbc.code == 0) {
+          if (_0x421fbc.data.bizCode == 0) {
+            console.log("✔️ 助力成功");
+            $.nonum = true;
+          } else {
+            if (_0x421fbc.data.bizMsg.includes("太多人") || _0x421fbc.data.bizMsg.includes("重复")) {
+              console.log("❌", _0x421fbc.data.bizMsg);
+              $.nonum = true;
+            } else {
+              _0x421fbc.data.bizMsg.includes("已经完成") ? (console.log("❌", _0x421fbc.data.bizMsg), $.fullId.push($.itemId)) : console.log("❌", _0x421fbc.data.bizMsg);
+            }
+          }
+        } else {
+          console.log(_0x421fbc.message);
+        }
+        break;
+      case "wanyiwan_home":
+        _0x421fbc.code == 0 ? _0x421fbc.data.bizCode == 0 ? (_0x421fbc.data.result.popWindows.length != 0 && console.log("获得新手奖励：", _0x421fbc.data.result.popWindows[0].getScore, "奖票 🎫"), console.log("当前奖票总量：" + _0x421fbc.data.result.score + " 🎫"), $.isLogin = _0x421fbc.data?.["result"]?.["isLogin"], $.taskList = _0x421fbc.data?.["result"]?.["taskBoard"] || [], $.signstatus = _0x421fbc.data?.["result"]?.["signBoard"]?.["status"] || 0) : console.log(_0x421fbc.data.bizMsg) : console.log(_0x421fbc.message);
+        break;
+      case "superRedBagList":
+        _0x421fbc.success ? $.bagList = _0x421fbc.data.items || [] : console.log(_0x421fbc.errMsg);
+        break;
+      case "apCashWithDraw":
+        if (_0x421fbc.code == 0) {
+          if (_0x421fbc.data.message.indexOf("待发放") > -1) {
+            console.log(_0x421fbc.data.message);
+            $.txfail = true;
+          } else {
+            if (_0x421fbc.data.message.includes("上限")) {
+              console.log(_0x421fbc.data.message);
+              $.txfail = false;
+            } else {
+              if (_0x421fbc.data.message.includes("提现中")) {
+                console.log("提现成功");
+                $.txfail = false;
+              } else {
+                console.log(_0x421fbc.data.message);
               }
             }
           }
-          _0x2310a5.commentInfo.commentScore === "5" && _0x2310a5.commentInfo.commentData.length > bdy_0xa54c7c && _0x4e309f.push(_0x2310a5.commentInfo.commentData);
-        }
-        for (let _0x14355f of bdy_0x6bf456) {
-          _0x4e309f = _0x4e309f.filter(_0x40b741 => !_0x40b741.includes(_0x14355f));
-        }
-        if (_0x4e309f.length > 2) {
-          _0x5509c9 = bdy_0x424316(_0x4e309f);
         } else {
-          _0x5509c9 = bdy_0x424316(bdy_0x239a20);
+          console.log(_0x421fbc.errMsg);
         }
-        if (_0x471316.length >= 2) {
-          let _0x592b5f = bdy_0x6fa3f2(_0x471316, 2);
-          _0x22cde2 = _0x592b5f.slice(0, _0x592b5f.length).map(_0x47db34 => ({
-            picUrl: _0x47db34
-          }));
-        }
-      } else {
-        console.log("赠品权益，只发布文字评价");
-        _0x5509c9 += bdy_0x4c3e4c(bdy_0x32d3ec);
-      }
-      _0x5509c9 = _0x5509c9.replace(/\*/gi, "");
-      _0x30b173.estJingBean > 0 && _0x5509c9.length < 60 && ($.log("评价有豆，字数不够，我在凑点..."), _0x5509c9 += " " + bdy_0x424316(bdy_0x192311));
-      if (_0x30b173.commentRewardStatus == "1") {
-        _0x5509c9.length < Number($.wnezi) && (_0x5509c9 += " " + bdy_0x424316(bdy_0x192311));
-        _0x5509c9.length < Number($.wnezi) && (_0x5509c9 += " 好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了，好评了");
-        let _0x34a3dc = bdy_0x6fa3f2(_0x471316, Math.max(2, Number($.saitu)));
-        _0x22cde2 = _0x34a3dc.slice(0, _0x34a3dc.length).map(_0x41c951 => ({
-          picUrl: _0x41c951
-        }));
-      }
-      if (_0x22cde2.length != 0 && _0x4e309f.length > 2) {
-        console.log("成功获取到图片和评价，去发布✍️✍️✍️...\n");
-        const _0x53a77d = {
-          mediasExt: "[{\"VideoIsEditCover\":\"0\",\"ImagePropId\":\"0\",\"ImageTakePhotoFilterId\":\"0\",\"ImageIsCrop\":\"0\",\"VideoIsEditCrop\":\"0\",\"VideoEditFilterId\":\"0\",\"VideoMusicId\":\"0\",\"ImageEditFilterId\":\"0\",\"VideoPropId\":\"0\",\"TakeRate\":\"0\",\"VideoRecordIsMakup\":\"0\",\"ImageTakePhotoIsMakup\":\"0\",\"VideoRecordFilterId\":\"0\",\"ImageFontId\":\"0\",\"FromType\":\"1\",\"ImageStrickId\":\"0\"},{\"VideoIsEditCover\":\"0\",\"ImagePropId\":\"0\",\"ImageTakePhotoFilterId\":\"0\",\"ImageIsCrop\":\"0\",\"VideoIsEditCrop\":\"0\",\"VideoEditFilterId\":\"0\",\"VideoMusicId\":\"0\",\"ImageEditFilterId\":\"0\",\"VideoPropId\":\"0\",\"TakeRate\":\"0\",\"VideoRecordIsMakup\":\"0\",\"ImageTakePhotoIsMakup\":\"0\",\"VideoRecordFilterId\":\"0\",\"ImageFontId\":\"0\",\"FromType\":\"1\",\"ImageStrickId\":\"0\"}]"
-        };
-        const _0x125cd3 = {
-          productId: _0x30b173.wareId,
-          kocSynFlag: "0",
-          categoryList: _0x30b173.categoryList,
-          voucherStatus: "0",
-          extInfo: _0x53a77d,
-          officerScore: "1699",
-          anonymousFlag: "1",
-          commentScore: "5",
-          shopType: "0",
-          orderId: _0x30b173.orderId,
-          shopId: _0x30b173.shopId,
-          addPictureFlag: "0",
-          commentData: _0x5509c9,
-          pictureInfoList: _0x22cde2,
-          officerLevel: "3",
-          isCommentTagContent: "0"
-        };
-        await bdy_0x1f7288("pubComment", _0x125cd3);
-      } else {
-        if (_0x22cde2.length != 0 && _0x4e309f.length <= 2) {
-          console.log("成功获取到图片，但没有获取到评价内容，使用内置评价，去发布✍️✍️✍️...\n");
-          const _0x6c1bce = {
-            mediasExt: "[{\"VideoIsEditCover\":\"0\",\"ImagePropId\":\"0\",\"ImageTakePhotoFilterId\":\"0\",\"ImageIsCrop\":\"0\",\"VideoIsEditCrop\":\"0\",\"VideoEditFilterId\":\"0\",\"VideoMusicId\":\"0\",\"ImageEditFilterId\":\"0\",\"VideoPropId\":\"0\",\"TakeRate\":\"0\",\"VideoRecordIsMakup\":\"0\",\"ImageTakePhotoIsMakup\":\"0\",\"VideoRecordFilterId\":\"0\",\"ImageFontId\":\"0\",\"FromType\":\"1\",\"ImageStrickId\":\"0\"},{\"VideoIsEditCover\":\"0\",\"ImagePropId\":\"0\",\"ImageTakePhotoFilterId\":\"0\",\"ImageIsCrop\":\"0\",\"VideoIsEditCrop\":\"0\",\"VideoEditFilterId\":\"0\",\"VideoMusicId\":\"0\",\"ImageEditFilterId\":\"0\",\"VideoPropId\":\"0\",\"TakeRate\":\"0\",\"VideoRecordIsMakup\":\"0\",\"ImageTakePhotoIsMakup\":\"0\",\"VideoRecordFilterId\":\"0\",\"ImageFontId\":\"0\",\"FromType\":\"1\",\"ImageStrickId\":\"0\"}]"
-          };
-          const _0x364505 = {
-            productId: _0x30b173.wareId,
-            kocSynFlag: "0",
-            categoryList: _0x30b173.categoryList,
-            voucherStatus: "0",
-            extInfo: _0x6c1bce,
-            officerScore: "1699",
-            anonymousFlag: "1",
-            commentScore: "5",
-            shopType: "0",
-            orderId: _0x30b173.orderId,
-            shopId: _0x30b173.shopId,
-            addPictureFlag: "0",
-            commentData: _0x5509c9,
-            pictureInfoList: _0x22cde2,
-            officerLevel: "3",
-            isCommentTagContent: "0"
-          };
-          await bdy_0x1f7288("pubComment", _0x364505);
-        } else {
-          if (_0x22cde2.length == 0 && _0x4e309f.length > 2) {
-            console.log("没有获取到图片，但获取到评价，去发布✍️✍️✍️...\n");
-            const _0x437d1a = {
-              productId: _0x30b173.wareId,
-              kocSynFlag: "0",
-              categoryList: _0x30b173.ategoryList,
-              voucherStatus: "0",
-              officerScore: "1699",
-              anonymousFlag: "1",
-              commentScore: "5",
-              shopType: "0",
-              orderId: _0x30b173.orderId,
-              shopId: _0x30b173.shopId,
-              addPictureFlag: "0",
-              commentData: _0x5509c9,
-              pictureInfoList: "",
-              officerLevel: "3",
-              isCommentTagContent: "0"
-            };
-            await bdy_0x1f7288("pubComment", _0x437d1a);
+        break;
+      case "superRedBagHome":
+        _0x421fbc.success ? ($.sceneStatus = _0x421fbc.data.sceneStatus, $.nextLeftTime = _0x421fbc.data.nextLeftTime) : console.log(_0x421fbc.errMsg);
+        break;
+      case "superRedBagDraw":
+        if (_0x421fbc.success) {
+          $.shakeLeftTime = _0x421fbc.data.shakeLeftTime;
+          const {
+            prizeDrawVo = ""
+          } = _0x421fbc.data;
+          if (prizeDrawVo) {
+            switch (prizeDrawVo.prizeType) {
+              case 24:
+                console.log("获得：" + prizeDrawVo.amount + "票奖 🎫");
+                $.sucdraw++;
+                break;
+              case 1:
+                console.log("获得:" + prizeDrawVo.prizeConfigName);
+                break;
+              case 4:
+                console.log("获得:" + prizeDrawVo.amount + "现金💰️");
+                const _0x294da7 = {
+                  id: prizeDrawVo.id,
+                  poolBaseId: 41486,
+                  prizeGroupId: prizeDrawVo.prizeGroupId,
+                  prizeBaseId: prizeDrawVo.prizeBaseId,
+                  prizeType: prizeDrawVo.prizeType,
+                  amount: prizeDrawVo.amount
+                };
+                $.cashList.push(_0x294da7);
+                break;
+              case 3:
+                console.log("获得:" + prizeDrawVo.amount + "京豆🥔");
+                break;
+              case 2:
+                console.log("获得:" + prizeDrawVo.amount + "红包🧧");
+                break;
+              default:
+                console.log(JSON.stringify(prizeDrawVo));
+                break;
+            }
           } else {
-            bdy_0x355f78.length <= 1 && (console.log("没有获取到评价和图片,使用内置文字评价，去发布✍️✍️✍️...\n"), await bdy_0x1f7288("pubComment", {
-              productId: _0x30b173.wareId,
-              kocSynFlag: "0",
-              categoryList: _0x30b173.ategoryList,
-              voucherStatus: "0",
-              officerScore: "1699",
-              anonymousFlag: "1",
-              commentScore: "5",
-              shopType: "0",
-              orderId: _0x30b173.orderId,
-              shopId: _0x30b173.shopId,
-              addPictureFlag: "0",
-              commentData: _0x5509c9,
-              pictureInfoList: "",
-              officerLevel: "3",
-              isCommentTagContent: "0"
-            }));
+            console.log(_0x592fca);
           }
+        } else {
+          console.log(_0x421fbc.errMsg);
         }
-      }
-      console.log("评价内容(" + _0x5509c9.length + "字) ：" + _0x5509c9);
-      if (_0x22cde2.length != 0) {
-        console.log("晒图详情：");
-        _0x22cde2.forEach(_0x5cdf3c => console.log(_0x5cdf3c.picUrl));
-      }
-      await $.wait(1000);
+        break;
+      case "startTask":
+      case "turnHappyReceive":
+      case "endTask":
+        break;
+      default:
+        console.log(_0x34f34d + " -> " + _0x592fca);
     }
-  } catch (_0x1274e6) {
-    console.log(_0x1274e6);
-    console.log("出错了，反馈作者修！！！");
+    typeof _0x421fbc == "object" && _0x421fbc.errorMessage && _0x421fbc.errorMessage.indexOf("火爆") > -1 && ($.hotFlag = true);
+  } catch (_0x2ab8e8) {
+    console.log(_0x34f34d + " " + _0x2ab8e8);
   }
 }
-switch ($.type) {
-  case "nb":
-    const bdy_0xd1a69f = {
-      nb: nb
-    };
-    _0xf1f6le = bdy_0xd1a69f;
-    break;
-}
-async function bdy_0x1f77d5(_0x35b06d, _0x4abd77 = 1) {
-  const _0x26c076 = {
-    sortType: "5",
-    isCurrentSku: false,
-    sku: "" + _0x35b06d,
-    pictureCommentType: "A",
-    shieldCurrentComment: "1",
-    shopType: "0",
-    type: "4",
-    shadowMainSku: "0",
-    num: "10",
-    offset: "" + _0x4abd77,
-    pageNum: "" + _0x4abd77,
-    pageSize: "10"
+function bdy_0x406fe1(_0x2b3609, _0x1e07d1) {
+  const _0x41cdb6 = {
+    Accept: "application/json, text/plain, */*",
+    "Accept-Encoding": "gzip, deflate, br",
+    Origin: "https://pro.m.jd.com",
+    Referer: "https://pro.m.jd.com/",
+    Cookie: bdy_0xb570f7,
+    "User-Agent": $.UA
   };
-  s = await bdy_0x1f7288("getCommentListWithCard", _0x26c076);
-  bdy_0x355f78 = bdy_0x355f78.concat(s.commentInfoList);
-  $.maxPage = s.maxPage;
-}
-async function bdy_0x3354af(_0x1a58f8, _0x3e235c = 1) {
-  const _0x31fffa = {
-    bbtf: ""
+  const _0x491388 = {
+    url: _0x2b3609,
+    headers: _0x41cdb6,
+    timeout: 30000,
+    ...(_0x1e07d1 ? {
+      body: _0x1e07d1
+    } : {})
   };
-  const _0x505387 = {
-    category: "",
-    extInfo: _0x31fffa,
-    isCurrentSku: true,
-    num: "21",
-    offset: "" + _0x3e235c,
-    shadowMainSku: "0",
-    shopType: "0",
-    sku: "" + _0x1a58f8
-  };
-  s = await bdy_0x1f7288("getShowPictures", _0x505387);
-  $.commentInfoList = s.commentShowPicInfoList;
-  $.maxPage = s.maxPage;
+  return _0x491388;
 }
-async function bdy_0x451645(_0x390f39, _0x15613c = 1) {
-  const _0x46a925 = {
-    bbtf: ""
-  };
-  const _0x3a6905 = {
-    category: "",
-    extInfo: _0x46a925,
-    isCurrentSku: false,
-    num: "10",
-    offset: "" + _0x15613c,
-    shopType: "0",
-    sku: "" + _0x390f39,
-    type: "4"
-  };
-  s = await bdy_0x1f7288("getFoldCommentList", _0x3a6905);
-  bdy_0x355f78 = bdy_0x355f78.concat(s.commentInfoList);
-  $.maxPage = s.maxPage;
+async function bdy_0x526f6f() {
+  $.UA = "jdapp;iPhone;10.1.5;13.1.2;" + bdy_0x33ff6c(40) + ";network/wifi;model/iPhone8,1;addressid/2308460611;appBuild/167814;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1";
 }
-async function bdy_0x3747a7(_0x658018, _0x2578bf) {
-  s = await bdy_0x1f7288("commentEditInfo", {
-    allFloorsFlag: null,
-    business: "1",
-    evaAuraVersion: "120602",
-    lowSaleQuantity: null,
-    orderId: _0x658018,
-    qrType: "1",
-    sku: _0x2578bf
-  });
-  $.rewardInfo = s.commentFloorList[0].productCommentFloor.newCommentRewardMap?.["bannerInfo"] || "评价有礼";
-  $.wnezi = JSON.stringify(s).match(new RegExp("(\\d+)字")) ? JSON.stringify(s).match(new RegExp("(\\d+)字"))[1] : 60;
-  $.saitu = JSON.stringify(s).match(new RegExp("(\\d+)晒图")) ? JSON.stringify(s).match(new RegExp("(\\d+)晒图"))[1] : 2;
-}
-async function bdy_0x43cdfa(_0x52a8a3 = "1", _0x4ee184 = "1") {
-  const _0x4c281d = {
-    pageIndex: _0x52a8a3,
-    pageSize: "10",
-    planType: "1",
-    status: _0x4ee184
-  };
-  s = await bdy_0x1f7288("getCommentWareList", _0x4c281d, "12.5.0");
-  $.maxPage = s.commentWareListInfo?.["maxPage"];
-  $.sdnum = s.commentWareListInfo?.["wait4CommentCount"];
-  _0x4ee184 == "4" ? $.caidanList = s.commentWareListInfo?.["commentWareList"] : $.commentWareList = s.commentWareListInfo?.["commentWareList"];
-}
-async function bdy_0x1f7288(_0x11568f, _0x580f33) {
-  let _0x130913 = await bdy_0x53b0cb[bdy_0xc58a47](_0x11568f, _0x580f33, "11.0.2", "1"),
-    _0x4905b9 = {
-      url: "https://api.m.jd.com/client.action?functionId=" + _0x11568f,
-      body: "fuctionId=" + _0x11568f + "&" + _0x130913,
-      headers: {
-        Host: "api.m.jd.com",
-        accept: "*/*",
-        "user-agent": $.UA,
-        "accept-language": "zh-Hans-JP;q=1, en-JP;q=0.9, zh-Hant-TW;q=0.8, ja-JP;q=0.7, en-US;q=0.6",
-        Cookie: bdy_0xcc562f
-      }
-    };
-  return new Promise(_0x16d50c => {
-    $.dpost(_0x4905b9, (_0x4d051d, _0x3b6651, _0x527f7d) => {
-      try {
-        _0x4d051d ? console.log(_0x4d051d) : _0x527f7d = JSON.parse(_0x527f7d);
-        switch (_0x11568f) {
-          case "pubComment":
-            if (_0x527f7d.message) {
-              console.log(_0x527f7d.message);
-            }
-            break;
-          default:
-            break;
-        }
-      } catch (_0xb44862) {
-        console.log(_0xb44862);
-      } finally {
-        _0x16d50c(_0x527f7d);
-      }
-    });
-  });
-}
-function bdy_0x58d6fc() {
-  return Math.random().toString(16).slice(2, 10) + Math.random().toString(16).slice(2, 10) + Math.random().toString(16).slice(2, 10) + Math.random().toString(16).slice(2, 10) + Math.random().toString(16).slice(2, 10);
-}
-function bdy_0x424316(_0x45335b) {
-  return _0x45335b[Math.floor(Math.random() * _0x45335b.length)] || "";
-}
-function bdy_0x6fa3f2(_0x2d7ead, _0x452f91) {
-  const _0x5d17d4 = _0x2d7ead.slice();
-  let _0x143774 = _0x2d7ead.length,
-    _0x280e89,
-    _0xe4f2ca;
-  while (_0x143774--) {
-    _0xe4f2ca = Math.floor((_0x143774 + 1) * Math.random());
-    _0x280e89 = _0x5d17d4[_0xe4f2ca];
-    _0x5d17d4[_0xe4f2ca] = _0x5d17d4[_0x143774];
-    _0x5d17d4[_0x143774] = _0x280e89;
+function bdy_0x33ff6c(_0x5f373c) {
+  _0x5f373c = _0x5f373c || 32;
+  let _0x2cc282 = "abcdef0123456789",
+    _0x35353e = _0x2cc282.length,
+    _0x5e3f1c = "";
+  for (i = 0; i < _0x5f373c; i++) {
+    _0x5e3f1c += _0x2cc282.charAt(Math.floor(Math.random() * _0x35353e));
   }
-  return _0x5d17d4.slice(0, _0x452f91);
+  return _0x5e3f1c;
 }
-function bdy_0x487412() {
-  const _0x489ad7 = {
-    url: "https://verify-dy-server-hchdzuwrsu.cn-hangzhou.fcapp.run/pingjia",
-    timeout: 30000
-  };
-  return new Promise(_0x4ec051 => {
-    $.post(_0x489ad7, async (_0x553584, _0x3092cd, _0x387b2f) => {
+function bdy_0x31b7d1(_0xe97274) {
+  if (typeof _0xe97274 == "string") {
+    try {
+      return JSON.parse(_0xe97274);
+    } catch (_0x232497) {
+      console.log(_0x232497);
+      $.msg($.name, "", "请勿随意在BoxJs输入框修改内容\n建议通过脚本去获取cookie");
+      return [];
+    }
+  }
+}
+async function bdy_0x34cea0() {
+  if (!$.joinVenderId) {
+    return;
+  }
+  return new Promise(async _0x4b1309 => {
+    $.errorJoinShop = "活动太火爆，请稍后再试";
+    $.shopactivityId = "";
+    let _0x3c26aa = {
+      venderId: "" + $.joinVenderId + "",
+      shopId: "" + $.joinVenderId + "",
+      bindByVerifyCodeFlag: 1,
+      registerExtend: {},
+      writeChildFlag: 0,
+      channel: 406
+    };
+    $.shopactivityId == "" && delete _0x3c26aa.activityId;
+    const _0x5a1f6f = {
+      appId: "27004",
+      fn: "bindWithVender",
+      body: _0x3c26aa,
+      apid: "shopmember_m_jd_com",
+      ver: "9.2.0",
+      cl: "H5",
+      user: $.UserName,
+      code: 0,
+      ua: $.UA
+    };
+    _0x3c26aa = await dyy.getbody(_0x5a1f6f);
+    const _0x16656c = {
+      accept: "*/*",
+      "accept-encoding": "gzip, deflate, br",
+      "accept-language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+      cookie: bdy_0xb570f7,
+      origin: "https://shopmember.m.jd.com/",
+      "user-agent": $.UA
+    };
+    const _0x4dde7c = {
+      url: "https://api.m.jd.com/client.action?" + _0x3c26aa + "&uuid=88888",
+      headers: _0x16656c,
+      timeout: 30000
+    };
+    $.dget(_0x4dde7c, async (_0x30c5d2, _0x7aed2e, _0x53a685) => {
       try {
-        if (!_0x553584) {
-          if (_0x387b2f) {
-            _0x387b2f = JSON.parse(_0x387b2f);
-            if (_0x387b2f.status === 200) {
-              bdy_0xc58a47 = _0x387b2f.method;
+        _0x53a685 = _0x53a685 && _0x53a685.match(/jsonp_.*?\((.*?)\);/) && _0x53a685.match(/jsonp_.*?\((.*?)\);/)[1] || _0x53a685;
+        let _0x2f2a25 = $.toObj(_0x53a685, _0x53a685);
+        if (_0x2f2a25 && typeof _0x2f2a25 == "object") {
+          if (_0x2f2a25 && _0x2f2a25.success === true) {
+            console.log("    " + _0x2f2a25.message);
+            $.errorJoinShop = _0x2f2a25.message;
+            if (_0x2f2a25.result && _0x2f2a25.result.giftInfo) {
+              for (let _0x204292 of _0x2f2a25.result.giftInfo.giftList) {
+                console.log("入会获得:" + _0x204292.discountString + _0x204292.prizeName + _0x204292.secondLineDesc);
+              }
             }
+          } else {
+            _0x2f2a25 && typeof _0x2f2a25 == "object" && _0x2f2a25.message ? ($.errorJoinShop = _0x2f2a25.message, console.log("" + (_0x2f2a25.message || ""))) : console.log(_0x53a685);
           }
+        } else {
+          console.log(_0x53a685);
         }
-      } catch (_0x5d9eb8) {
-        $.logErr(_0x5d9eb8, _0x3092cd);
+      } catch (_0x1ef65d) {
+        $.logErr(_0x1ef65d, _0x7aed2e);
       } finally {
-        _0x4ec051(_0x387b2f);
+        _0x4b1309();
       }
     });
   });
 }
-function bdy_0x367389(_0x23c49d) {
-  const _0x50fcd1 = [],
-    _0x5d00b5 = /[\u4e00-\u9fa5]/;
-  for (let _0xd34f14 = 0; _0xd34f14 < _0x23c49d.length; _0xd34f14++) {
-    const _0xabb22a = _0x23c49d[_0xd34f14];
-    _0x5d00b5.test(_0xabb22a) && !_0x50fcd1.includes(_0xabb22a) && _0x50fcd1.push(_0xabb22a);
-  }
-  return _0x50fcd1.length;
+async function bdy_0x55440a() {
+  return new Promise(async _0x3d3b2c => {
+    const _0x4df16f = {
+      venderId: $.joinVenderId,
+      payUpShop: true,
+      queryVersion: "10.5.2",
+      appid: "ef79a",
+      needSecurity: true,
+      bizId: "shop_view_app",
+      channel: 406
+    };
+    let _0x6b74bb = _0x4df16f;
+    const _0x16395e = {
+      appId: "ef79a",
+      fn: "getShopOpenCardInfo",
+      body: _0x6b74bb,
+      apid: "jd_shop_member",
+      ver: "9.2.0",
+      cl: "H5",
+      user: $.UserName,
+      code: 0,
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36"
+    };
+    _0x6b74bb = await dyy.getbody(_0x16395e);
+    const _0x169130 = {
+      accept: "*/*",
+      "accept-encoding": "gzip, deflate, br",
+      "accept-language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+      cookie: bdy_0xb570f7,
+      origin: "https://shopmember.m.jd.com/",
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36"
+    };
+    const _0x147376 = {
+      url: "https://api.m.jd.com/client.action?" + _0x6b74bb + "&uuid=88888",
+      headers: _0x169130,
+      timeout: 60000
+    };
+    $.get(_0x147376, async (_0x5364bb, _0x5ba711, _0x1b620f) => {
+      try {
+        _0x1b620f = _0x1b620f && _0x1b620f.match(/jsonp_.*?\((.*?)\);/) && _0x1b620f.match(/jsonp_.*?\((.*?)\);/)[1] || _0x1b620f;
+        let _0x27b578 = $.toObj(_0x1b620f, _0x1b620f);
+        _0x27b578 && typeof _0x27b578 == "object" ? _0x27b578 && _0x27b578.success == true && (console.log("去加入 -> " + (_0x27b578.result[0].shopMemberCardInfo.venderCardName || "")), $.shopactivityId = _0x27b578.result[0].interestsRuleList && _0x27b578.result[0].interestsRuleList[0] && _0x27b578.result[0].interestsRuleList[0].interestsInfo && _0x27b578.result[0].interestsRuleList[0].interestsInfo.activityId || "") : console.log(_0x1b620f);
+      } catch (_0x3fbf72) {
+        $.logErr(_0x3fbf72, _0x5ba711);
+      } finally {
+        _0x3d3b2c();
+      }
+    });
+  });
 }
-function bdy_0x4c3e4c(_0x3ae53a) {
-  for (let _0x1ddc96 = _0x3ae53a.length - 1; _0x1ddc96 > 0; _0x1ddc96--) {
-    const _0x2bc3de = Math.floor(Math.random() * (_0x1ddc96 + 1));
-    [_0x3ae53a[_0x1ddc96], _0x3ae53a[_0x2bc3de]] = [_0x3ae53a[_0x2bc3de], _0x3ae53a[_0x1ddc96]];
-  }
-  return _0x3ae53a.join(",");
+function bdy_0x575f97(_0x375fd0, _0x4c7128) {
+  return Math.floor(Math.random() * (_0x4c7128 - _0x375fd0)) + _0x375fd0;
 }
-function bdy_0x37e5f4() {
-  return new Promise(_0x545d0a => {
-    const _0x5379a4 = {
+function bdy_0x23212d(_0x3305c0 = +new Date()) {
+  var _0x40acff = new Date(_0x3305c0 + 28800000);
+  return _0x40acff.toJSON().substr(0, 19).replace("T", " ").replace(/-/g, "/");
+}
+function bdy_0x1fa383() {
+  return new Promise(_0x224286 => {
+    const _0xeaab2b = {
+      Cookie: bdy_0xb570f7,
+      referer: "https://h5.m.jd.com/",
+      "User-Agent": $.UA
+    };
+    const _0x3f41f7 = {
       url: "https://plogin.m.jd.com/cgi-bin/ml/islogin",
-      headers: {},
+      headers: _0xeaab2b,
       timeout: 10000
     };
-    _0x5379a4.headers.Cookie = bdy_0xcc562f;
-    _0x5379a4.headers.referer = "https://h5.m.jd.com/";
-    _0x5379a4.headers["User-Agent"] = $.UA;
-    $.get(_0x5379a4, (_0x6b820, _0x45d744, _0x39ae73) => {
+    $.get(_0x3f41f7, (_0x46b6e3, _0x3ea683, _0x3ea654) => {
       try {
-        if (_0x39ae73) {
-          _0x39ae73 = JSON.parse(_0x39ae73);
-          if (!(_0x39ae73.islogin === "1")) {
-            _0x39ae73.islogin === "0" && ($.isLogin = false);
+        if (_0x3ea654) {
+          _0x3ea654 = JSON.parse(_0x3ea654);
+          if (!(_0x3ea654.islogin === "1")) {
+            _0x3ea654.islogin === "0" && ($.isLogin = false);
           }
         }
-      } catch (_0x1cefa6) {
-        console.log(_0x1cefa6);
+      } catch (_0x2534e2) {
+        console.log(_0x2534e2);
       } finally {
-        _0x545d0a();
+        _0x224286();
       }
     });
   });
 }
-function Env(t, e) {
-  "undefined" != typeof process && JSON.stringify(process.env).indexOf("GITHUB") > -1 && process.exit(0);
+function Env(o, t) {
   class s {
     constructor(t) {
       this.env = t;
@@ -525,9 +752,9 @@ function Env(t, e) {
       } : t;
       let s = this.get;
       "POST" === e && (s = this.post);
-      return new Promise((e, i) => {
-        s.call(this, t, (t, s, r) => {
-          t ? i(t) : e(s);
+      return new Promise((r, i) => {
+        s.call(this, t, (t, e, s) => {
+          t ? i(t) : r(e);
         });
       });
     }
@@ -540,6 +767,19 @@ function Env(t, e) {
   }
   return new class {
     constructor(t, e) {
+      this.logLevels = {
+        debug: 0,
+        info: 1,
+        warn: 2,
+        error: 3
+      };
+      this.logLevelPrefixs = {
+        debug: "[DEBUG] ",
+        info: "[INFO] ",
+        warn: "[WARN] ",
+        error: "[ERROR] "
+      };
+      this.logLevel = "info";
       this.name = t;
       this.http = new s(this);
       this.data = null;
@@ -548,21 +788,31 @@ function Env(t, e) {
       this.isMute = !1;
       this.isNeedRewrite = !1;
       this.logSeparator = "\n";
+      this.encoding = "utf-8";
       this.startTime = new Date().getTime();
       Object.assign(this, e);
       this.log("", `🔔${this.name}, 开始!`);
     }
+    getEnv() {
+      return "undefined" != typeof $environment && $environment["surge-version"] ? "Surge" : "undefined" != typeof $environment && $environment["stash-version"] ? "Stash" : "undefined" != typeof module && module.exports ? "Node.js" : "undefined" != typeof $task ? "Quantumult X" : "undefined" != typeof $loon ? "Loon" : "undefined" != typeof $rocket ? "Shadowrocket" : void 0;
+    }
     isNode() {
-      return "undefined" != typeof module && !!module.exports;
+      return "Node.js" === this.getEnv();
     }
     isQuanX() {
-      return "undefined" != typeof $task;
+      return "Quantumult X" === this.getEnv();
     }
     isSurge() {
-      return "undefined" != typeof $httpClient && "undefined" == typeof $loon;
+      return "Surge" === this.getEnv();
     }
     isLoon() {
-      return "undefined" != typeof $loon;
+      return "Loon" === this.getEnv();
+    }
+    isShadowrocket() {
+      return "Shadowrocket" === this.getEnv();
+    }
+    isStash() {
+      return "Stash" === this.getEnv();
     }
     toObj(t, e = null) {
       try {
@@ -571,17 +821,16 @@ function Env(t, e) {
         return e;
       }
     }
-    toStr(t, e = null) {
+    toStr(t, e = null, ...s) {
       try {
-        return JSON.stringify(t);
+        return JSON.stringify(t, ...s);
       } catch {
         return e;
       }
     }
     getjson(t, e) {
       let s = e;
-      const i = this.getdata(t);
-      if (i) {
+      if (this.getdata(t)) {
         try {
           s = JSON.parse(this.getdata(t));
         } catch {}
@@ -596,91 +845,76 @@ function Env(t, e) {
       }
     }
     getScript(t) {
-      return new Promise(e => {
+      return new Promise(r => {
         this.get({
           url: t
-        }, (t, s, i) => e(i));
+        }, (t, e, s) => r(s));
       });
     }
-    runScript(t, e) {
-      return new Promise(s => {
-        let i = this.getdata("@chavy_boxjs_userCfgs.httpapi");
-        i = i ? i.replace(/\n/g, "").trim() : i;
-        let r = this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");
-        r = r ? 1 * r : 20;
-        r = e && e.timeout ? e.timeout : r;
-        const [o, h] = i.split("@"),
-          n = {
-            url: `http://${h}/v1/scripting/evaluate`,
-            body: {
-              script_text: t,
-              mock_type: "cron",
-              timeout: r
-            },
-            headers: {
-              "X-Key": o,
-              Accept: "*/*"
-            }
-          };
-        this.post(n, (t, e, i) => s(i));
+    runScript(a, o) {
+      return new Promise(r => {
+        let t = this.getdata("@chavy_boxjs_userCfgs.httpapi");
+        t = t && t.replace(/\n/g, "").trim();
+        var e = (e = this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout")) ? +e : 20,
+          [s, i] = (e = o && o.timeout ? o.timeout : e, t.split("@"));
+        this.post({
+          url: `http://${i}/v1/scripting/evaluate`,
+          body: {
+            script_text: a,
+            mock_type: "cron",
+            timeout: e
+          },
+          headers: {
+            "X-Key": s,
+            Accept: "*/*"
+          },
+          timeout: e
+        }, (t, e, s) => r(s));
       }).catch(t => this.logErr(t));
     }
     loaddata() {
       if (!this.isNode()) {
         return {};
       }
-      {
-        this.fs = this.fs ? this.fs : require("fs");
-        this.path = this.path ? this.path : require("path");
-        const t = this.path.resolve(this.dataFile),
-          e = this.path.resolve(process.cwd(), this.dataFile),
-          s = this.fs.existsSync(t),
-          i = !s && this.fs.existsSync(e);
-        if (!s && !i) {
-          return {};
-        }
-        {
-          const i = s ? t : e;
-          try {
-            return JSON.parse(this.fs.readFileSync(i));
-          } catch (t) {
-            return {};
-          }
-        }
+      this.fs = this.fs || require("fs");
+      this.path = this.path || require("path");
+      var t = this.path.resolve(this.dataFile),
+        e = this.path.resolve(process.cwd(), this.dataFile),
+        s = this.fs.existsSync(t),
+        r = !s && this.fs.existsSync(e);
+      if (!s && !r) {
+        return {};
+      }
+      r = s ? t : e;
+      try {
+        return JSON.parse(this.fs.readFileSync(r));
+      } catch (t) {
+        return {};
       }
     }
     writedata() {
-      if (this.isNode()) {
-        this.fs = this.fs ? this.fs : require("fs");
-        this.path = this.path ? this.path : require("path");
-        const t = this.path.resolve(this.dataFile),
-          e = this.path.resolve(process.cwd(), this.dataFile),
-          s = this.fs.existsSync(t),
-          i = !s && this.fs.existsSync(e),
-          r = JSON.stringify(this.data);
-        s ? this.fs.writeFileSync(t, r) : i ? this.fs.writeFileSync(e, r) : this.fs.writeFileSync(t, r);
-      }
+      var t, e, s, r, i;
+      this.isNode() && (this.fs = this.fs || require("fs"), this.path = this.path || require("path"), t = this.path.resolve(this.dataFile), e = this.path.resolve(process.cwd(), this.dataFile), r = !(s = this.fs.existsSync(t)) && this.fs.existsSync(e), i = JSON.stringify(this.data), !s && r ? this.fs.writeFileSync(e, i) : this.fs.writeFileSync(t, i));
     }
     lodash_get(t, e, s) {
-      const i = e.replace(/\[(\d+)\]/g, ".$1").split(".");
       let r = t;
-      for (const t of i) if (r = Object(r)[t], void 0 === r) {
+      for (const t of e.replace(/\[(\d+)\]/g, ".$1").split(".")) if (r = Object(r)[t], void 0 === r) {
         return s;
       }
       return r;
     }
-    lodash_set(t, e, s) {
-      return Object(t) !== t ? t : (Array.isArray(e) || (e = e.toString().match(/[^.[\]]+/g) || []), e.slice(0, -1).reduce((t, s, i) => Object(t[s]) === t[s] ? t[s] : t[s] = Math.abs(e[i + 1]) >> 0 == +e[i + 1] ? [] : {}, t)[e[e.length - 1]] = s, t);
+    lodash_set(t, r, e) {
+      Object(t) === t && ((r = Array.isArray(r) ? r : r.toString().match(/[^.[\]]+/g) || []).slice(0, -1).reduce((t, e, s) => Object(t[e]) === t[e] ? t[e] : t[e] = Math.abs(r[s + 1]) >> 0 == +r[s + 1] ? [] : {}, t)[r[r.length - 1]] = e);
+      return t;
     }
     getdata(t) {
       let e = this.getval(t);
       if (/^@/.test(t)) {
-        const [, s, i] = /^@(.*?)\.(.*?)$/.exec(t),
-          r = s ? this.getval(s) : "";
-        if (r) {
+        var [, s, r] = /^@(.*?)\.(.*?)$/.exec(t);
+        if (s = s ? this.getval(s) : "") {
           try {
-            const t = JSON.parse(r);
-            e = t ? this.lodash_get(t, i, "") : e;
+            const t = JSON.parse(s);
+            e = t ? this.lodash_get(t, r, "") : e;
           } catch (t) {
             e = "";
           }
@@ -691,17 +925,16 @@ function Env(t, e) {
     setdata(t, e) {
       let s = !1;
       if (/^@/.test(e)) {
-        const [, i, r] = /^@(.*?)\.(.*?)$/.exec(e),
-          o = this.getval(i),
-          h = i ? "null" === o ? null : o || "{}" : "{}";
+        var [, r, i] = /^@(.*?)\.(.*?)$/.exec(e),
+          a = this.getval(r),
+          a = r ? "null" === a ? null : a || "{}" : "{}";
         try {
-          const e = JSON.parse(h);
-          this.lodash_set(e, r, t);
-          s = this.setval(JSON.stringify(e), i);
+          const e = JSON.parse(a);
+          this.lodash_set(e, i, t);
+          s = this.setval(JSON.stringify(e), r);
         } catch (e) {
-          const o = {};
-          this.lodash_set(o, r, t);
-          s = this.setval(JSON.stringify(o), i);
+          this.lodash_set(a = {}, i, t);
+          s = this.setval(JSON.stringify(a), r);
         }
       } else {
         s = this.setval(t, e);
@@ -709,208 +942,408 @@ function Env(t, e) {
       return s;
     }
     getval(t) {
-      return this.isSurge() || this.isLoon() ? $persistentStore.read(t) : this.isQuanX() ? $prefs.valueForKey(t) : this.isNode() ? (this.data = this.loaddata(), this.data[t]) : this.data && this.data[t] || null;
+      switch (this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+          return $persistentStore.read(t);
+        case "Quantumult X":
+          return $prefs.valueForKey(t);
+        case "Node.js":
+          this.data = this.loaddata();
+          return this.data[t];
+        default:
+          return this.data && this.data[t] || null;
+      }
     }
     setval(t, e) {
-      return this.isSurge() || this.isLoon() ? $persistentStore.write(t, e) : this.isQuanX() ? $prefs.setValueForKey(t, e) : this.isNode() ? (this.data = this.loaddata(), this.data[e] = t, this.writedata(), !0) : this.data && this.data[e] || null;
+      switch (this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+          return $persistentStore.write(t, e);
+        case "Quantumult X":
+          return $prefs.setValueForKey(t, e);
+        case "Node.js":
+          this.data = this.loaddata();
+          this.data[e] = t;
+          this.writedata();
+          return !0;
+        default:
+          return this.data && this.data[e] || null;
+      }
     }
     initGotEnv(t) {
-      this.got = this.got ? this.got : require("got");
-      this.cktough = this.cktough ? this.cktough : require("tough-cookie");
-      this.ckjar = this.ckjar ? this.ckjar : new this.cktough.CookieJar();
-      t && (t.headers = t.headers ? t.headers : {}, void 0 === t.headers.Cookie && void 0 === t.cookieJar && (t.cookieJar = this.ckjar));
+      this.got = this.got || require("got");
+      this.cktough = this.cktough || require("tough-cookie");
+      this.ckjar = this.ckjar || new this.cktough.CookieJar();
+      t && (t.headers = t.headers || {}, t) && (t.headers = t.headers || {}, void 0 === t.headers.cookie) && void 0 === t.headers.Cookie && void 0 === t.cookieJar && (t.cookieJar = this.ckjar);
     }
-    get(t, e = () => {}) {
-      t.headers && (delete t.headers["Content-Type"], delete t.headers["Content-Length"]);
-      this.isSurge() || this.isLoon() ? (this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
-        "X-Surge-Skip-Scripting": !1
-      })), $httpClient.get(t, (t, s, i) => {
-        !t && s && (s.body = i, s.statusCode = s.status);
-        e(t, s, i);
-      })) : this.isQuanX() ? (this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
-        hints: !1
-      })), $task.fetch(t).then(t => {
-        const {
-          statusCode: s,
-          statusCode: i,
-          headers: r,
-          body: o
-        } = t;
-        e(null, {
-          status: s,
-          statusCode: i,
-          headers: r,
-          body: o
-        }, o);
-      }, t => e(t))) : this.isNode() && (this.initGotEnv(t), this.got(t).on("redirect", (t, e) => {
-        try {
-          if (t.headers["set-cookie"]) {
-            const s = t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();
-            s && this.ckjar.setCookieSync(s, null);
-            e.cookieJar = this.ckjar;
-          }
-        } catch (t) {
-          this.logErr(t);
-        }
-      }).then(t => {
-        const {
-          statusCode: s,
-          statusCode: i,
-          headers: r,
-          body: o
-        } = t;
-        e(null, {
-          status: s,
-          statusCode: i,
-          headers: r,
-          body: o
-        }, o);
-      }, t => {
-        const {
-          message: s,
-          response: i
-        } = t;
-        e(s, i, i && i.body);
-      }));
+    tmout() {
+      return new Promise((t, e) => {
+        this.tmoutId = setTimeout(() => {
+          this.prms.cancel();
+          e({
+            message: "timemout",
+            response: ""
+          });
+        }, 50000);
+      });
     }
-    post(t, e = () => {}) {
-      if (t.body && t.headers && !t.headers["Content-Type"] && (t.headers["Content-Type"] = "application/x-www-form-urlencoded"), t.headers && delete t.headers["Content-Length"], this.isSurge() || this.isLoon()) {
-        this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
-          "X-Surge-Skip-Scripting": !1
-        }));
-        $httpClient.post(t, (t, s, i) => {
-          !t && s && (s.body = i, s.statusCode = s.status);
-          e(t, s, i);
-        });
-      } else {
-        if (this.isQuanX()) {
-          t.method = "POST";
+    get(t, a = () => {}) {
+      switch (t.headers && (delete t.headers["Content-Type"], delete t.headers["Content-Length"], delete t.headers["content-type"], delete t.headers["content-length"]), t.params && (t.url += "?" + this.queryStr(t.params)), void 0 === t.followRedirect || t.followRedirect || ((this.isSurge() || this.isLoon()) && (t["auto-redirect"] = !1), this.isQuanX() && (t.opts ? t.opts.redirection = !1 : t.opts = {
+        redirection: !1
+      })), this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+        default:
+          this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+            "X-Surge-Skip-Scripting": !1
+          }));
+          $httpClient.get(t, (t, e, s) => {
+            !t && e && (e.body = s, e.statusCode = e.status || e.statusCode, e.status = e.statusCode);
+            a(t, e, s);
+          });
+          break;
+        case "Quantumult X":
           this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
             hints: !1
           }));
           $task.fetch(t).then(t => {
-            const {
-              statusCode: s,
-              statusCode: i,
-              headers: r,
-              body: o
+            var {
+              statusCode: t,
+              statusCode: e,
+              headers: s,
+              body: r,
+              bodyBytes: i
             } = t;
-            e(null, {
-              status: s,
-              statusCode: i,
-              headers: r,
-              body: o
-            }, o);
-          }, t => e(t));
-        } else {
-          if (this.isNode()) {
-            this.initGotEnv(t);
-            const {
-              url: s,
-              ...i
+            a(null, {
+              status: t,
+              statusCode: e,
+              headers: s,
+              body: r,
+              bodyBytes: i
+            }, r, i);
+          }, t => a(t && t.error || "UndefinedError"));
+          break;
+        case "Node.js":
+          this.initGotEnv(t);
+          this.prms = this.got(t).on("redirect", (t, e) => {
+            try {
+              var s;
+              t.headers["set-cookie"] && ((s = t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString()) && this.ckjar.setCookieSync(s, null), e.cookieJar = this.ckjar);
+            } catch (t) {
+              this.logErr(t);
+            }
+          });
+          Promise.race([this.prms, this.tmout()]).then(t => {
+            var {
+              statusCode: t,
+              statusCode: e,
+              headers: s,
+              rawBody: r,
+              body: i
             } = t;
-            this.got.post(s, i).then(t => {
-              const {
-                statusCode: s,
-                statusCode: i,
-                headers: r,
-                body: o
-              } = t;
-              e(null, {
-                status: s,
-                statusCode: i,
-                headers: r,
-                body: o
-              }, o);
-            }, t => {
-              const {
-                message: s,
-                response: i
-              } = t;
-              e(s, i, i && i.body);
-            });
-          }
-        }
+            a(null, {
+              status: t,
+              statusCode: e,
+              headers: s,
+              rawBody: r,
+              body: i
+            }, i);
+            clearTimeout(this.tmoutId);
+          }, t => {
+            var {
+              message: t,
+              response: e
+            } = t;
+            clearTimeout(this.tmoutId);
+            a(t, e, e && e.body);
+          });
+      }
+    }
+    post(t, a = () => {}) {
+      var e = t.method ? t.method.toLocaleLowerCase() : "post";
+      switch (t.body && t.headers && !t.headers["Content-Type"] && !t.headers["content-type"] && (t.headers["content-type"] = "application/x-www-form-urlencoded"), t.headers && (delete t.headers["Content-Length"], delete t.headers["content-length"]), void 0 === t.followRedirect || t.followRedirect || ((this.isSurge() || this.isLoon()) && (t["auto-redirect"] = !1), this.isQuanX() && (t.opts ? t.opts.redirection = !1 : t.opts = {
+        redirection: !1
+      })), this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+        default:
+          this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+            "X-Surge-Skip-Scripting": !1
+          }));
+          $httpClient[e](t, (t, e, s) => {
+            !t && e && (e.body = s, e.statusCode = e.status || e.statusCode, e.status = e.statusCode);
+            a(t, e, s);
+          });
+          break;
+        case "Quantumult X":
+          t.method = e;
+          this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
+            hints: !1
+          }));
+          $task.fetch(t).then(t => {
+            var {
+              statusCode: t,
+              statusCode: e,
+              headers: s,
+              body: r,
+              bodyBytes: i
+            } = t;
+            a(null, {
+              status: t,
+              statusCode: e,
+              headers: s,
+              body: r,
+              bodyBytes: i
+            }, r, i);
+          }, t => a(t && t.error || "UndefinedError"));
+          break;
+        case "Node.js":
+          this.initGotEnv(t);
+          var {
+            url: s,
+            ...r
+          } = t;
+          this.prms = this.got[e](s, r);
+          Promise.race([this.prms, this.tmout()]).then(t => {
+            var {
+              statusCode: t,
+              statusCode: e,
+              headers: s,
+              rawBody: r,
+              body: i
+            } = t;
+            a(null, {
+              status: t,
+              statusCode: e,
+              headers: s,
+              rawBody: r,
+              body: i
+            }, i);
+            clearTimeout(this.tmoutId);
+          }, t => {
+            var {
+              message: t,
+              response: e
+            } = t;
+            clearTimeout(this.tmoutId);
+            a(t, e, e && e.body);
+          });
       }
     }
     time(t, e = null) {
-      const s = e ? new Date(e) : new Date();
-      let i = {
-        "M+": s.getMonth() + 1,
-        "d+": s.getDate(),
-        "H+": s.getHours(),
-        "m+": s.getMinutes(),
-        "s+": s.getSeconds(),
-        "q+": Math.floor((s.getMonth() + 3) / 3),
-        S: s.getMilliseconds()
-      };
-      /(y+)/.test(t) && (t = t.replace(RegExp.$1, (s.getFullYear() + "").substr(4 - RegExp.$1.length)));
-      for (let e in i) new RegExp("(" + e + ")").test(t) && (t = t.replace(RegExp.$1, 1 == RegExp.$1.length ? i[e] : ("00" + i[e]).substr(("" + i[e]).length)));
+      var s,
+        r = {
+          "M+": (e = e ? new Date(e) : new Date()).getMonth() + 1,
+          "d+": e.getDate(),
+          "H+": e.getHours(),
+          "m+": e.getMinutes(),
+          "s+": e.getSeconds(),
+          "q+": Math.floor((e.getMonth() + 3) / 3),
+          S: e.getMilliseconds()
+        };
+      for (s in /(y+)/.test(t) && (t = t.replace(RegExp.$1, (e.getFullYear() + "").substr(4 - RegExp.$1.length))), r) new RegExp("(" + s + ")").test(t) && (t = t.replace(RegExp.$1, 1 == RegExp.$1.length ? r[s] : ("00" + r[s]).substr(("" + r[s]).length)));
       return t;
     }
-    msg(e = t, s = "", i = "", r) {
-      const o = t => {
-        if (!t) {
-          return t;
-        }
-        if ("string" == typeof t) {
-          return this.isLoon() ? t : this.isQuanX() ? {
-            "open-url": t
-          } : this.isSurge() ? {
-            url: t
-          } : void 0;
-        }
-        if ("object" == typeof t) {
-          if (this.isLoon()) {
-            let e = t.openUrl || t.url || t["open-url"],
-              s = t.mediaUrl || t["media-url"];
-            return {
-              openUrl: e,
-              mediaUrl: s
-            };
-          }
-          if (this.isQuanX()) {
-            let e = t["open-url"] || t.url || t.openUrl,
-              s = t["media-url"] || t.mediaUrl;
-            return {
-              "open-url": e,
-              "media-url": s
-            };
-          }
-          if (this.isSurge()) {
-            let e = t.url || t.openUrl || t["open-url"];
-            return {
-              url: e
-            };
-          }
-        }
-      };
-      if (this.isMute || (this.isSurge() || this.isLoon() ? $notification.post(e, s, i, o(r)) : this.isQuanX() && $notify(e, s, i, o(r))), !this.isMuteLog) {
-        let t = ["", "==============📣系统通知📣=============="];
-        t.push(e);
-        s && t.push(s);
-        i && t.push(i);
-        console.log(t.join("\n"));
-        this.logs = this.logs.concat(t);
+    queryStr(e) {
+      let s = "";
+      for (const r in e) {
+        let t = e[r];
+        null != t && "" !== t && ("object" == typeof t && (t = JSON.stringify(t)), s += `${r}=${t}&`);
       }
+      return s = s.substring(0, s.length - 1);
+    }
+    msg(t = o, e = "", s = "", r = {}) {
+      var i,
+        a = r => {
+          const {
+            $open: t,
+            $copy: e,
+            $media: i,
+            $mediaMime: a
+          } = r;
+          switch (typeof r) {
+            case void 0:
+              return r;
+            case "string":
+              switch (this.getEnv()) {
+                case "Surge":
+                case "Stash":
+                default:
+                  return {
+                    url: r
+                  };
+                case "Loon":
+                case "Shadowrocket":
+                  return r;
+                case "Quantumult X":
+                  return {
+                    "open-url": r
+                  };
+                case "Node.js":
+                  return;
+              }
+            case "object":
+              switch (this.getEnv()) {
+                case "Surge":
+                case "Stash":
+                case "Shadowrocket":
+                default:
+                  var o = {},
+                    s = r.openUrl || r.url || r["open-url"] || t;
+                  if (s && Object.assign(o, {
+                    action: "open-url",
+                    url: s
+                  }), (s = r["update-pasteboard"] || r.updatePasteboard || e) && Object.assign(o, {
+                    action: "clipboard",
+                    text: s
+                  }), i) {
+                    let t, e, s;
+                    if (i.startsWith("http")) {
+                      t = i;
+                    } else {
+                      if (i.startsWith("data:")) {
+                        const [r] = i.split(";"),
+                          [, a] = i.split(",");
+                        e = a;
+                        s = r.replace("data:", "");
+                      } else {
+                        e = i;
+                        s = (t => {
+                          var e,
+                            s = {
+                              JVBERi0: "application/pdf",
+                              R0lGODdh: "image/gif",
+                              R0lGODlh: "image/gif",
+                              iVBORw0KGgo: "image/png",
+                              "/9j/": "image/jpg"
+                            };
+                          for (e in s) if (0 === t.indexOf(e)) {
+                            return s[e];
+                          }
+                          return null;
+                        })(i);
+                      }
+                    }
+                    Object.assign(o, {
+                      "media-url": t,
+                      "media-base64": e,
+                      "media-base64-mime": a ?? s
+                    });
+                  }
+                  Object.assign(o, {
+                    "auto-dismiss": r["auto-dismiss"],
+                    sound: r.sound
+                  });
+                  return o;
+                case "Loon":
+                  {
+                    const e = {};
+                    (s = r.openUrl || r.url || r["open-url"] || t) && Object.assign(e, {
+                      openUrl: s
+                    });
+                    var n = r.mediaUrl || r["media-url"];
+                    (n = i?.startsWith("http") ? i : n) && Object.assign(e, {
+                      mediaUrl: n
+                    });
+                    console.log(JSON.stringify(e));
+                    return e;
+                  }
+                case "Quantumult X":
+                  {
+                    const a = {};
+                    (o = r["open-url"] || r.url || r.openUrl || t) && Object.assign(a, {
+                      "open-url": o
+                    });
+                    n = r["media-url"] || r.mediaUrl;
+                    (n = i?.startsWith("http") ? i : n) && Object.assign(a, {
+                      "media-url": n
+                    });
+                    (s = r["update-pasteboard"] || r.updatePasteboard || e) && Object.assign(a, {
+                      "update-pasteboard": s
+                    });
+                    console.log(JSON.stringify(a));
+                    return a;
+                  }
+                case "Node.js":
+                  return;
+              }
+            default:
+              return;
+          }
+        };
+      if (!this.isMute) {
+        switch (this.getEnv()) {
+          case "Surge":
+          case "Loon":
+          case "Stash":
+          case "Shadowrocket":
+          default:
+            $notification.post(t, e, s, a(r));
+            break;
+          case "Quantumult X":
+            $notify(t, e, s, a(r));
+            break;
+          case "Node.js":
+        }
+      }
+      this.isMuteLog || ((i = ["", "==============📣系统通知📣=============="]).push(t), e && i.push(e), s && i.push(s), console.log(i.join("\n")), this.logs = this.logs.concat(i));
+    }
+    debug(...t) {
+      this.logLevels[this.logLevel] <= this.logLevels.debug && (0 < t.length && (this.logs = [...this.logs, ...t]), console.log("" + this.logLevelPrefixs.debug + t.map(t => t ?? String(t)).join(this.logSeparator)));
+    }
+    info(...t) {
+      this.logLevels[this.logLevel] <= this.logLevels.info && (0 < t.length && (this.logs = [...this.logs, ...t]), console.log("" + this.logLevelPrefixs.info + t.map(t => t ?? String(t)).join(this.logSeparator)));
+    }
+    warn(...t) {
+      this.logLevels[this.logLevel] <= this.logLevels.warn && (0 < t.length && (this.logs = [...this.logs, ...t]), console.log("" + this.logLevelPrefixs.warn + t.map(t => t ?? String(t)).join(this.logSeparator)));
+    }
+    error(...t) {
+      this.logLevels[this.logLevel] <= this.logLevels.error && (0 < t.length && (this.logs = [...this.logs, ...t]), console.log("" + this.logLevelPrefixs.error + t.map(t => t ?? String(t)).join(this.logSeparator)));
     }
     log(...t) {
-      t.length > 0 && (this.logs = [...this.logs, ...t]);
-      console.log(t.join(this.logSeparator));
+      0 < t.length && (this.logs = [...this.logs, ...t]);
+      console.log(t.map(t => t ?? String(t)).join(this.logSeparator));
     }
     logErr(t, e) {
-      const s = !this.isSurge() && !this.isQuanX() && !this.isLoon();
-      s ? this.log("", `❗️${this.name}, 错误!`, t.stack) : this.log("", `❗️${this.name}, 错误!`, t);
+      switch (this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+        case "Quantumult X":
+        default:
+          this.log("", `❗️${this.name}, 错误!`, t);
+          break;
+        case "Node.js":
+          this.log("", `❗️${this.name}, 错误!`, void 0 !== t.message ? t.message : t);
+      }
     }
-    wait(t) {
-      return new Promise(e => setTimeout(e, t));
+    wait(e) {
+      return new Promise(t => setTimeout(t, e));
     }
     done(t = {}) {
-      const e = new Date().getTime(),
-        s = (e - this.startTime) / 1000;
-      this.log("", `🔔${this.name}, 结束! 🕛 ${s} 秒`);
-      this.log();
-      (this.isSurge() || this.isQuanX() || this.isLoon()) && $done(t);
+      var e = (new Date().getTime() - this.startTime) / 1000;
+      switch (this.log("", `🔔${this.name}, 结束! 🕛 ${e} 秒`), this.log(), this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+        case "Quantumult X":
+        default:
+          $done(t);
+          break;
+        case "Node.js":
+          process.exit(1);
+      }
     }
-  }(t, e);
+  }(o, t);
 }
