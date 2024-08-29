@@ -1,704 +1,1473 @@
-//Sat Aug 17 2024 17:21:33 GMT+0000 (Coordinated Universal Time)
+//Thu Aug 29 2024 04:14:04 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-const _0x254e75 = "网络异常，跳过";
-const _0x24a70a = require("request");
-const _0x4843d1 = require("crypto");
-const _0x2881a4 = process.env.HOST || "http://api.94wan.fun";
-const _0x5f2026 = process.env.SIGN_HOST || "http://api.94wan.fun";
-const {
-  sendNotify
-} = require("./sendNotify1.js");
-const _0xd97f06 = require("dns");
-const _0x2a4247 = require("md5");
-const _0x34090d = ["iPad;3.7.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;10;2346663656561603-4353564623932316;network/wifi;model/ONEPLUS A5010;addressid/0;aid/2dfceea045ed292a;oaid/;osVer/29;appBuild/1436;psn/BS6Y9SAiw0IpJ4ro7rjSOkCRZTgR3z2K|10;psq/5;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/10.5;jdv/;ref/com.jd.jdlite.lib.personal.view.fragment.JDPersonalFragment;partner/oppo;apprpd/MyJD_Main;eufv/1;Mozilla/5.0 (Linux; Android 10; ONEPLUS A5010 Build/QKQ1.191014.012; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045140 Mobile Safari/537.36", "iPhone;3.7.0;14.1;59d6ae6e8387bd09fe046d5b8918ead51614e80a;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone12,1;hasOCPay/0;appBuild/1017;supportBestPay/0;addressid/;pv/1.26;apprpd/;ref/JDLTSubMainPageViewController;psq/0;ads/;psn/59d6ae6e8387bd09fe046d5b8918ead51614e80a|3;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.1;Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;13.5;22d679c006bf9c087abf362cf1d2e0020ebb8798;network/wifi;ADID/10857A57-DDF8-4A0D-A548-7B8F43AC77EE;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;model/iPhone12,1;addressid/2378947694;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/15.7;apprpd/Allowance_Registered;ref/JDLTTaskCenterViewController;psq/6;ads/;psn/22d679c006bf9c087abf362cf1d2e0020ebb8798|22;jdv/0|kong|t_1000170135|tuiguang|notset|1614153044558|1614153044;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 13.5;Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;10;2616935633265383-5333463636261326;network/UNKNOWN;model/M2007J3SC;addressid/1840745247;aid/ba9e3b5853dccb1b;oaid/371d8af7dd71e8d5;osVer/29;appBuild/1436;psn/t7JmxZUXGkimd4f9Jdul2jEeuYLwxPrm|8;psq/6;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/5.6;jdv/;ref/com.jd.jdlite.lib.jdlitemessage.view.activity.MessageCenterMainActivity;partner/xiaomi;apprpd/MessageCenter_MessageMerge;eufv/1;Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.200419.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045135 Mobile Safari/537.36", "iPhone;3.7.0;14.3;d7beab54ae7758fa896c193b49470204fbb8fce9;network/4g;ADID/97AD46C9-6D49-4642-BF6F-689256673906;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,2;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/6.28;apprpd/;ref/JDLTRedPacketViewController;psq/3;ads/;psn/d7beab54ae7758fa896c193b49470204fbb8fce9|8;jdv/0|kong|t_1001707023_|jingfen|79ad0319fa4d47e38521a616d80bc4bd|1613800945610|1613824900;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;9;D246836333735-3264353430393;network/4g;model/MIX 2;addressid/138678023;aid/bf8bcf1214b3832a;oaid/308540d1f1feb2f5;osVer/28;appBuild/1436;psn/Z/rGqfWBY/h5gcGFnVIsRw==|16;psq/3;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 9;osv/9;pv/13.7;jdv/;ref/com.jd.jdlite.lib.personal.view.fragment.JDPersonalFragment;partner/xiaomi;apprpd/MyJD_Main;eufv/1;Mozilla/5.0 (Linux; Android 9; MIX 2 Build/PKQ1.190118.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045135 Mobile Safari/537.36", "iPhone;3.7.0;14.4;eb5a9e7e596e262b4ffb3b6b5c830984c8a5c0d5;network/wifi;ADID/5603541B-30C1-4B5C-A782-20D0B569D810;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,2;addressid/1041002757;hasOCPay/0;appBuild/101;supportBestPay/0;pv/34.6;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/5;ads/;psn/eb5a9e7e596e262b4ffb3b6b5c830984c8a5c0d5|44;jdv/0|androidapp|t_335139774|appshare|CopyURL|1612612940307|1612612944;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;21631ed983b3e854a3154b0336413825ad0d6783;network/3g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone13,4;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.47;apprpd/;ref/JDLTSubMainPageViewController;psq/8;ads/;psn/21631ed983b3e854a3154b0336413825ad0d6783|9;jdv/0|direct|-|none|-|1614150725100|1614225882;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;13.5;500a795cb2abae60b877ee4a1930557a800bef1c;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone8,1;addressid/669949466;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/9.11;apprpd/;ref/JDLTSubMainPageViewController;psq/10;ads/;psn/500a795cb2abae60b877ee4a1930557a800bef1c|11;jdv/;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 13.5;Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPad;3.7.0;14.4;f5e7b7980fb50efc9c294ac38653c1584846c3db;network/wifi;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;model/iPad6,3;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/231.11;pap/JA2020_3112531|3.7.0|IOS 14.4;apprpd/;psn/f5e7b7980fb50efc9c294ac38653c1584846c3db|305;usc/kong;jdv/0|kong|t_1000170135|tuiguang|notset|1613606450668|1613606450;umd/tuiguang;psq/2;ucp/t_1000170135;app_device/IOS;utr/notset;ref/JDLTRedPacketViewController;adk/;ads/;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;19fef5419f88076c43f5317eabe20121d52c6a61;network/wifi;ADID/00000000-0000-0000-0000-000000000000;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,8;addressid/3430850943;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/10.4;apprpd/;ref/JDLTSubMainPageViewController;psq/3;ads/;psn/19fef5419f88076c43f5317eabe20121d52c6a61|16;jdv/0|kong|t_1001327829_|jingfen|f51febe09dd64b20b06bc6ef4c1ad790#/|1614096460311|1614096511;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;12.2;f995bc883282f7c7ea9d7f32da3f658127aa36c7;network/4g;ADID/9F40F4CA-EA7C-4F2E-8E09-97A66901D83E;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone10,4;addressid/525064695;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/11.11;apprpd/;ref/JDLTSubMainPageViewController;psq/2;ads/;psn/f995bc883282f7c7ea9d7f32da3f658127aa36c7|22;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 12.2;Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;10;5366566313931326-6633931643233693;network/wifi;model/Mi9 Pro 5G;addressid/0;aid/5fe6191bf39a42c9;oaid/e3a9473ef6699f75;osVer/29;appBuild/1436;psn/b3rJlGi AwLqa9AqX7Vp0jv4T7XPMa0o|5;psq/4;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/5.4;jdv/;ref/HomeFragment;partner/xiaomi;apprpd/Home_Main;eufv/1;Mozilla/5.0 (Linux; Android 10; Mi9 Pro 5G Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045135 Mobile Safari/537.36", "iPhone;3.7.0;14.4;4e6b46913a2e18dd06d6d69843ee4cdd8e033bc1;network/3g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone13,2;addressid/666624049;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/54.11;apprpd/MessageCenter_MessageMerge;ref/MessageCenterController;psq/10;ads/;psn/4e6b46913a2e18dd06d6d69843ee4cdd8e033bc1|101;jdv/0|kong|t_2010804675_|jingfen|810dab1ba2c04b8588c5aa5a0d44c4bd|1614183499;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.2;c71b599e9a0bcbd8d1ad924d85b5715530efad06;network/wifi;ADID/751C6E92-FD10-4323-B37C-187FD0CF0551;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,8;addressid/4053561885;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/263.8;apprpd/;ref/JDLTSubMainPageViewController;psq/2;ads/;psn/c71b599e9a0bcbd8d1ad924d85b5715530efad06|481;jdv/0|kong|t_1001610202_|jingfen|3911bea7ee2f4fcf8d11fdf663192bbe|1614157052210|1614157056;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.2;Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;2d306ee3cacd2c02560627a5113817ebea20a2c9;network/4g;ADID/A346F099-3182-4889-9A62-2B3C28AB861E;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone13,3;hasOCPay/0;appBuild/1017;supportBestPay/0;addressid/;pv/1.35;apprpd/Allowance_Registered;ref/JDLTTaskCenterViewController;psq/0;ads/;psn/2d306ee3cacd2c02560627a5113817ebea20a2c9|2;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;28355aff16cec8bcf3e5728dbbc9725656d8c2c2;network/4g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone10,2;addressid/833058617;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.10;apprpd/;ref/JDLTWebViewController;psq/9;ads/;psn/28355aff16cec8bcf3e5728dbbc9725656d8c2c2|5;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;13.5;24ddac73a3de1b91816b7aedef53e97c4c313733;network/4g;ADID/598C6841-76AC-4512-AA97-CBA940548D70;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;model/iPhone11,6;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/12.6;apprpd/;ref/JDLTSubMainPageViewController;psq/5;ads/;psn/24ddac73a3de1b91816b7aedef53e97c4c313733|23;jdv/0|kong|t_1000170135|tuiguang|notset|1614126110904|1614126110;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 13.5;Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;d7732ba60c8ff73cc3f5ba7290a3aa9551f73a1b;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone12,1;addressid/25239372;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/8.6;apprpd/;ref/JDLTSubMainPageViewController;psq/5;ads/;psn/d7732ba60c8ff73cc3f5ba7290a3aa9551f73a1b|14;jdv/0|kong|t_1001226363_|jingfen|5713234d1e1e4893b92b2de2cb32484d|1614182989528|1614182992;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;ca1a32afca36bc9fb37fd03f18e653bce53eaca5;network/wifi;ADID/3AF380AB-CB74-4FE6-9E7C-967693863CA3;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;model/iPhone8,1;addressid/138323416;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/72.12;apprpd/;ref/JDLTRedPacketViewController;psq/3;ads/;psn/ca1a32afca36bc9fb37fd03f18e653bce53eaca5|109;jdv/0|kong|t_1000536212_|jingfen|c82bfa19e33a4269a5884ffc614790f4|1614141246;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;10;7346933333666353-8333366646039373;network/wifi;model/ONEPLUS A5010;addressid/138117973;aid/7d933f6583cfd097;oaid/;osVer/29;appBuild/1436;psn/T/eqfRSwp8VKEvvXyEunq09Cg2MUkiQ5|17;psq/4;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/11.4;jdv/0|kong|t_1001849073_|jingfen|495a47f6c0b8431c9d460f61ad2304dc|1614084403978|1614084407;ref/HomeFragment;partner/oppo;apprpd/Home_Main;eufv/1;Mozilla/5.0 (Linux; Android 10; ONEPLUS A5010 Build/QKQ1.191014.012; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045140 Mobile Safari/537.36", "android;3.7.0;11;4626269356736353-5353236346334673;network/wifi;model/M2006J10C;addressid/0;aid/dbb9e7655526d3d7;oaid/66a7af49362987b0;osVer/30;appBuild/1436;psn/rQRQgJ 4 S3qkq8YDl28y6jkUHmI/rlX|3;psq/4;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 11;osv/11;pv/3.4;jdv/;ref/HomeFragment;partner/xiaomi;apprpd/Home_Main;eufv/1;Mozilla/5.0 (Linux; Android 11; M2006J10C Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045513 Mobile Safari/537.36", "iPhone;3.7.0;14.4;78fc1d91twwktajxkdgfwtns3fptkxs7nyycdy5a;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone13,1;addressid/137829713;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/23.11;apprpd/;ref/JDLTSubMainPageViewController;psq/10;ads/;psn/78fc1d919de0c8c2de15725eff508d8ab14f9c82|34;jdv/0|iosapp|t_335139774|appshare|Wxfriends|1612508702380|1612534293;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;10;0373263343266633-5663030363465326;network/wifi;model/Redmi Note 7;addressid/590846082;aid/07b34bf3e6006d5b;oaid/17975a142e67ec92;osVer/29;appBuild/1436;psn/OHNqtdhQKv1okyh7rB3HxjwI00ixJMNG|4;psq/3;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/2.3;jdv/;ref/activityId=8a8fabf3cccb417f8e691b6774938bc2;partner/xiaomi;apprpd/jsbqd_home;eufv/1;Mozilla/5.0 (Linux; Android 10; Redmi Note 7 Build/QKQ1.190910.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.152 Mobile Safari/537.36", "android;3.7.0;10;3636566623663623-1693635613166646;network/wifi;model/ASUS_I001DA;addressid/1397761133;aid/ccef2fc2a96e1afd;oaid/;osVer/29;appBuild/1436;psn/T8087T0D82PHzJ4VUMGFrfB9dw4gUnKG|76;psq/5;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/73.5;jdv/0|kong|t_1002354188_|jingfen|2335e043b3344107a2750a781fde9a2e#/|1614097081426|1614097087;ref/com.jd.jdlite.lib.personal.view.fragment.JDPersonalFragment;partner/yingyongbao;apprpd/MyJD_Main;eufv/1;Mozilla/5.0 (Linux; Android 10; ASUS_I001DA Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045140 Mobile Safari/537.36", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone10,2;addressid/138419019;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/5.7;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/6;ads/;psn/4ee6af0db48fd605adb69b63f00fcbb51c2fc3f0|9;jdv/0|direct|-|none|-|1613705981655|1613823229;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;network/wifi;ADID/F9FD7728-2956-4DD1-8EDD-58B07950864C;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone10,1;addressid/1346909722;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/30.8;apprpd/;ref/JDLTSubMainPageViewController;psq/7;ads/;psn/40d4d4323eb3987226cae367d6b0d8be50f2c7b3|39;jdv/0|kong|t_1000252057_0|tuiguang|eba7648a0f4445aa9cfa6f35c6f36e15|1613995717959|1613995723;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;ADID/5D306F0D-A131-4B26-947E-166CCB9BFFFF;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,6;addressid/138164461;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/7.8;apprpd/;ref/JDLTSubMainPageViewController;psq/7;ads/;psn/d40e5d4a33c100e8527f779557c347569b49c304|7;jdv/0|kong|t_1001226363_|jingfen|3bf5372cb9cd445bbb270b8bc9a34f00|1608439066693|1608439068;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPad;3.7.0;14.5;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPad8,9;hasOCPay/0;appBuild/1017;supportBestPay/0;addressid/;pv/1.20;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/5;ads/;psn/d9f5ddaa0160a20f32fb2c8bfd174fae7993c1b4|3;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.5;Mozilla/5.0 (iPad; CPU OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;network/wifi;ADID/31548A9C-8A01-469A-B148-E7D841C91FD0;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,2;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/10.5;apprpd/;ref/JDLTSubMainPageViewController;psq/4;ads/;psn/a858fb4b40e432ea32f80729916e6c3e910bb922|12;jdv/0|direct|-|none|-|1613898710373|1613898712;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;13.5;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,2;addressid/2237496805;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/13.6;apprpd/;ref/JDLTSubMainPageViewController;psq/5;ads/;psn/48e495dcf5dc398b4d46b27e9f15a2b427a154aa|15;jdv/0|direct|-|none|-|1613354874698|1613952828;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 13.5;Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;10;3346332626262353-1666434336539336;network/wifi;model/ONEPLUS A6000;addressid/0;aid/3d3bbb25af44c59c;oaid/;osVer/29;appBuild/1436;psn/ECbc2EqmdSa7mDF1PS1GSrV/Tn7R1LS1|6;psq/8;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/2.67;jdv/0|direct|-|none|-|1613822479379|1613991194;ref/com.jd.jdlite.lib.personal.view.fragment.JDPersonalFragment;partner/oppo;apprpd/MyJD_Main;eufv/1;Mozilla/5.0 (Linux; Android 10; ONEPLUS A6000 Build/QKQ1.190716.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045140 Mobile Safari/537.36", "android;3.7.0;8.1.0;8363834353530333132333132373-43D2930366035323639333662383;network/wifi;model/16th Plus;addressid/0;aid/f909e5f2c464c7c6;oaid/;osVer/27;appBuild/1436;psn/c21YWvVr77Hn6 pOZfxXGY4TZrre1 UOL5hcPbCEDMo=|3;psq/10;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 8.1.0;osv/8.1.0;pv/2.15;jdv/;ref/com.jd.jdlite.lib.personal.view.fragment.JDPersonalFragment;partner/jsxdlyqj09;apprpd/MyJD_Main;eufv/1;Mozilla/5.0 (Linux; Android 8.1.0; 16th Plus Build/OPM1.171019.026; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045514 Mobile Safari/537.36", "android;3.7.0;11;1343467336264693-3343562673463613;network/wifi;model/Mi 10 Pro;addressid/0;aid/14d7cbd934eb7dc1;oaid/335f198546eb3141;osVer/30;appBuild/1436;psn/ZcQh/Wov sNYfZ6JUjTIUBu28 KT0T3u|1;psq/24;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 11;osv/11;pv/1.24;jdv/;ref/com.jd.jdlite.lib.jdlitemessage.view.activity.MessageCenterMainActivity;partner/xiaomi;apprpd/MessageCenter_MessageMerge;eufv/1;Mozilla/5.0 (Linux; Android 11; Mi 10 Pro Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36", "android;3.7.0;10;8353636393732346-6646931673935346;network/wifi;model/MI 8;addressid/1969998059;aid/8566972dfd9a795d;oaid/4a8b773c3e307386;osVer/29;appBuild/1436;psn/PhYbUtCsCJo r 1b8hwxjnY8rEv5S8XC|383;psq/14;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/374.14;jdv/0|iosapp|t_335139774|liteshare|CopyURL|1609306590175|1609306596;ref/com.jd.jdlite.lib.jdlitemessage.view.activity.MessageCenterMainActivity;partner/jsxdlyqj09;apprpd/MessageCenter_MessageMerge;eufv/1;Mozilla/5.0 (Linux; Android 10; MI 8 Build/QKQ1.190828.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045140 Mobile Safari/537.36", "iPhone;3.7.0;14.4;6d343c58764a908d4fa56609da4cb3a5cc1396d3;network/wifi;ADID/4965D884-3E61-4C4E-AEA7-9A8CE3742DA7;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,1;addressid/70390480;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.24;apprpd/MyJD_Main;ref/https%3A%2F%2Fjdcs.m.jd.com%2Fafter%2Findex.action%3FcategoryId%3D600%26v%3D6%26entry%3Dm_self_jd;psq/4;ads/;psn/6d343c58764a908d4fa56609da4cb3a5cc1396d3|17;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;13.6.1;4606ddccdfe8f343f8137de7fea7f91fc4aef3a3;network/4g;ADID/C6FB6E20-D334-45FA-818A-7A4C58305202;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;model/iPhone10,1;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/5.9;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/8;ads/;psn/4606ddccdfe8f343f8137de7fea7f91fc4aef3a3|5;jdv/0|iosapp|t_335139774|liteshare|Qqfriends|1614206359106|1614206366;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 13.6.1;Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;3b6e79334551fc6f31952d338b996789d157c4e8;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone10,1;addressid/138051400;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/14.34;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/12;ads/;psn/3b6e79334551fc6f31952d338b996789d157c4e8|46;jdv/0|kong|t_1001707023_|jingfen|e80d7173a4264f4c9a3addcac7da8b5d|1613837384708|1613858760;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;10;1346235693831363-2373837393932673;network/wifi;model/LYA-AL00;addressid/3321567203;aid/1d2e9816278799b7;oaid/00000000-0000-0000-0000-000000000000;osVer/29;appBuild/1436;psn/45VUZFTZJkhP5fAXbeBoQ0   O2GCB I|7;psq/5;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/5.8;jdv/0|iosapp|t_335139774|liteshare|CopyURL|1614066210320|1614066219;ref/com.jd.jdlite.lib.personal.view.fragment.JDPersonalFragment;partner/huawei;apprpd/MyJD_Main;eufv/1;Mozilla/5.0 (Linux; Android 10; LYA-AL00 Build/HUAWEILYA-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36", "iPhone;3.7.0;14.3;c2a8854e622a1b17a6c56c789f832f9d78ef1ba7;network/wifi;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;model/iPhone12,5;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/3.9;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/8;ads/;psn/c2a8854e622a1b17a6c56c789f832f9d78ef1ba7|6;jdv/0|direct|-|none|-|1613541016735|1613823566;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;9;;network/wifi;model/MIX 2S;addressid/;aid/f87efed6d9ed3c65;oaid/94739128ef9dd245;osVer/28;appBuild/1436;psn/R7wD/OWkQjYWxax1pDV6kTIDFPJCUid7C/nl2hHnUuI=|3;psq/13;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 9;osv/9;pv/1.42;jdv/;ref/activityId=8a8fabf3cccb417f8e691b6774938bc2;partner/xiaomi;apprpd/jsbqd_home;eufv/1;Mozilla/5.0 (Linux; Android 9; MIX 2S Build/PKQ1.180729.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36", "iPhone;3.7.0;14.4;network/wifi;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;10;network/wifi;Mozilla/5.0 (Linux; Android 10; Redmi Note 7 Build/QKQ1.190910.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.152 Mobile Safari/537.36", "iPhone;3.7.0;14.4;network/3g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPad;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;model/iPad6,3;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/231.11;pap/JA2020_3112531|3.7.0|IOS 14.4;apprpd/;psn/f5e7b7980fb50efc9c294ac38653c1584846c3db|305;usc/kong;jdv/0|kong|t_1000170135|tuiguang|notset|1613606450668|1613606450;umd/tuiguang;psq/2;ucp/t_1000170135;app_device/IOS;utr/notset;ref/JDLTRedPacketViewController;adk/;ads/;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;13.5;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone8,1;addressid/669949466;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/9.11;apprpd/;ref/JDLTSubMainPageViewController;psq/10;ads/;psn/500a795cb2abae60b877ee4a1930557a800bef1c|11;jdv/;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 13.5;Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;network/3g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone13,4;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.47;apprpd/;ref/JDLTSubMainPageViewController;psq/8;ads/;psn/21631ed983b3e854a3154b0336413825ad0d6783|9;jdv/0|direct|-|none|-|1614150725100|1614225882;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;network/3g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone13,4;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.47;apprpd/;ref/JDLTSubMainPageViewController;psq/8;ads/;psn/21631ed983b3e854a3154b0336413825ad0d6783|9;jdv/0|direct|-|none|-|1614150725100|1614225882;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone13,2;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/3.15;apprpd/;ref/https%3A%2F%2Fjdcs.m.jd.com%2Fchat%2Findex.action%3Fentry%3Djd_m_JiSuCommodity%26pid%3D7763388%26lng%3D118.159665%26lat%3D24.504633%26sid%3D31cddc2d58f6e36bf2c31c4e8a79767w%26un_area%3D16_1315_3486_0;psq/12;ads/;psn/c10e0db6f15dec57a94637365f4c3d43e05bbd48|4;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone13,2;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/3.15;apprpd/;ref/https%3A%2F%2Fjdcs.m.jd.com%2Fchat%2Findex.action%3Fentry%3Djd_m_JiSuCommodity%26pid%3D7763388%26lng%3D118.159665%26lat%3D24.504633%26sid%3D31cddc2d58f6e36bf2c31c4e8a79767w%26un_area%3D16_1315_3486_0;psq/12;ads/;psn/c10e0db6f15dec57a94637365f4c3d43e05bbd48|4;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone13,2;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/3.15;apprpd/;ref/https%3A%2F%2Fjdcs.m.jd.com%2Fchat%2Findex.action%3Fentry%3Djd_m_JiSuCommodity%26pid%3D7763388%26lng%3D118.159665%26lat%3D24.504633%26sid%3D31cddc2d58f6e36bf2c31c4e8a79767w%26un_area%3D16_1315_3486_0;psq/12;ads/;psn/c10e0db6f15dec57a94637365f4c3d43e05bbd48|4;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,6;hasOCPay/0;appBuild/1017;supportBestPay/0;addressid/2813715704;pv/67.38;apprpd/MyJD_Main;ref/https%3A%2F%2Fh5.m.jd.com%2FbabelDiy%2FZeus%2F2ynE8QDtc2svd36VowmYWBzzDdK6%2Findex.html%3Flng%3D103.957532%26lat%3D30.626962%26sid%3D4fe8ef4283b24723a7bb30ee87c18b2w%26un_area%3D22_1930_49324_52512;psq/4;ads/;psn/5aef178f95931bdbbde849ea9e2fc62b18bc5829|127;jdv/0|direct|-|none|-|1612588090667|1613822580;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;;network/4g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,2;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/6.28;apprpd/;ref/JDLTRedPacketViewController;psq/3;ads/;psn/d7beab54ae7758fa896c193b49470204fbb8fce9|8;jdv/0|kong|t_1001707023_|jingfen|79ad0319fa4d47e38521a616d80bc4bd|1613800945610|1613824900;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;network/4g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,2;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/6.28;apprpd/;ref/JDLTRedPacketViewController;psq/3;ads/;psn/d7beab54ae7758fa896c193b49470204fbb8fce9|8;jdv/0|kong|t_1001707023_|jingfen|79ad0319fa4d47e38521a616d80bc4bd|1613800945610|1613824900;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;;network/4g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,2;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/6.28;apprpd/;ref/JDLTRedPacketViewController;psq/3;ads/;psn/d7beab54ae7758fa896c193b49470204fbb8fce9|8;jdv/0|kong|t_1001707023_|jingfen|79ad0319fa4d47e38521a616d80bc4bd|1613800945610|1613824900;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;network/4g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,2;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/6.28;apprpd/;ref/JDLTRedPacketViewController;psq/3;ads/;psn/d7beab54ae7758fa896c193b49470204fbb8fce9|8;jdv/0|kong|t_1001707023_|jingfen|79ad0319fa4d47e38521a616d80bc4bd|1613800945610|1613824900;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;network/4g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,2;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/6.28;apprpd/;ref/JDLTRedPacketViewController;psq/3;ads/;psn/d7beab54ae7758fa896c193b49470204fbb8fce9|8;jdv/0|kong|t_1001707023_|jingfen|79ad0319fa4d47e38521a616d80bc4bd|1613800945610|1613824900;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/4g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone12,1;addressid/3104834020;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.6;apprpd/;ref/JDLTSubMainPageViewController;psq/5;ads/;psn/c633e62b5a4ad0fdd93d9862bdcacfa8f3ecef63|6;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone10,1;addressid/1346909722;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/30.8;apprpd/;ref/JDLTSubMainPageViewController;psq/7;ads/;psn/40d4d4323eb3987226cae367d6b0d8be50f2c7b3|39;jdv/0|kong|t_1000252057_0|tuiguang|eba7648a0f4445aa9cfa6f35c6f36e15|1613995717959|1613995723;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.3;network/wifi;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone10,1;addressid/1346909722;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/30.8;apprpd/;ref/JDLTSubMainPageViewController;psq/7;ads/;psn/40d4d4323eb3987226cae367d6b0d8be50f2c7b3|39;jdv/0|kong|t_1000252057_0|tuiguang|eba7648a0f4445aa9cfa6f35c6f36e15|1613995717959|1613995723;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.3;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,6;addressid/138164461;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/7.8;apprpd/;ref/JDLTSubMainPageViewController;psq/7;ads/;psn/d40e5d4a33c100e8527f779557c347569b49c304|7;jdv/0|kong|t_1001226363_|jingfen|3bf5372cb9cd445bbb270b8bc9a34f00|1608439066693|1608439068;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,6;addressid/138164461;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/7.8;apprpd/;ref/JDLTSubMainPageViewController;psq/7;ads/;psn/d40e5d4a33c100e8527f779557c347569b49c304|7;jdv/0|kong|t_1001226363_|jingfen|3bf5372cb9cd445bbb270b8bc9a34f00|1608439066693|1608439068;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone11,6;addressid/138164461;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/7.8;apprpd/;ref/JDLTSubMainPageViewController;psq/7;ads/;psn/d40e5d4a33c100e8527f779557c347569b49c304|7;jdv/0|kong|t_1001226363_|jingfen|3bf5372cb9cd445bbb270b8bc9a34f00|1608439066693|1608439068;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;13.5;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,2;addressid/2237496805;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/13.6;apprpd/;ref/JDLTSubMainPageViewController;psq/5;ads/;psn/48e495dcf5dc398b4d46b27e9f15a2b427a154aa|15;jdv/0|direct|-|none|-|1613354874698|1613952828;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 13.5;Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "android;3.7.0;10;network/wifi;model/ONEPLUS A6000;addressid/0;aid/3d3bbb25af44c59c;oaid/;osVer/29;appBuild/1436;psn/ECbc2EqmdSa7mDF1PS1GSrV/Tn7R1LS1|6;psq/8;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/2.67;jdv/0|direct|-|none|-|1613822479379|1613991194;ref/com.jd.jdlite.lib.personal.view.fragment.JDPersonalFragment;partner/oppo;apprpd/MyJD_Main;eufv/1;Mozilla/5.0 (Linux; Android 10; ONEPLUS A6000 Build/QKQ1.190716.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045140 Mobile Safari/537.36", "android;3.7.0;8.1.0;network/wifi;model/16th Plus;addressid/0;aid/f909e5f2c464c7c6;oaid/;osVer/27;appBuild/1436;psn/c21YWvVr77Hn6 pOZfxXGY4TZrre1 UOL5hcPbCEDMo=|3;psq/10;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 8.1.0;osv/8.1.0;pv/2.15;jdv/;ref/com.jd.jdlite.lib.personal.view.fragment.JDPersonalFragment;partner/jsxdlyqj09;apprpd/MyJD_Main;eufv/1;Mozilla/5.0 (Linux; Android 8.1.0; 16th Plus Build/OPM1.171019.026; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045514 Mobile Safari/537.36", "android;3.7.0;11;network/wifi;model/Mi 10 Pro;addressid/0;aid/14d7cbd934eb7dc1;oaid/335f198546eb3141;osVer/30;appBuild/1436;psn/ZcQh/Wov sNYfZ6JUjTIUBu28 KT0T3u|1;psq/24;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 11;osv/11;pv/1.24;jdv/;ref/com.jd.jdlite.lib.jdlitemessage.view.activity.MessageCenterMainActivity;partner/xiaomi;apprpd/MessageCenter_MessageMerge;eufv/1;Mozilla/5.0 (Linux; Android 11; Mi 10 Pro Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36", "android;3.7.0;10;network/wifi;model/MI 8;addressid/1969998059;aid/8566972dfd9a795d;oaid/4a8b773c3e307386;osVer/29;appBuild/1436;psn/PhYbUtCsCJo r 1b8hwxjnY8rEv5S8XC|383;psq/14;adk/;ads/;pap/JA2020_3112531|3.7.0|ANDROID 10;osv/10;pv/374.14;jdv/0|iosapp|t_335139774|liteshare|CopyURL|1609306590175|1609306596;ref/com.jd.jdlite.lib.jdlitemessage.view.activity.MessageCenterMainActivity;partner/jsxdlyqj09;apprpd/MessageCenter_MessageMerge;eufv/1;Mozilla/5.0 (Linux; Android 10; MI 8 Build/QKQ1.190828.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045140 Mobile Safari/537.36", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone8,4;addressid/1477231693;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/21.15;apprpd/MyJD_Main;ref/https%3A%2F%2Fgold.jd.com%2F%3Flng%3D0.000000%26lat%3D0.000000%26sid%3D4584eb84dc00141b0d58e000583a338w%26un_area%3D19_1607_3155_62114;psq/0;ads/;psn/2c822e59db319590266cc83b78c4a943783d0077|46;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,1;addressid/70390480;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.24;apprpd/MyJD_Main;ref/https%3A%2F%2Fjdcs.m.jd.com%2Fafter%2Findex.action%3FcategoryId%3D600%26v%3D6%26entry%3Dm_self_jd;psq/4;ads/;psn/6d343c58764a908d4fa56609da4cb3a5cc1396d3|17;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,1;addressid/70390480;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.24;apprpd/MyJD_Main;ref/https%3A%2F%2Fjdcs.m.jd.com%2Fafter%2Findex.action%3FcategoryId%3D600%26v%3D6%26entry%3Dm_self_jd;psq/4;ads/;psn/6d343c58764a908d4fa56609da4cb3a5cc1396d3|17;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,1;addressid/70390480;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.24;apprpd/MyJD_Main;ref/https%3A%2F%2Fjdcs.m.jd.com%2Fafter%2Findex.action%3FcategoryId%3D600%26v%3D6%26entry%3Dm_self_jd;psq/4;ads/;psn/6d343c58764a908d4fa56609da4cb3a5cc1396d3|17;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone9,1;addressid/70390480;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.24;apprpd/MyJD_Main;ref/https%3A%2F%2Fjdcs.m.jd.com%2Fafter%2Findex.action%3FcategoryId%3D600%26v%3D6%26entry%3Dm_self_jd;psq/4;ads/;psn/6d343c58764a908d4fa56609da4cb3a5cc1396d3|17;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPhone;3.7.0;14.4;network/4g;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPhone12,3;hasOCPay/0;appBuild/1017;supportBestPay/0;addressid/;pv/3.49;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/7;ads/;psn/9e0e0ea9c6801dfd53f2e50ffaa7f84c7b40cd15|6;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148", "iPad;3.7.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPad7,5;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.14;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/3;ads/;psn/956c074c769cd2eeab2e36fca24ad4c9e469751a|8;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.7.0|IOS 14.4;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"];
-const _0x342836 = require("child_process").exec;
-const {
-  getEnvsByName,
-  addEnv,
-  updateEnv,
-  updateEnv11
-} = require("./ql");
-function _0x4b19ec(_0x18b4e5 = 0, _0x410951 = 100) {
-  return Math.min(Math.floor(_0x18b4e5 + Math.random() * (_0x410951 - _0x18b4e5)), _0x410951);
+const $ = new Env("大牌0825");
+const _0x425eee = $.isNode() ? require("./jdCookie.js") : "",
+  _0x50605c = $.isNode() ? require("./sendNotify") : "",
+  _0x2983ff = require("crypto-js"),
+  _0x10c073 = require("./function/dylank"),
+  _0x1fedda = require("./function/dylany"),
+  _0x4daae6 = require("./function/dylib.js");
+let _0x197baa = [],
+  _0x580136 = "",
+  _0x398fee = "",
+  _0x43d80d = "",
+  _0x4275a1 = "3";
+if (process.env.DY_PROXY) {
+  const _0xd57697 = require("./function/proxy.js");
+  $.get = _0xd57697.intoRequest($.get.bind($));
+  $.post = _0xd57697.intoRequest($.post.bind($));
 }
-const _0x5dc87c = _0x34090d[_0x4b19ec(0, _0x34090d.length - 1)];
-function _0x93d6b8(_0x56ed08 = "elmck") {
-  console.log("版本：内部版1.0.0\n");
-  if (process.env.SIGN_HOST) {
-    console.log("正在使用本地 sign\n");
+if ($.isNode()) {
+  Object.keys(_0x425eee).forEach(_0x24c1fb => {
+    _0x197baa.push(_0x425eee[_0x24c1fb]);
+  });
+  if (process.env.JD_DEBUG && process.env.JD_DEBUG === "false") {
+    console.log = () => {};
   }
-  let _0x3a473e = [];
-  let _0x304fc8 = process.env[_0x56ed08];
-  if (_0x304fc8) {
-    if (_0x304fc8.indexOf("&") > -1) {
-      _0x3a473e = _0x304fc8.split("&");
+} else {
+  _0x197baa = [$.getdata("CookieJD"), $.getdata("CookieJD2"), ...jsonfomat($.getdata("CookiesJD") || "[]").map(_0x466698 => _0x466698.cookie)].filter(_0x16d9b7 => !!_0x16d9b7);
+}
+let _0x2af325 = process.env.DPLH_BSHOP || "false",
+  _0x304598 = process.env.DPLH_OPENCARD || "true",
+  _0x109b39 = "https://jinggengjcq-isv.isvjcloud.com";
+$.Url = " https://jinggengjcq-isv.isvjcloud.com/jdbeverage/pages/oC20240612dda/oC20240612dda?actId=8c153781a0b14e1caf49933b_240825";
+$.bianh = $.Url.match(/oC[0-9a-z]+/)[0];
+$.actId = $.Url.match(/actId=([0-9a-f]+_\d+)/)[1];
+$.appkey = "94854284";
+$.userId = "10299171";
+$.outFlag = false;
+let _0x240cd0 = ["OsiH6Sic/uTxioPBG6hh5K9AMkY4oJ31vhy6nI5LWbOiIw7XUQOP/Btn03/M1TYH"];
+$.inviteNick = _0x240cd0[_0x567ece(0, _0x240cd0.length)];
+$.awardId = process.env.DPLH_AWID || "";
+$.bwater = false;
+!(async () => {
+  $.log("\n💬 有水的时候跑，浏览店铺任务每天刷新");
+  $.log("💬 代理API，DY_PROXY='url'");
+  $.log("💬 默认开卡，关闭DPLH_OPENCARD='false'");
+  if (!_0x197baa[0]) {
+    $.msg($.name, "【提示】请先获取cookie\n直接使用NobyDa的京东签到获取", "https://bean.m.jd.com/", {
+      "open-url": "https://bean.m.jd.com/"
+    });
+    return;
+  }
+  for (let _0x59c46f = 0; _0x59c46f < _0x197baa.length; _0x59c46f++) {
+    _0x580136 = _0x197baa[_0x59c46f];
+    if (_0x580136) {
+      $.UserName = decodeURIComponent(_0x580136.match(/pt_pin=([^; ]+)(?=;?)/) && _0x580136.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
+      $.index = _0x59c46f + 1;
+      $.bean = 0;
+      $.nickName = "";
+      _0x56ef41();
+      console.log("\n******开始【京东账号" + $.index + "】" + ($.nickName || $.UserName) + "*********\n");
+      await _0x1e8613();
+      await $.wait(parseInt(Math.random() * 1000 + 1500, 10));
+      if ($.outFlag) {
+        break;
+      }
+    }
+  }
+  if ($.outFlag) {
+    let _0x659df5 = "此ip已被限制，请过10分钟后再执行脚本";
+    $.msg($.name, "", "" + _0x659df5);
+    if ($.isNode()) {
+      await _0x50605c.sendNotify("" + $.name, "" + _0x659df5);
+    }
+  }
+})().catch(_0x16b7e9 => $.logErr(_0x16b7e9)).finally(() => $.done());
+async function _0x1e8613() {
+  try {
+    $.okFlag = false;
+    $.endTime = 0;
+    $.Token = "";
+    $.Pin = "";
+    $.MixNick = "";
+    $.openList = [];
+    if ($.outFlag) {
+      console.log("此ip已被限制，请过10分钟后再执行脚本\n");
+      return;
+    }
+    $.Token = await _0x10c073(_0x580136, _0x109b39);
+    if (!$.Token) {
+      console.log("❌ 获取TOKEN失败");
+      return;
+    }
+    for (let _0x37bb72 = 0; _0x37bb72 < _0x4275a1; _0x37bb72++) {
+      await _0x4fcb02("activity_load");
+      if ($.okFlag) {
+        break;
+      }
+    }
+    if ($.MixNick == "") {
+      return;
+    }
+    if ($.endTime < Date.now()) {
+      $.log("活动已结束!!!");
+      process.exit();
     } else {
-      if (_0x304fc8.indexOf("\n") > -1) {
-        _0x3a473e = _0x304fc8.split("\n");
+      if ($.sTime > Date.now()) {
+        $.log("活动未开始!!!");
+        process.exit();
       } else {
-        _0x3a473e = [_0x304fc8];
+        $.index == 1 && console.log("活动结束时间：" + _0x1b686d($.endTime));
       }
     }
-  }
-  return _0x3a473e;
-}
-function _0x472c78(_0x1252a5) {
-  return new Promise(_0x53fdbf => {
-    _0x342836(_0x1252a5, function (_0x130519, _0x57fe4e, _0x3b10e6) {
-      if (_0x130519) {
-        console.error(_0x130519);
-        _0x53fdbf("");
-      } else {
-        _0x53fdbf(_0x57fe4e);
+    for (let _0x3aba91 = 0; _0x3aba91 < _0x4275a1; _0x3aba91++) {
+      await _0x4fcb02("绑定");
+      if ($.okFlag) {
+        break;
       }
-    });
-  });
-}
-function _0x328aa0(_0xfff375) {
-  if (!_0xfff375) {
-    return "-1";
-  }
-  for (var _0x2a7872 = _0xfff375.split(";"), _0x2bf0c8 = 0; _0x2bf0c8 < _0x2a7872.length; _0x2bf0c8++) {
-    var _0x44120a = _0x2a7872[_0x2bf0c8].split("=");
-    if ([" _m_h5_tk", "_m_h5_tk"].includes(_0x44120a[0])) {
-      return _0x44120a[1];
     }
-  }
-  return "-1";
-}
-const _0xa94eea = _0x4597b => {
-  return new Promise(_0x49a901 => {
-    setTimeout(() => {
-      _0x49a901();
-    }, _0x4597b * 1000);
-  });
-};
-async function _0xf4f03e(_0x51a434) {
-  return new Promise(_0x654e61 => {
-    try {
-      _0x51a434(_0x654e61);
-    } catch (_0x2b5045) {
-      console.log(_0x254e75);
-      _0x654e61();
-    }
-  });
-}
-const _0x517701 = async (_0x1d552e, _0x1e570d, _0x4c12c8, _0x5ba3a0 = "", _0x279c2e, _0x34b263 = {}, _0x34b6b7 = 5) => {
-  if (_0x34b6b7 === 0) {
-    console.log("网络异常，请检查网络状况");
-    return "";
-  }
-  const _0x1a1792 = await _0x472c78("head -1 /proc/self/cgroup|cut -d/ -f3|cut -c1-12");
-  let _0x23aea4 = process.env.ELE_CARME;
-  let _0x5e0300 = 1;
-  if (_0x1d552e === 4) {
-    _0x23aea4 = process.env.ELE_TTCJ_CARME;
-    _0x5e0300 = 4;
-  }
-  const _0x29eb7d = {
-    carmi: _0x23aea4,
-    containerId: _0x1a1792,
-    type: _0x5e0300,
-    gameType: _0x1d552e,
-    stepId: _0x1e570d,
-    tokenFirst: _0x5ba3a0,
-    appKey: _0x4c12c8,
-    timestamp: _0x279c2e,
-    anotherParam: JSON.stringify(_0x34b263)
-  };
-  const _0x45f9ff = _0x2881a4 + "/v2/new/sign";
-  const _0x39c994 = {
-    "content-type": "application/json"
-  };
-  const _0x1ef585 = {
-    url: _0x45f9ff,
-    method: "POST",
-    headers: _0x39c994,
-    body: JSON.stringify(_0x29eb7d)
-  };
-  return _0xf4f03e(_0x164317 => {
-    _0x24a70a(_0x1ef585, async (_0x5c8ef8, _0x533f11, _0x3ca8f3) => {
-      if (!_0x5c8ef8 && _0x533f11.statusCode === 200) {
-        const _0x238c1e = JSON.parse(_0x3ca8f3);
-        if (_0x238c1e.code !== 20000) {
-          console.error(_0x238c1e.message);
-          process.exit(0);
-        } else {
-          _0x164317(_0x238c1e.data);
-        }
-      } else {
-        if (_0x5c8ef8 && (_0x5c8ef8.message.indexOf("socket hang up") !== -1 || _0x5c8ef8.message.indexOf("read ECONNRESET") !== -1)) {
-          console.log("网络链接失败，将在 2 秒后重试");
-          await _0xa94eea(2);
-          _0x164317(await _0x517701(_0x1d552e, _0x1e570d, _0x4c12c8, _0x5ba3a0, _0x34b6b7 - 1));
-        } else {
-          console.log("网络异常，请检查网络状况");
-          _0x164317("");
-        }
+    for (let _0x164b2d = 0; _0x164b2d < _0x4275a1; _0x164b2d++) {
+      await _0x4fcb02("shopList");
+      if ($.okFlag) {
+        break;
       }
-    });
-  });
-};
-const _0x23d601 = async (_0xff32da, _0xe7a1b3, _0x5807a6 = 5) => {
-  _0xff32da = _0xff32da.replace(/\s/g, "");
-  let _0x2eae29 = _0x328aa0(_0xff32da);
-  _0x2eae29 = _0x2eae29.split("_")[0];
-  let _0xb6d353 = 12574478;
-  let _0x7ee3d = new Date().getTime();
-  const _0x43958c = await _0x517701(99, 1, _0xb6d353, _0x2eae29, _0x7ee3d);
-  let _0x35220e = _0x43958c.sign;
-  const _0x43cddb = {
-    Cookie: _0xff32da,
-    "User-Agent": _0x5dc87c
-  };
-  const _0x5471d7 = {
-    url: "https://shopping.ele.me/h5/mtop.alsc.user.session.ele.check/1.0/?H5Request=true&api=mtop.alsc.user.session.ele.check&appKey=12574478&data={}&dataType=json&jsv=2.6.2&mainDomain=ele.me&pageDomain=ele.me&sign=" + _0x35220e + "&subDomain=shopping&t=" + _0x7ee3d + "&timeout=5000&type=json&v=1.0",
-    method: "GET",
-    headers: _0x43cddb
-  };
-  return _0xf4f03e(_0x41ea8f => {
-    try {
-      _0x24a70a(_0x5471d7, async (_0xa39508, _0x2ea102, _0x41f211) => {
-        if (!_0xa39508 && _0x2ea102.statusCode === 200) {
-          const _0x4f7720 = JSON.parse(_0x41f211);
-          if (_0x4f7720.data.errorCode === "000502") {
-            console.log("第", _0xe7a1b3 + 1, "账号失效！请重新登录！！！😭");
-            _0x41ea8f(null);
-          } else {
-            if (_0x5807a6 <= 0) {
-              if (_0xe7a1b3 >= 0) {
-                console.log("第", _0xe7a1b3 + 1, "cookie存在异常，请检查");
-              } else {
-                console.log("cookie存在异常，请检查");
+    }
+    if ($.offList.length != 0) {
+      $.log("总共" + $.openList.length + "个店铺，还需开卡" + $.offList.length + "个");
+      if (_0x304598 !== "false") {
+        $.log("\n去开卡...");
+        for (let _0x510c7e of $.openList) {
+          $.missionType = "openCard";
+          if (_0x510c7e.open != true && _0x510c7e.openCardUrl) {
+            $.openCard = false;
+            $.joinVenderId = _0x510c7e.userId;
+            for (let _0x5396b7 = 0; _0x5396b7 < _0x4275a1; _0x5396b7++) {
+              await _0x4fcb02("mission");
+              if ($.okFlag) {
+                break;
               }
-              _0x41ea8f(null);
             }
-            if (_0x4f7720.ret.includes("FAIL_SYS_TOKEN_EXOIRED::令牌过期") || _0x4f7720.ret.includes("FAIL_SYS_TOKEN_EMPTY::令牌为空")) {
-              _0x41ea8f(await _0x133bca(_0xff32da, _0xe7a1b3, _0x5807a6 - 1));
-            } else {
-              _0x41ea8f(_0xff32da);
+            await $.wait(parseInt(Math.random() * 1000 + 1000, 10));
+            if ($.openCard == true) {
+              $.errorJoinShop = "";
+              await _0x41f85f();
+              if ($.errorJoinShop.indexOf("您的手机号已被其他账号绑定本店会员，请先登陆原账号解绑") > -1) {
+                return;
+              }
+              $.errorJoinShop.indexOf("活动太火爆，请稍后再试") > -1 && (console.log("😤 呜呜呜，重试开卡"), await $.wait(1000), await _0x41f85f(), await $.wait(parseInt(Math.random() * 1000 + 1000, 10)));
+              if ($.errorJoinShop.indexOf("活动太火爆，请稍后再试") > -1) {
+                console.log("💔 无法开卡,跳过运行");
+                return;
+              }
+              for (let _0x5b0e51 = 0; _0x5b0e51 < _0x4275a1; _0x5b0e51++) {
+                await _0x4fcb02("activity_load");
+                if ($.okFlag) {
+                  break;
+                }
+              }
+              for (let _0x2994be = 0; _0x2994be < _0x4275a1; _0x2994be++) {
+                await _0x4fcb02("shopList");
+                if ($.okFlag) {
+                  break;
+                }
+              }
             }
+          }
+        }
+      } else {
+        console.log("\n🔊 已设置不开卡,也无法助力哦!");
+      }
+    } else {
+      $.log("\n🔊 已全部开卡!");
+    }
+    if ($.hasCollectShop === 0) {
+      $.missionType = "uniteCollectShop";
+      for (let _0x282410 = 0; _0x282410 < _0x4275a1; _0x282410++) {
+        await _0x4fcb02("mission");
+        if ($.okFlag) {
+          break;
+        }
+      }
+      await $.wait(parseInt(Math.random() * 1000 + 1000, 10));
+    } else {
+      console.log("\n🔊 已完成关注任务!");
+    }
+    if (process.env.DPLH_ADDCAR == "true") {
+      $.log("\n去一键加购...");
+      if ($.hasAddCart === 0) {
+        $.missionType = "uniteAddCart";
+        for (let _0x48e302 = 0; _0x48e302 < _0x4275a1; _0x48e302++) {
+          await _0x4fcb02("mission");
+          if ($.okFlag) {
+            break;
+          }
+        }
+        await $.wait(parseInt(Math.random() * 1000 + 1000, 10));
+      } else {
+        console.log("\n🔊 已完成加购任务!");
+      }
+    } else {
+      console.log("\n🔊 默认不做加购任务，可设置变量DPLH_ADDCAR='true'开启");
+    }
+    await $.wait(parseInt(Math.random() * 1000 + 1000, 10));
+    if (!$.nowater || 1) {
+      if (_0x2af325 == "true") {
+        $.nojifen = false;
+        $.nobeans = false;
+        $.log("\n去浏览店铺...");
+        $.missionType = "viewShop";
+        if (!$.bwater) {
+          let _0x1120e0 = _0x4daae6.getRandomEle($.openList, 1);
+          $.goodsNumId = _0x1120e0[0].userId;
+          await _0x4fcb02("mission");
+          await $.wait(parseInt(Math.random() * 1000 + 1000, 10));
+          if ($.nojifen && $.nobeans) {
+            console.log("可能没水,换个时间再试试");
+          } else {
+            for (let _0x49abbd of $.openList) {
+              $.goodsNumId = _0x49abbd.userId;
+              await _0x4fcb02("mission");
+              await $.wait(parseInt(Math.random() * 1000 + 1000, 10));
+            }
+            $.bwater = true;
           }
         } else {
-          if (_0xa39508 && _0xa39508.message.indexOf("Invalid character in header content [\"Cookie\"]") !== -1) {
-            console.log("第", _0xe7a1b3 + 1, "账号ck不合法，请确认！！！");
-          } else {
-            console.log(_0xa39508);
+          for (let _0x50b7ab of $.openList) {
+            $.goodsNumId = _0x50b7ab.userId;
+            await _0x4fcb02("mission");
+            await $.wait(parseInt(Math.random() * 1000 + 1000, 10));
           }
-          _0x41ea8f(null);
         }
-      });
-    } catch (_0x2eb9de) {
-      console.log(_0x254e75);
+      } else {
+        console.log("\n默认不做浏览店铺，设置变量DPLH_BSHOP='true'");
+      }
     }
+    await _0x4fcb02("myAward");
+    await _0x4fcb02("inviteList");
+    $.index == 1 && _0x304598 !== "false" && ($.inviteNick = $.MixNick, console.log("\n车头助力作者，后面都会助力 -> " + $.UserName));
+    await $.wait(parseInt(Math.random() * 1000 + 1000, 10));
+  } catch (_0x5cea6c) {
+    console.log(_0x5cea6c);
+  }
+}
+async function _0x4fcb02(_0x3ee0e7) {
+  if ($.outFlag) {
+    return;
+  }
+  let _0x102b57 = "https://jinggengjcq-isv.isvjcloud.com",
+    _0x1c6b3a = "",
+    _0x226d89 = "POST",
+    _0x5a2c83 = "";
+  switch (_0x3ee0e7) {
+    case "activity_load":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/activity/load?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "") + "&user_id=" + $.userId;
+      const _0x3c84ce = {
+        jdToken: $.Token,
+        source: "01",
+        ak: "",
+        sk: "",
+        inviteNick: $.inviteNick || ""
+      };
+      _0x5a2c83 = _0x3c84ce;
+      if ($.joinVenderId) {
+        _0x5a2c83 = {
+          ..._0x5a2c83,
+          shopId: "" + $.joinVenderId
+        };
+      }
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/activity/load", _0x5a2c83);
+      break;
+    case "shopList":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/shop/shopList?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "");
+      _0x5a2c83 = {};
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/shop/shopList", _0x5a2c83);
+      break;
+    case "绑定":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/customer/inviteRelation?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "") + "&user_id=" + $.userId;
+      const _0x1f83f1 = {
+        inviterNick: $.inviteNick || ""
+      };
+      _0x5a2c83 = _0x1f83f1;
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/customer/inviteRelation", _0x5a2c83);
+      break;
+    case "mission":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/mission/completeMission?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "");
+      const _0x4e80b0 = {
+        missionType: $.missionType
+      };
+      _0x5a2c83 = _0x4e80b0;
+      if ($.joinVenderId) {
+        _0x5a2c83 = {
+          ..._0x5a2c83,
+          shopId: $.joinVenderId
+        };
+      }
+      if ($.goodsId) {
+        _0x5a2c83 = {
+          ..._0x5a2c83,
+          goodsId: $.goodsId
+        };
+      }
+      if ($.goodsNumId) {
+        _0x5a2c83 = {
+          ..._0x5a2c83,
+          goodsNumId: $.goodsNumId
+        };
+      }
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/mission/completeMission", _0x5a2c83);
+      break;
+    case "抽奖":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/interactive/drawPos?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "");
+      const _0x333708 = {
+        dataType: "draw",
+        usedGameNum: "2"
+      };
+      _0x5a2c83 = _0x333708;
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/interactive/drawPos", _0x5a2c83);
+      break;
+    case "followShop":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/followShop?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "");
+      const _0x32e299 = {
+        actId: $.actId,
+        missionType: "collectShop"
+      };
+      _0x5a2c83 = _0x32e299;
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/followShop", _0x5a2c83);
+      break;
+    case "getAwardSettingList":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/awards/getAwardSettingList?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "");
+      const _0x551b7d = {
+        dataType: "exchange"
+      };
+      _0x5a2c83 = _0x551b7d;
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/awards/getAwardSettingList", _0x5a2c83);
+      break;
+    case "exchangePost":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/interactive/exchangePost?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "");
+      const _0x43f863 = {
+        dataType: "exchange",
+        awardId: $.awardId
+      };
+      _0x5a2c83 = _0x43f863;
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/interactive/exchangePost", _0x5a2c83);
+      break;
+    case "addCart":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/addCart?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "");
+      const _0x16f276 = {
+        actId: $.actId,
+        missionType: "addCart"
+      };
+      _0x5a2c83 = _0x16f276;
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/addCart", _0x5a2c83);
+      break;
+    case "myAward":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/awards/list?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "");
+      const _0x5d2670 = {
+        passes: "",
+        pageNo: 1,
+        pageSize: 9999
+      };
+      _0x5a2c83 = _0x5d2670;
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/awards/list", _0x5a2c83);
+      break;
+    case "inviteList":
+      url = _0x102b57 + "/dm/front/jdJoinCardtf/customer/inviteList?open_id=&mix_nick=" + ($.MixNick || $.MixNicks || "");
+      const _0x507444 = {
+        missionType: "shareAct",
+        pageNo: 1,
+        pageSize: 10
+      };
+      _0x5a2c83 = _0x507444;
+      _0x1c6b3a = _0x5110b3("/jdJoinCardtf/customer/inviteList", _0x5a2c83);
+      break;
+    default:
+      console.log("错误" + _0x3ee0e7);
+  }
+  let _0x112bae = _0x1f75e3(url, _0x1c6b3a, _0x226d89);
+  return new Promise(async _0x42fe40 => {
+    $.post(_0x112bae, (_0xbd9418, _0x340fdc, _0x1f08b0) => {
+      try {
+        _0xbd9418 ? (_0x340fdc && _0x340fdc.statusCode && _0x340fdc.statusCode == 493 && (console.log("此ip已被限制，请过10分钟后再执行脚本\n"), $.outFlag = true), $.okFlag = false) : _0x5e4298(_0x3ee0e7, _0x1f08b0);
+      } catch (_0x4835cf) {
+        console.log(_0x4835cf, _0x340fdc);
+      } finally {
+        _0x42fe40();
+      }
+    });
   });
-};
-function _0x133bca(_0x6d3ec3, _0x35dfb9, _0x1799d5 = 5) {
-  const _0x2a529e = {
-    url: "https://waimai-guide.ele.me/h5/mtop.alsc.personal.queryminecenter/1.0/?jsv=2.6.2&appKey=12574478",
+}
+function _0x5116ad(_0x1e3923) {
+  let _0x1cd164 = "";
+  switch (_0x1e3923) {
+    case "bdy_0x154ed0":
+      const _0x18b3da = {
+        bdy_0x154ed0: _0x18b3da
+      };
+      _0x1cd164 = _0x18b3da;
+      break;
+    case "bdy_0x2c605c":
+      const _0x11a1ed = {
+        bdy_0x2c605c: _0x11a1ed
+      };
+      _0x1cd164 = _0x11a1ed;
+      break;
+    case "bdy_0x5ade7a":
+      const _0x2338f5 = {
+        bdy_0x5ade7a: _0x2338f5
+      };
+      _0x1cd164 = _0x2338f5;
+      break;
+  }
+}
+async function _0x5e4298(_0x415231, _0x1949c7) {
+  let _0x21897f = "";
+  try {
+    $.okFlag = true;
+    (_0x415231 != "accessLogWithAD" || _0x415231 != "drawContent") && (_0x21897f = JSON.parse(_0x1949c7));
+  } catch (_0x2ffd78) {
+    console.log("🤬 " + _0x415231 + " 数据异常");
+    $.runFalag = false;
+  }
+  try {
+    switch (_0x415231) {
+      case "accessLogWithAD":
+      case "drawContent":
+      case "绑定":
+        break;
+      case "shopList":
+        if (_0x21897f.success === true && _0x21897f.data) {
+          _0x21897f.data.status == 200 && ($.openList = _0x21897f.data.data || [], $.offList = $.openList.filter(_0x32ab02 => !_0x32ab02.open));
+        }
+        break;
+      case "getAwardSettingList":
+        if (_0x21897f.success === true && _0x21897f.data) {
+          if (_0x21897f.data?.["status"] == 200) {
+            _0x21897f = _0x21897f.data;
+            for (let _0x2377aa of _0x21897f.data.awardSettings) {
+              console.log(_0x2377aa.awardName + ": id(" + _0x2377aa.id + ")--库存(" + _0x2377aa.remainNum + ")--需积分(" + _0x2377aa.awardDes + ")--" + _0x2377aa.exchangeFlag);
+            }
+          } else {
+            $.log("" + (_0x21897f.errorMessage || _0x21897f.data.msg));
+          }
+        }
+        break;
+      case "exchangePost":
+        if (_0x21897f.success === true && _0x21897f.data) {
+          _0x21897f.data?.["status"] == 200 ? (_0x21897f = _0x21897f.data, $.log("兑换成功：" + _0x21897f.data.awardSendLog.awardName), _0x21897f.data.awardSendLog.awardType == "goods" && $.log("实物请手动填地址：" + $.Url)) : $.log("" + (_0x21897f.errorMessage || _0x21897f.data.msg));
+        }
+        break;
+      case "activity_load":
+        if (_0x21897f.success === true && _0x21897f.data) {
+          if (_0x21897f.data?.["status"] == 200) {
+            _0x21897f = _0x21897f.data;
+            if (_0x21897f.msg || _0x21897f.data.isOpenCard) {
+              if ((_0x21897f.msg || _0x21897f.data.isOpenCard || "").indexOf("绑定成功") > -1) {
+                $.toBind = 1;
+              }
+            }
+            $.endTime = _0x21897f.data.cusActivity.endTime || 0;
+            $.sTime = _0x21897f.data.cusActivity.startTime || 0;
+            $.MixNick = _0x21897f.data.missionCustomer.buyerNick || "";
+            $.usedChance = _0x21897f.data.missionCustomer.usedChance || 0;
+            $.hasCollectShop = _0x21897f.data.missionCustomer.hasCollectShop || 0;
+            $.hasAddCart = _0x21897f.data.missionCustomer.hasAddCart || 0;
+            $.remainPoint = _0x21897f.data.missionCustomer.remainPoint || 0;
+            $.totalPoint = _0x21897f.data.missionCustomer.totalPoint || 0;
+            _0x21897f.data.openCardMsg && console.log("🔊 " + _0x21897f.data.openCardMsg);
+          } else {
+            $.log("" + (_0x21897f.errorMessage || _0x21897f.data.msg));
+          }
+        } else {
+          console.log(_0x1949c7);
+        }
+        break;
+      case "mission":
+        if (_0x21897f.success === true && _0x21897f.data) {
+          if (_0x21897f.data?.["status"] == 200) {
+            _0x21897f = _0x21897f.data;
+            if (_0x21897f.msg || _0x21897f.data.isOpenCard || _0x21897f.data.remark) {
+              console.log("🔊 " + (_0x21897f.msg || _0x21897f.data.isOpenCard || _0x21897f.data.remark || ""));
+            }
+            $.openCard = _0x21897f.data.remark.includes("不是会员") ? true : false;
+            $.nojifen = !_0x21897f.data.remark.includes("积分") ? true : false;
+            $.nobeans = !_0x21897f.data.remark.includes("京豆") ? true : false;
+          } else {
+            $.log("" + (_0x21897f.errorMessage || _0x21897f.data.msg));
+          }
+        } else {
+          console.log(_0x1949c7);
+        }
+        break;
+      case "inviteList":
+        if (_0x21897f.success === true && _0x21897f.data) {
+          _0x21897f.data?.["status"] == 200 ? (_0x21897f = _0x21897f.data, _0x21897f.data.inviteNum > 0 && console.log("\n已邀请：" + _0x21897f.data.inviteNum)) : $.log("" + (_0x21897f.errorMessage || _0x21897f.data.msg));
+        } else {
+          console.log(_0x1949c7);
+        }
+        break;
+      case "myAward":
+        if (_0x21897f.success === true && _0x21897f.data) {
+          if (_0x21897f.data?.["status"] == 200) {
+            _0x21897f = _0x21897f.data;
+            let _0x4ff29c = 0;
+            try {
+              _0x4ff29c = eval(_0x1949c7.match(/\d+个?京豆/g).map(_0x17d021 => _0x17d021.replace(/[\u4e00-\u9fa5]/g, "")).join("+"));
+            } catch {}
+            _0x4ff29c > 0 && console.log("\n共获得 " + _0x4ff29c + " 京豆🥔");
+          } else {
+            $.log("" + (_0x21897f.errorMessage || _0x21897f.data.msg));
+          }
+        } else {
+          console.log(_0x1949c7);
+        }
+        break;
+      default:
+        console.log(_0x415231 + "-> " + _0x1949c7);
+    }
+    if (typeof _0x21897f == "object") {
+      if (_0x21897f.errorMessage) {
+        _0x21897f.errorMessage.indexOf("火爆") > -1;
+      }
+    }
+  } catch {}
+}
+function _0x1f75e3(_0x267643, _0x1db732, _0x411298 = "POST") {
+  const _0x152b1e = {
+    Accept: "application/json",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "zh-cn",
+    Connection: "keep-alive",
+    "Content-Type": "application/x-www-form-urlencoded",
+    Cookie: _0x580136,
+    "User-Agent": $.UA,
+    "X-Requested-With": "XMLHttpRequest"
+  };
+  _0x267643.indexOf("https://jinggengjcq-isv.isvjcloud.com") > -1 && (_0x152b1e.Origin = "https://jinggengjcq-isv.isvjcloud.com", _0x152b1e["Content-Type"] = "application/json; charset=utf-8", delete _0x152b1e.Cookie);
+  return {
+    url: _0x267643,
+    method: _0x411298,
+    headers: _0x152b1e,
+    body: _0x1db732,
+    timeout: 10000
+  };
+}
+function _0x5110b3(_0x451f09, _0x56f0e0) {
+  const _0x7e326 = {
+    actId: $.actId,
+    ..._0x56f0e0,
+    method: _0x451f09,
+    userId: $.userId,
+    buyerNick: $.MixNick || ""
+  };
+  d = _0x7e326;
+  sign2 = _0x367282(d);
+  const _0x45bd9c = {
+    m: "POST",
+    oba: sign2.sign,
+    timestamp: sign2.timeStamp,
+    userId: $.userId
+  };
+  const _0x457088 = {
+    commonParameter: _0x45bd9c,
+    admJson: d
+  };
+  const _0x140e16 = {
+    jsonRpc: "2.0",
+    params: _0x457088
+  };
+  return $.toStr(_0x140e16, _0x140e16);
+}
+function _0x367282(_0x328044) {
+  AppSecret = _0x43d80d || "6cc5dbd8900e434b94c4bdb0c16348ed";
+  key = _0x398fee || "c1614da9ac68";
+  time2 = new Date().valueOf();
+  s2 = encodeURIComponent(JSON.stringify(_0x328044));
+  c = new RegExp("'", "g");
+  A = new RegExp("~", "g");
+  s2 = s2.replace(c, "%27");
+  s2 = s2.replace(A, "%7E");
+  signBody = "f" + key + "D" + s2 + "c" + time2 + AppSecret;
+  sign = _0x2983ff.MD5(signBody.toLowerCase()).toString();
+  return {
+    sign: sign,
+    timeStamp: time2
+  };
+}
+async function _0x3e9079() {
+  id = _0x2983ff.MD5(Date.now()).toString().substring(0, 16);
+  _0x2983ff.enc.Base64._map = "KLMNOPQRSTABCDEFGHIJUVWXYZabcdopqrstuvwxefghijklmnyz0123456789+/";
+  const _0x4f05f3 = _0x2983ff.enc.Utf8.parse(id),
+    _0x18ca9e = _0x2983ff.enc.Base64.stringify(_0x4f05f3);
+  ep = encodeURIComponent(JSON.stringify({
+    hdid: "JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw=",
+    ts: new Date().getTime(),
+    ridx: -1,
+    cipher: {
+      sv: "EG==",
+      ad: _0x18ca9e,
+      od: "",
+      ov: "Ctq=",
+      ud: _0x18ca9e
+    },
+    ciphertype: 5,
+    version: "1.2.0",
+    appname: "com.jingdong.app.mall"
+  }));
+  return "jdapp;android;11.0.2;;;appBuild/97565;ef/1;ep/" + ep + ";jdSupportDarkMode/0;Mozilla/5.0 (Linux; Android 9; Note9 Build/PKQ1.181203.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.72 MQQBrowser/6.2 TBS/046010 Mobile Safari/537.36";
+}
+function _0x104ec7(_0x471ffc) {
+  _0x471ffc = _0x471ffc || 32;
+  let _0x42c7fc = "abcdef0123456789",
+    _0x2a8f78 = _0x42c7fc.length,
+    _0x512496 = "";
+  for (let _0x26d568 = 0; _0x26d568 < _0x471ffc; _0x26d568++) {
+    _0x512496 += _0x42c7fc.charAt(Math.floor(Math.random() * _0x2a8f78));
+  }
+  return _0x512496;
+}
+function _0x2f7bcb(_0x11d12b) {
+  if (typeof _0x11d12b == "string") {
+    try {
+      return JSON.parse(_0x11d12b);
+    } catch (_0x3cc045) {
+      console.log(_0x3cc045);
+      $.msg($.name, "", "请勿随意在BoxJs输入框修改内容\n建议通过脚本去获取cookie");
+      return [];
+    }
+  }
+}
+async function _0x41f85f() {
+  if (!$.joinVenderId) {
+    return;
+  }
+  return new Promise(async _0x4e1643 => {
+    $.errorJoinShop = "活动太火爆，请稍后再试";
+    let _0x330853 = "";
+    if ($.shopactivityId) {
+      _0x330853 = ",\"activityId\":" + $.shopactivityId;
+    }
+    const _0x25125d = "{\"venderId\":\"" + $.joinVenderId + "\",\"shopId\":\"" + $.joinVenderId + "\",\"bindByVerifyCodeFlag\":1,\"registerExtend\":{},\"writeChildFlag\":0" + _0x330853 + ",\"channel\":406}",
+      _0x49ae7e = {
+        appId: "27004",
+        apid: "shopmember_m_jd_com",
+        fn: "bindWithVender",
+        ver: "9.2.0",
+        cl: "H5",
+        body: JSON.parse(_0x25125d),
+        code: 0,
+        user: $.UserName,
+        ua: $.UA
+      };
+    for (var _0x578699 = "", _0x2810ee = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", _0x4033e6 = 0; _0x4033e6 < 16; _0x4033e6++) {
+      var _0xd2e362 = Math.round(Math.random() * (_0x2810ee.length - 1));
+      _0x578699 += _0x2810ee.substring(_0xd2e362, _0xd2e362 + 1);
+    }
+    uuid = Buffer.from(_0x578699, "utf8").toString("base64");
+    ep = encodeURIComponent(JSON.stringify({
+      hdid: "JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw=",
+      ts: new Date().getTime(),
+      ridx: -1,
+      cipher: {
+        screen: "CJS0CseyCtK4",
+        osVersion: "CJGkEK==",
+        uuid: uuid
+      },
+      ciphertype: 5,
+      version: "1.0.3",
+      appname: "com.360buy.jdmobile"
+    }));
+    const _0x29209b = {
+      accept: "*/*",
+      "accept-encoding": "gzip, deflate, br",
+      "accept-language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+      cookie: _0x580136,
+      origin: "https://shopmember.m.jd.com/",
+      "user-agent": $.UA
+    };
+    const _0x547eab = await _0x1fedda.getbody(_0x49ae7e),
+      _0x7bd1b1 = {
+        url: "https://api.m.jd.com/client.action?" + _0x547eab + "&uuid=88888",
+        headers: _0x29209b
+      };
+    $.get(_0x7bd1b1, async (_0x272e39, _0x5ee669, _0x384ce6) => {
+      try {
+        if (_0x272e39) {
+          _0x5ee669 && typeof _0x5ee669.statusCode != "undefined" && _0x5ee669.statusCode == 403 && console.log("此ip已无法开卡，请更换IP后再执行脚本\n");
+        } else {
+          _0x384ce6 = _0x384ce6 && _0x384ce6.match(/jsonp_.*?\((.*?)\);/) && _0x384ce6.match(/jsonp_.*?\((.*?)\);/)[1] || _0x384ce6;
+          let _0x4fb8ea = $.toObj(_0x384ce6, _0x384ce6);
+          if (_0x4fb8ea && typeof _0x4fb8ea == "object") {
+            if (_0x4fb8ea && _0x4fb8ea.success === true) {
+              $.errorJoinShop = _0x4fb8ea.message;
+              if (_0x4fb8ea.result && _0x4fb8ea.result.giftInfo) {
+                for (let _0x34d549 of _0x4fb8ea.result.giftInfo.giftList) {
+                  console.log("🔊 入会获得：" + _0x34d549.discountString + _0x34d549.prizeName + _0x34d549.secondLineDesc);
+                }
+              }
+            } else {
+              _0x4fb8ea && typeof _0x4fb8ea == "object" && _0x4fb8ea.message ? ($.errorJoinShop = _0x4fb8ea.message, console.log("" + (_0x4fb8ea.message || ""))) : console.log(_0x384ce6);
+            }
+          } else {
+            console.log(_0x384ce6);
+          }
+        }
+      } catch (_0x3216cd) {
+        $.logErr(_0x3216cd, _0x5ee669);
+      } finally {
+        _0x4e1643();
+      }
+    });
+  });
+}
+async function _0x3a523c() {
+  return new Promise(async _0x2bbac8 => {
+    const _0x564b2f = "{\"venderId\":\"" + $.joinVenderId + "\",\"channel\":406,\"payUpShop\":true}",
+      _0x355a97 = {
+        appid: "jd_shop_member",
+        functionId: "bindWithVender",
+        clientVersion: "9.2.0",
+        client: "H5",
+        body: JSON.parse(_0x564b2f)
+      };
+    await $.wait(1000);
+    const _0x880c39 = await _0x1fedda("8adfb", _0x355a97),
+      _0x4ce8d9 = {
+        url: "https://api.m.jd.com/client.action?appid=jd_shop_member&functionId=getShopOpenCardInfo&body=" + _0x564b2f + "&clientVersion=9.2.0&client=H5&uuid=88888&h5st=" + encodeURIComponent(_0x880c39),
+        headers: {
+          accept: "*/*",
+          "accept-encoding": "gzip, deflate, br",
+          "accept-language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+          cookie: _0x580136,
+          origin: "https://shopmember.m.jd.com/",
+          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36"
+        }
+      };
+    $.get(_0x4ce8d9, async (_0x3e674a, _0x44a7e5, _0x444c81) => {
+      try {
+        if (_0x3e674a) {
+          _0x44a7e5 && typeof _0x44a7e5.statusCode != "undefined" && _0x44a7e5.statusCode == 403 && console.log("此ip已无法开卡，请更换IP后再执行脚本\n");
+        } else {
+          _0x444c81 = _0x444c81 && _0x444c81.match(/jsonp_.*?\((.*?)\);/) && _0x444c81.match(/jsonp_.*?\((.*?)\);/)[1] || _0x444c81;
+          let _0x23bf87 = $.toObj(_0x444c81, _0x444c81);
+          _0x23bf87 && typeof _0x23bf87 == "object" ? _0x23bf87 && _0x23bf87.success == true && (console.log("去加入：" + (_0x23bf87.result.shopMemberCardInfo.venderCardName || "") + " (" + $.joinVenderId + ")"), $.shopactivityId = _0x23bf87.result.interestsRuleList && _0x23bf87.result.interestsRuleList[0] && _0x23bf87.result.interestsRuleList[0].interestsInfo && _0x23bf87.result.interestsRuleList[0].interestsInfo.activityId || "") : console.log(_0x444c81);
+        }
+      } catch (_0x2fda3e) {
+        $.logErr(_0x2fda3e, _0x44a7e5);
+      } finally {
+        _0x2bbac8();
+      }
+    });
+  });
+}
+function _0x4ce4d8(_0x3855e5) {
+  return new Promise(_0x324dc2 => {
+    const _0x29aa63 = {
+      "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
+    };
+    const _0x4dd199 = {
+      url: _0x3855e5 + "?" + new Date(),
+      timeout: 10000,
+      headers: _0x29aa63
+    };
+    $.get(_0x4dd199, async (_0x4d5056, _0x11f2c2, _0x566f11) => {
+      try {
+        if (_0x4d5056) {
+          $.getAuthorCodeListerr = false;
+        } else {
+          if (_0x566f11) {
+            _0x566f11 = JSON.parse(_0x566f11);
+          }
+          $.getAuthorCodeListerr = true;
+        }
+      } catch (_0x1deef5) {
+        $.logErr(_0x1deef5, _0x11f2c2);
+        _0x566f11 = null;
+      } finally {
+        _0x324dc2(_0x566f11);
+      }
+    });
+  });
+}
+function _0x567ece(_0x4576de, _0x9a33c9) {
+  return Math.floor(Math.random() * (_0x9a33c9 - _0x4576de)) + _0x4576de;
+}
+async function _0x56ef41() {
+  $.UA = "jdapp;iPhone;10.1.5;13.1.2;" + _0x3ac0a4(40) + ";network/wifi;model/iPhone8,1;addressid/2308460611;appBuild/167814;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1";
+}
+function _0x3ac0a4(_0x38c1dd) {
+  _0x38c1dd = _0x38c1dd || 32;
+  let _0x439236 = "abcdef0123456789",
+    _0x550680 = _0x439236.length,
+    _0xc3645 = "";
+  for (let _0xd5f0a7 = 0; _0xd5f0a7 < _0x38c1dd; _0xd5f0a7++) {
+    _0xc3645 += _0x439236.charAt(Math.floor(Math.random() * _0x550680));
+  }
+  return _0xc3645;
+}
+function _0x4c9414() {
+  const _0x5d1bec = {
+    url: "https://jinggengjcq-isv.isvjcloud.com/jdbeverage/static/js/index." + $.jscode + ".js",
     headers: {}
   };
-  _0x2a529e.headers.Cookie = _0x6d3ec3;
-  _0x2a529e.headers.method = "GET";
-  _0x2a529e.headers["User-Agent"] = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36";
-  return _0xf4f03e(_0x1e7b71 => {
-    try {
-      _0x24a70a(_0x2a529e, async (_0x458d4c, _0x4362a8, _0x391034) => {
-        if (!_0x458d4c && _0x4362a8.statusCode === 200) {
-          const _0x94b27 = JSON.stringify(_0x4362a8.headers["set-cookie"]);
-          const _0x4a5d8c = /_m_h5_tk=(\S*);/;
-          const _0x2abeb2 = _0x94b27.match(_0x4a5d8c)[1];
-          const _0x40f696 = " _m_h5_tk=" + _0x2abeb2.split(";")[0];
-          const _0x53c71c = /_m_h5_tk_enc=(\S*);/;
-          const _0x5ca810 = _0x94b27.match(_0x53c71c)[1];
-          const _0x25cb0d = " _m_h5_tk_enc=" + _0x5ca810.split(";")[0];
-          _0x6d3ec3 = _0x4e5091(_0x40f696, _0x25cb0d, _0x6d3ec3);
-          if (_0x1799d5 <= 0) {
-            if (_0x35dfb9 >= 0) {
-              console.log("第", _0x35dfb9 + 1, "cookie存在异常，请检查");
-            } else {
-              console.log("cookie存在异常，请检查");
-            }
-            _0x1e7b71(null);
-          } else {
-            _0x1e7b71(await _0x23d601(_0x6d3ec3, _0x35dfb9, _0x1799d5 - 1));
-          }
+  _0x5d1bec.headers["User-Agent"] = $.UA;
+  return new Promise(_0x4efb09 => {
+    $.get(_0x5d1bec, async (_0xc73662, _0xf977a8, _0x127275) => {
+      try {
+        if (_0xc73662) {
+          console.log("" + JSON.stringify(_0xc73662));
+          console.log("get请求失败，请检查网路重试");
         } else {
-          _0x1e7b71(null);
+          $.bianh = "pages-" + $.bianh + "-" + $.bianh;
+          let _0x32a752 = new RegExp("\"" + $.bianh + "\":\"([0-9a-f]{8})\"");
+          $.bianh = $.bianh + "." + _0x127275.match(_0x32a752)[1];
+          let _0x3cb9b7 = await _0x5c87f7("https://jinggengjcq-isv.isvjcloud.com/jdbeverage/static/js/" + $.bianh + ".js");
+          _0x43d80d = _0x3cb9b7.match(/as:\"([0-9a-f]{32})\"/)[1];
+          _0x398fee = _0x3cb9b7.match(/ak:\"([0-9a-f]{12})\"/)[1];
         }
-      });
-    } catch (_0x1f9c71) {
-      console.log(_0x254e75);
-    }
-  });
-}
-function _0x4e5091(_0x580eb8, _0x4f193d, _0x1ec7d1) {
-  let _0xfec595 = false;
-  for (var _0x3cd9e6 = _0x1ec7d1.split(";"), _0x49ec14 = 0; _0x49ec14 < _0x3cd9e6.length; _0x49ec14++) {
-    var _0x2d7cc7 = _0x3cd9e6[_0x49ec14].split("=");
-    if (["_m_h5_tk", " _m_h5_tk"].indexOf(_0x2d7cc7[0]) > -1) {
-      _0xfec595 = true;
-      _0x3cd9e6[_0x49ec14] = _0x580eb8;
-    }
-    if ([" _m_h5_tk_enc", "_m_h5_tk_enc"].indexOf(_0x2d7cc7[0]) > -1) {
-      _0x3cd9e6[_0x49ec14] = _0x4f193d;
-      _0xfec595 = true;
-    }
-  }
-  var _0x1c5890 = "";
-  if (_0xfec595) {
-    for (_0x49ec14 = 0; _0x49ec14 < _0x3cd9e6.length; _0x49ec14++) {
-      _0x1c5890 += _0x3cd9e6[_0x49ec14];
-      _0x49ec14 != _0x3cd9e6.length - 1 && (_0x1c5890 += ";");
-    }
-  } else {
-    _0x1c5890 = _0x1ec7d1 + ";" + _0x580eb8 + ";" + _0x4f193d;
-  }
-  _0x1ec7d1 = _0x1c5890;
-  return _0x1ec7d1;
-}
-const _0x466a92 = _0x5f31f6 => {
-  const _0x5881c7 = {
-    Cookie: _0x5f31f6,
-    "user-agent": _0x5dc87c
-  };
-  const _0x5344e0 = {
-    url: "https://restapi.ele.me/eus/v5/user_detail",
-    headers: _0x5881c7
-  };
-  return _0xf4f03e(_0x50c2a2 => {
-    _0x24a70a(_0x5344e0, async (_0x154c6c, _0x1218e9, _0x51eea0) => {
-      if (!_0x154c6c && _0x1218e9.statusCode === 200) {
-        _0x50c2a2(JSON.parse(_0x51eea0));
-      } else {
-        _0x50c2a2({});
-      }
-    });
-  });
-};
-const _0x2d6a85 = async (_0x39df6f, _0x29de13, _0x1cc136 = 5) => {
-  if (_0x1cc136 === 0) {
-    console.log("网络异常，请检查网络状况");
-    process.exit(0);
-  }
-  if (!_0x39df6f) {
-    console.log("❌卡密不能为空");
-    process.exit(0);
-  }
-  const _0x2ba572 = await _0x472c78("head -1 /proc/self/cgroup|cut -d/ -f3|cut -c1-12");
-  const _0x14ea32 = _0x2881a4 + "/check/kami?carmi=" + _0x39df6f + "&type=" + _0x29de13 + "&containerId=" + _0x2ba572 + "&isNew=true";
-  const _0x24d511 = {
-    url: _0x14ea32,
-    method: "GET"
-  };
-  return _0xf4f03e(_0x5dc93d => {
-    _0x24a70a(_0x24d511, async (_0x5215b5, _0x5c042c, _0x4a4a77) => {
-      if (!_0x5215b5 && _0x5c042c.statusCode === 200) {
-        const _0x665efa = JSON.parse(_0x4a4a77);
-        if (_0x665efa.code !== 20000) {
-          console.error(_0x665efa.message);
-          process.exit(0);
-        } else {
-          console.log("\n" + _0x665efa.data.msg);
-          _0x5dc93d(_0x665efa);
-        }
-      } else {
-        if (_0x5215b5 && (_0x5215b5.message.indexOf("socket hang up") !== -1 || _0x5215b5.message.indexOf("read ECONNRESET") !== -1)) {
-          console.log("网络链接失败，将在 2 秒后重试");
-          await _0xa94eea(2);
-          _0x5dc93d(await _0x2d6a85(_0x39df6f, _0x29de13, _0x1cc136 - 1));
-        } else {
-          console.log("网络异常，请检查网络状况");
-          process.exit(0);
-        }
-      }
-    });
-  });
-};
-const _0x12534d = "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAntZvpNYeRv7UpTSvhzWtdVvUxPeSwfyFvV1hyhjByfc+RKLcBFHdkyI0nB4pMWcLln6zmXfhEJK+eSBovY7BR6LAP/fV+zhxTChnlMGjDwhr+E3/LEnlH24lVcIIFQaU/grflUGJHVJrCHtkJ3NPTLrit5gilviRNUSHMI+Y+PcX9HfzGCCEp1lnIPkzVrWVojtcXLjEYfdGZRijK/udICjSHNXp9No/vzrFxaH2jfk6PVLAcNXZAEGbNUdIzbfYorGdU6lf3tFJ8E2Fs1k6Q4BTFXYzkq+EejOYjHF64M5OTTKtfNcrHcZo13EDdjG5JRaKx7bGc5e5lUOSsBCWdwIDAQAB\n-----END PUBLIC KEY-----";
-function _0x2dd611(_0x15c62b) {
-  const _0x11ca10 = Buffer.from(_0x15c62b, "utf8");
-  const _0x3ec888 = _0x4843d1.publicEncrypt(_0x12534d, _0x11ca10);
-  return _0x3ec888.toString("base64");
-}
-async function _0x104493(_0x3775cf, _0x53cbc2, _0x58d3b5, _0x5c13ca, _0x3e07cf, _0x3ce2bf, _0x2156b5, _0x30eb8a, _0x3e854a, _0x263183 = 5) {
-  if (_0x263183 === 0) {
-    console.log("网络异常，请检查网络状况");
-    return "";
-  }
-  const _0x3415de = {
-    carmi: process.env.ELE_CARME || process.env.ELE_TTCJ_CARME,
-    gameType: _0x2156b5,
-    stepId: _0x30eb8a,
-    containerId: await _0x472c78("head -1 /proc/self/cgroup|cut -d/ -f3|cut -c1-12"),
-    anotherParam: JSON.stringify(_0x3e854a),
-    carmiEncrpt: _0x2dd611(process.env.ELE_CARME || process.env.ELE_TTCJ_CARME),
-    needSignData: {}
-  };
-  _0x3415de.needSignData.api = _0x3775cf;
-  _0x3415de.needSignData.pageId = decodeURIComponent(_0x53cbc2);
-  _0x3415de.needSignData.uid = _0x5c13ca;
-  _0x3415de.needSignData.deviceId = _0x3e07cf;
-  _0x3415de.needSignData.utdid = _0x3ce2bf;
-  if (_0x58d3b5) {
-    _0x3415de.needSignData.sid = _0x58d3b5;
-  }
-  const _0x32a547 = {
-    "Content-Type": "application/json"
-  };
-  const _0x2f6673 = {
-    headers: _0x32a547,
-    method: "POST",
-    url: _0x5f2026 + "/api/v1/get/xsign",
-    body: JSON.stringify(_0x3415de)
-  };
-  return _0xf4f03e(_0xb7582c => {
-    _0x24a70a(_0x2f6673, async (_0x362a89, _0x500fe7, _0x58dd36) => {
-      if (!_0x362a89 && _0x500fe7.statusCode === 200) {
-        let _0x9cbb98 = JSON.parse(_0x58dd36);
-        _0xb7582c(_0x9cbb98);
-      } else {
-        if (_0x362a89 && (_0x362a89.message.indexOf("socket hang up") !== -1 || _0x362a89.message.indexOf("read ECONNRESET") !== -1)) {
-          console.log("网络链接失败，将在 2 秒后重试");
-          await _0xa94eea(2);
-          _0xb7582c(await _0x104493(_0x3775cf, _0x53cbc2, _0x58d3b5, _0x5c13ca, _0x3e07cf, _0x3ce2bf, _0x2156b5, _0x30eb8a, _0x3e854a, _0x263183 - 1));
-        } else {
-          console.log("网络异常，请检查网络状况");
-          _0xb7582c();
-        }
+      } catch (_0x1f9fb6) {} finally {
+        _0x4efb09();
       }
     });
   });
 }
-function _0x19c59b(_0x4b43b2) {
-  const _0x3728d8 = _0x4b43b2.split(";").map(_0xa65468 => _0xa65468.trim().split("="));
-  const _0x202b28 = new Map();
-  for (let _0x4ad228 = 0; _0x4ad228 < _0x3728d8.length; _0x4ad228++) {
-    const [_0x30a7c1, _0x363693] = _0x3728d8[_0x4ad228];
-    if (_0x30a7c1) {
-      _0x202b28.set(_0x30a7c1, decodeURIComponent(_0x363693));
-    }
-  }
-  return _0x202b28;
-}
-function _0x1e89ad(_0x222ff0) {
-  const _0x2716fd = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
-  let _0x5d3bec = "";
-  for (let _0x3f8e73 = _0x222ff0; _0x3f8e73 > 0; --_0x3f8e73) {
-    _0x5d3bec += _0x2716fd[Math.floor(Math.random() * _0x2716fd.length)];
-  }
-  return _0x5d3bec;
-}
-function _0x2aee74(_0x19ab96) {
-  const _0xf132c3 = _0x4843d1.createDecipheriv("aes-256-cbc", process.env.ELE_CARME || process.env.ELE_TTCJ_CARME, Buffer.from("4lp7ySjYEgwa/LBGW55wMQ==", "base64"));
-  let _0x1e9d4e = _0xf132c3.update(_0x19ab96, "base64", "utf8");
-  _0x1e9d4e += _0xf132c3.final("utf8");
-  return _0x1e9d4e;
-}
-async function _0x32b9b2(_0x3aedf5, _0x1d118b, _0x3779f2, _0x3b2ff0, _0x16ea41 = "", _0x450c8b, _0x1bd6a4 = "", _0x5130c7 = 3) {
-  if (_0x5130c7 < 0) {
-    return null;
-  }
-  let _0x41419d = _0x19c59b(_0x3aedf5);
-  let _0x30a907 = _0x41419d.get("deviceId") || _0x1e89ad(44);
-  let _0x118bd9 = _0x41419d.get("utdid") || _0x1e89ad(24);
-  let _0x1156c4 = _0x41419d.get("unb");
-  if (!_0x1156c4) {
-    console.log("请检查 ck 是否有cookie2 unb USERID SID");
-    return null;
-  }
-  let _0x2fb9c3 = _0x41419d.get("umt");
-  let _0x285495 = _0x1d118b;
-  let _0x176412 = "https%3A%2F%2Fr.ele.me%2Fmagic-cube%2F%3FnavType%3D3%26spm%3Da13.b_activity_kb_m71293.0.0%23%2Fgame";
-  let _0x4e42c0 = _0x41419d.get("cookie2");
-  let _0x5ad484 = await _0x104493(_0x285495, _0x176412, _0x4e42c0, _0x1156c4, _0x30a907, _0x118bd9, _0x3779f2, _0x3b2ff0, _0x16ea41);
-  if (!_0x5ad484) {
-    console.log("获取签名异常");
-    return null;
-  }
-  if (_0x5ad484.code !== 20000) {
-    console.log(_0x5ad484.message);
-    if (_0x5ad484.message.indexOf("没有车位了") !== -1) {
-      process.exit(0);
-    }
-    return null;
-  } else {
-    _0x5ad484 = _0x5ad484.data;
-  }
-  let _0x5d8fdd = JSON.parse(_0x2aee74(_0x5ad484.sign));
-  let _0x29e50e = encodeURIComponent(_0x5d8fdd["x-sgext"]);
-  let _0x130764 = encodeURIComponent(_0x5d8fdd["x-sign"]);
-  _0x2fb9c3 = encodeURIComponent(_0x5d8fdd["x-umt"]);
-  let _0x46b603 = encodeURIComponent(_0x5d8fdd["x-mini-wua"]);
-  let _0x5f12e4 = _0x5d8fdd["x-t"];
-  let _0x162637 = encodeURIComponent(_0x5d8fdd.wua);
-  const _0x1499f7 = {
-    "x-sgext": _0x29e50e,
-    "x-sign": _0x130764,
-    "x-devid": _0x30a907,
-    "x-pv": "6.3",
-    "x-features": "1051",
-    "x-mini-wua": _0x46b603,
-    "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
-    "x-t": _0x5f12e4,
-    "x-bx-version": "6.5.90",
-    "f-refer": "mtop",
-    "x-extdata": "openappkey%3DDEFAULT_AUTH",
-    "x-ttid": "1551089129819%40eleme_android_10.14.3",
-    "x-app-ver": "10.14.3",
-    "x-umt": _0x2fb9c3,
-    "x-utdid": encodeURIComponent(_0x118bd9),
-    "x-appkey": "24895413",
-    "x-page-url": _0x176412,
-    Host: _0x450c8b || "guide-acs.m.taobao.com",
-    "user-agent": "MTOPSDK%2F3.1.1.7+%28Android%3B13%3BGoogle%3BPixel+4+XL%29",
-    "x-sid": _0x4e42c0,
-    "x-uid": _0x1156c4,
-    Cookie: _0x3aedf5 + _0x1bd6a4
+function _0x3bf084(_0x59bb3f) {
+  const _0x33f1de = {
+    "User-Agent": $.UA
   };
-  let _0x19354b = _0x2aee74(_0x5ad484.content);
-  let _0x51e747 = "https://guide-acs.m.taobao.com/gw/" + _0x285495 + "/1.0/?data=" + encodeURIComponent(_0x19354b) + "&type=originaljson&wua=" + _0x162637;
-  if (_0x450c8b) {
-    _0x51e747 = "https://" + _0x450c8b + "/gw/" + _0x285495 + "/1.0/?data=" + encodeURIComponent(_0x19354b) + "&type=originaljson&wua=" + _0x162637;
-  }
-  const _0xea60f3 = {
-    url: _0x51e747,
-    headers: _0x1499f7,
-    body: _0x19354b
+  const _0x575113 = {
+    url: _0x59bb3f,
+    headers: _0x33f1de
   };
-  return _0xf4f03e(_0x5defbc => {
-    _0x24a70a(_0xea60f3, async (_0x21ce24, _0x24f046, _0x5c48aa) => {
-      if (!_0x21ce24 && _0x24f046.statusCode === 200) {
-        const _0x57e836 = JSON.parse(_0x5c48aa);
-        _0x5defbc(_0x57e836);
-      } else {
-        if (_0x24f046.statusCode === 419) {
-          console.log("正在破解滑块，请稍后...");
-          let _0x5dd05d = _0x24f046.headers;
-          let _0x4ac411 = _0x5dd05d.location;
-          let _0x4ba0c5 = _0x5dd05d["set-cookie"][0];
-          const _0xd2a35e = _0x4ba0c5.split("=")[1].split(";")[0];
-          let _0x4ba283 = await _0x255123(_0xd2a35e, _0x4ac411, _0x3779f2, _0x1156c4);
-          process.env.x5sec = _0x4ba283;
-          _0x5defbc(await _0x32b9b2(_0x3aedf5, _0x285495, _0x3779f2, _0x3b2ff0, _0x16ea41, _0x450c8b, _0x4ba283, _0x5130c7 - 1));
-        } else {
-          console.log(_0x21ce24 || _0x5c48aa);
-          _0x5defbc();
-        }
+  return new Promise(_0x4c5861 => {
+    $.get(_0x575113, async (_0x2503c1, _0x1f8bd5, _0x1c3e34) => {
+      try {
+        _0x2503c1 ? (console.log("" + JSON.stringify(_0x2503c1)), console.log("get请求失败，请检查网路重试")) : $.jscode = _0x1c3e34.match(/index.([0-9a-f]{8}).js/)[1];
+      } catch (_0x3e7ff4) {} finally {
+        _0x4c5861();
       }
     });
   });
 }
-async function _0x255123(_0x516ca5, _0xff947b, _0x50a319, _0x15bf2f) {
-  const _0x41c1d5 = {
-    carmi: process.env.ELE_CARME || process.env.ELE_TTCJ_CARME,
-    gameType: _0x50a319,
-    containerId: await _0x472c78("head -1 /proc/self/cgroup|cut -d/ -f3|cut -c1-12"),
-    x5secData: _0x2dd611(_0x516ca5),
-    userId: _0x15bf2f,
-    slideUrl: encodeURIComponent(_0xff947b)
+function _0x1b686d(_0x35dfec = +new Date()) {
+  var _0x291569 = new Date(_0x35dfec + 28800000);
+  return _0x291569.toJSON().substr(0, 19).replace("T", " ").replace(/-/g, "/");
+}
+function _0x5c87f7(_0x54611f) {
+  const _0x559f9f = {
+    "User-Agent": $.UA
   };
-  const _0x5167d0 = {
-    url: _0x2881a4 + "/v1/get/x5sec",
-    method: "POST",
-    headers: {},
-    body: JSON.stringify(_0x41c1d5)
+  const _0x4a2e90 = {
+    url: _0x54611f,
+    headers: _0x559f9f
   };
-  _0x5167d0.headers["Content-Type"] = "application/json";
-  return _0xf4f03e((_0x40212a, _0xe48782) => {
-    _0x24a70a(_0x5167d0, async (_0x1aea68, _0x5f2f18, _0x537cb4) => {
-      if (!_0x1aea68 && _0x5f2f18.statusCode === 200) {
-        const _0x5a8561 = JSON.parse(_0x537cb4);
-        if (_0x5a8561.flag) {
-          let _0x171173 = JSON.parse(_0x2aee74(_0x5a8561.data.sign));
-          let _0xc50bde = _0x171173.x5sec + ";";
-          let _0x381dd0 = await getEnvsByName("x5sec");
-          if (_0x381dd0.length > 0) {
-            let _0x5177ce = _0x381dd0[0];
-            if (_0x5177ce.id) {
-              await updateEnv11(_0xc50bde, _0x5177ce.id, _0x5177ce.remarks, "x5sec");
-            } else {
-              await updateEnv(_0xc50bde, _0x5177ce._id, _0x5177ce.remarks, "x5sec");
-            }
-          } else {
-            await addEnv(_0xc50bde, "x5sec", "x5sec");
-            console.log("添加⬇x5sec", _0xc50bde);
-          }
-          _0x40212a(_0xc50bde);
-        } else {
-          console.log(_0x5a8561.message);
-          _0x40212a(null);
+  return new Promise(_0x5524c2 => {
+    $.get(_0x4a2e90, async (_0x53f4ef, _0x8dfab4, _0x29a7e5) => {
+      try {
+        if (_0x53f4ef) {
+          console.log("" + JSON.stringify(_0x53f4ef));
+          console.log("get请求失败，请检查网路重试");
         }
-      } else {
-        console.log(_0x1aea68);
-        _0x40212a(null);
+      } catch (_0x468753) {} finally {
+        _0x5524c2(_0x29a7e5);
       }
     });
   });
 }
-function _0x2f27d8() {
-  var _0x77d575 = function (_0x2c9679) {
-    this.s = _0x2c9679;
-    this.length = _0x2c9679.length;
-    for (var _0x5e2e87 = 0; _0x5e2e87 < _0x2c9679.length; _0x5e2e87++) {
-      this[_0x5e2e87] = _0x2c9679.charAt(_0x5e2e87);
+function Env(o, t) {
+  class s {
+    constructor(t) {
+      this.env = t;
     }
-  };
-  var _0x1a0b3a = function _0x1dba72(_0x467457) {
-    return function (_0x5ce1b6) {
-      return function (_0x1b65cb) {
-        var _0x59e6da = "",
-          _0x21760f = _0x1b65cb.split("");
-        for (var _0x553cb3 = 0; _0x553cb3 < _0x21760f.length; _0x553cb3++) {
-          _0x59e6da += _0x5ce1b6.charAt(_0x467457.indexOf(_0x21760f[_0x553cb3]));
-        }
-        return _0x59e6da;
-      };
-    };
-  }("7PdD1AG5?XK.NY=thvWmpETFjk3cn/:xsi9far4uw")("htp:/ai.94wnfuv1rckm?=WTAjxKdGs3FPX7NYD5E");
-  const _0x27a615 = {
-    toString: function () {
-      const _0x1e12e0 = {};
-      _0x1e12e0.adEXM = "cookie存在异常，请检查";
-      return _0x1a0b3a(this.s);
-    },
-    valueOf: function () {
-      return _0x1a0b3a(this.s);
-    },
-    charAt: String.prototype.charAt,
-    concat: String.prototype.concat,
-    slice: String.prototype.slice,
-    substr: String.prototype.substr,
-    indexOf: String.prototype.indexOf,
-    trim: String.prototype.trim,
-    split: String.prototype.split
-  };
-  _0x77d575.prototype = _0x27a615;
-  var _0x32ff94 = function (_0x39222b) {
-    return new _0x77d575(_0x39222b).toString();
-  };
-  const _0x4274fe = {
-    url: _0x32ff94("7PPdD11AdG5?XKA.5NY.1=t1PhAvW1WAmGpvAhmGEPKTWFjk3cn/NTP.:xsiPW9:farrv4ruj"),
-    method: _0x32ff94("/wF")
-  };
-  return new Promise((_0x49307a, _0x2f2ff5) => {
-    _0x24a70a(_0x4274fe, (_0x21c77c, _0x10e1b7, _0x1781df) => {
-      if (_0x21c77c) {
-        _0x2f2ff5(_0x21c77c);
-      } else {
-        _0x49307a(_0x1781df);
-      }
-    });
-  });
-}
-async function _0x40cf49() {
-  var _0x1bd92d = function (_0x45d953) {
-    this.s = _0x45d953;
-    this.length = _0x45d953.length;
-    for (var _0x2bd467 = 0; _0x2bd467 < _0x45d953.length; _0x2bd467++) {
-      this[_0x2bd467] = _0x45d953.charAt(_0x2bd467);
-    }
-  };
-  var _0x24ef3a = function _0x2008d9(_0x445153) {
-    return function (_0x1ba2f8) {
-      return function (_0x5b1a96) {
-        var _0x4bf956 = "",
-          _0xe91ecb = _0x5b1a96.split("");
-        for (var _0x26fd5d = 0; _0x26fd5d < _0xe91ecb.length; _0x26fd5d++) {
-          _0x4bf956 += _0x1ba2f8.charAt(_0x445153.indexOf(_0xe91ecb[_0x26fd5d]));
-        }
-        return _0x4bf956;
-      };
-    };
-  }("fpnwu1.5t4hloa:c2/309")("htp:/12.59034locawnfu");
-  const _0x144d1c = {
-    toString: function () {
-      return _0x24ef3a(this.s);
-    },
-    valueOf: function () {
-      return _0x24ef3a(this.s);
-    },
-    charAt: String.prototype.charAt,
-    concat: String.prototype.concat,
-    slice: String.prototype.slice,
-    substr: String.prototype.substr,
-    indexOf: String.prototype.indexOf,
-    trim: String.prototype.trim,
-    split: String.prototype.split
-  };
-  _0x1bd92d.prototype = _0x144d1c;
-  var _0x19d044 = function (_0xfb4e70) {
-    return new _0x1bd92d(_0xfb4e70);
-  };
-  if (process.env.HOST) {
-    if (_0x2a4247(process.env.HOST) === "f20d1aabf96ebe09f19a53a4fc488bbe") {
-      return false;
-    }
-    const _0x371076 = new URL(process.env.HOST);
-    const _0x351fd8 = _0x371076.hostname;
-    try {
-      const _0x8bad80 = await new Promise((_0x1cda1b, _0x1f6a51) => {
-        _0xd97f06.lookup(_0x19d044("a:c2a54o/235093").toString(), (_0x4c948a, _0xc2e3dd, _0x5f0e0e) => {
-          if (_0x4c948a) {
-            _0x1f6a51(_0x4c948a);
-          } else {
-            _0x1cda1b(_0xc2e3dd);
-          }
+    send(t, e = "GET") {
+      t = "string" == typeof t ? {
+        url: t
+      } : t;
+      let s = this.get;
+      "POST" === e && (s = this.post);
+      return new Promise((r, i) => {
+        s.call(this, t, (t, e, s) => {
+          t ? i(t) : r(e);
         });
       });
-      return _0x8bad80 !== _0x351fd8;
-    } catch (_0x1193e4) {
-      console.log(_0x1193e4);
-      return false;
+    }
+    get(t) {
+      return this.send.call(this.env, t);
+    }
+    post(t) {
+      return this.send.call(this.env, t, "POST");
     }
   }
-}
-(async () => {
-  if (await _0x40cf49()) {
-    await _0x2f27d8();
-  }
-})();
-async function _0x459de6(_0x195aa9, _0x213836) {
-  const _0xc0dad7 = _0x19c59b(_0x195aa9);
-  if (!_0xc0dad7.has("wxUid")) {
-    console.log("没有获取到推送 uid，不推送消息\n");
-  } else {
-    await sendNotify("饿了么抢券成功推送", _0x213836, {
-      uid: _0xc0dad7.get("wxUid")
-    });
-  }
-}
-function _0x5346bc(_0x4f5bf4) {
-  return Object.values(_0x4f5bf4).length === 0;
-}
-async function _0x50a613(_0x38ca6d) {
-  let _0x5ebc93 = await _0x32b9b2(_0x38ca6d, "mtop.alsc.user.detail.query", 99, 1);
-  if (_0x5ebc93 !== null) {
-    if (!_0x5346bc(_0x5ebc93.data)) {
-      return _0x5ebc93.data;
-    } else {
-      if (_0x5ebc93.ret) {
-        return _0x5ebc93.ret;
-      } else {
-        console.log(_0x5ebc93);
+  return new class {
+    constructor(t, e) {
+      this.logLevels = {
+        debug: 0,
+        info: 1,
+        warn: 2,
+        error: 3
+      };
+      this.logLevelPrefixs = {
+        debug: "[DEBUG] ",
+        info: "[INFO] ",
+        warn: "[WARN] ",
+        error: "[ERROR] "
+      };
+      this.logLevel = "info";
+      this.name = t;
+      this.http = new s(this);
+      this.data = null;
+      this.dataFile = "box.dat";
+      this.logs = [];
+      this.isMute = !1;
+      this.isNeedRewrite = !1;
+      this.logSeparator = "\n";
+      this.encoding = "utf-8";
+      this.startTime = new Date().getTime();
+      Object.assign(this, e);
+      this.log("", `🔔${this.name}, 开始!`);
+    }
+    getEnv() {
+      return "undefined" != typeof $environment && $environment["surge-version"] ? "Surge" : "undefined" != typeof $environment && $environment["stash-version"] ? "Stash" : "undefined" != typeof module && module.exports ? "Node.js" : "undefined" != typeof $task ? "Quantumult X" : "undefined" != typeof $loon ? "Loon" : "undefined" != typeof $rocket ? "Shadowrocket" : void 0;
+    }
+    isNode() {
+      return "Node.js" === this.getEnv();
+    }
+    isQuanX() {
+      return "Quantumult X" === this.getEnv();
+    }
+    isSurge() {
+      return "Surge" === this.getEnv();
+    }
+    isLoon() {
+      return "Loon" === this.getEnv();
+    }
+    isShadowrocket() {
+      return "Shadowrocket" === this.getEnv();
+    }
+    isStash() {
+      return "Stash" === this.getEnv();
+    }
+    toObj(t, e = null) {
+      try {
+        return JSON.parse(t);
+      } catch {
+        return e;
       }
     }
-  }
-  return null;
+    toStr(t, e = null, ...s) {
+      try {
+        return JSON.stringify(t, ...s);
+      } catch {
+        return e;
+      }
+    }
+    getjson(t, e) {
+      let s = e;
+      if (this.getdata(t)) {
+        try {
+          s = JSON.parse(this.getdata(t));
+        } catch {}
+      }
+      return s;
+    }
+    setjson(t, e) {
+      try {
+        return this.setdata(JSON.stringify(t), e);
+      } catch {
+        return !1;
+      }
+    }
+    getScript(t) {
+      return new Promise(r => {
+        this.get({
+          url: t
+        }, (t, e, s) => r(s));
+      });
+    }
+    runScript(a, o) {
+      return new Promise(r => {
+        let t = this.getdata("@chavy_boxjs_userCfgs.httpapi");
+        t = t && t.replace(/\n/g, "").trim();
+        var e = (e = this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout")) ? +e : 20,
+          [s, i] = (e = o && o.timeout ? o.timeout : e, t.split("@"));
+        this.post({
+          url: `http://${i}/v1/scripting/evaluate`,
+          body: {
+            script_text: a,
+            mock_type: "cron",
+            timeout: e
+          },
+          headers: {
+            "X-Key": s,
+            Accept: "*/*"
+          },
+          timeout: e
+        }, (t, e, s) => r(s));
+      }).catch(t => this.logErr(t));
+    }
+    loaddata() {
+      if (!this.isNode()) {
+        return {};
+      }
+      this.fs = this.fs || require("fs");
+      this.path = this.path || require("path");
+      var t = this.path.resolve(this.dataFile),
+        e = this.path.resolve(process.cwd(), this.dataFile),
+        s = this.fs.existsSync(t),
+        r = !s && this.fs.existsSync(e);
+      if (!s && !r) {
+        return {};
+      }
+      r = s ? t : e;
+      try {
+        return JSON.parse(this.fs.readFileSync(r));
+      } catch (t) {
+        return {};
+      }
+    }
+    writedata() {
+      var t, e, s, r, i;
+      this.isNode() && (this.fs = this.fs || require("fs"), this.path = this.path || require("path"), t = this.path.resolve(this.dataFile), e = this.path.resolve(process.cwd(), this.dataFile), r = !(s = this.fs.existsSync(t)) && this.fs.existsSync(e), i = JSON.stringify(this.data), !s && r ? this.fs.writeFileSync(e, i) : this.fs.writeFileSync(t, i));
+    }
+    lodash_get(t, e, s) {
+      let r = t;
+      for (const t of e.replace(/\[(\d+)\]/g, ".$1").split(".")) if (r = Object(r)[t], void 0 === r) {
+        return s;
+      }
+      return r;
+    }
+    lodash_set(t, r, e) {
+      Object(t) === t && ((r = Array.isArray(r) ? r : r.toString().match(/[^.[\]]+/g) || []).slice(0, -1).reduce((t, e, s) => Object(t[e]) === t[e] ? t[e] : t[e] = Math.abs(r[s + 1]) >> 0 == +r[s + 1] ? [] : {}, t)[r[r.length - 1]] = e);
+      return t;
+    }
+    getdata(t) {
+      let e = this.getval(t);
+      if (/^@/.test(t)) {
+        var [, s, r] = /^@(.*?)\.(.*?)$/.exec(t);
+        if (s = s ? this.getval(s) : "") {
+          try {
+            const t = JSON.parse(s);
+            e = t ? this.lodash_get(t, r, "") : e;
+          } catch (t) {
+            e = "";
+          }
+        }
+      }
+      return e;
+    }
+    setdata(t, e) {
+      let s = !1;
+      if (/^@/.test(e)) {
+        var [, r, i] = /^@(.*?)\.(.*?)$/.exec(e),
+          a = this.getval(r),
+          a = r ? "null" === a ? null : a || "{}" : "{}";
+        try {
+          const e = JSON.parse(a);
+          this.lodash_set(e, i, t);
+          s = this.setval(JSON.stringify(e), r);
+        } catch (e) {
+          this.lodash_set(a = {}, i, t);
+          s = this.setval(JSON.stringify(a), r);
+        }
+      } else {
+        s = this.setval(t, e);
+      }
+      return s;
+    }
+    getval(t) {
+      switch (this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+          return $persistentStore.read(t);
+        case "Quantumult X":
+          return $prefs.valueForKey(t);
+        case "Node.js":
+          this.data = this.loaddata();
+          return this.data[t];
+        default:
+          return this.data && this.data[t] || null;
+      }
+    }
+    setval(t, e) {
+      switch (this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+          return $persistentStore.write(t, e);
+        case "Quantumult X":
+          return $prefs.setValueForKey(t, e);
+        case "Node.js":
+          this.data = this.loaddata();
+          this.data[e] = t;
+          this.writedata();
+          return !0;
+        default:
+          return this.data && this.data[e] || null;
+      }
+    }
+    initGotEnv(t) {
+      this.got = this.got || require("got");
+      this.cktough = this.cktough || require("tough-cookie");
+      this.ckjar = this.ckjar || new this.cktough.CookieJar();
+      t && (t.headers = t.headers || {}, t) && (t.headers = t.headers || {}, void 0 === t.headers.cookie) && void 0 === t.headers.Cookie && void 0 === t.cookieJar && (t.cookieJar = this.ckjar);
+    }
+    tmout() {
+      return new Promise((t, e) => {
+        this.tmoutId = setTimeout(() => {
+          this.prms.cancel();
+          e({
+            message: "timemout",
+            response: ""
+          });
+        }, 50000);
+      });
+    }
+    get(t, a = () => {}) {
+      switch (t.headers && (delete t.headers["Content-Type"], delete t.headers["Content-Length"], delete t.headers["content-type"], delete t.headers["content-length"]), t.params && (t.url += "?" + this.queryStr(t.params)), void 0 === t.followRedirect || t.followRedirect || ((this.isSurge() || this.isLoon()) && (t["auto-redirect"] = !1), this.isQuanX() && (t.opts ? t.opts.redirection = !1 : t.opts = {
+        redirection: !1
+      })), this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+        default:
+          this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+            "X-Surge-Skip-Scripting": !1
+          }));
+          $httpClient.get(t, (t, e, s) => {
+            !t && e && (e.body = s, e.statusCode = e.status || e.statusCode, e.status = e.statusCode);
+            a(t, e, s);
+          });
+          break;
+        case "Quantumult X":
+          this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
+            hints: !1
+          }));
+          $task.fetch(t).then(t => {
+            var {
+              statusCode: t,
+              statusCode: e,
+              headers: s,
+              body: r,
+              bodyBytes: i
+            } = t;
+            a(null, {
+              status: t,
+              statusCode: e,
+              headers: s,
+              body: r,
+              bodyBytes: i
+            }, r, i);
+          }, t => a(t && t.error || "UndefinedError"));
+          break;
+        case "Node.js":
+          this.initGotEnv(t);
+          this.prms = this.got(t).on("redirect", (t, e) => {
+            try {
+              var s;
+              t.headers["set-cookie"] && ((s = t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString()) && this.ckjar.setCookieSync(s, null), e.cookieJar = this.ckjar);
+            } catch (t) {
+              this.logErr(t);
+            }
+          });
+          Promise.race([this.prms, this.tmout()]).then(t => {
+            var {
+              statusCode: t,
+              statusCode: e,
+              headers: s,
+              rawBody: r,
+              body: i
+            } = t;
+            a(null, {
+              status: t,
+              statusCode: e,
+              headers: s,
+              rawBody: r,
+              body: i
+            }, i);
+            clearTimeout(this.tmoutId);
+          }, t => {
+            var {
+              message: t,
+              response: e
+            } = t;
+            clearTimeout(this.tmoutId);
+            a(t, e, e && e.body);
+          });
+      }
+    }
+    post(t, a = () => {}) {
+      var e = t.method ? t.method.toLocaleLowerCase() : "post";
+      switch (t.body && t.headers && !t.headers["Content-Type"] && !t.headers["content-type"] && (t.headers["content-type"] = "application/x-www-form-urlencoded"), t.headers && (delete t.headers["Content-Length"], delete t.headers["content-length"]), void 0 === t.followRedirect || t.followRedirect || ((this.isSurge() || this.isLoon()) && (t["auto-redirect"] = !1), this.isQuanX() && (t.opts ? t.opts.redirection = !1 : t.opts = {
+        redirection: !1
+      })), this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+        default:
+          this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+            "X-Surge-Skip-Scripting": !1
+          }));
+          $httpClient[e](t, (t, e, s) => {
+            !t && e && (e.body = s, e.statusCode = e.status || e.statusCode, e.status = e.statusCode);
+            a(t, e, s);
+          });
+          break;
+        case "Quantumult X":
+          t.method = e;
+          this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
+            hints: !1
+          }));
+          $task.fetch(t).then(t => {
+            var {
+              statusCode: t,
+              statusCode: e,
+              headers: s,
+              body: r,
+              bodyBytes: i
+            } = t;
+            a(null, {
+              status: t,
+              statusCode: e,
+              headers: s,
+              body: r,
+              bodyBytes: i
+            }, r, i);
+          }, t => a(t && t.error || "UndefinedError"));
+          break;
+        case "Node.js":
+          this.initGotEnv(t);
+          var {
+            url: s,
+            ...r
+          } = t;
+          this.prms = this.got[e](s, r);
+          Promise.race([this.prms, this.tmout()]).then(t => {
+            var {
+              statusCode: t,
+              statusCode: e,
+              headers: s,
+              rawBody: r,
+              body: i
+            } = t;
+            a(null, {
+              status: t,
+              statusCode: e,
+              headers: s,
+              rawBody: r,
+              body: i
+            }, i);
+            clearTimeout(this.tmoutId);
+          }, t => {
+            var {
+              message: t,
+              response: e
+            } = t;
+            clearTimeout(this.tmoutId);
+            a(t, e, e && e.body);
+          });
+      }
+    }
+    time(t, e = null) {
+      var s,
+        r = {
+          "M+": (e = e ? new Date(e) : new Date()).getMonth() + 1,
+          "d+": e.getDate(),
+          "H+": e.getHours(),
+          "m+": e.getMinutes(),
+          "s+": e.getSeconds(),
+          "q+": Math.floor((e.getMonth() + 3) / 3),
+          S: e.getMilliseconds()
+        };
+      for (s in /(y+)/.test(t) && (t = t.replace(RegExp.$1, (e.getFullYear() + "").substr(4 - RegExp.$1.length))), r) new RegExp("(" + s + ")").test(t) && (t = t.replace(RegExp.$1, 1 == RegExp.$1.length ? r[s] : ("00" + r[s]).substr(("" + r[s]).length)));
+      return t;
+    }
+    queryStr(e) {
+      let s = "";
+      for (const r in e) {
+        let t = e[r];
+        null != t && "" !== t && ("object" == typeof t && (t = JSON.stringify(t)), s += `${r}=${t}&`);
+      }
+      return s = s.substring(0, s.length - 1);
+    }
+    msg(t = o, e = "", s = "", r = {}) {
+      var i,
+        a = r => {
+          const {
+            $open: t,
+            $copy: e,
+            $media: i,
+            $mediaMime: a
+          } = r;
+          switch (typeof r) {
+            case void 0:
+              return r;
+            case "string":
+              switch (this.getEnv()) {
+                case "Surge":
+                case "Stash":
+                default:
+                  return {
+                    url: r
+                  };
+                case "Loon":
+                case "Shadowrocket":
+                  return r;
+                case "Quantumult X":
+                  return {
+                    "open-url": r
+                  };
+                case "Node.js":
+                  return;
+              }
+            case "object":
+              switch (this.getEnv()) {
+                case "Surge":
+                case "Stash":
+                case "Shadowrocket":
+                default:
+                  var o = {},
+                    s = r.openUrl || r.url || r["open-url"] || t;
+                  if (s && Object.assign(o, {
+                    action: "open-url",
+                    url: s
+                  }), (s = r["update-pasteboard"] || r.updatePasteboard || e) && Object.assign(o, {
+                    action: "clipboard",
+                    text: s
+                  }), i) {
+                    let t, e, s;
+                    if (i.startsWith("http")) {
+                      t = i;
+                    } else {
+                      if (i.startsWith("data:")) {
+                        const [r] = i.split(";"),
+                          [, a] = i.split(",");
+                        e = a;
+                        s = r.replace("data:", "");
+                      } else {
+                        e = i;
+                        s = (t => {
+                          var e,
+                            s = {
+                              JVBERi0: "application/pdf",
+                              R0lGODdh: "image/gif",
+                              R0lGODlh: "image/gif",
+                              iVBORw0KGgo: "image/png",
+                              "/9j/": "image/jpg"
+                            };
+                          for (e in s) if (0 === t.indexOf(e)) {
+                            return s[e];
+                          }
+                          return null;
+                        })(i);
+                      }
+                    }
+                    Object.assign(o, {
+                      "media-url": t,
+                      "media-base64": e,
+                      "media-base64-mime": a ?? s
+                    });
+                  }
+                  Object.assign(o, {
+                    "auto-dismiss": r["auto-dismiss"],
+                    sound: r.sound
+                  });
+                  return o;
+                case "Loon":
+                  {
+                    const e = {};
+                    (s = r.openUrl || r.url || r["open-url"] || t) && Object.assign(e, {
+                      openUrl: s
+                    });
+                    var n = r.mediaUrl || r["media-url"];
+                    (n = i?.startsWith("http") ? i : n) && Object.assign(e, {
+                      mediaUrl: n
+                    });
+                    console.log(JSON.stringify(e));
+                    return e;
+                  }
+                case "Quantumult X":
+                  {
+                    const a = {};
+                    (o = r["open-url"] || r.url || r.openUrl || t) && Object.assign(a, {
+                      "open-url": o
+                    });
+                    n = r["media-url"] || r.mediaUrl;
+                    (n = i?.startsWith("http") ? i : n) && Object.assign(a, {
+                      "media-url": n
+                    });
+                    (s = r["update-pasteboard"] || r.updatePasteboard || e) && Object.assign(a, {
+                      "update-pasteboard": s
+                    });
+                    console.log(JSON.stringify(a));
+                    return a;
+                  }
+                case "Node.js":
+                  return;
+              }
+            default:
+              return;
+          }
+        };
+      if (!this.isMute) {
+        switch (this.getEnv()) {
+          case "Surge":
+          case "Loon":
+          case "Stash":
+          case "Shadowrocket":
+          default:
+            $notification.post(t, e, s, a(r));
+            break;
+          case "Quantumult X":
+            $notify(t, e, s, a(r));
+            break;
+          case "Node.js":
+        }
+      }
+      this.isMuteLog || ((i = ["", "==============📣系统通知📣=============="]).push(t), e && i.push(e), s && i.push(s), console.log(i.join("\n")), this.logs = this.logs.concat(i));
+    }
+    debug(...t) {
+      this.logLevels[this.logLevel] <= this.logLevels.debug && (0 < t.length && (this.logs = [...this.logs, ...t]), console.log("" + this.logLevelPrefixs.debug + t.map(t => t ?? String(t)).join(this.logSeparator)));
+    }
+    info(...t) {
+      this.logLevels[this.logLevel] <= this.logLevels.info && (0 < t.length && (this.logs = [...this.logs, ...t]), console.log("" + this.logLevelPrefixs.info + t.map(t => t ?? String(t)).join(this.logSeparator)));
+    }
+    warn(...t) {
+      this.logLevels[this.logLevel] <= this.logLevels.warn && (0 < t.length && (this.logs = [...this.logs, ...t]), console.log("" + this.logLevelPrefixs.warn + t.map(t => t ?? String(t)).join(this.logSeparator)));
+    }
+    error(...t) {
+      this.logLevels[this.logLevel] <= this.logLevels.error && (0 < t.length && (this.logs = [...this.logs, ...t]), console.log("" + this.logLevelPrefixs.error + t.map(t => t ?? String(t)).join(this.logSeparator)));
+    }
+    log(...t) {
+      0 < t.length && (this.logs = [...this.logs, ...t]);
+      console.log(t.map(t => t ?? String(t)).join(this.logSeparator));
+    }
+    logErr(t, e) {
+      switch (this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+        case "Quantumult X":
+        default:
+          this.log("", `❗️${this.name}, 错误!`, t);
+          break;
+        case "Node.js":
+          this.log("", `❗️${this.name}, 错误!`, void 0 !== t.message ? t.message : t);
+      }
+    }
+    wait(e) {
+      return new Promise(t => setTimeout(t, e));
+    }
+    done(t = {}) {
+      var e = (new Date().getTime() - this.startTime) / 1000;
+      switch (this.log("", `🔔${this.name}, 结束! 🕛 ${e} 秒`), this.log(), this.getEnv()) {
+        case "Surge":
+        case "Loon":
+        case "Stash":
+        case "Shadowrocket":
+        case "Quantumult X":
+        default:
+          $done(t);
+          break;
+        case "Node.js":
+          process.exit(1);
+      }
+    }
+  }(o, t);
 }
-const _0x1454f5 = {
-  getToken: _0x328aa0,
-  wait: _0xa94eea,
-  checkCk: _0x23d601,
-  tryCatchPromise: _0xf4f03e,
-  getUserInfo: _0x466a92,
-  validateCarmeWithType: _0x2d6a85,
-  sign: _0x517701,
-  commonNativeRequest: _0x32b9b2,
-  getCookies: _0x93d6b8,
-  couponNotify: _0x459de6,
-  User_Agent: _0x5dc87c,
-  getUserInfoWithX: _0x50a613
-};
-module.exports = _0x1454f5;
